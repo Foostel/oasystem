@@ -1,0 +1,149 @@
+html{
+    overflow: hidden;
+}
+.section{
+    height: 100vh;
+    background-color: #CFCFCF;
+    animation-name: faded;
+    animation-duration: .4s;
+}
+#home{
+    height: 100vh;
+    background-color: #CFCFCF;
+}
+#Services{
+    height: 100vh;
+    background-color: #CFCFCF;
+}
+#RYS{
+    height: 100vh;
+    background-color: #CFCFCF;
+}
+#About-us{
+    height: 100vh;
+    background-color: #CFCFCF;
+}
+.header{
+    z-index: 1;
+    float: left;
+    margin: 0px;
+    color:black;
+    background-color:#CFCFCF;  
+    position: fixed;
+    width: 100%;
+    transition: 0.2s;
+    filter: drop-shadow(0px 10px 8px gray);
+}
+.header:hover{
+    transition: 0.2s;
+    filter: drop-shadow(0px 20px 8px gray);
+}
+body{
+    font-family: Segoe UI;    
+    margin: 0px;
+    }
+.menus{
+    padding-top:70px;
+    float:left;
+    }
+.menus a{
+    float: left;
+    color: black;
+    text-decoration:none;
+    margin-left: 40px;
+}
+a{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+a:hover{
+    opacity: 0.9;
+}
+#signin{
+    float: left;
+    margin-left: 400px;
+    font-size: 20px;
+    color: black;
+    position: relative;
+    bottom: 25px;
+}
+.header-logo{
+    float:left;
+    margin-left: 20px;
+}
+.search{
+    position: absolute;
+    border:none;
+    top:25%;
+    left:10%;
+}
+.btn{
+    background-color: black;
+    border:none;
+    height: 50px;
+    width: 80px;
+    color:white;
+}
+.inputs{
+    background-color: white;
+    outline: none;
+    padding: 5px;
+    width: 250px;
+    height: 40px;
+    border-style: none;
+    margin: 0px 0px 20px 0px;
+}
+.search-box{
+    display: inline-block;
+    font-family: segoe UI;
+    color:black;
+    width: 290px;
+    height: 50px;
+    background-color:white;
+    padding-left: 15px;
+    padding-right: 15px;
+    border:none;
+    margin-right: 0px;
+}
+.search-box:focus{
+    border-style: none;
+    outline: none;
+}
+.pop-up{
+    display: none;
+    position: fixed;
+    top:30%;
+    left: 30%;
+    color:black;
+    background-color: #CFCFCF;
+    width: 400px;
+    height: 300px;
+    filter: drop-shadow(0px 10px 10px gray);
+    animation-name: faded;
+    animation-duration: .4s;
+}
+@keyframes faded{
+    from{opacity: 0;}
+    to {opacity: 1;}
+}
+#register{
+    display: inline-block;
+    position: absolute;
+    top: 150px;
+    left: 400px;
+    right: 400px;      
+    color: black;
+}
+#user-menu a{
+    height: 60px; width: 100%; font-weight: 400; font-size: 20px; display: block; color:white;
+}
+#user-menu a:hover{
+    background-color: rgba(0,0,0,0.9);
+}
+#user-pp{
+    border-radius: 50%; width: 3%; position: absolute; top:20px; right: 30px; cursor: pointer;
+}
+#user-pp:hover{
+    opacity: 0.6;
+}
