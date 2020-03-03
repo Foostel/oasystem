@@ -7,7 +7,7 @@ function blur(){
         if(h){
         for(let s=0;s<i.length;s++)
         {
-            i[s].style.filter="blur(8px)";
+            i[s].style.filter="blur(12px)";
             console.log(s);
         }
         }
