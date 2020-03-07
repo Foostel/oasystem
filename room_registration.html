@@ -1,0 +1,114 @@
+<html>
+<head>
+<script src="validation.js"></script>
+</head>
+<body>
+<hr>
+<br>
+<form action="room.php" onsubmit="return validate()">
+<label>Room Detail</label><br>
+<lable>User ID</lable>
+<input type="text" name="uid" id="uid"><br>
+<span id="userid" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+
+<lable>Room ID</lable>
+<input type="text" name="hid" id="hid"><br>
+<span id="hostelid" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+
+<lable>Address</lable>
+<input type="text" name="address" id="address"><br>
+<span id="add" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+
+<lable>Area</lable>
+<input type="text" name="area" id="area"><br>
+<span id="area1" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+
+<lable>Pincode</lable>
+<input type="number" name="pncode" id="pincode"><br>
+<span id="pin" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+
+<lable>Landmark</lable>
+<input type="text" name="landmark" id="landmark"><br>
+<span id="lm" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+
+<lable>Size Of Room(in ft/inch)</lable>
+<input type="text" name="size" id="size"><br>
+
+<lable>Add Images</lable>
+<input type="file" name="fileupload" value="fileupload" id="fileupload" multiple> 
+<br>
+<hr>
+<br><lable>Prefrence</lable><br>
+<input type="radio" name="gender" id="gender" value="Male">MALE
+<input type="radio" name="gender" id="gender" value="Female">FEMALE
+<br>
+<input type="radio" name="work" id="Student" value="Student">STUDENT
+<input type="radio" name="work" id="Employee" value="Employee">EMPLOYEE
+<br>
+<hr>
+<br>
+<lable>Rules To Be Followed</lable>
+<br>
+<textarea row="50" column="100" name="rules" id="rules"></textarea>
+<br>
+<hr>
+<br>
+<lable>Fee Structure</lable>
+<br>
+<table>
+<tr>
+	<th>Room Type</th>
+	<th>Room Fee/Month</th>
+</tr>
+<tr>
+	<td><select name="roomtype">
+    <option value="Single Room">Single Room</option>
+    <option value="Two Rooms">Two Rooms</option>
+    <option value="1 BHK">1 BHK</option>
+    <option value="2BHK">2BHK</option>
+  </select>
+  </td>
+	<td><input type="text" name="rent" id="rr"></td>
+</tr>
+<tr>
+	<td>Caution Money</td>
+	<td><input type="feetype4" name="ft4" id="ft4"></td>
+</tr>
+<tr>
+	<td>Electricity Bill</td>
+	<td><input type="feetype4" name="ft4" id="ft4"></td>
+</tr>
+</table>
+<br>
+<hr>
+<br>
+<label>Facilites Provided</label><br>
+<input type="checkbox" name="f1" id="f1" value="f1">Parking Area<br>
+<input type="checkbox" name="f2" id="f2" value="f2">Wifi<br>
+<input type="checkbox" name="f3" id="f3" value="f3">Geaser<br>
+<input type="checkbox" name="f4" id="f4" value="f4">Room Service<br>
+<input type="checkbox" name="f5" id="f5" value="f5">Attach Bathrooms<br>
+<input type="checkbox" name="f6" id="f6" value="f6">A.C.<br>
+<input type="checkbox" name="f7" id="f7" value="f7">Fan<br>
+<input type="checkbox" name="f8" id="f8" value="f8">Table<br>
+<input type="checkbox" name="f9" id="f9" value="f9">Bed<br>
+<input type="checkbox" name="f10" id="f10" value="f10">Cooler<br>
+<input type="checkbox" name="f11" id="f11" value="f11">WaterHeater<br>
+<input type="checkbox" name="f12" id="f12" value="f12">Purifier<br>
+<input type="checkbox" name="f13" id="f13" value="f13">Fridge<br>
+<input type="checkbox" name="f14" id="f14" value="f14">T.V.<br>
+<input type="checkbox" name="f14" id="f14" value="f14">Cupboard<br>
+<textarea row="50" column="100" name="f" id="facilites"></textarea>
+<br>
+<hr>
+<br><input type="submit" name="Submit" value="SUBMIT" onsubmit="validation()">
+<input type="button" name="Register" value="REGISTER" onclick="register()">
+</form>
+</body>
+</html>
