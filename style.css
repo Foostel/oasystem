@@ -1,11 +1,15 @@
 html{
     overflow: hidden;
+ scroll-behavior: smooth; 
+}
+body{
 }
 .section{
     height: 100vh;
     background-color: #CFCFCF;
     animation-name: faded;
     animation-duration: .4s;
+    scroll-snap-type: y mandatory;
 }
 #home{
     height: 100vh;
