@@ -9,7 +9,16 @@
                 $('#header').load("user-header.php");
             });
             $(function(){
-                $('#Services').load("user-services.php");
+                $('#Services').load("services.php");
+            });
+            $(function(){
+                $('#RYS').load("req-services.php");
+            });
+            $(function(){
+                $('#About-us').load("About-us.php");
+            });
+            $(function(){
+                $('#Contact-us').load("Contact-us.php");
             });
         </script>
         <link rel="stylesheet" type="text/css" href="style.css">
@@ -21,11 +30,11 @@
 </head>
 
 <body style="background-color: #E9E9E9;">
-        <div class="header" id="header">
+        <div class="header" id="header" style="height:15%;">
             <!--Load header -->
         </div>
         <div class="section" id="Services" onclick="if(!h){toggle('user-menu');}">
-            
+
         </div>
         <div class="section" id="RYS" onclick="if(!h){toggle('user-menu');}">
             

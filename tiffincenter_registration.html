@@ -1,0 +1,99 @@
+<html>
+<head>
+<script src="validation.js"></script>
+</head>
+<body>
+<hr>
+<br>
+<form action="tiffen.php" onsubmit="return validate()">
+<lable>User ID</lable>
+<input type="text" name="uid" id="uid"><br>
+<span id="userid" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+
+<lable>Center ID</lable>
+<input type="text" name="hid" id="hid"><br>
+<span id="hostelid" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+
+<lable>Address</lable>
+<input type="text" name="address" id="address"><br>
+<span id="add" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+
+<lable>Area</lable>
+<input type="text" name="area" id="area"><br>
+<span id="area1" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+
+<lable>Pincode</lable>
+<input type="number" name="pincode" id="pincode"><br>
+<span id="pin" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+
+<lable>Landmark</lable>
+<input type="text" name="landmark" id="landmark"><br>
+<span id="lm" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+
+<label>Meals Provided</label><br>
+<input type="checkbox" name="f1" id="f1" value="f1">Lunch<br>
+<input type="checkbox" name="f2" id="f2" value="f2">Dinner<br>
+<input type="checkbox" name="f3" id="f3" value="f3">Breakfast<br>
+<hr>
+<br>
+<label>Facilities Provided</label><br>
+<input type="checkbox" name="f1" id="f1" value="f1">Home Delivery<br>
+<input type="checkbox" name="f2" id="f2" value="f2">Come And Eat<br>
+<input type="checkbox" name="f3" id="f3" value="f3">Customization<br>
+<hr>
+<br>
+<table>
+<tr>
+	<th>Days</th>
+	<th>Menu</th>
+</tr>
+<tr>
+	<td>Week Days</td>
+	<td><textarea row="50" column="100" name="WeekDaysMenu" id="WeekDaysMenu"></textarea></td>
+</tr>
+<tr>
+	<td>WeekEnd Menu</td>
+	<td><textarea row="50" column="100" name="WeekDaysMenu" id="WeekDaysMenu"></textarea>  </td>
+</tr>
+</table>
+<hr>
+<table>
+<tr>
+	<th>Meal</th>
+	<th>Time</th>
+	<th>Price</th>
+	<th>
+</tr>
+<tr>
+	<td>Breakfast</td>
+	<td><input type="text" name="breakfastTime" id="breakfastTime">
+	<td><input type="text" name="breakfastFee" id="breakfastFee"><br>
+</td>
+</tr>
+<tr>
+	<td>Lunch</td>
+	<td><input type="text" name="lunchTime" id="lunchTime">
+	<td><input type="text" name="lunchFee" id="lunchFee"><br>
+</td>
+<tr>
+	<td>Dinner</td>
+	<td><input type="text" name="dinnerTime" id="dinnerTime">
+	<td><input type="text" name="dinnerFee" id="dinnerFee">
+	<br>
+</td>
+</table>
+<hr>
+Discount or Concession<br>
+<textarea row="50" column="100" name="Discount" id="Discount"></textarea>
+<hr>
+<br><input type="submit" name="Submit" value="SUBMIT">
+<input type="button" name="Register" value="REGISTER" onclick="register()">
+</form>
+</body>
+</html>

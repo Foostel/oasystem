@@ -1,0 +1,123 @@
+<html>
+<head>
+<script src="validation.js"></script>
+</head>
+<body>
+<hr>
+<br>
+<form action="hostel.php" onsubmit="return validate()">
+<label>Hostel Detail</label><br>
+
+<lable>User ID</lable>
+<input type="text"  name="uid" id="uid" ><br>
+<span id="userid" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+<lable>Hostel ID</lable>
+<input type="text"  name="hid" id="hid"><br>
+<span id="hostelid" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+
+<lable>Hostel Name</lable>
+<input type="text" name="hname" id="hname"><br>
+<span id="hostelname" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+
+<lable>Address</lable>
+<input type="text"  name="address" id="address"><br>
+<span id="add" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+
+<lable>Area</lable>
+<input type="text" name ="area" id="area"><br>
+<span id="area1" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+
+<lable>Pincode</lable>
+<input type="number" name="pincode" id="pincode"><br>
+<span id="pin" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+
+<labsle>landmark</lable>
+<input type="text" name="landmark" id="landmark">
+<span id="lm" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+
+<br><lable>Add Images</lable>
+<input type="file" name="fileupload" value="fileupload" id="fileupload" multiple> 
+<br>
+<hr>
+<br><lable>Prefrence  *Hostel is for Boys/Girls</lable><br>
+<input type="radio" name="gender" id="gender" value="Male">Boys Hostel
+<input type="radio" name="gender" id="gender" value="Female">Girls Hostel
+<br>
+<hr>
+<br>
+<lable>Rules To Be Followed (*Rule and regulations of hostel)</lable>
+<br>
+<textarea row="50" column="100" name="rules" id="rules"></textarea>
+<br>
+<hr>
+<br>
+<lable>Fee Structure</lable>
+<br>
+<table>
+<tr>
+	<th>Room Type</th>
+	<th>Room Fee/Month</th>
+	<th>Number of Rooms</th>
+</tr>
+<tr>
+	<td>1 Seater</td>
+	<td><input type="text" name="ft1" id="ft1"></td>
+	<td><input type="text" name="fn1" id="fn1"></td>
+</tr>
+<tr>
+	<td>2 Seater</td>
+	<td><input type="text" name="ft2" id="ft2"></td>
+	<td><input type="text" name="fn2" id="fn2"></td>
+</tr>
+<tr>
+	<td>3 Seater</td>
+	<td><input type="text" name="ft3" id="ft3"></td>
+	<td><input type="text" name="fn3" id="fn3"></td>
+</tr>
+<tr>
+	<td>4 Seater</td>
+	<td><input type="text" name="ft4" id="ft4"></td>
+	<td><input type="text" name="fn4" id="fn4"></td>
+</tr>
+<tr>
+	<td>5 Seater</td>
+	<td><input type="text" name="ft5" id="ft5"></td>
+	<td><input type="text" name="fn5" id="fn5"></td>
+</tr>
+<tr>
+	<td><input type="text" name="rt4" id="rt4"></td>
+	<td><input type="text" name="ft4" id="ft4"></td>
+</tr>
+<tr>
+	<td>Caution Money</td>
+	<td><input type="text" name="ft4" id="ft4"></td>
+</tr>
+</table>
+<br>
+<hr>
+<br>
+<label>Facilites Provided</label><br>
+<input type="checkbox" name="f1" id="f1" value="f1">Gym<br>
+<input type="checkbox" name="f2" id="f2" value="f2">Parking Area<br>
+<input type="checkbox" name="f3" id="f3" value="f3">Breakfast<br>
+<input type="checkbox" name="f4" id="f4" value="f4">Wifi<br>
+<input type="checkbox" name="f5" id="f5" value="f5">Geaser<br>
+<input type="checkbox" name="f6" id="f6" value="f6">Room Service<br>
+<input type="checkbox" name="f7" id="f7" value="f7">Attach Bathrooms<br>
+<input type="checkbox" name="f8" id="f8" value="f8">AC<br>
+Any Additional Facillities<br>
+<textarea row="50" column="100" name="f9" id="facilites"></textarea>
+<br>
+<hr>
+<br><input type="submit" name="Submit" value="SUBMIT" >
+<input type="button" name="Register" value="REGISTER" onclick="register()">
+</form>
+</body>
+</html>
