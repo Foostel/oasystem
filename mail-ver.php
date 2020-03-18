@@ -12,12 +12,12 @@ require ('PHPMailer/src/SMTP.php');
   $mail->AddAddress($email);
   $mail->Subject= "OTP to Login";
   $mail->MsgHTML($message_body);
-  $result=$email->send();
+  $result=$mail->send();
   if(!$result){
   	echo "Mailer error".$mail->ErrorInfo;
   }else{
   	return $result;}
   }
 
-sendOTP('msonii2000@gmail.com','123123');
+sendOTP('msonii2000@gmail.com',123123);
 ?>

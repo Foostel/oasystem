@@ -1413,6 +1413,7 @@ class PHPMailer
 
             return false;
         }
+
     }
 
     /**
@@ -1579,6 +1580,7 @@ class PHPMailer
                     return $this->mailSend($this->MIMEHeader, $this->MIMEBody);
             }
         } catch (Exception $exc) {
+            echo ' chh';
             $this->setError($exc->getMessage());
             $this->edebug($exc->getMessage());
             if ($this->exceptions) {
