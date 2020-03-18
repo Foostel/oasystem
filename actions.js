@@ -110,7 +110,6 @@ function validate(){
     let x = document.getElementById("phoneno").value;
     let p1 = document.getElementById("pass1").value;
     let p2 = document.getElementById("pass2").value;
-    
     var rx = /^[0-9]{10}$/;
     if(!rx.test(x)){
         f=false;
@@ -130,7 +129,7 @@ function validate(){
     }
     }
     
-    if(f){
+    if(f && confirm("Confirm submission ?")){
         return true;
     }
     else{
