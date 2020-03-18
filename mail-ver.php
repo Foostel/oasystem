@@ -1,21 +1,23 @@
 <?php
-function sendOTP($emil,$otp)
+
+function sendOTP($email,$otp)
 {
-  require('phpmailer/class.phpmailer.php');
+require ('PHPMailer/src/Exception.php');
+require ('PHPMailer/src/PHPMailer.php');
+require ('PHPMailer/src/SMTP.php');
   $message_body="One Time Password <br/>".$otp;
   $mail=new PHPMailer();
   $mail->AddReplyTo('badshahandhoneysingh100@gmail.com','Jayant Gawali');
-  $mail->SetForm('badshahandhoneysingh100@gmail.com','Jayant Gawali');
+  $mail->SetFrom('badshahandhoneysingh100@gmail.com','Jayant Gawali');
   $mail->AddAddress($email);
   $mail->Subject= "OTP to Login";
   $mail->MsgHTML($message_body);
-  $result=$email->Send();
+  $result=$email->send();
   if(!$result){
   	echo "Mailer error".$mail->ErrorInfo;
   }else{
   	return $result;}
   }
 
-
-}
+sendOTP('msonii2000@gmail.com','123123');
 ?>
