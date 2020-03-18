@@ -4,5 +4,5 @@
         <input style="height: 30px; width: 200px;" class="inputs" type="" name="" placeholder="Email or Phone" required="true"><br>
         <input style="height: 30px; width: 200px;" class="inputs" type="password" name="" placeholder="Password"><br>
         <input type="submit" name="" value="LOGIN" class="btn" style="height: 30px; width: 70px;"><br><br>
-        <a href="register.html"style="color:black;">Not registered ?</a>
+        <a href="register.php"style="color:black;">Not registered ?</a>
 </form>
