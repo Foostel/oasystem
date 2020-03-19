@@ -4,14 +4,6 @@
     <title>Register</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <?php
-    if(!$_SESSION['verified'])
-    {
-        echo"<script type='text/javascript'>
-        //here all the user information will feeded into database
-        window.location='user-home.php';
-        </script>";
-    }
-    else{
     require('submit-reg.php');
     session_start();
     $_SESSION['fn'] = $_POST['fname'];
@@ -23,7 +15,6 @@
     $_SESSION['ps'] = $_POST['pass1'];
     $_SESSION['OTP'] =rand(11111,99999);   
     sendmail($_SESSION['em'],$_SESSION['OTP']);
-    }
     ?>
 </head>
 <body style="background-color: #E9E9E9;">

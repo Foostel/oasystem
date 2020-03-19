@@ -18,8 +18,6 @@
             });
         </script>
         <?php 
-        session_start();
-        $_SESSION['verified']=false;
          ?>
     <script src="actions.js"></script>    
 </head>

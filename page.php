@@ -15,6 +15,8 @@
                 $('#header').load("header.php");
             });
         </script>
+        <?php 
+         ?>
     </head>
 
     <body>
