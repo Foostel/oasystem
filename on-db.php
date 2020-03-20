@@ -16,12 +16,12 @@
         $age=$_SESSION['age'];
         $phone=$_SESSION['ph'];
         $email=$_SESSION['em'];
-        $password=$_SESSION['ps'];
+        $password=md5($_SESSION['ps']);
         // echo"<script type='text/javascript'> alert('You are verified');
         // //here all the user information will feeded into database
         // window.location='user-home.php';
         // </script>";
-        echo $fname;
+        echo $phone;
         $query="insert into user (fname,lname,gender,age,phone,email,password) values ('$fname','$lname','$gender',$age,$phone,'$email','$password')";
         $i=mysqli_query($conn,$query);
         if($i)
