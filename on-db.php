@@ -10,9 +10,7 @@
         echo"<script type='text/javascript'> alert('You are verified');
         window.location='user-home.php';
         </script>";
-
         #here all the user information will feeded into database
-        
     }
     else{
     echo "Not verified";

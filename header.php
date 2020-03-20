@@ -8,5 +8,5 @@
                 <a  onclick="if(!h){toggle('pop-up');}" href="page.php#RYS">Register your services</a>
                 <a  onclick="if(!h){toggle('pop-up');}" href="page.php#About-us">About us</a>
                 <a  onclick="if(!h){toggle('pop-up');}" href="page.php#Contact-us">Contact us</a>
-                <span id="signin" ><a onclick ="toggle('pop-up');" >Sign in <img src="user-logo.svg" style="position:relative; top:15px;height: 40px;"></a></span>
+                <span style="position:fixed;right: 30px; font-weight: 600;" id="signin" ><a onclick ="toggle('pop-up');" >Sign in</a></span>
             </div>
