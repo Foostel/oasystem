@@ -16,7 +16,13 @@
             });
         </script>
         <?php 
+        session_start();
+        if(isset($_SESSION['userID']))
+        {
+            header("location:user-home.php");
+        }
          ?>
+        
     </head>
 
     <body>

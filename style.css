@@ -2,6 +2,7 @@ html{
  scroll-behavior: smooth; 
 }
 body{
+    margin-top: 0px;
 }
 .section{
     height: 100vh;
@@ -42,7 +43,7 @@ body{
 .header{
     z-index: 1;
     float: left;
-    margin: 0px;
+    margin-top: 0px;
     color:black;
     background-color:#CFCFCF;  
     position: fixed;
