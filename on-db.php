@@ -6,7 +6,6 @@
     <?php
     include("db-connection.php");
     session_start();
-
     if($_SESSION['OTP']==$_POST['o-t-p'])
     {
 
