@@ -1,5 +1,4 @@
 html{
-    overflow: hidden;
  scroll-behavior: smooth; 
 }
 body{
@@ -15,9 +14,21 @@ body{
     height: 100vh;
     background-color: #CFCFCF;
 }
-#Services{
+#MAP-VIEW{
+    background-color: white;
     height: 100vh;
+    width: 70%;
+    margin-top: 100px;
+    margin-left:0px;
+}
+
+#Services{
     background-color: #CFCFCF;
+    height: 100vh;
+    width: 30%;
+    position: absolute;
+    top: 100px;
+    left:70%;
 }
 #RYS{
     height: 100vh;
@@ -25,7 +36,8 @@ body{
 }
 #About-us{
     height: 100vh;
-    background-color: #CFCFCF;
+    background-color: black;
+    color:gray;
 }
 .header{
     z-index: 1;
@@ -37,6 +49,7 @@ body{
     width: 100%;
     transition: 0.2s;
     filter: drop-shadow(0px 10px 8px gray);
+    padding-bottom: 10px;
 }
 .header:hover{
     transition: 0.2s;
@@ -140,15 +153,28 @@ a:hover{
     right: 400px;      
     color: black;
 }
+#side-panel{
+    position: fixed;
+    right: 0px;
+    top:110px;
+    background-color: white;
+    height: 100vh;
+    width: 200px;
+    display: none;
+}
 #user-menu a{
     height: 60px; width: 100%; font-weight: 400; font-size: 20px; display: block; color:white;
 }
 #user-menu a:hover{
     background-color: rgba(0,0,0,0.9);
 }
-#user-pp{
-    border-radius: 50%; width: 3%; position: absolute; top:20px; right: 30px; cursor: pointer;
+#user-menu{
+    list-style: none;
 }
-#user-pp:hover{
-    opacity: 0.6;
+.user-info{
+    width: 100px;
+    display: inline-block;
+    position: relative;
+    top:100px;
+    height: 200px;
 }

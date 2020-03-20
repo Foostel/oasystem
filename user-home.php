@@ -1,63 +1,56 @@
 <!DOCTYPE html>
-<html>
-<head>
-        <title>Home-user</title>
+    <head>
+        <title>Foostel</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type="text/javascript" src="actions.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
         </script>
+        
         <script type="text/javascript">
+            $(function(){
+                $('#side-panel').load("side-panel.php");
+            });
             $(function(){
                 $('#header').load("user-header.php");
             });
+
             $(function(){
-                $('#Services').load("services.php");
+                $('#service-map-panel').load("services-map.php");
             });
+
             $(function(){
-                $('#RYS').load("req-services.php");
+                $('#service-panel').load("services.php");
             });
+
             $(function(){
-                $('#About-us').load("About-us.php");
-            });
-            $(function(){
-                $('#Contact-us').load("Contact-us.php");
+                $('#About-us-panel').load("About-us.php");
             });
         </script>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    	<script type="text/javascript" src="actions.js"></script>
-        <script type="text/javascript">
-            
-        </script>
-</head>
+        <?php 
+         ?>
+    </head>
 
-<body style="background-color: #E9E9E9;">
-        <div class="header" id="header" style="height:15%;">
-            <!--Load header -->
+    <body>
+        <div class="header" id="header">
         </div>
-        <div class="section" id="Services" onclick="if(!h){toggle('user-menu');}">
 
+        <div class="section" id="services-p">
+        <div id="service-map-panel" onclick="if(!h){toggle('side-panel');}">
         </div>
-        <div class="section" id="RYS" onclick="if(!h){toggle('user-menu');}">
-            
+        <div id="service-panel" onclick="if(!h){toggle('side-panel');}">
         </div>
-        <div class="section" id="About-us" onclick="if(!h){toggle('user-menu');}">
-            
         </div>
-        <div class="section" id="Contact-us" onclick="if(!h){toggle('user-menu');}">
+        
+        <div class="section" id="About-us-panel" onclick="if(!h){toggle('side-panel');}">
             
         </div>
 
-        <div class="section" onclick="if(!h){toggle('user-menu');}">
-        	
+        
+        <div class="section" id="Contact us" onclick="if(!h){toggle('side-panel');}"></div>
+        <div class="side-panel" id="side-panel" style="text-align: center;">
+                
         </div>
-
-        <div id="user-menu" class="right-side-panel">
-            	<div style="margin-top:85px; width: 100%; height: 600px;">
-            		<a >Edit profile</a>
-            		<a >Preferences</a>
-            		<a >Requested services</a>
-            		<a >Services in use</a>
-                    <button class="btn" style="width: 100px; margin: 100px;">Sign out</button>
-            	</div> 
-        </div>
-</body>
+        
+    </body>
 </html>
