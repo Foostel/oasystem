@@ -29,7 +29,7 @@
             <form onsubmit="return validate();" method="post" action="verify.php">
                 <table cellspacing="20px" cellpadding="5px" style="border-top:solid" width="1000px;">
                     <tr><td>First Name: </td> <td><input autocomplete="" style="width: 200px; height: 30px; margin: 0px;" class="inputs" type="text" required="" name="fname"></td> <td>Last Name:</td> <td><input name="lname" class="inputs" style="width: 200px; margin: 0px; height: 30px; "type="text"></td></txr>
-                    <tr><td>Gender: </td> <td>Male<input  type="radio" name="Gender" value="Male" required=""> Female<input type="radio" value="Female" name="Gender" required=""></td> <td>Age: </td> <td><input  class="inputs" type="number" name=" " style="width: 50px; margin: 0px; height: 30px;" required=""> </td></tr>
+                    <tr><td>Gender: </td> <td>Male<input  type="radio" name="Gender" value="Male" required=""> Female<input type="radio" value="Female" name="Gender" required=""></td> <td>Age: </td> <td><input  class="inputs" type="number" name="age" style="width: 50px; margin: 0px; height: 30px;" required=""> </td></tr>
                     <tr><td>Phone: </td> <td>
                         <span name="cc" id="cc"></span>
 

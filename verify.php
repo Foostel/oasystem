@@ -9,6 +9,7 @@
     $_SESSION['fn'] = $_POST['fname'];
     $_SESSION['ln'] = $_POST['lname'];
     $_SESSION['gn'] = $_POST['Gender'];
+    $_SESSION['age'] = $_POST['age'];
     $_SESSION['cc'] = $_POST['countryCode'];
     $_SESSION['ph'] = $_SESSION['cc']."".$_POST['phoneno'];
     $_SESSION['em'] = $_POST['email'];
