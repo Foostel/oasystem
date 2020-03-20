@@ -8,9 +8,11 @@
     if($_SESSION['OTP']==$_POST['o-t-p'])
     {
         echo"<script type='text/javascript'> alert('You are verified');
-        //here all the user information will feeded into database
         window.location='user-home.php';
         </script>";
+
+        #here all the user information will feeded into database
+        
     }
     else{
     echo "Not verified";
