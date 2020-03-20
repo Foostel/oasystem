@@ -4,6 +4,10 @@
     <title>Register</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <?php
+    if(!isset($_POST['email']))
+    {
+        header('location:page.php');
+    }
     include("db-connection.php");
     require('submit-reg.php');
     session_start();
@@ -18,7 +22,7 @@
     $email=$_SESSION['em'];
     $phone=$_SESSION['ph'] ;
 
-    $check="select * from user where email='$email' and phone='$phone'";
+    $check="select * from user where email='$email'";
     if (mysqli_num_rows(mysqli_query($conn,$check))==0)
     {    
         $_SESSION['OTP'] =rand(11111,99999);   
@@ -41,7 +45,7 @@
     <?php
     }
     else
-    {
-        echo "You are already registered";
+    {   echo'already registered';
+        echo "<script>alert('Email already in use, try again ! '); window.location='register.php';</script>";
     }  
     ?>
