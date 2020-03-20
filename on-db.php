@@ -25,8 +25,8 @@
         $i=mysqli_query($conn,$query);
         if($i)
         {
-            echo "Registration Successful";
-            header("location:page.php#pop-up");
+            echo '<script>alert('.'"registered successfully... login again to continue."'.');</script>';
+            header("location:user-home.php");
         }
         else{
             echo "try again";
