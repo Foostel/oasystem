@@ -27,6 +27,7 @@
         if($i)
         {
             echo "Registration Successful";
+            header("location:page.php#pop-up");
         }
         else{
             echo "try again";
