@@ -1,8 +1,9 @@
 <?php
+session_start();
 if(isset($_POST['submit']) and isset($_SESSION['id']))
 {
 	include("db-connection.php");
-  session_start();
+  
   $uid=$_SESSION['id'];
   
   $bno=$_POST['b'];
