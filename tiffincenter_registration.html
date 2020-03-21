@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -6,51 +7,30 @@
 <body>
 <hr>
 <br>
-<form action="tiffen.php" method="post" ><!--onsubmit="return validate()">
-<!--<lable>User ID</lable>
- <input type="text" name="uid" id="uid"><br>
-<span id="userid" class="text-danger font-weidth-bold" style="color:red"></span>
-<br>
-
-<lable>Center ID</lable>
-<input type="text" name="hid" id="hid"><br>
-<span id="hostelid" class="text-danger font-weidth-bold" style="color:red"></span>
-<br>
- -->
+<form action="tiffen.php" method="post" onsubmit="return validate1()">
 <lable>Building/House Number</lable>
-<input type="text" name="b" id="address"><br>
-<span id="add" class="text-danger font-weidth-bold" style="color:red"></span>
+<input type="text" name="b" id="b"><br>
+<span id="add1" class="text-danger font-weidth-bold" style="color:red"></span>
 <br>
 <lable>Area</lable>
-<input type="text" name="a" id="address"><br>
-<span id="add" class="text-danger font-weidth-bold" style="color:red"></span>
+<input type="text" name="a" id="a"><br>
+<span id="add2" class="text-danger font-weidth-bold" style="color:red"></span>
 <br>
 <lable>State</lable>
-<input type="text" name="s" id="address"><br>
-<span id="add" class="text-danger font-weidth-bold" style="color:red"></span>
+<input type="text" name="s" id="s"><br>
+<span id="add3" class="text-danger font-weidth-bold" style="color:red"></span>
 <br>
 <lable>City</lable>
-<input type="text" name="c" id="address"><br>
-<span id="add" class="text-danger font-weidth-bold" style="color:red"></span>
+<input type="text" name="c" id="c"><br>
+<span id="add4" class="text-danger font-weidth-bold" style="color:red"></span>
 <br>
 <lable>Landmark</lable>
-<input type="text" name="l" id="address"><br>
-<span id="add" class="text-danger font-weidth-bold" style="color:red"></span>
+<input type="text" name="l" id="l"><br>
+<span id="add5" class="text-danger font-weidth-bold" style="color:red"></span>
 <br>
 <lable>Pincode</lable>
-<input type="number" name="p" id="address"><br>
-<span id="add" class="text-danger font-weidth-bold" style="color:red"></span><br>
-
-<!-- <lable>Area</lable>
-<input type="text" name="area" id="area"><br>
-<span id="area1" class="text-danger font-weidth-bold" style="color:red"></span>
-<br>
- 
-<lable>Pincode</lable>
-<input type="number" name="pincode" id="pincode"><br>
-<span id="pin" class="text-danger font-weidth-bold" style="color:red"></span>
-<br>
--->
+<input type="number" name="p" id="p"><br>
+<span id="add6" class="text-danger font-weidth-bold" style="color:red"></span><br>
 
 <label>Meals Provided</label><br>
 <input type="checkbox" name="f1" id="f1" value="f1">Lunch<br>
@@ -109,7 +89,6 @@ Discount or Concession<br>
 <textarea row="50" column="100" name="Discount" id="Discount"></textarea>
 <hr>
 <br><input type="submit" name="submit" value="SUBMIT">
-<input type="button" name="Register" value="REGISTER" onclick="register()">
 </form>
 </body>
 </html>
