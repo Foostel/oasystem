@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2020 at 01:05 AM
+-- Generation Time: Mar 21, 2020 at 03:29 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -36,7 +36,7 @@ CREATE TABLE `user` (
   `age` int(3) NOT NULL,
   `phone` varchar(15) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(25) NOT NULL
+  `password` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -44,12 +44,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `fname`, `lname`, `gender`, `age`, `phone`, `email`, `password`) VALUES
-(11111, 'jayant', 'gawali', 'male', 21, '2147483647', 'jayantgawali98@gmail.com', 'Jayant*123'),
-(11112, 'jayant', 'gawali', 'Male', 21, '2147483647', 'jayantgawali98@gmail.com', 'Jayant*123'),
-(11113, 'mihir', 'sonii', 'Male', 21, '2147483647', 'jayantgawali98@gmail.com', 'Jayant*123'),
-(11114, 'mihir', 'sonii', 'Male', 20, '2147483647', 'msonii2000@gmail.com', 'msonii@123'),
-(11115, 'mihir', 'sonii', 'Male', 20, '919753621953', 'msonii2000@gmail.com', 'msonii@123'),
-(11116, 'mihir', 'sonii', 'Male', 20, '449753621953', 'msonii2000@gmail.com', '62a38848ee8496b2281777b0c');
+(11119, 'jayant', 'gawali', 'Male', 21, '449340216311', 'jayantgawali98@gmail.com', 'f0ec91761506810419287bb0dadec846'),
+(11120, 'jayant', 'gawali', 'Male', 21, '919340216311', 'jayantgawali98@gmail.com', 'f0ec91761506810419287bb0dadec846');
 
 --
 -- Indexes for dumped tables
@@ -69,7 +65,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11117;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11121;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
