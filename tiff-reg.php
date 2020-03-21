@@ -19,6 +19,9 @@
             $(function(){
                 $('#pop-up').load("geo-map.php");
             });
+            $(function(){
+                $('.day-time').load("daytime.php");
+            });
         </script>
         <?php 
         session_start();
@@ -37,9 +40,9 @@
         <div class="header" id="header">
         </div>
 
-        <div class="section" >
-            <img src="oas-logo.svg" style="height: 400px; position: absolute; top:200px; left: 900px;">
-            <form style="position: fixed; top:150px; left: 50px;">
+        <div class="section" id="form-sec1">
+            <img src="oas-logo.svg" style="height: 400px; position: fixed; top:200px; left: 900px;">
+            <form style="position: absolute; top:150px; left: 50px;">
                 <table cellspacing="" >
                     <tr>
                         <td><input style="text-align: center;" type="" class="inputs" name="" placeholder="Business name"></td> 
@@ -86,8 +89,59 @@
                     </tr>
 
                     <tr>
-                        <td><button class="btn">Next <i class="fa fa-angle-right" aria-hidden="true"></i></button></td>
+                        <td><a href="#form-sec2"><button class="btn" type="button">Next <i class="fa fa-angle-right" aria-hidden="true"></i></button></a></td>
                     </tr>
+
+                </table>
+            </form>
+            
+        </div>
+
+        <div class="section" id="form-sec2" >
+            <form style="position: relative; top:150px; left: 50px;">
+                <table cellspacing="20px" >
+                    <tr>
+                        <td><div> Meals provided <br><hr><button class="checkbtn">Breakfast</button><button class="checkbtn">Lunch</button><button class="checkbtn">Dinner</button> </div></td> 
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                            <div> Facilities provided <br><hr><button class="checkbtn">Home delivery</button><button class="checkbtn">Come & eat</button><button class="checkbtn">Customization</button> </div>
+                        </td>  
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div>Meal Time <br><hr>
+                                
+                                Breakfast <br><span class="day-time"></span>
+                                To
+                                <span class="day-time"></span><input style="width: 70px; height: 20px;" type="" class="inputs" name="" placeholder="Cost">
+                                <select class="inputs" style="width: 70px; height: 30px;">
+                                    <option>Daily</option><option>Monthly</option><option>Yearly</option>
+                                </select><br>
+
+                                Lunch <br><span class="day-time"></span>
+                                To
+                                <span class="day-time"></span><input style="width: 70px; height: 20px;" type="" class="inputs" name="" placeholder="Cost">
+                                <select class="inputs" style="width: 70px; height: 30px;">
+                                    <option>Daily</option><option>Monthly</option><option>Yearly</option>
+                                </select><br>
+
+                                Dinner <br><span class="day-time"></span>
+                                To
+                                <span class="day-time"></span><input style="width: 70px; height: 20px;" type="" class="inputs" name=""placeholder="Cost">
+                                <select class="inputs" style="width: 70px; height: 30px;">
+                                    <option>Daily</option><option>Monthly</option><option>Yearly</option>
+                                </select><br>
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#form-sec1"><button class="btn" type="button">Back <i class="fa fa-angle-left" aria-hidden="true"></i></button></a></td>
+                    </tr>
+                    
 
                 </table>
             </form>

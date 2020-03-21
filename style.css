@@ -180,3 +180,17 @@ a:hover{
     top:100px;
     height: 200px;
 }
+.checkbtn{
+    background-color: white;
+    border:none;
+    border-style: none;
+    outline: none;
+    width: 120px;
+    height: 30px;
+}
+.checkbtn:hover{
+    background-color: #AFAFAF;
+}
+.checkbtn:active{
+    background-color: #AFAFAF;   
+}
