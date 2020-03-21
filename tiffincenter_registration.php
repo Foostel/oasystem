@@ -9,27 +9,27 @@
 <br>
 <form action="tiffen.php" method="post" onsubmit="return validate1()">
 <lable>Building/House Number</lable>
-<input type="text" name="b" id="b"><br>
+<input type="text" name="b" id="b" required=""><br>
 <span id="add1" class="text-danger font-weidth-bold" style="color:red"></span>
 <br>
 <lable>Area</lable>
-<input type="text" name="a" id="a"><br>
+<input type="text" name="a" id="a" required=""><br>
 <span id="add2" class="text-danger font-weidth-bold" style="color:red"></span>
 <br>
 <lable>State</lable>
-<input type="text" name="s" id="s"><br>
+<input type="text" name="s" id="s" required=""><br>
 <span id="add3" class="text-danger font-weidth-bold" style="color:red"></span>
 <br>
 <lable>City</lable>
-<input type="text" name="c" id="c"><br>
+<input type="text" name="c" id="c" required=""><br>
 <span id="add4" class="text-danger font-weidth-bold" style="color:red"></span>
 <br>
 <lable>Landmark</lable>
-<input type="text" name="l" id="l"><br>
+<input type="text" name="l" id="l" required=""><br>
 <span id="add5" class="text-danger font-weidth-bold" style="color:red"></span>
 <br>
 <lable>Pincode</lable>
-<input type="number" name="p" id="p"><br>
+<input type="number" name="p" id="p" required=""><br>
 <span id="add6" class="text-danger font-weidth-bold" style="color:red"></span><br>
 
 <label>Meals Provided</label><br>
