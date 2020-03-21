@@ -14,7 +14,7 @@ $mail->FromName='Foostel';
 $mail->Username='badshahandhoneysingh100@gmail.com';
 $mail->Password='000121262621762';
 $mail->Subject='Foostel email verification';
-$mail->Body='OTP for foostel verification is <br> <h3>'.$msg.'</h3>';
+$mail->Body="OTP for foostel verification is <br> <h3>$msg</h3>";
 $mail->AddAddress($to);
 
 $mail->send();

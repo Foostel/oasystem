@@ -28,7 +28,16 @@
             });
         </script>
         <?php 
+        session_start();
+        if(!isset($_SESSION['id']))
+        {   echo"Access denied";
+            header("location:page.php");
+        }
+        else{
+        }
+
          ?>
+        
     </head>
 
     <body>
