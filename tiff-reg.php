@@ -62,7 +62,7 @@
                             <input style="text-align: center;" type="" class="inputs" name="" placeholder="Landmark">
                         </td>
                         <td>
-                            <input style="text-align: center;" type="" class="inputs" name="" placeholder="Complete Address">
+                            <input style="text-align: center;" type="" class="inputs" name="" placeholder="Area/Coloney/Street">
                         </td>
                     </tr>
 
