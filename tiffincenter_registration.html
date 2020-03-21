@@ -1,3 +1,4 @@
+
 <html>
 <head>
 <script src="validation.js"></script>
@@ -5,9 +6,9 @@
 <body>
 <hr>
 <br>
-<form action="tiffen.php" onsubmit="return validate()">
-<lable>User ID</lable>
-<input type="text" name="uid" id="uid"><br>
+<form action="tiffen.php" method="post" ><!--onsubmit="return validate()">
+<!--<lable>User ID</lable>
+ <input type="text" name="uid" id="uid"><br>
 <span id="userid" class="text-danger font-weidth-bold" style="color:red"></span>
 <br>
 
@@ -15,26 +16,41 @@
 <input type="text" name="hid" id="hid"><br>
 <span id="hostelid" class="text-danger font-weidth-bold" style="color:red"></span>
 <br>
-
-<lable>Address</lable>
-<input type="text" name="address" id="address"><br>
+ -->
+<lable>Building/House Number</lable>
+<input type="text" name="b" id="address"><br>
 <span id="add" class="text-danger font-weidth-bold" style="color:red"></span>
 <br>
-
 <lable>Area</lable>
+<input type="text" name="a" id="address"><br>
+<span id="add" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+<lable>State</lable>
+<input type="text" name="s" id="address"><br>
+<span id="add" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+<lable>City</lable>
+<input type="text" name="c" id="address"><br>
+<span id="add" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+<lable>Landmark</lable>
+<input type="text" name="l" id="address"><br>
+<span id="add" class="text-danger font-weidth-bold" style="color:red"></span>
+<br>
+<lable>Pincode</lable>
+<input type="number" name="p" id="address"><br>
+<span id="add" class="text-danger font-weidth-bold" style="color:red"></span><br>
+
+<!-- <lable>Area</lable>
 <input type="text" name="area" id="area"><br>
 <span id="area1" class="text-danger font-weidth-bold" style="color:red"></span>
 <br>
-
+ 
 <lable>Pincode</lable>
 <input type="number" name="pincode" id="pincode"><br>
 <span id="pin" class="text-danger font-weidth-bold" style="color:red"></span>
 <br>
-
-<lable>Landmark</lable>
-<input type="text" name="landmark" id="landmark"><br>
-<span id="lm" class="text-danger font-weidth-bold" style="color:red"></span>
-<br>
+-->
 
 <label>Meals Provided</label><br>
 <input type="checkbox" name="f1" id="f1" value="f1">Lunch<br>
@@ -92,7 +108,7 @@
 Discount or Concession<br>
 <textarea row="50" column="100" name="Discount" id="Discount"></textarea>
 <hr>
-<br><input type="submit" name="Submit" value="SUBMIT">
+<br><input type="submit" name="submit" value="SUBMIT">
 <input type="button" name="Register" value="REGISTER" onclick="register()">
 </form>
 </body>
