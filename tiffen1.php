@@ -3,21 +3,21 @@
 if(isset($_POST['submit']) and isset($_SESSION['id']))
 { include("db-connection.php");
   $uid=$_SESSION['id'];  
+  $bn=$_POST['bn'];
   $bno=$_POST['b'];
+  $vt=$_POST['vt'];
   $area=$_POST['a'];
   $state=$_POST['s'];
   $city=$_POST['c'];
   $landmark=$_POST['l'];
   $pincode=$_POST['p'];
- 	$query="insert into tiffin_address (uid,bno,area,state,city,landmark,pincode) values($uid,'$bno','$area','$state','$city','$landmark',$pincode)";
+ 	$query="insert into tiffin_address (uid,bno,area,state,city,landmark,pincode,bn,vt) values($uid,'$bno','$area','$state','$city','$landmark',$pincode,'$bn','$vt')";
  	$q=mysqli_query($conn,$query);
  	if($q){
  	  	echo " center address information inserted successfully ";  }
  	else{
  	 	echo "try again"; }
  	 	$l=0;
- 
-
  	$d=0;
  	$b=0;
  	if(isset($_POST['meal']))

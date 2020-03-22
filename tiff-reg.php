@@ -39,39 +39,39 @@
 
         <div class="section" >
             <img src="oas-logo.svg" style="height: 400px; position: absolute; top:200px; left: 900px;">
-            <form style="position: fixed; top:150px; left: 50px;">
+            <form style="position: fixed; top:150px; left: 50px;" action="tiffen.php" method="post">
                 <table cellspacing="" >
                     <tr>
-                        <td><input style="text-align: center;" type="" class="inputs" name="" placeholder="Business name"></td> 
-                        <td><input style="text-align: center;" type="" class="inputs" name="" placeholder="Building/House no"></td>  
-                        <td><div id="states"></div></td>
+                        <td><input style="text-align: center;" type="" class="inputs" name="bn" placeholder="Business name"></td> 
+                        <td><input style="text-align: center;" type="" class="inputs" name="b" placeholder="Building/House no"></td>  
+                        <td><div  id="states"></div></td>
                     </tr>
                     <tr>
                         <td>
                             <script src="cities.js"></script>
-                            <select style="height: 50px; width: 260px;text-align: center;" class="inputs" onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select>
+                            <select style="height: 50px; width: 260px;text-align: center;" class="inputs" onchange="print_city('state', this.selectedIndex);" id="sts" name ="s" class="form-control" required></select>
                         </td>
                         <td>
                             <script language="javascript">print_state("sts");</script>
-                            <select style="height: 50px;width: 260px; text-align: center;" class="inputs" id ="state" class="form-control" required></select>
+                            <select style="height: 50px;width: 260px; text-align: center;" class="inputs" id ="state" name="c" class="form-control" required></select>
                         </td>
                     </tr>
 
                     <tr>
                         <td>
-                            <input style="text-align: center;" type="" class="inputs" name="" placeholder="Landmark">
+                            <input style="text-align: center;" type="" class="inputs" name="l" placeholder="Landmark">
                         </td>
                         <td>
-                            <input style="text-align: center;" type="" class="inputs" name="" placeholder="Complete Address">
+                            <input style="text-align: center;" type="" class="inputs" name="a" placeholder="Name of Area">
                         </td>
                     </tr>
 
                     <tr>
                         <td>
-                            <input style="text-align: center;" type="" class="inputs" name="" placeholder="Village/Town">
+                            <input style="text-align: center;" type="" class="inputs" name="vt" placeholder="Village/Town">
                         </td>
                         <td>
-                            <input style="text-align: center;" type="" class="inputs" name="" placeholder="Pincode">
+                            <input style="text-align: center;" type="" class="inputs" name="p" placeholder="Pincode">
                         </td>
                     </tr>
 
