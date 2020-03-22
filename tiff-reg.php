@@ -62,7 +62,11 @@
                             <input style="text-align: center;" type="" class="inputs" name="l" placeholder="Landmark">
                         </td>
                         <td>
+<<<<<<< HEAD
                             <input style="text-align: center;" type="" class="inputs" name="a" placeholder="Name of Area">
+=======
+                            <input style="text-align: center;" type="" class="inputs" name="" placeholder="Area/Coloney/Street">
+>>>>>>> 6a400bdac59c0368f259de8edefcd94b375eea79
                         </td>
                     </tr>
 
