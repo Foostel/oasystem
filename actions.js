@@ -152,3 +152,39 @@ function showp(){
 
     }
 }
+
+function check(obj)
+{       if(obj.value=='')
+        {
+            obj.style.backgroundColor='black';
+            obj.style.color='white';
+            obj.value=obj.innerHTML;
+        }
+        else{
+            obj.style.backgroundColor='white';
+            obj.style.color='black';
+            obj.value='';
+        }
+                
+}
+function getloc(x)
+{
+    console.log("geolocation");
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    alert("Geolocation is not supported by this browser.");
+  }
+}
+
+function showPosition(position) {
+  
+  document.getElementById(x).style.backgroundColor='black';
+  document.getElementById(x).style.color='white';
+  document.getElementById(x).value=position.coords.latitude +","
+  + position.coords.longitude;
+  document.getElementById(x).innerHTML='Location added';
+}
+getLocation();
+}

@@ -22,6 +22,7 @@
             $(function(){
                 $('.day-time').load("daytime.php");
             });
+            
         </script>
         <?php 
         session_start();
@@ -51,7 +52,6 @@
                     </tr>
                     <tr>
                         <td>
-                            <script src="cities.js"></script>
                             <select style="height: 50px; width: 260px;text-align: center;" class="inputs" onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select>
                         </td>
                         <td>
@@ -80,7 +80,9 @@
 
                     <tr>
                         <td>
-                            <input onclick="toggle('pop-up');" style="text-align: center; width: 260px;" type="button" class="inputs" name="" value="Add geo-location">
+                            <button id="geo-l" onclick="toggle('pop-up');" style="text-align: center; width: 260px;" type="button" class="inputs" name="">
+                                Add geo-location
+                            </button>
                         </td>
 
                         <td>
@@ -99,14 +101,14 @@
 
         <div class="section" id="form-sec2" >
             <form style="position: relative; top:150px; left: 50px;">
-                <table cellspacing="20px" >
+                <table cellspacing="15px" >
                     <tr>
-                        <td><div> Meals provided <br><hr><button class="checkbtn">Breakfast</button><button class="checkbtn">Lunch</button><button class="checkbtn">Dinner</button> </div></td> 
+                        <td><div> Meals provided <br><hr><button type="button" class="checkbtn" onclick="check(this);">Breakfast</button><button type="button" onclick="check(this);" class="checkbtn">Lunch</button><button type="button" class="checkbtn" onclick="check(this);">Dinner</button> </div></td> 
                         
                     </tr>
                     <tr>
                         <td>
-                            <div> Facilities provided <br><hr><button class="checkbtn">Home delivery</button><button class="checkbtn">Come & eat</button><button class="checkbtn">Customization</button> </div>
+                            <div> Facilities provided <br><hr><button type="button" class="checkbtn" onclick="check(this);">Home delivery</button><button type="button"class="checkbtn"onclick="check(this);">Come & eat</button><button type="button" class="checkbtn"onclick="check(this);">Customization</button> </div>
                         </td>  
                     </tr>
 
@@ -117,21 +119,21 @@
                                 Breakfast <br><span class="day-time"></span>
                                 To
                                 <span class="day-time"></span><input style="width: 70px; height: 20px;" type="" class="inputs" name="" placeholder="Cost">
-                                <select class="inputs" style="width: 70px; height: 30px;">
+                                <select class="inputs" style="width: 80px; height: 30px;">
                                     <option>Daily</option><option>Monthly</option><option>Yearly</option>
                                 </select><br>
 
                                 Lunch <br><span class="day-time"></span>
                                 To
                                 <span class="day-time"></span><input style="width: 70px; height: 20px;" type="" class="inputs" name="" placeholder="Cost">
-                                <select class="inputs" style="width: 70px; height: 30px;">
+                                <select class="inputs" style="width: 80px; height: 30px;">
                                     <option>Daily</option><option>Monthly</option><option>Yearly</option>
                                 </select><br>
 
                                 Dinner <br><span class="day-time"></span>
                                 To
                                 <span class="day-time"></span><input style="width: 70px; height: 20px;" type="" class="inputs" name=""placeholder="Cost">
-                                <select class="inputs" style="width: 70px; height: 30px;">
+                                <select class="inputs" style="width: 80px; height: 30px;">
                                     <option>Daily</option><option>Monthly</option><option>Yearly</option>
                                 </select><br>
 
@@ -139,7 +141,8 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><a href="#form-sec1"><button class="btn" type="button">Back <i class="fa fa-angle-left" aria-hidden="true"></i></button></a></td>
+                        <td><a href="#form-sec1"><button class="btn" type="button"><i class="fa fa-angle-left" aria-hidden="true"></i> Back </button></a> &nbsp  <input type="submit" value="Submit" class="btn" name=""></td>
+
                     </tr>
                     
 
@@ -150,9 +153,10 @@
         <div class="side-panel" id="side-panel" style="text-align: center;">
                 
         </div>
-        <div class="pop-up" id="pop-up">
+        <div class="pop-up" id="pop-up" style="text-align:center;">
             
         </div>
         
+       
     </body>
 </html>

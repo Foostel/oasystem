@@ -99,11 +99,14 @@ a:hover{
 }
 .btn{
 
-    background-color: black;
+    background-color: #202020;
     border:none;
     height: 50px;
     width: 80px;
     color:white;
+}
+.btn:hover{
+    background-color: black;
 }
 .inputs{    
     background-color: white;
