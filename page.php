@@ -9,10 +9,10 @@
         
         <script type="text/javascript">
             $(function(){
-                $('#pop-up').load("sign-in.php");
+                $('#header').load("header.php");
             });
             $(function(){
-                $('#header').load("header.php");
+                $('#RYS').load("r-y-s.php");
             });
         </script>
         <?php 
@@ -41,15 +41,11 @@
         	<a href="">FIND NEAR ME <i class="fa fa-map-marker" style="color:red;"></i></a>
         	</div>
         </div>
-        <div class="section" id="Services" onclick="if(!h){toggle('pop-up');}">
-
+        <div class="section"  onclick="if(!h){toggle('pop-up');}">
         </div>
-        <div class="section" id="RYS" onclick="if(!h){toggle('pop-up');}"></div>
+        <div style="text-align: center;" class="section" id="RYS" onclick="if(!h){toggle('pop-up');}"></div>
         <div class="section" id="About-us" onclick="if(!h){toggle('pop-up');}"></div>
         <div class="section" id="Contact us" onclick="if(!h){toggle('pop-up');}"></div>
-        <div class="pop-up" id="pop-up">
-        		
-        </div>
         
     </body>
 </html>

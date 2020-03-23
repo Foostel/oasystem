@@ -1,5 +1,6 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	
 </head>
 <form style="margin: 00px 100px 5px 100px;" action="sign-in-verify.php" method="post">
 		<i class="fa fa-times" aria-hidden="true" style="position:absolute; top:5px;color:gray; font-size: 30px; left:93%; cursor: pointer;" onclick="if(!h){toggle('pop-up');}" ></i>
