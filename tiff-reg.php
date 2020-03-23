@@ -48,38 +48,38 @@
 
         <div class="section" id="form-sec1">
             <img src="oas-logo.svg" style="height: 400px; position: fixed; top:200px; left: 900px;">
-            <form style="position: absolute; top:150px; left: 50px;" method="post" action="submit-tiff">
-                <table cellspacing="" >
+            <form style="position: absolute; top:150px; left: 50px;" method="post" action="tiffen1.php">
+                <table cellspacing="" >s
                     <tr>
-                        <td><input style="text-align: center;" id="b-name" type="" class="inputs" name="" placeholder="Business name" ></td> 
-                        <td><input style="text-align: center;" id="h-no" type="" class="inputs" name="" placeholder="Building/House no" ></td>  
+                        <td><input style="text-align: center;" id="b-name" type="" class="inputs" name="bn" placeholder="Business name" ></td> 
+                        <td><input style="text-align: center;" id="h-no" type="" class="inputs" name="b" placeholder="Building/House no" ></td>  
 
                     </tr>
                     <tr>
                         <td>
-                            <select  style="height: 50px; width: 260px;text-align: center;" class="inputs" onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select>
+                            <select  style="height: 50px; width: 260px;text-align: center;" class="inputs" onchange="print_city('state', this.selectedIndex);" id="sts" name ="s" class="form-control" required></select>
                         </td>
                         <td>
                             <script language="javascript">print_state("sts");</script>
-                            <select  style="height: 50px;width: 260px; text-align: center;" class="inputs" id ="state" class="form-control" required></select>
+                            <select  style="height: 50px;width: 260px; text-align: center;" class="inputs" id ="state" name="c" class="form-control" required></select>
                         </td>
                     </tr>
 
                     <tr>
                         <td>
-                            <input id="Landmark" style="text-align: center;" type="" class="inputs" name="" placeholder="Landmark" >
+                            <input id="Landmark" style="text-align: center;" type="" class="inputs" name="l" placeholder="Landmark" >
                         </td>
                         <td>
-                            <input id="Area" style="text-align: center;" type="" class="inputs" name="" placeholder="Area/Coloney/Street" >
+                            <input id="Area" style="text-align: center;" type="" class="inputs" name="a" placeholder="Area/Coloney/Street" >
                         </td>
                     </tr>
 
                     <tr>
                         <td>
-                            <input id="vt" style="text-align: center;" type="" class="inputs" name="" placeholder="Village/Town" >
+                            <input id="vt" style="text-align: center;" type="" class="inputs" name="vt" placeholder="Village/Town" >
                         </td>
                         <td>
-                            <input id="pc" style="text-align: center;" type="" class="inputs" name="" placeholder="Pincode" >
+                            <input id="pc" style="text-align: center;" type="" class="inputs" name="p" placeholder="Pincode" >
                         </td>
                     </tr>
 
@@ -107,19 +107,20 @@
                     </tr>
 
                 </table>
+            </form>
             
         </div>
 
         <div class="section" id="form-sec2" >
-            <div style="position: relative; top:150px; left: 50px;">
+            <form style="position: relative; top:150px; left: 50px;">
                 <table cellspacing="15px" >
                     <tr>
-                        <td><div> Meals provided <br><hr><button type="button" class="checkbtn" onclick="check(this); disp('Breakfast');">Breakfast</button><button type="button" onclick="check(this);disp('Lunch');" class="checkbtn" >Lunch</button><button type="button" class="checkbtn" onclick="check(this);disp('Dinner');">Dinner</button> </div></td> 
+                        <td><div> Meals provided <br><hr><button type="button" class="checkbtn" name="breakfast" onclick="check(this); disp('Breakfast');">Breakfast</button><button type="button" name="lunch" onclick="check(this);disp('Lunch');" class="checkbtn" >Lunch</button><button type="button" class="checkbtn"  name="dinner" onclick="check(this);disp('Dinner');">Dinner</button> </div></td> 
                         
                     </tr>
                     <tr>
                         <td>
-                            <div> Facilities provided <br><hr><button type="button" class="checkbtn" onclick="check(this);">Home delivery</button><button type="button"class="checkbtn"onclick="check(this);">Come & eat</button><button type="button" class="checkbtn"onclick="check(this);">Customization</button> </div>
+                            <div> Facilities provided <br><hr><button type="button" class="checkbtn" name="home_delivery" onclick="check(this);">Home delivery</button><button type="button" class="checkbtn" name="Come_and_eat" onclick="check(this);">Come & eat</button><button type="button" class="checkbtn" name="Customization" onclick="check(this);">Customization</button> </div>
                         </td>  
                     </tr>
 
@@ -127,28 +128,28 @@
                         <td>
                             <div>Meal Time <br><hr>
                                 <div id="Breakfast" style="display: none;">
-                                Breakfast <br><span class="day-time"></span>
+                                Breakfast <br><span class="day-time" name="bt1"></span>
                                 To
-                                <span class="day-time"></span><input style="width: 70px; height: 20px;" type="" class="inputs" name="" placeholder="Cost">
-                                <select class="inputs" style="width: 80px; height: 30px;">
+                                <span class="day-time" name="bt2"></span><input style="width: 70px; height: 20px;" type="" class="inputs" name="bf" placeholder="Cost">
+                                <select class="inputs" name="payb" style="width: 80px; height: 30px;">
                                     <option>Daily</option><option>Monthly</option><option>Yearly</option>
                                 </select><br>
                                 </div>
 
                                 <div id="Lunch"  style="display: none;">
-                                Lunch <br><span class="day-time"></span>
+                                Lunch <br><span class="day-time" name="lt1"></span>
                                 To
-                                <span class="day-time"></span><input style="width: 70px; height: 20px;" type="" class="inputs" name="" placeholder="Cost">
-                                <select class="inputs" style="width: 80px; height: 30px;">
+                                <span class="day-time" name="lt2"></span><input style="width: 70px; height: 20px;" type="" class="inputs" name="lf" placeholder="Cost">
+                                <select class="inputs" name="payl" style="width: 80px; height: 30px;">
                                     <option>Daily</option><option>Monthly</option><option>Yearly</option>
                                 </select><br>
                                 </div>
 
                                 <div id="Dinner" style="display: none;">
-                                Dinner <br><span class="day-time"></span>
+                                Dinner <br><span class="day-time" name="dt1"></span>
                                 To
-                                <span class="day-time"></span><input style="width: 70px; height: 20px;" type="" class="inputs" name=""placeholder="Cost">
-                                <select class="inputs" style="width: 80px; height: 30px;">
+                                <span class="day-time" name="dt2"></span><input style="width: 70px; height: 20px;" type="" class="inputs" name="df" placeholder="Cost">
+                                <select class="inputs" name="payd" style="width: 80px; height: 30px;">
                                     <option>Daily</option><option>Monthly</option><option>Yearly</option>
                                 </select><br>
                                 </div>
@@ -157,14 +158,14 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><a href="#form-sec1"><button class="btn" type="button"><i class="fa fa-angle-left" aria-hidden="true"></i> Back </button></a> &nbsp  <input type="submit" value="Submit" class="btn" name="" onclick=""></td>
+                        <td><a href="#form-sec1"><button class="btn" type="button"><i class="fa fa-angle-left" aria-hidden="true"></i> Back </button></a> &nbsp  <input type="submit" value="Submit" class="btn" name="submit" onclick=""></td>
 
                     </tr>
                     
 
                 </table>
-            </div>
-             </form>
+            </form>
+            
         </div>
         <div class="side-panel" id="side-panel" style="text-align: center;">
                 
