@@ -48,12 +48,11 @@
 
         <div class="section" id="form-sec1">
             <img src="oas-logo.svg" style="height: 400px; position: fixed; top:200px; left: 900px;">
-            <form style="position: absolute; top:150px; left: 50px;" method="post" action="submit-hostel.php">
+            <form style="position: absolute; top:150px; left: 50px;" method="post" action="submit-room.php">
                 <table cellspacing="" >
-                    <tr>
-                        <td><input style="text-align: center;" id="b-name" type="" class="inputs" name="" placeholder="Hostel name" ></td> 
+                    <tr> 
                         <td><input style="text-align: center;" id="h-no" type="" class="inputs" name="" placeholder="Building/House no" ></td>  
-
+                        <td></td>
                     </tr>
                     <tr>
                         <td>
@@ -103,7 +102,7 @@
                         
                     </tr>
                     <tr>
-                        <td><a><button class="btn" type="button" onclick="rqrd(['b-name','h-no','sts','state','Landmark','Area','vt','pc'],'#form-sec2');">Next <i class="fa fa-angle-right" aria-hidden="true"></i></button></a></td>
+                        <td><a><button class="btn" type="button" onclick="rqrd(['h-no','sts','state','Landmark','Area','vt','pc'],'#form-sec2');">Next <i class="fa fa-angle-right" aria-hidden="true"></i></button></a></td>
                     </tr>
 
                 </table>
@@ -111,10 +110,10 @@
         </div>
 
         <div class="section" id="form-sec2" >
-            <div style="position: relative; top:150px; left: 50px;">
+            <div style="position: relative; top:150px; left: 50px;" >
                 <table cellspacing="15px" >
                     <tr>
-                        <td><div> Hostel type <br><hr> Boys<input type="radio" name="hostel-type" value="Boys"> Girls<input type="radio" name="hostel-type" value="Girls">
+                        <td><div> Room for <br><hr> Students<input type="radio" name="room-for" value="Students"> Employees<input type="radio" name="room-for" value="Employees">Male<input type="radio" name="room-for" value="Male"> Female<input type="radio" name="room-for" value="Female">Anyone<input type="radio" name="room-for" value="Anyone">
 
                         </div></td>
                         <td><div> Caution Money &nbsp<input style="width: 70px; height: 20px;" class="inputs" type="" name="caution-m" >
@@ -128,34 +127,35 @@
                             <br>
                             <button type="button" class="checkbtn"onclick="check(this);">Parking area</button><button type="button" class="checkbtn"onclick="check(this);">Gym</button><button type="button" class="checkbtn"onclick="check(this);">Cloth washing</button>
                             <br>
-                            <button type="button" class="checkbtn"onclick="check(this);">Breakfast</button><button type="button" class="checkbtn"onclick="check(this);">Lunch</button><button type="button" class="checkbtn"onclick="check(this);">Dinner</button>    
+                                
                             </div>
                         </td>
-                        <td><div> Hostel rules <hr><textarea style="width: 200px; border: none; height: 100px; font-family: segoe UI; font-size: 13px;" placeholder="Write here"></textarea>
+                        <td><div> Rules <hr><textarea style="width: 200px; border: none; height: 100px; font-family: segoe UI; font-size: 13px;" placeholder="Write here"></textarea>
 
                         </div></td>  
                     </tr>
                     <tr>
                         <td>
-                            <div> Room type <br><hr><button type="button" class="checkbtn" onclick="check(this);disp('b-1');">1 Bed</button><button type="button"class="checkbtn"onclick="check(this);disp('b-2');">2 Bed</button><button type="button" class="checkbtn"onclick="check(this);disp('b-3');">3 Bed</button>    
+                            <div> Room type <br><hr><button type="button" class="checkbtn" onclick="check(this);disp('b-1');">1 Room</button><button type="button"class="checkbtn"onclick="check(this);disp('b-2');">2 Room</button><button type="button" class="checkbtn"onclick="check(this);disp('b-3');">3 Room</button>    
                             </div>
                         </td>  
                     </tr>
                     <tr>
                         <td>
                             <div id="b-1" style="display: none;">
-                                1-Bed &nbsp<input style="width: 70px; height: 20px;" placeholder="Available" class="inputs" type="" name="">&nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="">
+                                1-Room &nbsp<input style="width: 70px; height: 20px;" placeholder="Available" class="inputs" type="" name="">&nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="">
 
                                 </div>
                             <div id="b-2" style="display: none;">
-                                2-Bed &nbsp<input style="width: 70px; height: 20px;" placeholder="Available" class="inputs" type="" name="">&nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="">
+                                2-Room &nbsp<input style="width: 70px; height: 20px;" placeholder="Available" class="inputs" type="" name="">&nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="">
                                 <br>
                                 </div>
                             <div id="b-3" style="display: none;">
-                                3-Bed &nbsp<input style="width: 70px; height: 20px;" placeholder="Available" class="inputs" type="" name="">&nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="">
+                                3-Room &nbsp<input style="width: 70px; height: 20px;" placeholder="Available" class="inputs" type="" name="">&nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="">
                                 <br>
                                 </div>
                         </td>
+ 
                     </tr>
 
                     <tr>
