@@ -118,7 +118,7 @@
                         <td><div> Hostel type <br><hr> Boys<input type="radio" name="hostel-type" value="Boys"> Girls<input type="radio" name="hostel-type" value="Girls">
 
                         </div></td>
-                        <td><div> Caution Money <br><hr><input style="width: 70px; height: 20px;" class="inputs" type="" name="caution-m" >
+                        <td><div> Caution Money &nbsp<input style="width: 70px; height: 20px;" class="inputs" type="" name="caution-m" >
 
                         </div></td> 
                         
@@ -131,7 +131,10 @@
                             <br>
                             <button type="button" class="checkbtn"onclick="check(this);">Breakfast</button><button type="button" class="checkbtn"onclick="check(this);">Lunch</button><button type="button" class="checkbtn"onclick="check(this);">Dinner</button>    
                             </div>
-                        </td>  
+                        </td>
+                        <td><div> Hostel rules <hr><textarea style="width: 200px; border: none; height: 100px; font-family: segoe UI; font-size: 13px;" placeholder="Write here"></textarea>
+
+                        </div></td>  
                     </tr>
                     <tr>
                         <td>
@@ -142,14 +145,15 @@
                     <tr>
                         <td>
                             <div id="b-1" style="display: none;">
-                                1-Bed &nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="">
+                                1-Bed &nbsp<input style="width: 70px; height: 20px;" placeholder="Available" class="inputs" type="" name="">&nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="">
+
                                 </div>
                             <div id="b-2" style="display: none;">
-                                2-Bed &nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="">
+                                2-Bed &nbsp<input style="width: 70px; height: 20px;" placeholder="Available" class="inputs" type="" name="">&nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="">
                                 <br>
                                 </div>
                             <div id="b-3" style="display: none;">
-                                3-Bed &nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="">
+                                3-Bed &nbsp<input style="width: 70px; height: 20px;" placeholder="Available" class="inputs" type="" name="">&nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="">
                                 <br>
                                 </div>
                         </td>
