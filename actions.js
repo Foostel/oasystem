@@ -188,3 +188,31 @@ function showPosition(position) {
 }
 getLocation();
 }
+function disp(id)
+{
+    var e = document.getElementById(id);
+    if(e.style.display=='none')
+    {
+        e.style.display='block';
+    }
+    else{
+        e.style.display='none';
+    }
+}
+
+function rqrd(v,nextloc){
+    console.log('rqrd');
+    for(var i=0; i<v.length;i++)
+    {
+        if(document.getElementById(v[i]).value=='')
+        {
+         document.getElementById(v[i]).focus();
+         alert('please fill all the required fields');
+         return 0;   
+        }
+
+    }
+    
+        window.location=nextloc;
+    
+}
