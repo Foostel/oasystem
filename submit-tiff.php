@@ -15,11 +15,20 @@ if(isset($_POST['submit']) and isset($_SESSION['id']))
   $pincode=$_POST['p'];
 
   $filename=$_FILES["uploadfile"]["name"];
+
   $filetmpname=$_FILES["uploadfile"]["tmp_name"];
-  $folder="files\services\c-tiffin\center";
+  $folder="files\services\c-tiffin\_";
+  $temp = explode(".", $_FILES["uploadfile"]["name"]);
+  $newfilename = $uid . '' . $bn.".".end($temp);
+  $filename=$newfilename;
+  move_uploaded_file($filetmpname,$folder.$filename);
   echo $filetmpname."<br>";
   echo  $filename."<br>";
-  move_uploaded_file($filetmpname, $filename);
+  echo  $newfilename."<br>";
+  //echo  $temp."<br>";
+
+  
+  //move_uploaded_file($filetmpname, $filename);
 
 
 
