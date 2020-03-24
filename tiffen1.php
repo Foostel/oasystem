@@ -15,35 +15,29 @@ if(isset($_POST['submit']) and isset($_SESSION['id']))
  	$q=mysqli_query($conn,$query);
  	if($q){
  	  	echo " center address information inserted successfully ";  }
- 	else{
- 	 	echo "try again"; }
+ 	else{echo "try again"; }
  	 	$l=0;
  	$d=0;
  	$b=0;
  	if(isset($_POST['breakfast']))
- 	{$b=1; 
-  	}
+ 	{$b=1; }
   	if(isset($_POST['lunch']))
- 	{$b=l; 
-  	}
+ 	{$b=l; 	}
   	if(isset($_POST['dinner']))
- 	{$b=1; 
-  	}	
- 	//echo $lunch." ".$dinner." ".$breakfirst;  
+ 	{$b=1; 	}
+ 			//echo $lunch." ".$dinner." ".$breakfirst;  
  
 
  	$hd=0;
  	$cae=0;
  	$c=0;
  	if(isset($_POST['Customization']))
- 	{$c=1
-  	}
+ 	{$c=1;	}
   	if(isset($_POST['home_delivery']))
- 	{$hd=1
-  	}
-  	if(isset($_POST['Come_and_eat']))
- 	{$cae=1
-  	}	
+ 	{$hd=1;	}
+  	if(
+  		isset($_POST['Come_and_eat']))
+ 	{$cae=1;	}	
  	//echo $hd." ".$cae." ".$c;  
   	$bt=$_POST['bt1']." ".$_POST['bt2'];
   	$bf=$_POST['bf'];

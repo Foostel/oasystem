@@ -35,7 +35,8 @@
         {   echo"Access denied";
             header("location:page.php");
         }
-      
+        else{
+        }
 
          ?>
         
@@ -48,7 +49,7 @@
         <div class="section" id="form-sec1">
             <img src="oas-logo.svg" style="height: 400px; position: fixed; top:200px; left: 900px;">
             <form style="position: absolute; top:150px; left: 50px;" method="post" action="tiffen1.php">
-                <table cellspacing="" >
+                <table cellspacing="" >s
                     <tr>
                         <td><input style="text-align: center;" id="b-name" type="" class="inputs" name="bn" placeholder="Business name" ></td> 
                         <td><input style="text-align: center;" id="h-no" type="" class="inputs" name="b" placeholder="Building/House no" ></td>  
@@ -106,11 +107,12 @@
                     </tr>
 
                 </table>
+            </form>
             
         </div>
 
         <div class="section" id="form-sec2" >
-            <div style="position: relative; top:150px; left: 50px;">
+            <form style="position: relative; top:150px; left: 50px;">
                 <table cellspacing="15px" >
                     <tr>
                         <td><div> Meals provided <br><hr><button type="button" class="checkbtn" name="breakfast" onclick="check(this); disp('Breakfast');">Breakfast</button><button type="button" name="lunch" onclick="check(this);disp('Lunch');" class="checkbtn" >Lunch</button><button type="button" class="checkbtn"  name="dinner" onclick="check(this);disp('Dinner');">Dinner</button> </div></td> 
@@ -162,8 +164,8 @@
                     
 
                 </table>
-            </div>
-             </form>
+            </form>
+            
         </div>
         <div class="side-panel" id="side-panel" style="text-align: center;">
                 
