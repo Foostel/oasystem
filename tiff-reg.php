@@ -106,12 +106,11 @@
                     </tr>
 
                 </table>
-            </form>
             
         </div>
 
         <div class="section" id="form-sec2" >
-            <form style="position: relative; top:150px; left: 50px;">
+            <div style="position: relative; top:150px; left: 50px;">
                 <table cellspacing="15px" >
                     <tr>
                         <td><div> Meals provided <br><hr><button type="button" class="checkbtn" name="breakfast" onclick="check(this); disp('Breakfast');">Breakfast</button><button type="button" name="lunch" onclick="check(this);disp('Lunch');" class="checkbtn" >Lunch</button><button type="button" class="checkbtn"  name="dinner" onclick="check(this);disp('Dinner');">Dinner</button> </div></td> 
@@ -163,8 +162,8 @@
                     
 
                 </table>
-            </form>
-            
+            </div>
+             </form>
         </div>
         <div class="side-panel" id="side-panel" style="text-align: center;">
                 
