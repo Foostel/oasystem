@@ -13,7 +13,17 @@ if(isset($_POST['submit']) and isset($_SESSION['id']))
   $city=$_POST['c'];
   $landmark=$_POST['l'];
   $pincode=$_POST['p'];
- 	$query="insert into tiffin_address (uid,bno,area,state,city,landmark,pincode,bn,vt) values($uid,'$bno','$area','$state','$city','$landmark',$pincode,'$bn','$vt')";
+
+  $filename=$_FILES["uploadfile"]["name"];
+  $filetmpname=$_FILES["uploadfile"]["tmp_name"];
+  $folder="files\services\c-tiffin\center";
+  echo $filetmpname."<br>";
+  echo  $filename."<br>";
+  move_uploaded_file($filetmpname, $filename);
+
+
+
+ 	$query="insert into tiffin_address (uid,bno,area,state,city,landmark,pincode,bn,vt,image) values($uid,'$bno','$area','$state','$city','$landmark',$pincode,'$bn','$vt','$filename')";
  	$q=mysqli_query($conn,$query);
  	if($q){
  	  	echo " center address information inserted successfully ";  }

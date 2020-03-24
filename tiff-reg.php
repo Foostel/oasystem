@@ -48,7 +48,7 @@
 
         <div class="section" id="form-sec1">
             <img src="oas-logo.svg" style="height: 400px; position: fixed; top:200px; left: 900px;">
-            <form style="position: absolute; top:150px; left: 50px;" method="post" action="submit-tiff.php">
+            <form style="position: absolute; top:150px; left: 50px;" method="post" action="submit-tiff.php" enctype="multipart/form-data">
                 <table cellspacing="" >
                     <tr>
                         <td><input style="text-align: center;" id="b-name" type="" class="inputs" name="bn" placeholder="Business name" ></td> 
@@ -97,7 +97,7 @@
                     <tr>
                         <td>
                             <div>Upload photos(optional)<br><br>
-                                <input style="text-align: center; width: 260px;" type="file" name=""><br><br>
+                                <input style="text-align: center; width: 260px;" type="file" name="uploadfile" id=""><br><br>
                             </div>
                         </td>
                         
