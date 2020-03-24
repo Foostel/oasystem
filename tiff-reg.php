@@ -48,7 +48,7 @@
 
         <div class="section" id="form-sec1">
             <img src="oas-logo.svg" style="height: 400px; position: fixed; top:200px; left: 900px;">
-            <form style="position: absolute; top:150px; left: 50px;" method="post" action="submit-hostel.php">
+            <form style="position: absolute; top:150px; left: 50px;" method="post" action="submit-tiff.php">
                 <table cellspacing="" >
                     <tr>
                         <td><input style="text-align: center;" id="b-name" type="" class="inputs" name="bn" placeholder="Business name" ></td> 
@@ -114,42 +114,90 @@
             <div style="position: relative; top:150px; left: 50px;">
                 <table cellspacing="15px" >
                     <tr>
-                        <td><div> Meals provided <br><hr><button type="button" class="checkbtn" name="breakfast" onclick="check(this); disp('Breakfast');">Breakfast</button><button type="button" name="lunch" onclick="check(this);disp('Lunch');" class="checkbtn" >Lunch</button><button type="button" class="checkbtn"  name="dinner" onclick="check(this);disp('Dinner');">Dinner</button> </div></td> 
+                        <td><div> Meals provided <br><hr>
+<input type="checkbox" name="meal[]" id="f1" value="Breakfirst" onclick="disp('Breakfast');" >Breakfast  &nbsp&nbsp&nbsp&nbsp&nbsp                           
+<input type="checkbox" name="meal[]" id="f1" value="Lunch" " onclick="disp('Lunch');" >Lunch &nbsp&nbsp&nbsp&nbsp&nbsp
+<input type="checkbox" name="meal[]" id="f1" value="Dinner" onclick="disp('Dinner');">Dinner  
+<br> </div></td>     
                         
                     </tr>
                     <tr>
                         <td>
-                            <div> Facilities provided <br><hr><button type="button" class="checkbtn" name="home_delivery" onclick="check(this);">Home delivery</button><button type="button" class="checkbtn" name="Come_and_eat" onclick="check(this);">Come & eat</button><button type="button" class="checkbtn" name="Customization" onclick="check(this);">Customization</button> </div>
+                        <div> Facilities provided <br><hr><input type="checkbox" name="facilities[]" id="f2" value="hd" >Home Delivery  &nbsp&nbsp&nbsp&nbsp&nbsp
+<input type="checkbox" name="facilities[]" id="f2" value="cae" name="Come_and_eat" >Come And Eat  &nbsp&nbsp&nbsp&nbsp&nbsp
+<input type="checkbox" name="facilities[]" id="f2" value="c" >Customization<br></div>
                         </td>  
                     </tr>
-
                     <tr>
                         <td>
                             <div>Meal Time <br><hr>
                                 <div id="Breakfast" style="display: none;">
-                                Breakfast <br><span class="day-time" name="bt1"></span>
+                                Breakfast <br>
+    <select class="inputs" style="width: 50px; height: 30px; " name="timebt1">
+    <option value="01">1 </option>   <option value="02">2</option>   <option value="03">3</option>   <option value="04">4</option>   <option value="05">5</option>
+    <option value="06">6</option>   <option value="07">7</option>   <option value="08">8</option>   <option value="09">9</option>   <option value="10">10</option>   <option value="11">11</option>
+    <option value="12">12</option>
+</select>
+<select class="inputs" style="width: 50px; height: 30px;" name="dnbt1">
+    <option value="AM">AM</option> <option value="PM">PM</option>
+</select>
                                 To
-                                <span class="day-time" name="bt2"></span><input style="width: 70px; height: 20px;" type="" class="inputs" name="bf" placeholder="Cost">
+    <select class="inputs" style="width: 50px; height: 30px; " name="timebt2">
+    <option value="01">1 </option>   <option value="02">2</option>   <option value="03">3</option>   <option value="04">4</option>   <option value="05">5</option>
+    <option value="06">6</option>   <option value="07">7</option>   <option value="08">8</option>   <option value="09">9</option>   <option value="10">10</option>   <option value="11">11</option>
+    <option value="12">12</option>
+</select>
+<select class="inputs" style="width: 50px; height: 30px;" name="dnbt2">
+    <option value="AM">AM</option> <option value="PM">PM</option>
+</select><input style="width: 70px; height: 20px;" type="" class="inputs" name="bf" placeholder="Cost">
                                 <select class="inputs" name="payb" style="width: 80px; height: 30px;">
-                                    <option>Daily</option><option>Monthly</option><option>Yearly</option>
+                                    <option value="">Select</option><option value="Daily">Daily</option><option value="Monthly">Monthly</option><option value="Yearly">Yearly</option>
                                 </select><br>
                                 </div>
 
                                 <div id="Lunch"  style="display: none;">
-                                Lunch <br><span class="day-time" name="lt1"></span>
+                                Lunch <br><select class="inputs" style="width: 50px; height: 30px; " name="timelt1">
+    <option value="01">1 </option>   <option value="02">2</option>   <option value="03">3</option>   <option value="04">4</option>   <option value="05">5</option>
+    <option value="06">6</option>   <option value="07">7</option>   <option value="08">8</option>   <option value="09">9</option>   <option value="10">10</option>   <option value="11">11</option>
+    <option value="12">12</option>
+</select>
+<select class="inputs" style="width: 50px; height: 30px;" name="dnlt1">
+    <option value="AM">AM</option> <option value="PM">PM</option>
+</select>
                                 To
-                                <span class="day-time" name="lt2"></span><input style="width: 70px; height: 20px;" type="" class="inputs" name="lf" placeholder="Cost">
+    <select class="inputs" style="width: 50px; height: 30px; " name="timelt2">
+    <option value="01">1 </option>   <option value="02">2</option>   <option value="03">3</option>   <option value="04">4</option>   <option value="05">5</option>
+    <option value="06">6</option>   <option value="07">7</option>   <option value="08">8</option>   <option value="09">9</option>   <option value="10">10</option>   <option value="11">11</option>
+    <option value="12">12</option>
+</select>
+<select class="inputs" style="width: 50px; height: 30px;" name="dnlt2">
+    <option value="AM">AM</option> <option value="PM">PM</option>
+</select><input style="width: 70px; height: 20px;" type="" class="inputs" name="lf" placeholder="Cost">
                                 <select class="inputs" name="payl" style="width: 80px; height: 30px;">
-                                    <option>Daily</option><option>Monthly</option><option>Yearly</option>
+                                    <option value="">Select</option><option value="Daily">Daily</option><option value="Monthly">Monthly</option><option value="Yearly">Yearly</option>
                                 </select><br>
                                 </div>
 
                                 <div id="Dinner" style="display: none;">
-                                Dinner <br><span class="day-time" name="dt1"></span>
+                                Dinner <br><select class="inputs" style="width: 50px; height: 30px; " name="timedt1">
+    <option value="01">1 </option>   <option value="02">2</option>   <option value="03">3</option>   <option value="04">4</option>   <option value="05">5</option>
+    <option value="06">6</option>   <option value="07">7</option>   <option value="08">8</option>   <option value="09">9</option>   <option value="10">10</option>   <option value="11">11</option>
+    <option value="12">12</option>
+</select>
+<select class="inputs" style="width: 50px; height: 30px;" name="dndt1">
+    <option value="AM">AM</option> <option value="PM">PM</option>
+</select>
                                 To
-                                <span class="day-time" name="dt2"></span><input style="width: 70px; height: 20px;" type="" class="inputs" name="df" placeholder="Cost">
+                                <select class="inputs" style="width: 50px; height: 30px; " name="timedt2">
+    <option value="01">1 </option>   <option value="02">2</option>   <option value="03">3</option>   <option value="04">4</option>   <option value="05">5</option>
+    <option value="06">6</option>   <option value="07">7</option>   <option value="08">8</option>   <option value="09">9</option>   <option value="10">10</option>   <option value="11">11</option>
+    <option value="12">12</option>
+</select>
+<select class="inputs" style="width: 50px; height: 30px;" name="dndt2">
+    <option value="AM">AM</option> <option value="PM">PM</option>
+</select><input style="width: 70px; height: 20px;" type="" class="inputs" name="df" placeholder="Cost">
                                 <select class="inputs" name="payd" style="width: 80px; height: 30px;">
-                                    <option>Daily</option><option>Monthly</option><option>Yearly</option>
+                                    <option value="">Select</option><option value="Daily">Daily</option><option value="Monthly">Monthly</option><option value="Yearly">Yearly</option>
                                 </select><br>
                                 </div>
 
