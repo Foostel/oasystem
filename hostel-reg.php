@@ -33,7 +33,7 @@
         session_start();
         if(!isset($_SESSION['id']))
         {   echo"Access denied";
-            header("location:page.php");
+            header("location:u-sign-in.php?nxt=hostel-reg.php");
         }
         else{
         }
