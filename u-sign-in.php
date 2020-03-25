@@ -22,7 +22,7 @@
 			<h1>Sign in <img src="oas-logo.svg" style=" display:inline-block;height: 50px; margin-top: 10px;"></h1>
 			<input style="border:solid; border-width: 1.5px; height: 30px; width: 200px;" class="inputs" type="" name="e-mail" placeholder="Email" required="true"><br>
         <input style="border:solid;border-width: 1.5px;  height: 30px; width: 200px;" class="inputs" type="password" name="pass" placeholder="Password"><br>
-        <input id="submit" type="submit" name="submit" value="LOGIN" class="btn" style="height: 30px; width: 70px;"><br><br>
+        <input id="submit" type="submit" name="submit" value="Sign In" class="btn" style="height: 30px; width: 70px; font-family: segoe UI;"><br><br>
         <a href="register.php"style="color:black;">Not registered ?</a>
 		</form>
 		<span id="msg" style="color:red;"></span>
@@ -48,7 +48,14 @@ else{
     $row=mysqli_query($conn,$qrid);
     $res=$row->fetch_assoc();
     $_SESSION['id']=$res['id'];
-    header("location:user-home.php");
+    if(isset($_GET['nxt']))
+    {
+    	header("location:".$_GET['nxt']);
+    }
+    else{
+    	header("location:user-home.php");
+    }
+    
 }
 }
 ?>

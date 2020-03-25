@@ -33,7 +33,7 @@
         session_start();
         if(!isset($_SESSION['id']))
         {   echo"Access denied";
-            header("location:page.php");
+            header("location:u-sign-in.php?nxt=tiff-reg.php");
         }
         else{
         }
@@ -48,7 +48,7 @@
 
         <div class="section" id="form-sec1">
             <img src="oas-logo.svg" style="height: 400px; position: fixed; top:200px; left: 900px;">
-            <form style="position: absolute; top:150px; left: 50px;" method="post" action="submit-hostel.php">
+            <form style="position: absolute; top:150px; left: 50px;" method="post" action="submit-tiff.php">
                 <table cellspacing="" >
                     <tr>
                         <td><input style="text-align: center;" id="b-name" type="" class="inputs" name="bn" placeholder="Business name" ></td> 
@@ -114,7 +114,7 @@
             <div style="position: relative; top:150px; left: 50px;">
                 <table cellspacing="15px" >
                     <tr>
-                        <td><div> Meals provided <br><hr><button type="button" class="checkbtn" name="breakfast" onclick="check(this); disp('Breakfast');">Breakfast</button><button type="button" name="lunch" onclick="check(this);disp('Lunch');" class="checkbtn" >Lunch</button><button type="button" class="checkbtn"  name="dinner" onclick="check(this);disp('Dinner');">Dinner</button> </div></td> 
+                        <td><div> Meals provided <br><hr><span type="button" class="checkbtn" name="breakfast" onclick="check(this); disp('Breakfast');">Breakfast</span><button type="button" name="lunch" onclick="check(this);disp('Lunch');" class="checkbtn" >Lunch</button><button type="button" class="checkbtn"  name="dinner" onclick="check(this);disp('Dinner');">Dinner</button> </div></td> 
                         
                     </tr>
                     <tr>
