@@ -27,7 +27,7 @@
 
 	?>
 
-	<img onclick="toggle('pp-update');" id="u-pp" style='cursor:pointer;height:70px; border:solid red; border-radius:50%;'><p id="u-name" style='margin-top:0px; font-weight:600;'></p>
+	<img onclick="h=true;toggle('pp-update');" id="u-pp" style='cursor:pointer;height:70px; width:70px; border:solid red; border-radius:50%;'><p id="u-name" style='margin-top:0px; font-weight:600;'></p>
 	<a href="" style="display:inline-block;font-size: 15px; margin-top: 10px;">Edit profile <i class="fa fa-angle-right" aria-hidden="true"></i></a>
 	<a href="" style="display:inline-block;font-size: 15px; margin-top: 10px;">Settings <i class="fa fa-cog" aria-hidden="true"></i></a>
 	<a href="logout.php"><button class="btn" style="width: 100px;margin-top: 100px;">Sign out </button></a>

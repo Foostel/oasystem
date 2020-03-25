@@ -16,5 +16,5 @@ session_start();
 		$phone=$result['phone'];
 		$email=$result['email'];
 		#$pp=$id."_pp.png";
-		$pp='user-logo.png';
+		$pp='files/user/'.$id.'_PP.jpg';
  ?>
