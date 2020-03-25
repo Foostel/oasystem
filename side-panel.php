@@ -32,6 +32,6 @@
 	<a href="" style="display:inline-block;font-size: 15px; margin-top: 10px;">Settings <i class="fa fa-cog" aria-hidden="true"></i></a>
 	<a href="logout.php"><button class="btn" style="width: 100px;margin-top: 100px;">Sign out </button></a>
 </div>
-<div class="pop-up" id="pp-update" style="text-align: center;">
+<div class="overlays pop-up" id="pp-update" style="text-align: center;">
 	
 </div>

@@ -4,7 +4,7 @@ function blur(){
     console.log("blr");
     var i= document.getElementsByClassName('section');
         console.log(i);
-        if(h){
+        if(!h){
         for(let s=0;s<i.length;s++)
         {
             i[s].style.filter="blur(12px)";
@@ -15,24 +15,34 @@ function blur(){
             for(let s=0;s<i.length;s++)
         {
             i[s].style.filter="none";
-            console.log(s);
         }
 
         }
 
 }
+function clearPopups(){
+            let x=document.getElementsByClassName('overlays');
+            for(i=0;i<x.length;i++)
+            {
+                x[i].style.display='none';
+                h=true;
+            }
+            blur();
+        }
+
 function toggle(s){
-	if(h){
-		console.log("TOggle h11111");
+	if(document.getElementById(s).style.display=="none"){
+	console.log("Block");
 	document.getElementById(s).style.display="block";
-    blur();
 	h=false;
+    blur();
 	}
 	else{
 		console.log("TOggle else");
 		document.getElementById(s).style.display="none";
 		blur();
         h=true;
+        console.log(h);
 	}
 
 }

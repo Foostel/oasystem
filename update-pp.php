@@ -16,6 +16,7 @@
 	}
 </script>
 <div style="display: inline-block;">
+	<i class="fa fa-times" aria-hidden="true" style="position:absolute; top:5px;color:gray; font-size: 30px; left:93%; cursor: pointer;" onclick="document.getElementById('pp-update').style.display='none';" ></i>
 	<p>Profile Picture</p>
 	<?php 
 	require'user-data.php';

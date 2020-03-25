@@ -26,6 +26,7 @@
             $(function(){
                 $('#About-us-panel').load("About-us.php");
             });
+            
         </script>
         <?php 
         session_start();
@@ -44,8 +45,8 @@
         <div class="header" id="header">
         </div>
 
-        <div class="section" id="services-p">
-        <div id="service-map-panel" onclick="if(!h){toggle('side-panel');}">
+        <div class="section" id="services-p" onclick="clearPopups();">
+        <div id="service-map-panel" >
         </div>
         <div id="service-panel" onclick="if(!h){toggle('side-panel');}">
         </div>
@@ -57,7 +58,7 @@
 
         
         <div class="section" id="Contact us" onclick="if(!h){toggle('side-panel');}"></div>
-        <div class="side-panel" id="side-panel" style="text-align: center;">
+        <div class="overlays side-panel" id="side-panel" style="text-align: center;">
                 
         </div>
         
