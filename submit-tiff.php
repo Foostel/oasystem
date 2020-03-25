@@ -15,7 +15,6 @@ if(isset($_POST['submit']) and isset($_SESSION['id']))
   $pincode=$_POST['p'];
 
   $filename=$_FILES["uploadfile"]["name"];
-
   $filetmpname=$_FILES["uploadfile"]["tmp_name"];
   $folder="files\services\c-tiffin\_";
   $temp = explode(".", $_FILES["uploadfile"]["name"]);

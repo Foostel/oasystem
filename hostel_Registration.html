@@ -1,3 +1,12 @@
+<!--
+CREATE TABLE hostel_address ( uid int(6) NOT NULL , cid int(6) NOT NULL auto_increment, bn varchar(50) NOT NULL default '', bno varchar(10) NOT NULL default '', state varchar(50) NOT NULL default '', city varchar(50) NOT NULL default '', landmark varchar(50) NOT NULL default '', pincode int(6) NOT NULL default '0', vt varchar(50) NOT NULL default '', PRIMARY KEY cid (cid) ) auto_increment=10001
+
+
+CREATE TABLE hostel_facility ( uid int(6) NOT NULL , cid int(6) NOT NULL auto_increment, ht varchar(10) NOT NULL default '', gym int(1) NOT NULL default '0', p int(1) NOT NULL default '0', m int(1) NOT NULL default '0', w int(1) NOT NULL default '0', g int(1) NOT NULL default '0', rs int(1) NOT NULL default '0', ab int(1) NOT NULL default '0', ac int(1) NOT NULL default '0', cw int(1) NOT NULL default '0', PRIMARY KEY cid (cid) ) auto_increment=10001
+
+CREATE TABLE hostel_info ( uid int(6) NOT NULL , cid int(6) NOT NULL auto_increment, b1 int(3) NOT NULL default '0', ab1 int(3) NOT NULL default '0', rb1 int(5) NOT NULL default '0', b2 int(3) NOT NULL default '0', ab2 int(3) NOT NULL default '0', rb2 int(5) NOT NULL default '0', b3 int(3) NOT NULL default '0', ab3 int(3) NOT NULL default '0', rb3 int(5) NOT NULL default '0', b4 int(3) NOT NULL default '0', ab4 int(3) NOT NULL default '0', rb4 int(5) NOT NULL default '0', cm int(5) NOT NULL default '0', PRIMARY KEY cid (cid) ) auto_increment=10001
+
+-->
 <html>
 <head>
 <script src="validation.js"></script>
@@ -60,58 +69,20 @@
 <br>
 <lable>Fee Structure</lable>
 <br>
-<table>
-<tr>
-	<th>Room Type</th>
-	<th>Room Fee/Month</th>
-	<th>Number of Rooms</th>
-</tr>
-<tr>
-	<td>1 Seater</td>
-	<td><input type="text" name="ft1" id="ft1"></td>
-	<td><input type="text" name="fn1" id="fn1"></td>
-</tr>
-<tr>
-	<td>2 Seater</td>
-	<td><input type="text" name="ft2" id="ft2"></td>
-	<td><input type="text" name="fn2" id="fn2"></td>
-</tr>
-<tr>
-	<td>3 Seater</td>
-	<td><input type="text" name="ft3" id="ft3"></td>
-	<td><input type="text" name="fn3" id="fn3"></td>
-</tr>
-<tr>
-	<td>4 Seater</td>
-	<td><input type="text" name="ft4" id="ft4"></td>
-	<td><input type="text" name="fn4" id="fn4"></td>
-</tr>
-<tr>
-	<td>5 Seater</td>
-	<td><input type="text" name="ft5" id="ft5"></td>
-	<td><input type="text" name="fn5" id="fn5"></td>
-</tr>
-<tr>
-	<td><input type="text" name="rt4" id="rt4"></td>
-	<td><input type="text" name="ft4" id="ft4"></td>
-</tr>
-<tr>
-	<td>Caution Money</td>
-	<td><input type="text" name="ft4" id="ft4"></td>
-</tr>
-</table>
+<input type="checkbox" name="facilites[]" id="f" value="Gym">Gym<br>
+            <input type="checkbox" name="facilites[]" id="f" value="Parking Area">Parking Area<br>
+            <input type="checkbox" name="facilites[]" id="f" value="Mess">Mess<br> 
 <br>
 <hr>
 <br>
 <label>Facilites Provided</label><br>
-<input type="checkbox" name="f1" id="f1" value="f1">Gym<br>
-<input type="checkbox" name="f2" id="f2" value="f2">Parking Area<br>
-<input type="checkbox" name="f3" id="f3" value="f3">Breakfast<br>
-<input type="checkbox" name="f4" id="f4" value="f4">Wifi<br>
-<input type="checkbox" name="f5" id="f5" value="f5">Geaser<br>
-<input type="checkbox" name="f6" id="f6" value="f6">Room Service<br>
-<input type="checkbox" name="f7" id="f7" value="f7">Attach Bathrooms<br>
-<input type="checkbox" name="f8" id="f8" value="f8">AC<br>
+<input type="checkbox" name="facilites[]" id="f" value="Gym">Gym<br>
+            <input type="checkbox" name="room[]" id="r" value="1" onclick="disp('b-1');">1-Bed<br>
+            <input type="checkbox" name="room[]" id="r" value="2" onclick="disp('b-2');">2-Bed<br>       
+            <input type="checkbox" name="room[]" id="r" value="3" onclick="disp('b-3');">3-Bed<br>
+            <input type="checkbox" name="room[]" id="r" value="4" onclick="disp('b-4');">4-Bed<br>
+            
+
 Any Additional Facillities<br>
 <textarea row="50" column="100" name="f9" id="facilites"></textarea>
 <br>
