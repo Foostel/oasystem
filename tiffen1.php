@@ -22,34 +22,36 @@ if(isset($_POST['submit']) and isset($_SESSION['id']))
  	if(isset($_POST['breakfast']))
  	{$b=1; }
   	if(isset($_POST['lunch']))
- 	{$b=l; 	}
+ 	{$l=l; 	}
   	if(isset($_POST['dinner']))
- 	{$b=1; 	}
- 			//echo $lunch." ".$dinner." ".$breakfirst;  
+ 	{$d=1; 	}
+ 			echo $l." ".$d." ".$b;  
  
 
  	$hd=0;
  	$cae=0;
  	$c=0;
- 	if(isset($_POST['Customization']))
+ 	if(isset($_REQUEST['Customization']))
  	{$c=1;	}
-  	if(isset($_POST['home_delivery']))
+  	if(isset($_REQUEST['home_delivery']))
  	{$hd=1;	}
-  	if(
-  		isset($_POST['Come_and_eat']))
+  	if(isset($_REQUEST['Come_and_eat']))
  	{$cae=1;	}	
- 	//echo $hd." ".$cae." ".$c;  
-  	$bt=$_POST['bt1']." ".$_POST['bt2'];
+ 	echo $hd." ".$cae." ".$c;  
+  	$bt=$_POST['timebt'];
+    $bt1=$_POST['timebt1'];
   	$bf=$_POST['bf'];
-  	$lt=$_POST['lt1']." ".$_POST['lt2'];
+  	$lt=$_POST['timelt'];
+    $lt1=$_POST['timelt1'];
   	$lf=$_POST['lf'];
-  	$dt=$_POST['dt1']." ".$_POST['dt2'];
+  	$dt=$_POST['timedt'];
+    $dt1=$_POST['timedt1'];
   	$df=$_POST['df'];
   	$payb=$_POST['payb'];
   	$payl=$_POST['payl'];  	
-  	$payd=$_POST['payl'];
+  	$payd=$_POST['payd'];
 
-  	$query="insert into tiffin_facility(uid,l,lt,lf,b,bt,bf,d,dt,df) values($uid,$l,'$lt','$lf',$b,'$bt','$bf',$d,'$dt','$df')";
+   $query="insert into tiffin_facility(uid,l,lt,lf,b,bt,bf,d,dt,df,payb,payl,payd) values($uid,$l,'$lt','$lf',$b,'$bt','$bf',$d,'$dt','$df','$payb','$payl','$payd',$hd,$cae,$lt1,'$bt1','$dt1')";
   	$q=mysqli_query($conn,$query);
   if($q){
   	echo " center facilities information inserted successfully ";  }

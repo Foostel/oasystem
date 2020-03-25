@@ -33,15 +33,15 @@
 <span id="add6" class="text-danger font-weidth-bold" style="color:red"></span><br>
 
 <label>Meals Provided</label><br>
-<input type="checkbox" name="meal[]" id="f1" value="Lunch">Lunch<br>
-<input type="checkbox" name="meal[]" id="f1" value="Dinner">Dinner<br>
-<input type="checkbox" name="meal[]" id="f1" value="Breakfirst">Breakfast<br>
+<input type="checkbox" name="meal[]" id="f1" value="Lunch" onclick="check(this);disp('Lunch');">Lunch &nbsp&nbsp&nbsp&nbsp&nbsp
+<input type="checkbox" name="meal[]" id="f1" value="Dinner"  onclick="check(this);disp('Dinner');">Dinner  &nbsp&nbsp&nbsp&nbsp&nbsp
+<input type="checkbox" name="meal[]" id="f1" value="Breakfirst" onclick="check(this); disp('Breakfast');">Breakfast<br>
 <hr>
 <br>
 <label>Facilities Provided</label><br>
-<input type="checkbox" name="facilities[]" id="f2" value="hd">Home Delivery<br>
-<input type="checkbox" name="facilities[]" id="f2" value="cae">Come And Eat<br>
-<input type="checkbox" name="facilities[]" id="f2" value="c">Customization<br>
+<input type="checkbox" name="facilities[]" id="f2" value="hd" onclick="check(this);">Home Delivery  &nbsp&nbsp&nbsp&nbsp&nbsp
+<input type="checkbox" name="facilities[]" id="f2" value="cae" name="Come_and_eat" onclick="check(this);">Come And Eat  &nbsp&nbsp&nbsp&nbsp&nbsp
+<input type="checkbox" name="facilities[]" id="f2" value="c" onclick="check(this);">Customization<br>
 <hr>
 <br>
 <table>

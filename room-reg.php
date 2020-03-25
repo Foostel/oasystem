@@ -48,37 +48,37 @@
 
         <div class="section" id="form-sec1">
             <img src="oas-logo.svg" style="height: 400px; position: fixed; top:200px; left: 900px;">
-            <form style="position: absolute; top:150px; left: 50px;" method="post" action="submit-room.php">
+            <form style="position: absolute; top:150px; left: 50px;" method="post" action="submit-room.php" enctype="multipart/form-data">
                 <table cellspacing="" >
                     <tr> 
-                        <td><input style="text-align: center;" id="h-no" type="" class="inputs" name="" placeholder="Building/House no" ></td>  
+                        <td><input style="text-align: center;" id="h-no" type="" class="inputs" name="b" placeholder="Building/House no" ></td>  
                         <td></td>
                     </tr>
                     <tr>
                         <td>
-                            <select  style="height: 50px; width: 260px;text-align: center;" class="inputs" onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select>
+                            <select  style="height: 50px; width: 260px;text-align: center;" class="inputs" onchange="print_city('state', this.selectedIndex);" id="sts" name ="s" class="form-control" required></select>
                         </td>
                         <td>
                             <script language="javascript">print_state("sts");</script>
-                            <select  style="height: 50px;width: 260px; text-align: center;" class="inputs" id ="state" class="form-control" required></select>
+                            <select  style="height: 50px;width: 260px; text-align: center;" class="inputs" id ="state" name="c" class="form-control" required></select>
                         </td>
                     </tr>
 
                     <tr>
                         <td>
-                            <input id="Landmark" style="text-align: center;" type="" class="inputs" name="" placeholder="Landmark" >
+                            <input id="Landmark" style="text-align: center;" type="" class="inputs" name="l" placeholder="Landmark" >
                         </td>
                         <td>
-                            <input id="Area" style="text-align: center;" type="" class="inputs" name="" placeholder="Area/Coloney/Street" >
+                            <input id="Area" style="text-align: center;" type="" class="inputs" name="a" placeholder="Area/Coloney/Street" >
                         </td>
                     </tr>
 
                     <tr>
                         <td>
-                            <input id="vt" style="text-align: center;" type="" class="inputs" name="" placeholder="Village/Town" >
+                            <input id="vt" style="text-align: center;" type="" class="inputs" name="vt" placeholder="Village/Town" >
                         </td>
                         <td>
-                            <input id="pc" style="text-align: center;" type="" class="inputs" name="" placeholder="Pincode" >
+                            <input id="pc" style="text-align: center;" type="" class="inputs" name="p" placeholder="Pincode" >
                         </td>
                     </tr>
 
@@ -96,7 +96,7 @@
                     <tr>
                         <td>
                             <div>Upload photos(optional)<br><br>
-                                <input style="text-align: center; width: 260px;" type="file" name=""><br><br>
+                                <input style="text-align: center; width: 260px;" type="file" name="uploadfile"><br><br>
                             </div>
                         </td>
                         
@@ -113,8 +113,13 @@
             <div style="position: relative; top:150px; left: 50px;" >
                 <table cellspacing="15px" >
                     <tr>
-                        <td><div> Room for <br><hr> Students<input type="radio" name="room-for" value="Students"> Employees<input type="radio" name="room-for" value="Employees">Male<input type="radio" name="room-for" value="Male"> Female<input type="radio" name="room-for" value="Female">Anyone<input type="radio" name="room-for" value="Anyone">
-
+                        <td><div> Room for <br><hr> 
+                        <input type="radio" name="gender" id="gender1" value="Male">MALE
+                        <input type="radio" name="gender" id="gender1" value="Female">FEMALE
+                        <br><br>
+                        <input type="radio" name="work" id="work1" value="Student">STUDENT
+                        <input type="radio" name="work" id="work1" value="Employee">EMPLOYEE
+                    <br>
                         </div></td>
                         <td><div> Caution Money &nbsp<input style="width: 70px; height: 20px;" class="inputs" type="" name="caution-m" >
 
@@ -123,11 +128,15 @@
                     </tr>
                     <tr>
                         <td>
-                            <div> Facilities provided <br><hr><button type="button" class="checkbtn" onclick="check(this);">Room service</button><button type="button"class="checkbtn"onclick="check(this);">AC</button><button type="button" class="checkbtn"onclick="check(this);">Attached bath</button>
-                            <br>
-                            <button type="button" class="checkbtn"onclick="check(this);">Parking area</button><button type="button" class="checkbtn"onclick="check(this);">Gym</button><button type="button" class="checkbtn"onclick="check(this);">Cloth washing</button>
-                            <br>
-                                
+                            <div> Facilities provided <br><hr>
+<input type="checkbox" name="facilites[]" id="f" value="Parking Area">Parking Area<br>
+<input type="checkbox" name="facilites[]" id="f" value="Wifi">Wifi<br>
+<input type="checkbox" name="facilites[]" id="f" value="Room Service">Room Service<br>
+<input type="checkbox" name="facilites[]" id="f" value="Attach Bathrooms">Attach Bathrooms<br>
+<input type="checkbox" name="facilites[]" id="f" value="Table&Chair">Table&Chair<br>
+<input type="checkbox" name="facilites[]" id="f" value="Bed">Bed<br>
+<input type="checkbox" name="facilites[]" id="f" value="Cupboard">Cupboard<br>
+    
                             </div>
                         </td>
                         <td><div> Rules <hr><textarea style="width: 200px; border: none; height: 100px; font-family: segoe UI; font-size: 13px;" placeholder="Write here"></textarea>
@@ -136,22 +145,27 @@
                     </tr>
                     <tr>
                         <td>
-                            <div> Room type <br><hr><button type="button" class="checkbtn" onclick="check(this);disp('b-1');">1 Room</button><button type="button"class="checkbtn"onclick="check(this);disp('b-2');">2 Room</button><button type="button" class="checkbtn"onclick="check(this);disp('b-3');">3 Room</button>    
+                            <div> 
+
+<input type="checkbox" name="room[]" id="r" value="1r" onclick="disp('b-1');">1-room<br>
+<input type="checkbox" name="room[]" id="r" value="2r" onclick="disp('b-2');">2-room<br>
+<input type="checkbox" name="room[]" id="r" value="rk" onclick="disp('b-3');">Room&Kitchen<br>
+   
                             </div>
                         </td>  
                     </tr>
                     <tr>
                         <td>
                             <div id="b-1" style="display: none;">
-                                1-Room &nbsp<input style="width: 70px; height: 20px;" placeholder="Available" class="inputs" type="" name="">&nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="">
+                                1-Room &nbsp<input style="width: 70px; height: 20px;" placeholder="Available" class="inputs" type="" name="r1a">&nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="r1c">
 
                                 </div>
                             <div id="b-2" style="display: none;">
-                                2-Room &nbsp<input style="width: 70px; height: 20px;" placeholder="Available" class="inputs" type="" name="">&nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="">
+                                2-Room &nbsp<input style="width: 70px; height: 20px;" placeholder="Available" class="inputs" type="" name="r2a">&nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="r2c">
                                 <br>
                                 </div>
                             <div id="b-3" style="display: none;">
-                                3-Room &nbsp<input style="width: 70px; height: 20px;" placeholder="Available" class="inputs" type="" name="">&nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="">
+                                Room & Kitchen &nbsp<input style="width: 70px; height: 20px;" placeholder="Available" class="inputs" type="" name="rka">&nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="rkc">
                                 <br>
                                 </div>
                         </td>
@@ -159,7 +173,7 @@
                     </tr>
 
                     <tr>
-                        <td><a href="#form-sec1"><button class="btn" type="button"><i class="fa fa-angle-left" aria-hidden="true"></i> Back </button></a> &nbsp  <input type="submit" value="Submit" class="btn" name="" onclick=""></td>
+                        <td><a href="#form-sec1"><button class="btn" type="button"><i class="fa fa-angle-left" aria-hidden="true"></i> Back </button></a> &nbsp  <input type="submit" value="Submit" class="btn" name="submit" onclick=""></td>
 
                     </tr>
                     
