@@ -23,12 +23,11 @@ if(isset($_POST['submit']))
 		$filetype = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 		$imgTypes = array('jpg','jpeg','png');
 		$add=checkExtension($filetype,$imgTypes);
-		
 		if($add)
 		{	echo '---- '.$_FILES['photo']['tmp_name'].'---- ';
 			if(move_uploaded_file($_FILES['photo']['tmp_name'], $target_file))
-				{
-					header("location: user-home.php");
+				{	$s = mysqli_query($conn,"UPDATE User SET pp = '$target_file' WHERE id = '$id';");
+					if($s){echo"sucess";}else{echo"failur";}
 				}
 				else{
 					echo"<center>Something went wrong. :(</center>";

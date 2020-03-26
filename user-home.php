@@ -1,5 +1,6 @@
 <!DOCTYPE html>
     <head>
+        <meta http-equiv="Pragma" content="no-cache">
         <title>Foostel</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -29,7 +30,7 @@
             
         </script>
         <?php 
-        session_start();
+        require'user-data.php';
         if(!isset($_SESSION['id']))
         {   echo"Access denied";
             header("location:page.php");
@@ -38,6 +39,28 @@
         }
 
          ?>
+         <?php
+        
+        if(!isset($_SESSION['id']))
+        {
+            header("location:page.php");
+        }
+        //code to retrive user profile using session veriable index 'userID'
+         
+        $user_name=$fname.' '.$lname;
+        echo "
+        <script>
+        document.getElementsByClassName('user-pic')[0].src='$pp';
+        document.getElementsByClassName('user-pic')[1].src='$pp';
+        </script>
+        ";
+        echo "
+        <script>
+        let x = document.getElementsByClassName('user-pic').innerHTML='$user_name';
+        </script>
+        "; 
+
+    ?>
         
     </head>
 
@@ -48,16 +71,16 @@
         <div class="section" id="services-p" onclick="clearPopups();">
         <div id="service-map-panel" >
         </div>
-        <div id="service-panel" onclick="if(!h){toggle('side-panel');}">
+        <div id="service-panel" onclick="clearPopups();">
         </div>
         </div>
         
-        <div class="section" id="About-us-panel" onclick="if(!h){toggle('side-panel');}">
+        <div class="section" id="About-us-panel" onclick="clearPopups();">
             
         </div>
 
         
-        <div class="section" id="Contact us" onclick="if(!h){toggle('side-panel');}"></div>
+        <div class="section" id="Contact us" onclick="clearPopups();"></div>
         <div class="overlays side-panel" id="side-panel" style="text-align: center;">
                 
         </div>

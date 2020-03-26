@@ -8,6 +8,7 @@ function blur(){
         for(let s=0;s<i.length;s++)
         {
             i[s].style.filter="blur(12px)";
+
             console.log(s);
         }
         }
@@ -24,25 +25,27 @@ function clearPopups(){
             let x=document.getElementsByClassName('overlays');
             for(i=0;i<x.length;i++)
             {
-                x[i].style.display='none';
+                x[i].style.display='';
                 h=true;
             }
             blur();
         }
 
 function toggle(s){
-	if(document.getElementById(s).style.display=="none"){
+	var k = document.getElementById(s).style.display;
+    console.log(k);
+    if(k==''){
 	console.log("Block");
 	document.getElementById(s).style.display="block";
 	h=false;
     blur();
 	}
 	else{
-		console.log("TOggle else");
-		document.getElementById(s).style.display="none";
-		blur();
+		
+		document.getElementById(s).style.display="";
+        console.log("None");
         h=true;
-        console.log(h);
+		blur();
 	}
 
 }

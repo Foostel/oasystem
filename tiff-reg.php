@@ -46,7 +46,7 @@
         <div class="header" id="header">
         </div>
 
-        <div class="section" id="form-sec1">
+        <div class="section" id="form-sec1" onclick="clearPopups();">
             <img src="oas-logo.svg" style="height: 400px; position: fixed; top:200px; left: 900px;">
             <form style="position: absolute; top:150px; left: 50px;" method="post" action="submit-tiff.php" enctype="multipart/form-data">
                 <table cellspacing="" >
@@ -110,13 +110,13 @@
             
         </div>
 
-        <div class="section" id="form-sec2" >
+        <div class="section" id="form-sec2" onclick="clearPopups();">
             <div style="position: relative; top:150px; left: 50px;">
                 <table cellspacing="15px" >
                     <tr>
                         <td><div> Meals provided <br><hr>
 <input type="checkbox" name="meal[]" id="f1" value="Breakfirst" onclick="disp('Breakfast');" >Breakfast  &nbsp&nbsp&nbsp&nbsp&nbsp                           
-<input type="checkbox" name="meal[]" id="f1" value="Lunch" " onclick="disp('Lunch');" >Lunch &nbsp&nbsp&nbsp&nbsp&nbsp
+<input type="checkbox" name="meal[]" id="f1" value="Lunch"  onclick="disp('Lunch');" >Lunch &nbsp&nbsp&nbsp&nbsp&nbsp
 <input type="checkbox" name="meal[]" id="f1" value="Dinner" onclick="disp('Dinner');">Dinner  
 <br> </div></td>     
                         
@@ -215,7 +215,7 @@
             </form>
             
         </div>
-        <div class="side-panel" id="side-panel" style="text-align: center;">
+        <div class="overlays side-panel" id="side-panel" style="text-align: center;">
                 
         </div>
         <div class="pop-up" id="pop-up" style="text-align:center;">

@@ -151,6 +151,11 @@ a:hover{
     from{opacity: 0;}
     to {opacity: 1;}
 }
+
+@keyframes faded-out{
+    from{opacity: 1;}
+    to {opacity: 0;}
+}
 #register{
     display: inline-block;
     position: absolute;
@@ -160,6 +165,8 @@ a:hover{
     color: black;
 }
 #side-panel{
+    animation-name: faded;
+    animation-duration: .4s;
     position: fixed;
     right: 0px;
     top:110px;

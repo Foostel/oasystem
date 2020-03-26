@@ -26,7 +26,7 @@
         if($i)
         {
             echo '<script>alert('.'"registered successfully... login again to continue."'.');</script>';
-            header("location:user-home.php");
+            header("location:u-sign-in.php");
         }
         else{
             echo "try again";

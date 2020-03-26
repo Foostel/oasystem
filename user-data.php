@@ -15,6 +15,5 @@ session_start();
 		$age=$result['age'];
 		$phone=$result['phone'];
 		$email=$result['email'];
-		#$pp=$id."_pp.png";
-		$pp='files/user/'.$id.'_PP.jpg';
+		$pp=$result['pp'];
  ?>

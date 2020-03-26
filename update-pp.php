@@ -15,13 +15,11 @@
 		return 1;
 	}
 </script>
-<div style="display: inline-block;">
-	<i class="fa fa-times" aria-hidden="true" style="position:absolute; top:5px;color:gray; font-size: 30px; left:93%; cursor: pointer;" onclick="document.getElementById('pp-update').style.display='none';" ></i>
-	<p>Profile Picture</p>
+<div style="display: inline-block; width: 100px;">
 	<?php 
 	require'user-data.php';
 	echo"
-	<label style='cursor:pointer;' for='updatepp'><img id='ppic' style='width:200px; height:200px;' src='$pp'></label>
+	<label style='cursor:pointer;' for='updatepp'><img id='ppic' style='width:70px; height:70px;' src='$pp'></label>
 	";
 
 	 ?>
@@ -30,5 +28,5 @@
 	 <input style="display: none" type="submit" name="submit" id="submit">
 	 
 	 </form>
-
+	 <p><?php echo $fname.' '.$lname; ?></p>
 </div>

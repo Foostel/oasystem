@@ -46,7 +46,7 @@
         <div class="header" id="header">
         </div>
 
-        <div class="section" id="form-sec1">
+        <div class="section" onclick="clearPopups();" id="form-sec1">
             <img src="oas-logo.svg" style="height: 400px; position: fixed; top:200px; left: 900px;">
             <form style="position: absolute; top:150px; left: 50px;" method="post" action="submit-room.php" enctype="multipart/form-data">
                 <table cellspacing="" >
@@ -109,7 +109,7 @@
             
         </div>
 
-        <div class="section" id="form-sec2" >
+        <div class="section" id="form-sec2" onclick="clearPopups();">
             <div style="position: relative; top:150px; left: 50px;" >
                 <table cellspacing="15px" >
                     <tr>
@@ -182,7 +182,7 @@
             </div>
             </form>
         </div>
-        <div class="side-panel" id="side-panel" style="text-align: center;">
+        <div class="overlays side-panel" id="side-panel" style="text-align: center;">
                 
         </div>
         <div class="pop-up" id="pop-up" style="text-align:center;">
