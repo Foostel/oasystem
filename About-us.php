@@ -1,3 +1,3 @@
-<div style="color:white;" id="About-us">
-	<center><p style="color: white;">ABOUT US WILL BE SHOWN HERE</p>	</center>
+<div style="color:white; position: relative;top:150px; display: inline-block;" id="About-us">
+	<p style="color: black; font-size: 30px;">About us</p>
 </div>

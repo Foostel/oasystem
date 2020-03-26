@@ -14,6 +14,12 @@
             $(function(){
                 $('#RYS').load("r-y-s.php");
             });
+            $(function(){
+                $('#About-us').load("About-us.php");
+            });
+            $(function(){
+                $('#Contact-us').load("Contact-us.php");
+            });
         </script>
         <?php 
         session_start();
@@ -34,18 +40,15 @@
         	<div class="search" style="">
         		<form>
         		<h2>LOOKING FOR ROOMS/HOSTELS/FOOD ?</h2>
-        		<input type="text" name="" class="search-box">
-        		<a href=""><img src="search-box.svg" style="height: 52px; position: absolute; top:72px; left:316px;   "></a>
+        		<input type="text" name="" class="search-box" style="padding-right: 40px;">
+                <button class="btn loc"><i style="font-size: 20px;" class="fa fa-map-marker" aria-hidden="true"></i></button>
+        		<button type="submit" class="btn" style="height: 50px; width: 50px; display: inline-block;"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </form>
         	</form>
-        	<a href="">FIND NEAR ME <i class="fa fa-map-marker" style="color:red;"></i></a>
         	</div>
-        </div>
-        <div class="section"  onclick="if(!h){toggle('pop-up');}">
         </div>
         <div style="text-align: center;" class="section" id="RYS" onclick="if(!h){toggle('pop-up');}"></div>
         <div class="section" id="About-us" onclick="if(!h){toggle('pop-up');}"></div>
-        <div class="section" id="Contact us" onclick="if(!h){toggle('pop-up');}"></div>
-        
+        <div class="section" id="Contact-us" onclick="if(!h){toggle('pop-up');}"></div>
     </body>
 </html>

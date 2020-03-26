@@ -1,4 +1,4 @@
-<div style="display: inline-block; height: 500px; width: 1200px; position: relative;top: 150px; text-align: center;">
+<div class="rys-cont" style="">
 	<p style="font-size: 30px;">Register Your Services</p>
 	<div style="display: inline-block;">
 		<div onclick="window.location='room-reg.php';" class="box" style="background-color: white; margin: 40px 80px 0px 80px; width: 230px; height: 230px; float: left; display: inline-block;" id="rooms"><img src="oas-logo.svg" style=" display:inline-block;height: 150px; margin-top: 10px;"><br><h3>Rooms</h3></div>

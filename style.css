@@ -11,8 +11,9 @@ body{
     animation-name: faded;
     animation-duration: .4s;
     scroll-snap-type: y mandatory;
+    border-bottom: solid white 20px;
 }
-#home{
+#Home{
     height: 100vh;
     background-color: #CFCFCF;
 }
@@ -37,9 +38,14 @@ body{
     background-color: #CFCFCF;
 }
 #About-us{
-    height: 100vh;
-    background-color: black;
+    background-color: #CFCFCF;
     color:gray;
+    text-align: center;
+}
+#Contact-us{
+    background-color: #CFCFCF;
+    color:gray;
+    text-align: center;   
 }
 .header{
     z-index: 1;
@@ -50,7 +56,7 @@ body{
     position: fixed;
     width: 100%;
     transition: 0.2s;
-    filter: drop-shadow(0px 6px 4px gray);
+    filter: drop-shadow(0px 5px 5px gray);
     padding-bottom: 10px;
 }
 .header:hover{
@@ -211,4 +217,46 @@ a:hover{
 .box:hover{
     transition: .5s;
     transform: scale(1.3);
+}
+.logo-img{
+     display:inline-block;height: 80px; margin-top: 10px;
+}
+.loc{
+     cursor: pointer;
+     height: 50px; width: 50px; display: inline-block; background:transparent; color:black;position:absolute;left:290px;
+    }
+.loc:hover{
+     background:transparent;
+    }
+.rys-cont{
+    display: inline-block; height: 500px; width: 1200px; position: relative;top: 150px; text-align: center;
+}
+@media(max-width: 600px)
+{   
+    html{
+        width: 600px;
+    }
+    .header{
+        height: 10%;
+    }
+    .logo-img{
+        height: 100%;
+    }
+    .header-logo{
+        height: 70%;
+    }
+    .menu-opt{
+        display: none;
+    }
+    .loc{
+        left:300px;
+    }
+    #RYS{
+        text-align: left;
+    }
+    .box{
+        float:none;
+    }
+
+
 }

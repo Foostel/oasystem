@@ -1,3 +1,3 @@
-<div style="position: absolute;">
-	<h1 style="margin-top: 500px;">contact us will shown here</h1>
+<div style="color:white; position: relative;top:150px; display: inline-block;" id="Contact-us">
+	<p style="color: black; font-size: 30px;">Contact us</p>
 </div>

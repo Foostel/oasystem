@@ -13,7 +13,7 @@ echo "
             </div>
             <div class="menus" >
                 <a href="user-home.php#services-p">Services</a>
-                <a href="user-home.php#About-us-panel">About us</a>
+                <a href="user-home.php#About-us">About us</a>
                 <a href="user-home.php#Contact-us">Contact us</a>
                 <a><form>
                 <input type="text" name="" class="search-box" style="height: 25px; width: 200px; padding-right: 30px;">

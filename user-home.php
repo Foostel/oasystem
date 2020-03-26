@@ -25,7 +25,10 @@
             });
 
             $(function(){
-                $('#About-us-panel').load("About-us.php");
+                $('#About-us').load("About-us.php");
+            });
+            $(function(){
+                $('#Contact-us').load("Contact-us.php");
             });
             
         </script>
@@ -75,7 +78,11 @@
         </div>
         </div>
         
-        <div class="section" id="About-us-panel" onclick="clearPopups();">
+        <div class="section" id="About-us" onclick="clearPopups();">
+            
+        </div>
+
+        <div class="section" id="Contact-us" onclick="clearPopups();">
             
         </div>
 
