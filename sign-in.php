@@ -1,12 +1,60 @@
+<!DOCTYPE html>
+<html>
 <head>
+	<title>
+		
+	</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	
+	<?php 
+        session_start();
+        if(isset($_SESSION['id']))
+        {
+            header("location:user-home.php");
+        }
+     ?>
 </head>
-<form style="margin: 00px 100px 5px 100px;" action="sign-in-verify.php" method="post">
-		<i class="fa fa-times" aria-hidden="true" style="position:absolute; top:5px;color:gray; font-size: 30px; left:93%; cursor: pointer;" onclick="if(!h){toggle('pop-up');}" ></i>
-        <p align="center" style="font-size: 25px; font-weight: 500;">SIGN IN</p>
-        <input style="height: 30px; width: 200px;" class="inputs" type="" name="e-mail" placeholder="Email" required="true"><br>
-        <input style="height: 30px; width: 200px;" class="inputs" type="password" name="pass" placeholder="Password"><br>
-        <input type="submit" name="" value="LOGIN" class="btn" style="height: 30px; width: 70px;"><br><br>
+<body>
+<div class="section">
+	<div style="text-align: center; margin-left: 0%;" class="container">
+	<p style="display:inline-block;font-size: 25px;color:black;">Sign In</p><img src="oas-logo.svg" style=" display:inline-block;height: 50px; margin-top: 10px;">
+			<form action="" method="post">
+			
+			<input style="border:solid; border-width: 1.5px; height: 30px; width: 200px; font-family: segoe UI;" class="inputs" type="" name="e-mail" placeholder="Email" required="true"><br>
+        <input style="border:solid;border-width: 1.5px;  height: 30px; width: 200px;" class="inputs" type="password" name="pass" placeholder="Password"><br>
+        <input id="submit" type="submit" name="submit" value="Sign In" class="btn" style="height: 30px; width: 70px; font-family: segoe UI;"><br><br>
         <a href="register.php"style="color:black;">Not registered ?</a>
-</form>
+		</form>
+		<span id="msg" style="color:red;"></span>
+</div>
+
+</div>
+</body>
+<?php
+if(isset($_POST['submit']))
+{
+include("db-connection.php");
+$email=$_POST['e-mail'];
+$password=md5($_POST['pass']);
+$query="select * from user where email='$email' and password='$password'";
+if (mysqli_num_rows(mysqli_query($conn,$query))==0){
+	echo "
+		<script type='text/javascript'>document.getElementById('msg').innerHTML='Wrong username or password';</script>";
+}
+else{
+    session_start();
+    $qrid="select * from user where email='$email' and password='$password'";
+    $row=mysqli_query($conn,$qrid);
+    $res=$row->fetch_assoc();
+    $_SESSION['id']=$res['id'];
+    if(isset($_GET['nxt']))
+    {
+    	header("location:".$_GET['nxt']);
+    }
+    else{
+    	header("location:user-home.php");
+    }
+    
+}
+}
+?>
+</html>

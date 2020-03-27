@@ -36,18 +36,18 @@
             
         </div>
         <div class="section" id="Home" onclick="if(!h){toggle('pop-up');}">
-            <img src="oas-logo.svg" style="height: 400px; position: absolute; top:200px; left: 900px;">
+            
         	<div class="search" style="">
         		<form>
-        		<h2>LOOKING FOR ROOMS/HOSTELS/FOOD ?</h2>
+        		LOOKING FOR ROOMS/HOSTELS/FOOD ?<br><br>
         		<input type="text" name="" class="search-box" style="padding-right: 40px;">
                 <button class="btn loc"><i style="font-size: 20px;" class="fa fa-map-marker" aria-hidden="true"></i></button>
-        		<button type="submit" class="btn" style="height: 50px; width: 50px; display: inline-block;"><i class="fa fa-search" aria-hidden="true"></i></button>
+        		<button type="submit" class="btn searchbtn"><span>Search &nbsp</span><i class="fa fa-search" aria-hidden="true"></i></button>
                 </form>
         	</form>
         	</div>
         </div>
-        <div style="text-align: center;" class="section" id="RYS" onclick="if(!h){toggle('pop-up');}"></div>
+        <div class="section" id="RYS" onclick="if(!h){toggle('pop-up');}"></div>
         <div class="section" id="About-us" onclick="if(!h){toggle('pop-up');}"></div>
         <div class="section" id="Contact-us" onclick="if(!h){toggle('pop-up');}"></div>
     </body>
