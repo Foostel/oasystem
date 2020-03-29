@@ -4,31 +4,7 @@
   session_start();
 if(isset($_POST['submit']) and isset($_SESSION['id']))
 { include("db-connection.php");
-  $uid=$_SESSION['id'];  
-  $bno=$_POST['b'];
-  $vt=$_POST['vt'];
-  $area=$_POST['a'];
-  $state=$_POST['s'];
-  $city=$_POST['c'];
-  $landmark=$_POST['l'];
-  $pincode=$_POST['p'];
-
-  $filename=$_FILES["uploadfile"]["name"];
-  $filetmpname=$_FILES["uploadfile"]["tmp_name"];
-  $folder="files\services\c-room\_";
-  $temp = explode(".", $_FILES["uploadfile"]["name"]);
-  $newfilename = $uid . '' . $bno.".".end($temp);
-  $filename=$newfilename;
-  move_uploaded_file($filetmpname,$folder.$filename);
-
- 	$query="insert into room_address (uid,area,state,city,landmark,pincode,bno,vt,image) values($uid,'$area','$state','$city','$landmark',$pincode,'$bno','$vt','$filename')";
- 	$q=mysqli_query($conn,$query);
- 	if($q){
- 	  	echo " room address information inserted successfully ";  }
- 	else{echo " try again ". $conn->error; }
-
-
-
+  $uid=$_SESSION['id']; 
   $ge=$_POST['gender'];
   $wk=$_POST['work'];
  $p=0;
@@ -56,13 +32,16 @@ if(isset($_POST['submit']) and isset($_SESSION['id']))
   if($array=="Cupboard")
     {$c=1; }
  }
- $query="insert into room_facility(uid,ge,wk,p,w,rs,ab,tc,b,c) values($uid,'$ge','$wk',$p,$w,$rs,$ab,$tc,$b,$c)";
+
+$query="insert into room_facility(uid,ge,wk,p,w,rs,ab,tc,b,c) values($uid,'$ge','$wk',$p,$w,$rs,$ab,$tc,$b,$c)";
     $q1=mysqli_query($conn,$query);   
   if($q1){
-    echo "<br>"." room facilities information inserted successfully ";  }
+    $cid = $conn->insert_id;
+    //echo $cid."<br>";
+    echo "<br>"." room facilities information inserted successfully "; 
+     }
  else{
   echo "try again". $conn->error; }
-
 
 
  $cm=$_POST['caution-m'];
@@ -82,6 +61,8 @@ $room=$_POST['room'];
   //   if($array=="4" )
   // {$b4=1;  }
  }  
+
+
  $ab1=$_POST['r1a'];
  $rb1=$_POST['r1c'];
  $ab2=$_POST['r2a'];
@@ -100,7 +81,35 @@ $room=$_POST['room'];
 }
 else{
   echo "form not submitted";}
+ 
+  $bno=$_POST['b'];
+  $vt=$_POST['vt'];
+  $area=$_POST['a'];
+  $state=$_POST['s'];
+  $city=$_POST['c'];
+  $landmark=$_POST['l'];
+  $pincode=$_POST['p'];
 
+  $query="insert into room_address (uid,area,state,city,landmark,pincode,bno,vt) values($uid,'$area','$state','$city','$landmark',$pincode,'$bno','$vt')";
+  $q=mysqli_query($conn,$query);
+  if($q){
+      echo " room address information inserted successfully "; 
+       }
+  else{echo " try again ". $conn->error; }
+
+
+mkdir("files\services\c-room\-".$cid);
+  $folder="files\services\c-room\-"."$cid\_";
+ $filename=array_filter($_FILES["uploadfile"]["name"]);
+  //$filetmpname=array_filter($_FILES["uploadfile"]["tmp_name"]);
+  $temp = explode(".", $_FILES["uploadfile"]["name"][0]);
+  if(!empty($filename)){
+  foreach($_FILES['uploadfile']['name'] as $key=>$val){
+  $newfilename = $cid."".$key.".".end($temp);
+  $filename=$newfilename;
+  move_uploaded_file($_FILES["uploadfile"]["tmp_name"][$key],$folder.$filename);
+}
+}
 ?>
 </head>
 </html> 

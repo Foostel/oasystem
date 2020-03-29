@@ -96,7 +96,7 @@
                     <tr>
                         <td>
                             <div>Upload photos(optional)<br><br>
-                                <input style="text-align: center; width: 260px;" type="file" name="uploadfile"><br><br>
+                                <input style="text-align: center; width: 260px;" type="file" name="uploadfile[]" multiple><br><br>
                             </div>
                         </td>
                         

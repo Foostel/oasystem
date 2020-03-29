@@ -5,37 +5,8 @@
 if(isset($_POST['submit']) and isset($_SESSION['id']))
 { include("db-connection.php");
   $uid=$_SESSION['id'];  
-  $bn=$_POST['bn'];
-  $bno=$_POST['b'];
-  $vt=$_POST['vt'];
-  $area=$_POST['a'];
-  $state=$_POST['s'];
-  $city=$_POST['c'];
-  $landmark=$_POST['l'];
-  $pincode=$_POST['p'];
-
-  $filename=$_FILES["uploadfile"]["name"];
-  $filetmpname=$_FILES["uploadfile"]["tmp_name"];
-  $folder="files\services\c-tiffin\_";
-  $temp = explode(".", $_FILES["uploadfile"]["name"]);
-  $newfilename = $uid . '' . $bn.".".end($temp);
-  $filename=$newfilename;
-  move_uploaded_file($filetmpname,$folder.$filename);
-  echo $filetmpname."<br>";
-  echo  $filename."<br>";
-  echo  $newfilename."<br>";
-  //echo  $temp."<br>";
-
-  
-  //move_uploaded_file($filetmpname, $filename);
 
 
-
- 	$query="insert into tiffin_address (uid,bno,area,state,city,landmark,pincode,bn,vt,image) values($uid,'$bno','$area','$state','$city','$landmark',$pincode,'$bn','$vt','$filename')";
- 	$q=mysqli_query($conn,$query);
- 	if($q){
- 	  	echo " center address information inserted successfully ";  }
- 	else{echo "try again"; }
  	 $l=0;
  	$d=0;
  	$b=0;
@@ -49,9 +20,7 @@ if(isset($_POST['submit']) and isset($_SESSION['id']))
   	if($array=="Dinner" )
  	{$d=1; 	}
  }	
-  		//echo $l." ".$d." ".$b;  
- 
-
+  		
  	$hd=0;
  	$cae=0;
  	$c=0;
@@ -90,6 +59,7 @@ if(isset($_POST['submit']) and isset($_SESSION['id']))
 
     
   if($q){
+    $cid = $conn->insert_id;
   	echo " center facilities information inserted successfully ";  }
  else{
  	echo "try again"; }
@@ -98,6 +68,36 @@ if(isset($_POST['submit']) and isset($_SESSION['id']))
 else{
 	echo "form not submitted";
 }
+
+  $bn=$_POST['bn'];
+  $bno=$_POST['b'];
+  $vt=$_POST['vt'];
+  $area=$_POST['a'];
+  $state=$_POST['s'];
+  $city=$_POST['c'];
+  $landmark=$_POST['l'];
+  $pincode=$_POST['p'];
+
+  $query="insert into tiffin_address (uid,bno,area,state,city,landmark,pincode,bn,vt) values($uid,'$bno','$area','$state','$city','$landmark',$pincode,'$bn','$vt')";
+  $q=mysqli_query($conn,$query);
+  if($q){
+      echo " center address information inserted successfully ";  }
+  else{echo "try again"; }
+
+
+mkdir("files\services\c-tiffin\-".$cid);
+  $folder="files\services\c-tiffin\-"."$cid\_";
+ $filename=array_filter($_FILES["uploadfile"]["name"]);
+  //$filetmpname=array_filter($_FILES["uploadfile"]["tmp_name"]);
+  $temp = explode(".", $_FILES["uploadfile"]["name"][0]);
+  if(!empty($filename)){
+  foreach($_FILES['uploadfile']['name'] as $key=>$val){
+  $newfilename = $cid."".$key.".".end($temp);
+  $filename=$newfilename;
+  move_uploaded_file($_FILES["uploadfile"]["tmp_name"][$key],$folder.$filename);
+}
+}
+
 ?>
 </head>
 </html>
