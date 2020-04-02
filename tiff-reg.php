@@ -46,10 +46,10 @@
         <div class="header" id="header">
         </div>
 
-        <div class="section" id="form-sec1" onclick="clearPopups();">
+        <div class="section " id="form-sec1" onclick="clearPopups();">
             <img src="oas-logo.svg" style="height: 400px; position: fixed; top:200px; left: 900px;">
-            <form style="position: absolute; top:150px; left: 50px;" method="post" action="submit-tiff.php" enctype="multipart/form-data">
-                <table cellspacing="" >
+            <form class="form" style="" method="post" action="submit-tiff.php" enctype="multipart/form-data">
+                <table class="" cellspacing="">
                     <tr>
                         <td><input style="text-align: center;" id="b-name" type="" class="inputs" name="bn" placeholder="Business name" ></td> 
                         <td><input style="text-align: center;" id="h-no" type="" class="inputs" name="b" placeholder="Building/House no" ></td>  
