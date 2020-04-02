@@ -5,29 +5,7 @@
 if(isset($_POST['submit']) and isset($_SESSION['id']))
 { include("db-connection.php");
   $uid=$_SESSION['id'];  
-  $bn=$_POST['bn'];
-  $bno=$_POST['b'];
-  $vt=$_POST['vt'];
-  $area=$_POST['a'];
-  $state=$_POST['s'];
-  $city=$_POST['c'];
-  $landmark=$_POST['l'];
-  $pincode=$_POST['p'];
-
-  $filename=$_FILES["uploadfile"]["name"];
-  $filetmpname=$_FILES["uploadfile"]["tmp_name"];
-  $folder="files\services\c-hostel\_";
-  $temp = explode(".", $_FILES["uploadfile"]["name"]);
-  $newfilename = $uid . '' . $bn.".".end($temp);
-  $filename=$newfilename;
-  move_uploaded_file($filetmpname,$folder.$filename);
-
- 	$query="insert into hostel_address (uid,bno,area,state,city,landmark,pincode,bn,vt,image) values($uid,'$bno','$area','$state','$city','$landmark',$pincode,'$bn','$vt','$filename')";
- 	$q=mysqli_query($conn,$query);
- 	if($q){
- 	  	echo " hostel address information inserted successfully ";  }
- 	else{echo " try again ". $conn->error; }
-
+  
 $ht=$_POST['hostel-type'];
  $gym=0;
  $p=0;
@@ -64,6 +42,7 @@ $ht=$_POST['hostel-type'];
   $query="insert into hostel_facility(uid,ht,gym,p,m,w,g,rs,ab,ac,cw) values($uid,'$ht',$gym,$p,$m,$w,$g,$rs,$ab,$ac,$cw)";
     $q1=mysqli_query($conn,$query);   
   if($q1){
+    $cid = $conn->insert_id;
     echo "<br>"." hostel facilities information inserted successfully ";  }
  else{
   echo "try again". $conn->error; }
@@ -106,6 +85,37 @@ $room=$_POST['room'];
 }
 else{
   echo "form not submitted";}
+
+$bn=$_POST['bn'];
+  $bno=$_POST['b'];
+  $vt=$_POST['vt'];
+  $area=$_POST['a'];
+  $state=$_POST['s'];
+  $city=$_POST['c'];
+  $landmark=$_POST['l'];
+  $pincode=$_POST['p'];
+
+  
+  $query="insert into hostel_address (uid,bno,area,state,city,landmark,pincode,bn,vt) values($uid,'$bno','$area','$state','$city','$landmark',$pincode,'$bn','$vt')";
+  $q=mysqli_query($conn,$query);
+  if($q){
+      echo " hostel address information inserted successfully ";  }
+  else{echo " try again ". $conn->error; }
+
+mkdir("files\services\c-hostel\-".$cid);
+  $folder="files\services\c-hostel\-"."$cid\_";
+ $filename=array_filter($_FILES["uploadfile"]["name"]);
+  //$filetmpname=array_filter($_FILES["uploadfile"]["tmp_name"]);
+  $temp = explode(".", $_FILES["uploadfile"]["name"][0]);
+  if(!empty($filename)){
+  foreach($_FILES['uploadfile']['name'] as $key=>$val){
+  $newfilename = $cid."".$key.".".end($temp);
+  $filename=$newfilename;
+  move_uploaded_file($_FILES["uploadfile"]["tmp_name"][$key],$folder.$filename);
+}
+}
+
+
 ?>
 </head>
 </html>
