@@ -5,6 +5,5 @@ $state = $_GET['state'];
 $city = $_GET['city'];
 $area = $_GET['area'];
 $req_ser = $_GET['tos'];
-echo $req_ser;
 
 ?>
