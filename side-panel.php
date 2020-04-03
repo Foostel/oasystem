@@ -1,7 +1,6 @@
 <script type="text/javascript">
-	
             $(function(){
-                $('#u-pp').load("update-pp.php");
+                $('#u-pp').load('update-pp.php');
             });
 </script>
 <div class="user-info">
@@ -16,15 +15,10 @@
 		$user_name=$fname.' '.$lname;
 		echo "
 		<script>
-		document.getElementsByClassName('user-pic')[0].src='$pp';
-		document.getElementsByClassName('user-pic')[1].src='$pp';
+		document.getElementsByClassName('user-pic').src='$';
 		</script>
 		";
-		echo "
-		<script>
-		let x = document.getElementsByClassName('user-pic').innerHTML='$user_name';
-		</script>
-		"; 
+		 
 
 	?>
 

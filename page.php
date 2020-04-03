@@ -7,6 +7,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
         </script>
         
+        
         <script type="text/javascript">
             $(function(){
                 $('#header').load("header.php");
@@ -20,6 +21,7 @@
             $(function(){
                 $('#Contact-us').load("Contact-us.php");
             });
+            
         </script>
         <?php 
         session_start();
@@ -28,6 +30,7 @@
             header("location:user-home.php");
         }
          ?>
+
         
     </head>
 

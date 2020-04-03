@@ -3,7 +3,6 @@ require'user-data.php';
 echo "
         <script>
         document.getElementsByClassName('user-pic')[0].src='$pp';
-        document.getElementsByClassName('user-pic')[1].src='$pp';
         </script>
         ";
  ?>
@@ -15,10 +14,6 @@ echo "
                 <a class="menu-opt" href="user-home.php#services-p">Services</a>
                 <a class="menu-opt" href="user-home.php#About-us">About us</a>
                 <a class="menu-opt" href="user-home.php#Contact-us">Contact us</a>
-                <a class="menu-opt"><form>
-                <input type="text" name="" class="search-box" style="height: 25px; width: 200px; padding-right: 30px;">
-                <button class="btn" style="height: 25px; width: 30px; display: inline-block; background:transparent; color:black;position:fixed;left:820px;"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
-                <button type="submit" class="btn" style="height: 25px; width: 30px; display: inline-block;"><i class="fa fa-search" aria-hidden="true"></i></button>
-                </form></a>
+                
                 <span style="position:fixed;right: 30px; top:30px; font-size: 40px;" id="signin" ><img class="user-pic" onclick="h=true;toggle('side-panel');" id="sp" style='cursor:pointer;height:60px; width:60px; border-radius:50%;'></span>
             </div>

@@ -18,18 +18,23 @@ body{
     background-color: #CFCFCF;
 }
 #MAP-VIEW{
+    position: absolute; margin-top: 115px;margin-left: 100px;
     background-color: white;
-    height: 100vh;
+    height: 80vh;
     width: 70%;
-    margin-top: 100px;
-    margin-left:0px;
 }
-
+#service-panel{
+    float: right;
+    text-align: left;
+}
+#service-map-panel{
+    float: left;
+}
 #Services{
     background-color: #CFCFCF;
     height: 100vh;
     width: 30%;
-    position: absolute;
+    position: relative;
     top: 100px;
     left:70%;
 }
