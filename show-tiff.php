@@ -89,26 +89,7 @@ if ($result = mysqli_query($conn,$query)) {
 <?php
 if (isset($_POST['show']))
 {
-	header('Location:detail-tiff.php?uid='.$row['uid'].
-'cid='.$row['cid'].
-'bn='.$row['bn'].
-'bno='.$row['bno'].
-'state='.$row['state'].
-'city='.$row['city'].
-'landmark='.$row['landmark'].
-'area='.$row['area'].
-'vt='.$row['vt'].
-'pincode='.$row['pincode'].
-'l='.$row['l'].
-'b='.$row['b'].
-'d='.$row['d'].
-'ld='.$row['ld'].
-'dd='.$row['dd'].
-'bd='.$row['bd'].
-'hd='.$row['hd'].
-'cae='.$row['cae'].
-'c='.$row['c']
-);
+	header("Location:detail-tiff.php?cid=".$cid);
 }
 }
 }
