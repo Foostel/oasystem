@@ -6,10 +6,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script type="text/javascript" src="actions.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-            
         </script>
         <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+        <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
         <script type="text/javascript">
             $(function(){
                 $('#side-panel').load("side-panel.php");
@@ -43,29 +42,16 @@
         else{
         }
 
-         ?>
-         <?php
-        
         if(!isset($_SESSION['id']))
         {
             header("location:page.php");
         }
         //code to retrive user profile using session veriable index 'userID'
          
-        $user_name=$fname.' '.$lname;
-        echo "
-        <script>
-        document.getElementsByClassName('user-pic')[0].src='$pp';
-        document.getElementsByClassName('user-pic')[1].src='$pp';
-        </script>
-        ";
-        echo "
-        <script>
-        let x = document.getElementsByClassName('user-pic').innerHTML='$user_name';
-        </script>
-        "; 
+        $user_name=$fname.' '.$lname; 
 
     ?>
+
         
     </head>
 
@@ -74,10 +60,13 @@
         </div>
 
         <div class="section" id="services-p" onclick="clearPopups();">
-        <div id="service-map-panel" >
-        </div>
-        <div id="service-panel" onclick="clearPopups();">
-        </div>
+            
+            <div id="service-map-panel" >
+            </div>
+            
+            <div id="service-panel" onclick="clearPopups();">
+            </div>
+        
         </div>
         
         <div class="section" id="About-us" onclick="clearPopups();">

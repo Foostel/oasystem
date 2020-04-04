@@ -1,9 +1,11 @@
 <head>
 	<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+	<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.css' type='text/css' />
 <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
 </head>
-<div style="position: absolute; background-color: white; margin-top: 115px;margin-left: 100px;" id="MAP-VIEW">
-	<div id='map' style='width: 95%; height: 50%;'></div>
+<div style="" id="MAP-VIEW">
+	<div id='map' style='width: 95%; height: 80%; margin-top: 50px;'></div>
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoibWloaXJzb25pNzgxIiwiYSI6ImNrOGlrZTc5ajAwcnkzbHFxd3NkbnZwc3UifQ.qoBrl5wvQ6LjGZd369FnIg';
 var map = new mapboxgl.Map({
@@ -16,7 +18,10 @@ var marker = new mapboxgl.Marker()
 map.setCenter([78.944735, 22.055294])
 map.setZoom(13)
 map.on('click',function(){
-	console.log(mapboxgl.MapMouseEvent.lngLat);
+	console.log("hello");
 })
 </script>
+<script type="text/javascript">
+	
+</script> 
 </div>
