@@ -6,15 +6,11 @@ $state = $_GET['state'];
 $city = $_GET['city'];
 $area = $_GET['area'];
 $req_ser = $_GET['tos'];
-<<<<<<< HEAD
 echo $req_ser." ".$state." ".$city." ".$area;
-=======
->>>>>>> 0a86847661635f32cc7efee8ae716fbfb5722a84
 
-
-if ($req_ser[0]==0 )//room
+if ($req_ser[0]==1 )//room
 {
-		$query = "SELECT * FROM room_facility natural join room_address where city=' {$city}' and state='{$state}'  ";		 
+		$query = "SELECT * FROM room_facility natural join room_address where city='{$city}' and state='{$state}';  ";		 
 		//print_r($query);
 		if ($result = mysqli_query($conn,$query)) 
 		{//print_r($result);

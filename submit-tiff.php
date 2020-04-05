@@ -69,6 +69,8 @@ else{
 	echo "form not submitted";
 }
 
+ $rr = mysqli_query($conn,"select cid from room_facility where uid ='$uid';");
+ $cid = mysqli_fetch_assoc($rr)['cid'];
 echo  $_POST["loc"];
 
   $bn=$_POST['bn'];
@@ -80,7 +82,7 @@ echo  $_POST["loc"];
   $landmark=$_POST['l'];
   $pincode=$_POST['p'];
 
-  $query="insert into tiffin_address (uid,bno,area,state,city,landmark,pincode,bn,vt) values($uid,'$bno','$area','$state','$city','$landmark',$pincode,'$bn','$vt')";
+  $query="insert into tiffin_address (uid,cid,bno,area,state,city,landmark,pincode,bn,vt) values($uid,$cid,'$bno','$area','$state','$city','$landmark',$pincode,'$bn','$vt')";
   $q=mysqli_query($conn,$query);
   if($q){
       echo " center address information inserted successfully ";  }
