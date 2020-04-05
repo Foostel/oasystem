@@ -82,14 +82,13 @@ else{
   echo "form not submitted";}
  
   $bno=$_POST['b'];
-  $vt=$_POST['vt'];
   $area=$_POST['a'];
   $state=strtolower(trim($_POST['s']));
   $city=strtolower(trim($_POST['c']));
   $landmark=$_POST['l'];
   $pincode=$_POST['p'];
 
-  $query="insert into room_address (uid,cid,area,state,city,landmark,pincode,bno,vt) values($uid,$cid,'$area','$state','$city','$landmark',$pincode,'$bno','$vt')";
+  $query="insert into room_address (uid,cid,area,state,city,landmark,pincode,bno) values($uid,$cid,'$area','$state','$city','$landmark',$pincode,'$bno')";
   $q=mysqli_query($conn,$query);
   if($q){
       echo " room address information inserted successfully "; 

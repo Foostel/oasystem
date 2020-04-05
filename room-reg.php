@@ -10,6 +10,16 @@
             html{
                 overflow: hidden;
             }
+            li{
+            background-color: white;
+            padding: 8px;
+            list-style: none;
+            margin-left: 0px;
+        }
+        li:hover{
+            cursor: pointer;
+            background-color: gray;
+        }
         </style>
         <script type="text/javascript" src="state-city/cities.js"></script>
         <script type="text/javascript" src="geo-loc.js"></script>
@@ -46,7 +56,7 @@
         <div class="header" id="header">
         </div>
 
-        <div class="section" onclick="clearPopups();" id="form-sec1">
+        <div class="section" onclick="clearPopups(); document.getElementById('search_res_list').innerHTML='';" id="form-sec1">
             <img src="oas-logo.svg" style="height: 400px; position: fixed; top:200px; left: 900px;">
             <form style="position: absolute; top:150px; left: 50px;" method="post" action="submit-room.php" enctype="multipart/form-data">
                 <table cellspacing="" >
@@ -66,28 +76,29 @@
 
                     <tr>
                         <td>
-                            <input id="Landmark" style="text-align: center;" type="" class="inputs" name="l" placeholder="Landmark" >
+                            <script type="text/javascript" src="area.js"></script>
+                            <input autocomplete="off" id="search_input" style="text-align: center;" type="" class="inputs" name="a" placeholder="Area/Coloney/Street" onkeyup="getin();" >
+                            <span id="search_res_list" class="overlays" style="position: absolute; left: 2px; top: 200px; width: 400px;">
+                            </span>
                         </td>
                         <td>
-                            <input id="Area" style="text-align: center;" type="" class="inputs" name="a" placeholder="Area/Coloney/Street" >
+                            <input id="Landmark" style="text-align: center;" type="" class="inputs" name="l" placeholder="Landmark" >
                         </td>
                     </tr>
 
                     <tr>
-                        <td>
-                            <input id="vt" style="text-align: center;" type="" class="inputs" name="vt" placeholder="Village/Town" >
-                        </td>
                         <td>
                             <input id="pc" style="text-align: center;" type="" class="inputs" name="p" placeholder="Pincode" >
                         </td>
-                    </tr>
-
-                    <tr>
                         <td>
                             <button id="geo-l" onclick="toggle('pop-up');" style="text-align: center; width: 260px;" type="button" class="inputs" name="loc">
                                 Add geo-location
                             </button>
                         </td>
+                    </tr>
+
+                    <tr>
+                        
 
                         <td>
                             

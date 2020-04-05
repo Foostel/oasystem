@@ -56,7 +56,7 @@
         <div class="header" id="header">
         </div>
 
-        <div class="section" id="form-sec1" onclick="clearPopups();">
+        <div class="section" id="form-sec1" onclick="clearPopups(); document.getElementById('search_res_list').innerHTML='';">
             <img src="oas-logo.svg" style="height: 400px; position: fixed; top:200px; left: 900px;">
             <form style="position: absolute; top:150px; left: 50px;" method="post" action="submit-hostel.php" enctype="multipart/form-data">
                 <table cellspacing="" >
@@ -76,31 +76,30 @@
                     </tr>
 
                     <tr>
+                        <td><script type="text/javascript" src="area.js"></script>
+                            <input autocomplete="off" id="search_input" style="text-align: center;" type="" class="inputs" name="a" placeholder="Area/Coloney/Street" onkeyup="getin();" >
+                            <span id="search_res_list" class="overlays" style="position: absolute; left: 2px; top: 200px; width: 400px;">
+                            </span>
+                        </td>
+
                         <td>
                             <input id="Landmark" style="text-align: center;" type="" class="inputs" name="l" placeholder="Landmark" >
                         </td>
-                        <td><script type="text/javascript" src="area.js"></script>
-                            <input autocomplete="off" id="search_input" style="text-align: center;" type="" class="inputs" name="a" placeholder="Area/Coloney/Street" onkeyup="getin();" >
-                            <span id="search_res_list" style="position: absolute; left: 265px; top: 200px; width: 400px;">
-                            </span>
-                        </td>
                     </tr>
 
                     <tr>
-                        <td>
-                            <input id="vt" style="text-align: center;" type="" class="inputs" name="vt" placeholder="Village/Town" >
-                        </td>
                         <td>
                             <input id="pc" style="text-align: center;" type="" class="inputs" name="p" placeholder="Pincode" >
                         </td>
-                    </tr>
-
-                    <tr>
                         <td>
                             <button id="geo-l" onclick="toggle('pop-up');" style="text-align: center; width: 260px;" type="button" class="inputs" name="loc">
                                 Add geo-location
                             </button>
                         </td>
+                    </tr>
+
+                    <tr>
+                        
 
                         <td>
                             
