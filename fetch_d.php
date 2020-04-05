@@ -26,10 +26,10 @@
 		}
 		console.log(param);
 		var add=Array();
-		$.getJSON('https://api.mapbox.com/geocoding/v5/mapbox.places/{'+str+'.json?limit=1&access_token=pk.eyJ1IjoibWloaXJzb25pNzgxIiwiYSI6ImNrOGlrZTc5ajAwcnkzbHFxd3NkbnZwc3UifQ.qoBrl5wvQ6LjGZd369FnIg', function(data) {
+		$.getJSON('https://api.mapbox.com/geocoding/v5/mapbox.places/{India'+str+'.json?limit=1&access_token=pk.eyJ1IjoibWloaXJzb25pNzgxIiwiYSI6ImNrOGlrZTc5ajAwcnkzbHFxd3NkbnZwc3UifQ.qoBrl5wvQ6LjGZd369FnIg', function(data) {
         add=data.features[0]['place_name'].split(",");
         console.log(add);
-        var dat = 'tos='+param+'&country='+add[add.length-1]+'&state='+add[add.length-2]+'&city='+add[add.length-3]+'&area='+add[add.length-5];
+        var dat = 'tos='+param+'&country='+add[add.length-1]+'&state='+add[add.length-2]+'&city='+add[add.length-3]+'&area='+data.features[0]['place_name'];
         window.location='search-engine.php?'+dat;
     	});
 
