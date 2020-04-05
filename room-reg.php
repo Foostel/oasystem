@@ -84,7 +84,7 @@
 
                     <tr>
                         <td>
-                            <button id="geo-l" onclick="toggle('pop-up');" style="text-align: center; width: 260px;" type="button" class="inputs" name="">
+                            <button id="geo-l" onclick="toggle('pop-up');" style="text-align: center; width: 260px;" type="button" class="inputs" name="loc">
                                 Add geo-location
                             </button>
                         </td>

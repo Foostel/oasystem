@@ -69,6 +69,8 @@ else{
 	echo "form not submitted";
 }
 
+echo  $_POST["loc"];
+
   $bn=$_POST['bn'];
   $bno=$_POST['b'];
   $vt=$_POST['vt'];
