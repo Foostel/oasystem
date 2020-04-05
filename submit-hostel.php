@@ -48,7 +48,6 @@ $ht=$_POST['hostel-type'];
   echo "try again". $conn->error; }
 
 
-
  $cm=$_POST['caution-m'];
   $b1=0;
   $b2=0;
@@ -75,7 +74,7 @@ $room=$_POST['room'];
 // $ab4=$_POST['ab4'];
  //$rb4=$_POST['rb4'];
 
- $query="insert into hostel_info(uid,b1,ab1,rb1,b2,ab2,rb2,b3,ab3,rb3,cm) values($uid,$b1,'$ab1','$rb1',$b2,'$ab2','$rb2',$b3,'$ab3','$rb3','$cm');";
+ $query="insert into hostel_info(uid,cid,b1,ab1,rb1,b2,ab2,rb2,b3,ab3,rb3,cm) values($uid,$cid,$b1,'$ab1','$rb1',$b2,'$ab2','$rb2',$b3,'$ab3','$rb3','$cm');";
     $q2=mysqli_query($conn,$query);   
   if($q2){
     echo "<br>"." hostel information inserted successfully ";  }
@@ -95,13 +94,13 @@ $bn=$_POST['bn'];
   $bno=$_POST['b'];
   $vt=$_POST['vt'];
   $area=$_POST['a'];
-  $state=$_POST['s'];
-  $city=$_POST['c'];
+  $state=strtolower(trim($_POST['s']," "));
+  $city=strtolower(trim($_POST['c']," "));
   $landmark=$_POST['l'];
   $pincode=$_POST['p'];
 
   
-  $query="insert into hostel_address (uid,bno,area,state,city,landmark,pincode,bn,vt) values($uid,'$bno','$area','$state','$city','$landmark',$pincode,'$bn','$vt')";
+  $query="insert into hostel_address (uid,cid,bno,area,state,city,landmark,pincode,bn,vt) values($uid,$cid,'$bno','$area','$state','$city','$landmark',$pincode,'$bn','$vt')";
   $q=mysqli_query($conn,$query);
   if($q){
       echo " hostel address information inserted successfully ";  }

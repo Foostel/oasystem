@@ -37,7 +37,7 @@ $query="insert into room_facility(uid,ge,wk,p,w,rs,ab,tc,b,c) values($uid,'$ge',
     $q1=mysqli_query($conn,$query);   
   if($q1){
     $cid = $conn->insert_id;
-    //echo $cid."<br>";
+    echo $cid."<br>";
     echo "<br>"." room facilities information inserted successfully "; 
      }
  else{
@@ -71,8 +71,7 @@ $room=$_POST['room'];
  $rb3=$_POST['rkc'];
 // $ab4=$_POST['ab4'];
  //$rb4=$_POST['rb4'];
-
- $query="insert into room_info(uid,b1,ab1,rb1,b2,ab2,rb2,b3,ab3,rb3,cm) values($uid,$b1,'$ab1','$rb1',$b2,'$ab2','$rb2',$b3,'$ab3','$rb3','$cm');";
+ $query="insert into room_info(uid,cid,b1,ab1,rb1,b2,ab2,rb2,b3,ab3,rb3,cm) values($uid,$cid,$b1,'$ab1','$rb1',$b2,'$ab2','$rb2',$b3,'$ab3','$rb3','$cm');";
     $q2=mysqli_query($conn,$query);   
   if($q2){
     echo "<br>"." room information inserted successfully ";  }
@@ -85,12 +84,12 @@ else{
   $bno=$_POST['b'];
   $vt=$_POST['vt'];
   $area=$_POST['a'];
-  $state=$_POST['s'];
-  $city=$_POST['c'];
+  $state=strtolower(trim($_POST['s']));
+  $city=strtolower(trim($_POST['c']));
   $landmark=$_POST['l'];
   $pincode=$_POST['p'];
 
-  $query="insert into room_address (uid,area,state,city,landmark,pincode,bno,vt) values($uid,'$area','$state','$city','$landmark',$pincode,'$bno','$vt')";
+  $query="insert into room_address (uid,cid,area,state,city,landmark,pincode,bno,vt) values($uid,$cid,'$area','$state','$city','$landmark',$pincode,'$bno','$vt')";
   $q=mysqli_query($conn,$query);
   if($q){
       echo " room address information inserted successfully "; 

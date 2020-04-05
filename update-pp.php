@@ -1,7 +1,7 @@
 <script type="text/javascript">
 	function preview(pic,vp)
 	{	
-    	document.getElementById('submit').click();
+    	document.getElementById('submit-p').click();
 	}
 	function checksize(elm)
 	{
@@ -25,7 +25,7 @@
 	 ?>
 	 <form action="pp-upload.php" method="post" enctype="multipart/form-data">
 	 <input id="updatepp" type="file" name="photo" style="opacity: 0; position: absolute; z-index: -1;" onchange="if(checksize(this)){preview(this,'ppic');}" accept="image/jpeg">
-	 <input style="display: none" type="submit" name="submit" id="submit">
+	 <input style="display: none" type="submit" name="submit" id="submit-p">
 	 
 	 </form>
 	 <p><?php echo $fname.' '.$lname; ?></p>

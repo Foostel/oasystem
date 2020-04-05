@@ -75,12 +75,12 @@ echo  $_POST["loc"];
   $bno=$_POST['b'];
   $vt=$_POST['vt'];
   $area=$_POST['a'];
-  $state=$_POST['s'];
-  $city=$_POST['c'];
+  $state=strtolower(trim($_POST['s']));
+  $city=strtolower(trim($_POST['c']));
   $landmark=$_POST['l'];
   $pincode=$_POST['p'];
 
-  $query="insert into tiffin_address (uid,bno,area,state,city,landmark,pincode,bn,vt) values($uid,'$bno','$area','$state','$city','$landmark',$pincode,'$bn','$vt')";
+  $query="insert into tiffin_address (uid,cid,bno,area,state,city,landmark,pincode,bn,vt) values($uid,$cid,'$bno','$area','$state','$city','$landmark',$pincode,'$bn','$vt')";
   $q=mysqli_query($conn,$query);
   if($q){
       echo " center address information inserted successfully ";  }
