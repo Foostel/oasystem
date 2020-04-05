@@ -6,7 +6,10 @@ $state = $_GET['state'];
 $city = $_GET['city'];
 $area = $_GET['area'];
 $req_ser = $_GET['tos'];
+<<<<<<< HEAD
 echo $req_ser." ".$state." ".$city." ".$area;
+=======
+>>>>>>> 0a86847661635f32cc7efee8ae716fbfb5722a84
 
 
 if ($req_ser[0]==0 )//room
