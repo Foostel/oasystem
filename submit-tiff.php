@@ -69,16 +69,14 @@ else{
 	echo "form not submitted";
 }
 
- $rr = mysqli_query($conn,"select cid from room_facility where uid ='$uid';");
- $cid = mysqli_fetch_assoc($rr)['cid'];
 echo  $_POST["loc"];
 
   $bn=$_POST['bn'];
   $bno=$_POST['b'];
   $vt=$_POST['vt'];
   $area=$_POST['a'];
-  $state=$_POST['s'];
-  $city=$_POST['c'];
+  $state=strtolower(trim($_POST['s']));
+  $city=strtolower(trim($_POST['c']));
   $landmark=$_POST['l'];
   $pincode=$_POST['p'];
 
