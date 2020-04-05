@@ -113,7 +113,7 @@
                         
                     </tr>
                     <tr>
-                        <td><a><button class="btn" type="button" onclick="rqrd(['h-no','sts','state','Landmark','Area','vt','pc'],'#form-sec2');">Next <i class="fa fa-angle-right" aria-hidden="true"></i></button></a></td>
+                        <td><a><button class="btn" type="button" onclick="rqrd(['h-no','sts','state','Landmark','search_input','pc'],'#form-sec2');">Next <i class="fa fa-angle-right" aria-hidden="true"></i></button></a></td>
                     </tr>
 
                 </table>

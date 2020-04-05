@@ -10,13 +10,13 @@ echo $req_ser." ".$state." ".$city." ".$area;
 
 if ($req_ser[0]==1 )//room
 {
-		$query = "SELECT * FROM room_facility NATURAL JOIN (room_address natural join room_info) where (state='$state' and city='$city' and area='$area') OR (state='$state' and city='$city');";
+		$query = "SELECT * FROM room_facility NATURAL JOIN (room_address natural join room_info) where (state='$state' and city='$city' and area='$area') OR (state='$state' and city='$city')OR (state='$state');";
 		//print_r($query);
 		if ($result = mysqli_query($conn,$query)) 
 		{//print_r($result);
     		while ($row = $result->fetch_assoc()) 
     		{
-        		echo '<br> Found: '.$row['cid'];
+        		echo '<br> Found: '.$row['cid'].' at '.$row['area'];
 
     		}
 		}
@@ -24,23 +24,23 @@ if ($req_ser[0]==1 )//room
 }
 if ($req_ser[2]==1)//hostel
 {	echo "x".$city."x";echo "x".$state."x";
-	$query = "SELECT * FROM hostel_facility natural join hostel_address natural join hostel_info where (state='$state' and city='$city' and area='$area') OR (state='$state' and city='$city');"; 
+	$query = "SELECT * FROM hostel_facility natural join hostel_address natural join hostel_info where (state='$state' and city='$city' and area='$area') OR (state='$state' and city='$city')OR (state='$state');"; 
 	if ($result = mysqli_query($conn,$query)) 
 	{
     	while ($row = $result->fetch_assoc()) 
     	{
-        	echo '<br> Found: '.$row['cid'];
+        	echo '<br> Found: '.$row['cid'].' at '.$row['area'];
     	}
 	}
 }
 if ($req_ser[4]==1)//tiffin center
 {
-	$query = "SELECT * FROM tiffin_facility natural join tiffin_address where (state='$state' and city='$city' and area='$area') OR (state='$state' and city='$city');"; 
+	$query = "SELECT * FROM tiffin_facility natural join tiffin_address where (state='$state' and city='$city' and area='$area') OR (state='$state' and city='$city') OR (state='$state');"; 
 	if ($result = mysqli_query($conn,$query)) 
 	{
     	while ($row = $result->fetch_assoc())
     	{
-        	echo '<br> Found: '. $row['cid'];
+        	echo '<br> Found: '.$row['cid'].' at '.$row['area'];
     	}
 	}
 }
