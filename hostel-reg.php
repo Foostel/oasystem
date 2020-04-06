@@ -10,6 +10,16 @@
             html{
                 overflow: hidden;
         }
+        li{
+            background-color: white;
+            padding: 8px;
+            list-style: none;
+            margin-left: 0px;
+        }
+        li:hover{
+            cursor: pointer;
+            background-color: gray;
+        }
         </style>
         <script type="text/javascript" src="state-city/cities.js"></script>
         <script type="text/javascript" src="geo-loc.js"></script>
@@ -69,8 +79,10 @@
                         <td>
                             <input id="Landmark" style="text-align: center;" type="" class="inputs" name="l" placeholder="Landmark" >
                         </td>
-                        <td>
-                            <input id="Area" style="text-align: center;" type="" class="inputs" name="a" placeholder="Area/Coloney/Street" >
+                        <td><script type="text/javascript" src="area.js"></script>
+                            <input autocomplete="off" id="search_input" style="text-align: center;" type="" class="inputs" name="a" placeholder="Area/Coloney/Street" onkeyup="getin();" >
+                            <span id="search_res_list" style="position: absolute; left: 265px; top: 200px; width: 400px;">
+                            </span>
                         </td>
                     </tr>
 

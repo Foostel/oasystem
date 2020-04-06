@@ -232,30 +232,7 @@ function rqrd(v,nextloc){
 
 function fetch(str){
         var ar = str.split(" ");
-        var service = [['room','rooms','residencies'],['hostel','hostels','residencies'],['tiffin centers','tiffin','tiffen','tiffin center', 'tiffin-center','tiffin-centers','food','food center', 'foods', 'meal', 'mess']];
-        var param = [0,0,0];
-        for(let i=0;i<ar.length;i++)
-        {
-            if(param[0]==1 && param[1]==1 && param[2]==1)
-            {
-                break;
-            }
-            for(let j=0; j<service.length;j++)
-            {
-                for(let k=0;k<service[j].length;k++)
-                {
-                    if(service[j][k]==ar[i])
-                    {
-                        ar[i]="";
-                        param[j]=1;
-                    }
-                }
-            }
-        }
-        var add=Array(2);
-        $.getJSON('https://api.mapbox.com/geocoding/v5/mapbox.places/{'+str+'.json?limit=1&access_token=pk.eyJ1IjoibWloaXJzb25pNzgxIiwiYSI6ImNrOGlrZTc5ajAwcnkzbHFxd3NkbnZwc3UifQ.qoBrl5wvQ6LjGZd369FnIg', function(data) {
-        add[0]=tos;
-        add[1]=data.features[0]['place_name'].split(",");
-        return add;
+        $.getJSON('https://api.mapbox.com/geocoding/v5/mapbox.places/{'+str+'.json?&access_token=pk.eyJ1IjoibWloaXJzb25pNzgxIiwiYSI6ImNrOGlrZTc5ajAwcnkzbHFxd3NkbnZwc3UifQ.qoBrl5wvQ6LjGZd369FnIg', function(data) {
+        return data;
         });
     }
