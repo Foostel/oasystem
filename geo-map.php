@@ -1,8 +1,53 @@
-<i class="fa fa-times" aria-hidden="true" style="position:absolute; top:5px;color:gray; font-size: 30px; left:93%; cursor: pointer;" onclick="if(!h){toggle('pop-up');}" ></i>
-<div style="position: relative; top: 60px; display: inline-block;">
-	<p style="font-size:10px;">*Open <a style="text-decoration: underline; color: blue; " target="_blank" href="https:/google.com/maps">Google Maps</a>, place the marker and share the (lng,lat) here.</p><br>
-	<input type="" name="loc-link" class="inputs" id="lat-lng" style="width: 200px;" placeholder="lat,lng" ><br>
-	<input type="button" name="" class="btn" style="height: 30px; width: 50px; font-size: 15px;" value="OK" onclick="document.getElementById('geo-l').value=document.getElementById('lat-lng').value; document.getElementById('geo-l').innerHTML=document.getElementById('lat-lng').value; toggle('pop-up');"><br><br>
-	<a onclick="document.getElementById('geo-l').value='Loading...';getloc('geo-l');toggle('pop-up');" style="font-size: 15px; text-decoration: underline;">Use my current location <i class="fa fa-map-marker" style="color:red;"></i></a><br>
-	<a onclick="console.log('h');document.getElementById('geo-l').value=''; document.getElementById('geo-l').innerHTML='Add geo-location';  document.getElementById('geo-l').style.color='black'; document.getElementById('geo-l').style.backgroundColor='white'; toggle('pop-up');" style="font-size: 10px; text-decoration: underline;">Remove location</a>
-</div>
+<p style="text-align: center;">Choose on Map</p><i style="float: right; position: absolute; top:10px; right: 10px;font-size: 30px; cursor: pointer;" class="fa fa-close" onclick="clearPopups();
+"></i>
+<button id="myc" class="btn" style="position: absolute; width: 180px; background-color:rgba(0,0,0,0.7); cursor: pointer; top: 320px; left: 115px; padding: 1px; height: 30px;">Locate me <i class="fa fa-map-marker"></i></button>
+<button id="remove" class="btn" onclick="clearPopups();document.getElementById('geo-l').innerHTML ='Add geo-location';
+document.getElementById('lnglat').value ='';" style="position: absolute; width: 200px; background-color:gray; cursor: pointer; left: 0px; top: 360px; padding: 1px; height: 40px;">Remove</button>
+<button id="add" class="btn" onclick="clearPopups();" style="position: absolute; width: 200px; background-color:rgba(0,0,0,1); cursor: pointer; left: 200px; top: 360px; padding: 1px; height: 40px;">Add</button>
+<div id="map"></div>
+
+<script>
+var pos;
+if(navigator.geolocation)
+{
+	pos = navigator.geolocation.getCurrentPosition(showPosition);
+}
+function showPosition(position)
+{
+	lng = position.coords.longitude;
+	lat = position.coords.latitude;
+var xs= {'lng':lng,'lat':lat};
+var ll= xs['lng']+","+xs['lat'];        
+mapboxgl.accessToken = 'pk.eyJ1IjoibWloaXJzb25pNzgxIiwiYSI6ImNrOGlrZTc5ajAwcnkzbHFxd3NkbnZwc3UifQ.qoBrl5wvQ6LjGZd369FnIg';
+var map = new mapboxgl.Map({
+container: 'map', // container id
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [lng, lat], // starting position
+zoom: 8 // starting zoom
+});
+var marker = new mapboxgl.Marker(); 
+map.on('click', function(e) {
+console.log(e.lngLat.wrap());
+marker.remove();
+marker.setLngLat(e.lngLat.wrap());
+marker.addTo(map);
+ll = e.lngLat.wrap();
+$('#add').on('click',function(ev)
+{
+console.log(ll['lng']+"sss");
+document.getElementById('geo-l').innerHTML = ll['lng']+","+ll['lat'];
+document.getElementById('lnglat').value = ll['lng']+","+ll['lat'];
+
+});
+console.log(document.getElementById('geo-l').innerHTML);
+});
+$('#myc').on('click',function(ev)
+{
+marker.remove();
+marker.setLngLat(xs);
+marker.addTo(map);
+});
+
+
+}
+</script>

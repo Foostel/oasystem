@@ -1,6 +1,7 @@
 html{
  scroll-behavior: smooth; 
  font-family: segoe UI;
+ overflow-y: scroll;
  overflow-x: hidden;
 }
 body{
@@ -9,7 +10,7 @@ body{
 }
 .section{
     height: 100vh;
-    background-color: #CFCFCF;
+    background-color: #DDDDDD;
     animation-name: faded;
     animation-duration: .4s;
 }
@@ -17,22 +18,25 @@ body{
     height: 100vh;
     background-color: #CFCFCF;
 }
-#MAP-VIEW{
-    position: absolute; margin-top: 115px;margin-left: 100px;
-    background-color: white;
-    height: 80vh;
-    width: 70%;
+.MAP-VIEW{  
+    position:absolute; 
+    left: 400px; 
+    top:110px;
+    width: 100%; 
+    height: 700px;
+    z-index: 0;
 }
 #service-panel{
-    float: right;
+    float: left;
     text-align: left;
+    padding-left: 50px;
 }
 #service-map-panel{
-    float: left;
+
 }
 
 #Services{
-    background-color: #CFCFCF;
+    background-color: #DDDDDD;
     height: 100vh;
     width: 30%;
     position: relative;
@@ -52,7 +56,7 @@ body{
     color:black;   
 }
 .header{
-    z-index: 1;
+    z-index: 2;
     float: left;
     margin-top: 0px;
     color:black;
@@ -123,6 +127,14 @@ a:hover{
 .btn:hover{
     background-color: black;
 }
+.btn:active{
+    border:none;
+    outline: none;
+}
+.btn:focus{
+    border:none;
+    outline: none;
+}
 .inputs{    
     background-color: white;
     outline: none;
@@ -131,6 +143,9 @@ a:hover{
     height: 40px;
     border-style: none;
     margin: 0px 0px 20px 0px;
+}
+.inputs:active{
+    background-color: white;
 }
 .search-box{
     font-family: arial;
@@ -152,15 +167,15 @@ a:hover{
 .pop-up{
     display: none;
     position: fixed;
-    top:30%;
-    left: 30%;
+    top:20%;
+    left: 35%;
     color:black;
     background-color: white;
     width: 400px;
-    height: 300px;
-    filter: drop-shadow(0px 10px 10px gray);
+    height:400px;
     animation-name: faded;
     animation-duration: .4s;
+    z-index: 2;
 }
 @keyframes faded{
     from{opacity: 0;}
@@ -275,7 +290,7 @@ a:hover{
      position:absolute; top:0px;height: 400px; margin-left: 50%;
 }
 .form{
-    position: absolute; top:150px; left: 50px;
+    position: relative; top:110px; left: 30px;
 }
 .resp{
     display: none;
@@ -289,10 +304,35 @@ a:hover{
 .form-d{
     width: 10px;
 }
+.res-data{
+    cursor:pointer;margin-top:5px;width: 300px; height: 70px; background-color: white;transition: .4s;
+}
+.res-data:hover{
+    transition: .4s;
+}
+#ifm{
+    display: block;
+    padding-right:100px;overflow-y:scroll; overflow-x:hidden;border-style: none; width: 310px; height: 400px;
+}
+.form-container{
+    text-align: left;
+    position: relative;
+    float:left;
+    display: block;
+    width: 450px;
+    height: 450px;
+    
+}
+.search-panel{
+    position:relative;top: 180px; display: inline-block; width: 325px;height: 500px;
+}
+.mv{
+    display: none;
+}
 @media(max-width: 600px)
 {   
     .header{
-        height: 10%;
+        height: 15%;
     }
     .logo-img{
         height: 100%;
@@ -334,4 +374,31 @@ a:hover{
     .resp{
         display: auto;
     }
+
+    .search-panel{
+        z-index: 1;
+        height: 110px;
+    }
+    #service-panel{
+        position: relative;
+        float:left;
+    }
+    .form-container{
+        float:bottom;
+    }
+    .mv{
+        display: inline-block;
+    }
+    #ifm{
+        padding-right: 200px;
+    }
+    .MAP-VIEW{
+        z-index: -1;
+        width: 600px;
+    }
+    #map-d{
+        opacity: .8;
+    }
+
+
 }
