@@ -12,8 +12,8 @@
 		container: 'map-d',
 		style: 'mapbox://styles/mapbox/streets-v11'
 		});
-		map.setCenter([78.944735,22.055294]);
-		map.setZoom(10);
+		map.setCenter([0,0]);
+		map.setZoom(1);
 	</script>
 <script type="text/javascript">
 	function search(){

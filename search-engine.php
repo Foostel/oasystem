@@ -37,6 +37,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div style="margin-top: 2px;">
 <?php
+$zl=0;
 if(isset($_POST['tos']))
 {
 include("db-connection.php");
@@ -44,11 +45,11 @@ $country = $_POST['country'];
 $state = strtolower(trim($_POST['state']));
 $city = strtolower(trim($_POST['city']));	
 $area = $_POST['area'];
-$arr_area = explode(",",$area);
+$arr_area = explode(",",$_POST['fulladd']);
 $req_ser = $_POST['tos'];
 if ($req_ser[0]==1 )//room
 {
-		$query = "SELECT * FROM room_facility NATURAL JOIN (room_address natural join room_info) where (state='$state' and city='$city' and area='$area');";
+		$query = "SELECT * FROM room_facility NATURAL JOIN (room_address natural join room_info) where state='$state' and city='$city' and (sarea like '%{$area}%' or area = '{$_POST['fulladd']}');";
 		$query1 = "SELECT * FROM room_facility NATURAL JOIN (room_address natural join room_info) where(state='$state' and city='$city');";
 		$query2 = "SELECT * FROM room_facility NATURAL JOIN (room_address natural join room_info) where (state='$state');";
 		//print_r($query);
@@ -58,8 +59,9 @@ if ($req_ser[0]==1 )//room
 		$row = array();
 		if ($result && mysqli_num_rows($result)>0) 
 		{//print_r($result);
+			$zl=16;
 			echo"
-			<center style='opacity:.6; font-size:12px; margin-top:10px;'>Showing results in {$arr_area[0]}, {$arr_area[1]} <br> <br></center>
+			<center style='opacity:.6; font-size:12px; margin-top:10px;'>Showing results in {$arr_area[0]}, {$arr_area[1]}<br> <br></center>
 			";
     		while ($row = $result->fetch_assoc()) 
     		{	$phone = getRow($conn,"select * from user where id='{$row['uid']}';")['phone'];
@@ -117,10 +119,10 @@ if ($req_ser[0]==1 )//room
     			$rowid = $row['cid'].'';
         		echo"
 				<div class='res-data' onclick='disp({$rowid},this);'>
-					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['landmark']}</span>
+					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
 					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
-					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']},{$row['area']}</span>
+					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']},{$row['landmark']}, {$row['area']}</span>
 					<p style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:20px; font-size: 12px;'></p>
 				</div>
 				<div class='res-data' id='{$row['cid']}' style='filter:none;margin-top:0px;height:300px;display:none;font-size:12px;'><br><br>
@@ -151,7 +153,7 @@ if ($req_ser[0]==1 )//room
     		}
 		}
 		if($result1 && mysqli_num_rows($result1)>0)
-		{
+		{	$zl=12;
 			echo"
 			<center style='opacity:.6; font-size:12px; margin-top:10px;'>Showing results in {$_POST['city']} <br> <br></center>
 			";
@@ -211,10 +213,10 @@ if ($req_ser[0]==1 )//room
     			$rowid = $row['cid'].'';
         		echo"
 				<div class='res-data' onclick='disp({$rowid},this);'>
-					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['landmark']}</span>
+					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
 					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
-					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']},{$row['area']}</span>
+					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']}, {$row['landmark']}, {$row['area']}</span>
 					<p style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:20px; font-size: 12px;'></p>
 				</div>
 				<div class='res-data' id='{$row['cid']}' style='filter:none;margin-top:0px;height:300px;display:none;font-size:12px;'><br><br>
@@ -245,7 +247,7 @@ if ($req_ser[0]==1 )//room
 		}
 		else if ($result2 && mysqli_num_rows($result2)>0) 
 		{//print_r($result);
-
+			$zl=10;
 			echo"
 			<center style='opacity:.6; font-size:12px; margin-top:10px;'>Showing results in {$_POST['state']} <br> <br></center>
 			";
@@ -306,10 +308,10 @@ if ($req_ser[0]==1 )//room
     			$rowid = $row['cid'].'';
         		echo"
 				<div class='res-data' onclick='disp({$rowid},this);'>
-					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['landmark']}</span>
+					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
 					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
-					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']},{$row['area']}</span>
+					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']}, {$row['landmark']}, {$row['area']}</span>
 					<p style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:20px; font-size: 12px;'></p>
 				</div>
 				<div class='res-data' id='{$row['cid']}' style='filter:none;margin-top:0px;height:300px;display:none;font-size:12px;'><br><br>
@@ -362,10 +364,12 @@ if ($req_ser[0]==1 )//room
 		'source': 'rooms-p',
 		'layout': {
 		'icon-image': 'room',
-		'icon-size': 0.03
+		'icon-size': 0.03,
+		'icon-allow-overlap':true
 		}
 		});
-		
+		map.setCenter(rooms_points[0]['geometry']['coordinates']);
+		map.setZoom({$zl});
 		r_s = true;
 		
 		console.log('pahuch gaya');
@@ -393,8 +397,8 @@ if ($req_ser[0]==1 )//room
 		
 }
 else if ($req_ser[1]==1)//hostel
-{
-	$query = "SELECT * FROM hostel_facility natural join hostel_address natural join hostel_info where (state='$state' and city='$city' and area='$area');";
+{	$zl=16;
+	$query = "SELECT * FROM hostel_facility NATURAL JOIN (hostel_address natural join hostel_info) where state='$state' and city='$city' and (sarea like '%{$area}%' or area = '{$_POST['fulladd']}');";
 	$query1 = "SELECT * hostel_facility natural join hostel_address natural join hostel_info where(state='$state' and city='$city');";
 	$query2 = "SELECT * FROM hostel_facility natural join hostel_address natural join hostel_info where (state='$state');";
 	$result = mysqli_query($conn,$query);
@@ -468,10 +472,10 @@ else if ($req_ser[1]==1)//hostel
     			$rowid = $row['cid'].'';
         		echo"
 				<div class='res-data' onclick='disp({$rowid},this);'>
-					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['landmark']}</span>
+					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
 					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
-					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']},{$row['area']}</span>
+					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']}, {$row['landmark']}{$row['area']}</span>
 					<p style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:20px; font-size: 12px;'></p>
 				</div>
 				<div class='res-data' id='{$row['cid']}' style='filter:none;margin-top:0px;height:300px;display:none;font-size:12px;'><br><br>
@@ -503,7 +507,7 @@ else if ($req_ser[1]==1)//hostel
     		}
 		}
 		if($result1 && mysqli_num_rows($result1)>0)
-		{	
+		{	$zl=12;
 			echo"
 			<center style='opacity:.6; font-size:12px; margin-top:10px;'>Showing results in {$_POST['city']} <br> <br></center>
 			";
@@ -568,10 +572,10 @@ else if ($req_ser[1]==1)//hostel
     			$rowid = $row['cid'].'';
         		echo"
 				<div class='res-data' onclick='disp({$rowid},this);'>
-					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['landmark']}</span>
+					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
 					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
-					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']},{$row['area']}</span>
+					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']}, {$row['landmark']}, {$row['area']}</span>
 					<p style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:20px; font-size: 12px;'></p>
 				</div>
 				<div class='res-data' id='{$row['cid']}' style='filter:none;margin-top:0px;height:300px;display:none;font-size:12px;'><br><br>
@@ -603,6 +607,7 @@ else if ($req_ser[1]==1)//hostel
 		}
 		else if ($result2 && mysqli_num_rows($result2)>0) 
 		{//print_r($result);
+			$zl=10;
 			echo"
 			<center style='opacity:.6; font-size:12px; margin-top:10px;'>Showing results in {$_POST['state']} <br> <br></center>
 			";
@@ -668,10 +673,10 @@ else if ($req_ser[1]==1)//hostel
     			$rowid = $row['cid'].'';
         		echo"
 				<div class='res-data' onclick='disp({$rowid},this);'>
-					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['landmark']}</span>
+					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
 					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
-					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']},{$row['area']}</span>
+					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']}, {$row['landmark']}, {$row['area']}</span>
 					<p style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:20px; font-size: 12px;'></p>
 				</div>
 				<div class='res-data' id='{$row['cid']}' style='filter:none;margin-top:0px;height:300px;display:none;font-size:12px;'><br><br>
@@ -723,9 +728,12 @@ else if ($req_ser[1]==1)//hostel
 		'source': 'hostel-p',
 		'layout': {
 		'icon-image': 'hostel',
-		'icon-size': 0.03
+		'icon-size': 0.03,
+		'icon-allow-overlap':true
 		}
 		});
+		map.setCenter(hostel_points[0]['geometry']['coordinates']);
+		map.setZoom({$zl});
 		map.on('click', 'points_hostel', function(e) {
 		var coordinates = e.features[0].geometry.coordinates.slice();
 		var description = e.features[0].properties.description;
@@ -746,8 +754,8 @@ else if ($req_ser[1]==1)//hostel
 		";
 }
 else if ($req_ser[2]==1)//tiffin center
-{	
-	$query = "SELECT * FROM tiffin_facility natural join tiffin_address where (state='$state' and city='$city' and area='$area');";
+{	$zl=15;
+	$query = "SELECT * FROM tiffin_facility NATURAL JOIN tiffin_address  where state='$state' and city='$city' and (sarea like '%{$area}%' or area = '{$_POST['fulladd']}');";
 	$query1 = "SELECT * FROM tiffin_facility natural join tiffin_address where(state='$state' and city='$city');";
 	$query2 = "SELECT * FROM tiffin_facility natural join tiffin_address where state='$state';";
 	$result = mysqli_query($conn,$query);
@@ -756,6 +764,7 @@ else if ($req_ser[2]==1)//tiffin center
 		$row = array();
 		if ($result && mysqli_num_rows($result)>0) 
 		{//print_r($result);
+			$zl=16;
 			echo"
 			<center style='opacity:.6; font-size:12px; margin-top:10px;'>Showing results in {$arr_area[0]}, {$arr_area[1]} <br> <br></center>
 			";
@@ -781,22 +790,22 @@ else if ($req_ser[2]==1)//tiffin center
     			$rowid = $row['cid'].'';
     			if($row['b'])
     			{
-    				$mealsProvided.='<b>Breakfast</b> Time: {$breakFastData[0]} To {$breakFastData[2]} Cost: Rs.{$breakFastData[3]} {$breakFastData[4]}<br>';
+    				$mealsProvided.="<b>Breakfast</b> Time: {$breakFastData[0]} To {$breakFastData[2]} Cost: Rs.{$breakFastData[3]} {$breakFastData[4]}<br>";
     			}
     			if($row['l'])
     			{
-    				$mealsProvided.='<b>Lunch</b> Time: {$lunchData[0]} To {$lunchData[2]} Cost: Rs.{$lunchData[3]} {$lunchData[4]}<br>';
+    				$mealsProvided.="<b>Lunch</b> Time: {$lunchData[0]} To {$lunchData[2]} Cost: Rs.{$lunchData[3]} {$lunchData[4]}<br>";
     			}
     			if($row['d'])
     			{
-    				$mealsProvided.='<b>Dinner</b> Time: {$dinnerData[0]} To {$dinnerData[2]} Cost: Rs.{$dinnerData[3]} {$dinnerData[4]}';
+    				$mealsProvided.="<b>Dinner</b> Time: {$dinnerData[0]} To {$dinnerData[2]} Cost: Rs.{$dinnerData[3]} {$dinnerData[4]}";
     			}
         		echo"
 				<div class='res-data' onclick='disp({$rowid},this);'>
-					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['landmark']}</span>
+					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
 					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
-					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']},{$row['area']}</span>
+					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']}, {$row['landmark']}, {$row['area']}</span>
 					<p style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:20px; font-size: 12px;'></p>
 				</div>
 				<div class='res-data' id='{$row['cid']}' style='filter:none;margin-top:0px;height:300px;display:none;font-size:12px;'><br><br>
@@ -824,7 +833,7 @@ else if ($req_ser[2]==1)//tiffin center
     		}
 		}
 		if($result1 && mysqli_num_rows($result1)>0)
-		{
+		{	$zl=13;
 			echo"
 			<center style='opacity:.6; font-size:12px; margin-top:10px;'>Showing results in {$_POST['city']} <br> <br></center>
 			";
@@ -862,10 +871,10 @@ else if ($req_ser[2]==1)//tiffin center
     			$rowid = $row['cid'].'';
         		echo"
 				<div class='res-data' onclick='disp({$rowid},this);'>
-					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['landmark']}</span>
+					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
 					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
-					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']},{$row['area']}</span>
+					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']}, {$row['landmark']}, {$row['area']}</span>
 					<p style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:20px; font-size: 12px;'></p>
 				</div>
 				<div class='res-data' id='{$row['cid']}' style='filter:none;margin-top:0px;height:300px;display:none;font-size:12px;'><br><br>
@@ -894,6 +903,7 @@ else if ($req_ser[2]==1)//tiffin center
 		}
 		else if ($result2 && mysqli_num_rows($result2)>0) 
 		{//print_r($result);
+			$zl=7;
 			echo"
 			<center style='opacity:.6; font-size:12px; margin-top:10px;'>Showing results in {$_POST['state']} <br> <br></center>
 			";
@@ -932,10 +942,10 @@ else if ($req_ser[2]==1)//tiffin center
     			$rowid = $row['cid'].'';
         		echo"
 				<div class='res-data' onclick='disp({$rowid},this);'>
-					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['landmark']}</span>
+					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
 					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
-					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']},{$row['area']}</span>
+					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']}, {$row['landmark']}, {$row['area']}</span>
 					<p style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:20px; font-size: 12px;'></p>
 				</div>
 				<div class='res-data' id='{$row['cid']}' style='filter:none;margin-top:0px;height:300px;display:none;font-size:12px;'><br><br>
@@ -986,10 +996,14 @@ else if ($req_ser[2]==1)//tiffin center
 		'source': 'food-p',
 		'layout': {
 		'icon-image': 'food',
-		'icon-size': 0.03
+		'icon-size': 0.03,
+		'icon-allow-overlap':true
 		}
 		});
 		
+		map.setCenter(food_points[0]['geometry']['coordinates']);
+		map.setZoom({$zl});
+
 		r_s = true;
 		
 		console.log('pahuch gaya');

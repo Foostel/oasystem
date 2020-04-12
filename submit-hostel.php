@@ -95,8 +95,8 @@ $bn=$_POST['bn'];
   $landmark=$_POST['l'];
   $pincode=$_POST['p'];
   $lnglat = explode(",",$_POST['lnglat']);
-  
-  $query="insert into hostel_address (uid,cid,bno,area,state,city,landmark,pincode,bn,lng,lat) values($uid,$cid,'$bno','$area','$state','$city','$landmark',$pincode,'$bn','$lnglat[0]','$lnglat[1]')";
+  $sarea = strtolower(trim($_POST['a']).' '.trim($_POST['l']));
+  $query="insert into hostel_address (uid,cid,bno,area,sarea,state,city,landmark,pincode,bn,lng,lat) values($uid,$cid,'$bno','$area','$sarea','$state','$city','$landmark',$pincode,'$bn','$lnglat[0]','$lnglat[1]')";
   $q=mysqli_query($conn,$query);
   if($q){
       echo " hostel address information inserted successfully ";  }

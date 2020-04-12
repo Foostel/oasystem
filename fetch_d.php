@@ -10,7 +10,7 @@
 		console.log('called!');
 		str = str.toLowerCase();
 		var ar = str.split(' ');
-		var service = [['room','rooms','residencies'],['hostel','hostels','residencies'],['tiffin centers','tiffin','tiffen','tiffin center', 'tiffin-center','center','tiffin-centers','food','food center', 'foods', 'meal', 'mess']];
+		var service = [['room','rooms','residencies'],['hostel','hostels','residencies'],['tiffin centers','tiffin','tiffen','tiffin center', 'tiffin-center','center','tiffin-centers','tifin','tifen','food','food center', 'foods', 'meal', 'mess']];
 		var param = [0,0,0];
 		for(let i=0;i<ar.length;i++)
 		{
@@ -41,17 +41,16 @@
 				}
 			}
 		}
-		console.log(param);
+		console.log("Lo");
 		var add=Array();
-		ar = ar.join(" ").trim();
+		arr = ar.join(" ").trim();
 		console.log(ar);
-		if(ar.trim()!='')
+		if(arr.trim()!='')
 		{
-		$.getJSON('https://api.mapbox.com/geocoding/v5/mapbox.places/{'+ar+'.json?limit=1&access_token=pk.eyJ1IjoibWloaXJzb25pNzgxIiwiYSI6ImNrOGlrZTc5ajAwcnkzbHFxd3NkbnZwc3UifQ.qoBrl5wvQ6LjGZd369FnIg&country=In', function(data) {
+		$.getJSON('https://api.mapbox.com/geocoding/v5/mapbox.places/{'+arr+'.json?limit=1&access_token=pk.eyJ1IjoibWloaXJzb25pNzgxIiwiYSI6ImNrOGlrZTc5ajAwcnkzbHFxd3NkbnZwc3UifQ.qoBrl5wvQ6LjGZd369FnIg&country=In', function(data) {
 		console.log(data);
         add=data.features[0]['place_name'].split(",");
-        map.setCenter(data.features[0]['geometry']['coordinates']);
-		map.setZoom(13);		
+        	
         console.log(add);
         console.log(data);
         var dat = 'tos='+param+'&country='+add[add.length-1]+'&state='+add[add.length-2]+'&city='+add[add.length-3]+'&area='+data.features[0]['place_name'];
@@ -60,6 +59,7 @@
         if(state)
         {
         	state = state;
+        	console.log("state - "+state);
         }
         else{
         	state="";
@@ -68,12 +68,22 @@
         if(city)
         {
         	city = city;
+        	console.log("City - "+city);
         }
         else{
         	city="";
         }
-        console.log(city);        
-		$.post('search-engine.php',{tos:param,country:country,state:state,city:city,area:data.features[0]['place_name']},
+        for(let m=0;m<ar.length;m++)
+        {
+        	if(ar[m]==city.toLowerCase().trim() || ar[m]==state.toLowerCase().trim() || ar[m]==country.toLowerCase().trim())
+        	{
+        		ar[m]='';
+        	}
+        }
+        area = ar.join(" ").trim();
+        console.log(ar);
+        console.log(area);
+        $.post('search-engine.php',{tos:param,country:country,state:state,city:city,area:area,fulladd:data.features[0]['place_name']},
 		    function(dat) {
 			 $('#results').html(dat);
 		    });
