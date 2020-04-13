@@ -12,8 +12,9 @@ echo "
             </div>
             <div class="menus" >
                 <a class="menu-opt" href="user-home.php#services-p">Services</a>
+                <a class="menu-opt" href="user-home.php#RYS">Register your services</a>
                 <a class="menu-opt" href="user-home.php#About-us">About us</a>
                 <a class="menu-opt" href="user-home.php#Contact-us">Contact us</a>
                 
-                <span style="position:fixed;right: 30px; top:30px; font-size: 40px;" id="signin" ><img class="user-pic" onclick="h=true;toggle('side-panel');" id="sp" style='cursor:pointer;height:60px; width:60px; border-radius:50%;'></span>
+                <span style="position:absolute;right: 30px; top:30px; font-size: 40px;" id="signin" ><img class="user-pic" onclick="h=true;toggle('side-panel');" id="sp" style='cursor:pointer;height:60px; width:60px; border-radius:50%;'></span>
             </div>

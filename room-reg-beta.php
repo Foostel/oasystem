@@ -189,30 +189,30 @@
                 <span style="font-weight: 600;">Room type</span> <br>
                 <hr style="border:solid .5px; margin-right: 30px;">
                 <div style="display: inline-block; margin-right: 20px;">
-                            1-Room &nbsp<label for="1r" style="position: absolute; margin-top: 2px;" onclick="disp('r-1');"><div  onclick="check('1r-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="1r-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
-                            <input type="checkbox" name="room[]" id="1r" value="1r" >
+                            1-Bed &nbsp<label for="1b" style="position: absolute; margin-top: 2px;" onclick="disp('b-1');"><div  onclick="check('1b-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="1b-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
+                            <input type="checkbox" name="room[]" id="1b" value="r1" >
                 </div>
 
                 <div style="display: inline-block; margin-right: 20px;">
-                            2-Room &nbsp<label for="2r" style="position: absolute; margin-top: 2px;" onclick="disp('r-2');"><div  onclick="check('2r-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="2r-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
-                            <input type="checkbox" name="room[]" id="2r" value="2r" >
+                            2-Bed &nbsp<label for="2b" style="position: absolute; margin-top: 2px;" onclick="disp('b-2');"><div  onclick="check('2b-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="2b-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
+                            <input type="checkbox" name="room[]" id="2b" value="r2" >
                 </div>
 
                 <div style="display: inline-block; margin-right: 20px;">
-                            Room & Kitchen &nbsp<label for="rk" style="position: absolute; margin-top: 2px;" onclick="disp('rk-t');"><div  onclick="check('rk-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="rk-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
-                            <input type="checkbox" name="room[]" id="rk" value="rk" >
+                            3-Bed &nbsp<label for="3b" style="position: absolute; margin-top: 2px;" onclick="disp('b-3');"><div  onclick="check('3b-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="3b-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
+                            <input type="checkbox" name="room[]" id="3b" value="r3" >
                 </div>
                 <br><br><br>
-                <div id="r-1" style="display: none;">
-                    1-Room &nbsp<input style="width: 70px; height: 20px;" placeholder="Available" class="inputs" type="" name="r1a">&nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="r1c">
+                <div id="b-1" style="display: none;">
+                    1-Bed &nbsp<input style="width: 70px; height: 20px;" placeholder="Available" class="inputs" type="" name="ab1">&nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="rb1">
 
                 </div>
-                <div id="r-2" style="display: none;">
-                    2-Room &nbsp<input style="width: 70px; height: 20px;" placeholder="Available" class="inputs" type="" name="r2a">&nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="r2c">
+                <div id="b-2" style="display: none;">
+                    2-Bed &nbsp<input style="width: 70px; height: 20px;" placeholder="Available" class="inputs" type="" name="ab2">&nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="rb2">
                                 <br>
                 </div>
-                <div id="rk-t" style="display: none;">
-                    Room & Kitchen &nbsp<input style="width: 70px; height: 20px;" placeholder="Available" class="inputs" type="" name="rka">&nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="rkc">
+                <div id="b-3" style="display: none;">
+                    3-Bed &nbsp<input style="width: 70px; height: 20px;" placeholder="Available" class="inputs" type="" name="ab3">&nbsp<input style="width: 70px; height: 20px;" placeholder="Rent/Month" class="inputs" type="" name="rb3">
                                 <br>
                 </div>
                 

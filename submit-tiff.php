@@ -49,9 +49,9 @@ if(isset($_POST['submit']) and isset($_SESSION['id']))
   	$payd=$_POST['payd'];
 
 
-    $bd=$bt1."to".$bt2.",".$bf.",".$payb;
-    $ld=$lt1."to".$lt2.",".$lf.",".$payl;
-    $dd=$dt1."to".$dt2.",".$df.",".$payd;
+    $bd=$bt1.",to,".$bt2.",".$bf.",".$payb;
+    $ld=$lt1.",to,".$lt2.",".$lf.",".$payl;
+    $dd=$dt1.",to,".$dt2.",".$df.",".$payd;
 
 
      $query="insert into tiffin_facility(uid,l,ld,b,bd,d,dd,hd,cae,c) values($uid,$l,'$ld',$b,'$bd',$d,'$dd',$hd,$cae,$c)";
@@ -69,18 +69,17 @@ else{
 	echo "form not submitted";
 }
 
-echo  $_POST["loc"];
 
   $bn=$_POST['bn'];
   $bno=$_POST['b'];
-  $vt=$_POST['vt'];
   $area=$_POST['a'];
   $state=strtolower(trim($_POST['s']));
   $city=strtolower(trim($_POST['c']));
   $landmark=$_POST['l'];
   $pincode=$_POST['p'];
-
-  $query="insert into tiffin_address (uid,cid,bno,area,state,city,landmark,pincode,bn,vt) values($uid,$cid,'$bno','$area','$state','$city','$landmark',$pincode,'$bn','$vt')";
+  $lnglat = explode(",",$_POST['lnglat']);
+  $sarea = strtolower(trim($_POST['a']).' '.trim($_POST['l']));
+  $query="insert into tiffin_address (uid,cid,bno,area,sarea,state,city,landmark,pincode,bn,lng,lat) values($uid,$cid,'$bno','$area','$sarea','$state','$city','$landmark',$pincode,'$bn',$lnglat[0],$lnglat[1])";
   $q=mysqli_query($conn,$query);
   if($q){
       echo " center address information inserted successfully ";  }

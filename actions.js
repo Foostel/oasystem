@@ -1,34 +1,38 @@
 h=true;
 h2=true;
-function blur(){
-    console.log("blr");
-    var i= document.getElementsByClassName('section');
-        console.log(i);
-        if(!h){
-        for(let s=0;s<i.length;s++)
-        {
-            i[s].style.filter="blur(12px)";
 
-            console.log(s);
-        }
-        }
-        else{
-            for(let s=0;s<i.length;s++)
-        {
-            i[s].style.filter="none";
-        }
+function mapViewToggle(obj)
+{ 
+  if(obj.style.backgroundColor=='white')
+  { obj.style.backgroundColor='black';
+    obj.style.color='white';
+    document.getElementsByClassName('MAP-VIEW')[0].style.left='0px';
+    document.getElementsByClassName('MAP-VIEW')[0].style.zIndex='0';
+    document.getElementById('ifm').style.zIndex='-1';
+    document.getElementById('ifm').style.display='none';
+  }
+  else{
+    obj.style.backgroundColor='white';
+    obj.style.color='black';
+    document.getElementsByClassName('MAP-VIEW')[0].style.left='400px';
+    document.getElementsByClassName('MAP-VIEW')[0].style.zIndex='-1';
+    document.getElementById('ifm').style.zIndex='0';
+    document.getElementById('ifm').style.display='block';
 
-        }
-
+  } 
 }
+
 function clearPopups(){
-            let x=document.getElementsByClassName('overlays');
-            for(i=0;i<x.length;i++)
+            var x=document.getElementsByClassName('overlays');
+            for(var i=0;i<x.length;i++)
             {
                 x[i].style.display='';
-                h=true;
             }
-            blur();
+            var sc= document.getElementsByClassName('section');
+            for(var s=0;s<sc.length;s++)
+            {
+                sc[s].style.filter="none";
+            }
         }
 
 function toggle(s){
@@ -49,7 +53,17 @@ function toggle(s){
 	}
 
 }
+function select(item,name)
+{
+    var els = document.getElementsByName(name);
+    console.log(els[0].value);
+    for(var i=0;i<els.length;i++)
+    {   console.log('yeah');
+        els[i].style.backgroundColor='white';
+    }
 
+    item.style.backgroundColor='black';
+}
 function invoke(s){
     if(h2){
         console.log("SHOW");
@@ -166,19 +180,15 @@ function showp(){
     }
 }
 
-function check(obj)
-{       if(obj.value=='')
-        {
-            obj.style.backgroundColor='black';
-            obj.style.color='white';
-            obj.value=obj.innerHTML;
+function check(id)
+{   var obj = document.getElementById(id);    
+    if(obj.style.display=='none')
+        {   
+            obj.style.display='inline-block';
         }
         else{
-            obj.style.backgroundColor='white';
-            obj.style.color='black';
-            obj.value='';
-        }
-                
+            obj.style.display='none';
+        }          
 }
 function getloc(x)
 {
@@ -229,10 +239,3 @@ function rqrd(v,nextloc){
         window.location=nextloc;
     
 }
-
-function fetch(str){
-        var ar = str.split(" ");
-        $.getJSON('https://api.mapbox.com/geocoding/v5/mapbox.places/{'+str+'.json?&access_token=pk.eyJ1IjoibWloaXJzb25pNzgxIiwiYSI6ImNrOGlrZTc5ajAwcnkzbHFxd3NkbnZwc3UifQ.qoBrl5wvQ6LjGZd369FnIg', function(data) {
-        return data;
-        });
-    }

@@ -17,9 +17,9 @@
                 $('#header').load("user-header.php");
             });
 
-            $(function(){
-                $('#service-map-panel').load("services-map.php");
-            });
+            //$(function(){
+            //    $('#service-map-panel').load("services-map.php");
+            //});
 
             $(function(){
                 $('#service-panel').load("services.php");
@@ -30,6 +30,9 @@
             });
             $(function(){
                 $('#Contact-us').load("Contact-us.php");
+            });
+            $(function(){
+                $('#RYS').load("r-y-s.php");
             });
             
         </script>
@@ -61,12 +64,16 @@
 
         <div class="section" id="services-p" onclick="clearPopups();">
             
-            <div id="service-map-panel" >
-            </div>
-            
             <div id="service-panel" onclick="clearPopups();">
             </div>
+
+
+            <div id="service-map-panel" >
+            </div>
         
+        </div>
+        <div class="section" id="RYS" onclick="clearPopups();">
+            
         </div>
         
         <div class="section" id="About-us" onclick="clearPopups();">

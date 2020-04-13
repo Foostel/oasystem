@@ -110,13 +110,13 @@
                 <button id="geo-l" onclick="pop('pop-up');" style="text-align: center; width: 310px; height: 50px; cursor: pointer;" type="button" class="inputs" name="loc">
                                 Add geo-location
                 </button>
-                <input type="" name="lnglat" id="lnglat" style="display: none;">
+                
                 <div style="display: inline-block; text-align: center;">
                     <label class="inputs" for="photos" style="position:absolute;cursor:pointer;width:310px;height:25px;display:block; font-size: 14px; padding: 10px 0px 10px 0px;">Upload photos</label>
                     <input id="photos" class="inputs" style="opacity:0; z-index:-1;text-align: center;" type="file" name="uploadfile[]"  multiple>
                 </div>
                 <br>
-                <span style="font-weight: 600;">Meals provided</span> <br><hr style="border: solid .5px; margin-right: 100px; ">
+                <span style="font-weight: 600;">Meals provided</span> <br><br>
                 <div style="display: inline-block; margin-right: 40px;">
                                 Breakfast &nbsp<label for="f1" style="position: absolute; margin-top: 2px;" ><div  onclick="check('f1-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="f1-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
                                 <input type="checkbox" style="display: none;" name="meal[]" id="f1" value="Breakfirst" onclick="disp('Breakfast');">
@@ -134,7 +134,7 @@
                 
                 <br><br><br>   
                 
-                <span style="font-weight: 600;">Facilities provided</span> <br><hr style="border: solid .5px; margin-right: 100px; ">        
+                <span style="font-weight: 600;">Facilities provided</span> <br><br>        
                             
                 <div style="display: inline-block; margin-right: 20px; margin-bottom: 10px;">
                             Home Delivery &nbsp<label for="hd" style="position: absolute; margin-top: 2px;" ><div  onclick="check('hd-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="hd-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
