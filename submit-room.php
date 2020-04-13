@@ -1,5 +1,7 @@
 <html>
 <head>
+<script src="https://maps.googleapis.com/maps/api/is?v=3.exp&signed in=true&libraries=places"></script>
+
 <?php
   session_start();
 if(isset($_POST['submit']) and isset($_SESSION['id']))
