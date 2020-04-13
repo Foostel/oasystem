@@ -120,7 +120,7 @@ if ($req_ser[0]==1 )//room
         		echo"
 				<div class='res-data' onclick='disp({$rowid},this);'>
 					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
-					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
+					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lat']},{$row['lng']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
 					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']},{$row['landmark']}, {$row['area']}</span>
 					<p style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:20px; font-size: 12px;'></p>
@@ -214,7 +214,7 @@ if ($req_ser[0]==1 )//room
         		echo"
 				<div class='res-data' onclick='disp({$rowid},this);'>
 					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
-					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
+					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lat']},{$row['lng']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
 					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']}, {$row['landmark']}, {$row['area']}</span>
 					<p style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:20px; font-size: 12px;'></p>
@@ -309,7 +309,7 @@ if ($req_ser[0]==1 )//room
         		echo"
 				<div class='res-data' onclick='disp({$rowid},this);'>
 					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
-					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
+					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lat']},{$row['lng']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
 					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']}, {$row['landmark']}, {$row['area']}</span>
 					<p style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:20px; font-size: 12px;'></p>

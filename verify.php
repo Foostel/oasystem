@@ -36,8 +36,8 @@
             We have sent you a verification code at your email address.
         </p>
         <form action="on-db.php" method="post">
-        <input style="text-align: center;" type="text" class="inputs" name="o-t-p"  placeholder="Enter verification code here" name="">
-        <input type="submit" name="" class="btn" value="Verify" name="verify">    
+        <input style="text-align: center; width: 300px;" type="text" class="inputs" name="o-t-p"  placeholder="Enter verification code here" name="">
+        <br><input style="text-align: center; width: 300px;" type="submit" name="" class="btn" value="Verify" name="verify">    
         </form>
         </center>
         </body>

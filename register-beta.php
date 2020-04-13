@@ -19,11 +19,6 @@
         </script>
         <?php 
          ?>
-         <style type="text/css">
-             .inputs{
-                border:solid .5px;
-             }
-         </style>
     <script src="actions.js"></script>    
 </head>
 <body style="background-color: #E9E9E9;">

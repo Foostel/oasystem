@@ -78,7 +78,7 @@
 	});
 	var r_s=false;
 	</script>
-	<div id="map-d" style='width: 1150px; height: 100%; margin-top: 0px;'>
+	<div id="map-d" style=''>
 		
 	</div>
 
