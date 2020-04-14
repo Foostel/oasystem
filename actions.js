@@ -1,6 +1,51 @@
 h=true;
 h2=true;
+var res=Array();
+function validateF(){
+                if(!document.getElementById('tnc').checked){
+                    alert('Accept our terms & conditions to proceed registration');
+                    return false;
+                }
+                if(document.getElementById('lnglat').value=='')
+                {
+                    return confirm("It seems you didn't entered geo-location, this will help customers to easily find your service. Do you want to proceed without it ?");
+                }
+                return true;
+            }
 
+function filter(arr){
+    document.getElementById('filter-b').getElementsByTagName('i')[0].className='fa fa-angle-down';
+            document.getElementById('filter-d').style.display='none';
+            document.getElementById('results').style.display='block';
+            document.getElementById('results').style.zIndex='0';
+    console.log(res);
+    for(var i=0;i<res.length;i++)
+    {
+        for(var j=0;j<arr.length;j++)
+        {   let idx = document.getElementById(arr[j]).name;
+            var val='';
+            if(document.getElementById(arr[j]).checked){val= document.getElementById(arr[j]).value};
+            console.log('idx: '+idx+' val:'+val);
+            if(res[i][idx] != val && val!='')
+            {   console.log('hit');
+                var el = document.getElementsByName(res[i]['cid']);
+                for(var s=0;s<el.length;s++)
+                {
+                    el[s].style.display='none';    
+                }
+                
+                break;
+            }
+            else{
+                var el = document.getElementsByName(res[i]['cid']);
+                for(var s=0;s<el.length;s++)
+                {
+                    el[s].style.display='block';    
+                }
+            }
+        }
+    }
+}
 function mapViewToggle(obj)
 { 
   if(obj.style.backgroundColor=='white')

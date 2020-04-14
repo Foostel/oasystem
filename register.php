@@ -21,7 +21,7 @@
          ?>
          <style type="text/css">
              .inputs{
-                border:solid .5px;
+                border:solid 1px;
              }
          </style>
     <script src="actions.js"></script>    

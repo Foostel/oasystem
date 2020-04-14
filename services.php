@@ -16,6 +16,20 @@
 		map.setZoom(1);
 	</script>
 <script type="text/javascript">
+	$('#filter-b').on('click',function(e)
+	{	if(document.getElementById('filter-d').style.display=='none')
+		{	document.getElementById('filter-b').getElementsByTagName('i')[0].className='fa fa-angle-up';
+			document.getElementById('filter-d').style.display='block';
+			document.getElementById('results').style.display='none';
+			document.getElementById('results').style.zIndex='-1';
+		}
+		else{
+			document.getElementById('filter-b').getElementsByTagName('i')[0].className='fa fa-angle-down';
+			document.getElementById('filter-d').style.display='none';
+			document.getElementById('results').style.display='block';
+			document.getElementById('results').style.zIndex='0';	
+		}
+	});
 	function search(){
 
 	var search_string = document.getElementById('search_string').value;
@@ -39,7 +53,7 @@
 	
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div>
-<button class="btn" style="background-color:black;cursor:pointer;width: 80px; height: 30px; margin: 3px 0px;">Filter <i class="fa fa-angle-down"></i></button>
+<button id="filter-b" class="btn" style="background-color:white;color:black;cursor:pointer;width: 80px; height: 30px; margin: 3px 0px;">Filter <i class="fa fa-angle-down"></i></button>
 <button class="btn" style="background-color:black;cursor:pointer;width: 80px; height: 30px; margin: 3px 0px;">Sort by <i class="fa fa-angle-down"></i></button>
 
 <button class="btn mv" style="background-color:white;color:black;cursor:pointer;width: 80px; height: 30px; margin: 3px 0px;" onclick="mapViewToggle(this);">Map View</button>

@@ -73,7 +73,7 @@
             <p style="display:inline-block;font-size: 25px;color:black;">Register Tiffin Center</p>
         </div>
         
-        <form class="form" style="position: relative; text-align:left;margin-left:20px;display: inline-block;" method="post" action="submit-tiff.php" enctype="multipart/form-data">
+        <form onsubmit="return validateF();" class="form" style="position: relative; text-align:left;margin-left:20px;display: inline-block;" method="post" action="submit-tiff.php" enctype="multipart/form-data">
             
             <div class="form-container" style="width: 400px;">
                 <input style="text-align: center; width: 300px;" id="b-name" type="" class="inputs" name="bn" placeholder="Business name" > 

@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src='actions.js'></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
         </script>
 		<script type='text/javascript'>
@@ -30,6 +31,13 @@
 				}
 			}	
 		}
+		if(param[0])
+		{
+			$(function(){
+                $('#filter-d').load("room-filter.php");
+            });
+		}
+
 		var rmwd = ['near','in','at','to','city','area'];
 		for(i=0;i<rmwd.length;i++)
 		{
@@ -86,6 +94,7 @@
         $.post('search-engine.php',{tos:param,country:country,state:state,city:city,area:area,fulladd:data.features[0]['place_name']},
 		    function(dat) {
 			 $('#results').html(dat);
+				console.log(res);
 		    });
     	});
 
@@ -95,6 +104,7 @@
 	}
 
 }
+
 </script>
 <?php
 	if(isset($_POST['search_string']))
@@ -109,3 +119,6 @@
  <div id="results" style="">
  	
  </div>
+<div id="filter-d" style=" display:none;width: 300px; height: 500px; background-color: white;">
+
+</div>
