@@ -137,6 +137,6 @@
  	
 
  </script>
-<div id="filter-d" style=" display:none;width: 300px; height: 500px; background-color: white;">
+<div id="filter-d" style=" display:none;width: 300px; height: 600px; background-color: white;">
 
 </div>

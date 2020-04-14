@@ -13,27 +13,28 @@
 <body style="z-index: 0; font-size: 14px; position: relative;" class="filter-b">
 <div style="margin-left: 20px;"><br>
 <span style="font-weight: 500;">Room for:</span><br><br>
-<div style=" position:relative;display: inline-block; margin-right: 20px; margin-bottom: 10px;">
-                            Male &nbsp<label for="m" style="position: absolute; margin-top: 2px;" ><div  onclick="check('m-check');" style="border:solid 1px;width:15px; height: 15px; background-color: white;"><i id="m-check" style="display:none; font-size: 15px; position: absolute;" class="fa fa-check" aria-hidden="true"></i></div></label>
-                            <input style="display: none;" type="checkbox" name="ge" id="m" value="Male">
-</div>
+                <div style="display: inline-block; margin-right: 40px; position: relative;">
+                                Male &nbsp<label for="m" style="position: absolute; margin-top: 3px; margin-left: 3px;" ><div  onclick="select(this,'room-type-label');" style="width:10px; height: 10px; border-radius: 50%; border:solid 5px gray; background-color: white;" name="room-type-label"></div></label> &nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input required="" type="radio" name="ge" id="m" value="Male" style="display: none; ">
 
-<div style="position:relative; display: inline-block; margin-right: 20px; margin-bottom: 10px;">
-                            Female &nbsp<label for="f" style="position: absolute; margin-top: 2px;" ><div  onclick="check('f-check');" style="border:solid 1px;width:15px; height: 15px; background-color: white;"><i id="f-check" style="display:none; font-size: 15px; position: absolute;" class="fa fa-check" aria-hidden="true"></i></div></label>
-                            <input style="display: none;" type="checkbox" name="ge" id="f" value="Girls">
-</div>
+                                Female &nbsp<label for="f" style="position: absolute; margin-top: 3px; margin-left: 3px;" ><div  onclick="select(this,'room-type-label');" style="width:10px; height: 10px; border-radius: 50%; border:solid 5px gray; background-color: white;" name="room-type-label"></div></label> &nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input required="" type="radio" name="ge" id ="f" value="Female" style="display: none;" >
 
-<br>
-<div style="position:relative; display: inline-block; margin-right: 20px; margin-bottom: 10px;">
-                            Student &nbsp<label for="s" style="position: absolute; margin-top: 2px;" ><div  onclick="check('s-check');" style="border:solid 1px;width:15px; height: 15px; background-color: white;"><i id="s-check" style="display:none; font-size: 15px; position: absolute;" class="fa fa-check" aria-hidden="true"></i></div></label>
-                            <input style="display: none;" type="checkbox" name="wk" id="s" value="Student">
-</div>
+                                Anyone &nbsp<label for="ao" style="position: absolute; margin-top: 3px; margin-left: 3px;" ><div  onclick="select(this,'room-type-label');" style="width:10px; height: 10px; border-radius: 50%; border:solid 5px gray; background-color: white;" name="room-type-label"></div></label> &nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input required="" type="radio" name="ge" id ="ao" value="Anyone" style="display: none;">
+                                
+                                <hr style="border: solid .5px gray;">
 
+                                Student &nbsp<label for="s" style="position: absolute; margin-top: 3px; margin-left: 3px;" ><div  onclick="select(this,'room-for-label');" style="width:10px; height: 10px; border-radius: 50%; border:solid 5px gray; background-color: white;" name="room-for-label"></div></label> &nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input required="" type="radio" name="wk" id="s" value="Student" style="display: none;">
 
-<div style="display: inline-block;position:relative; margin-right: 20px; margin-bottom: 10px;">
-                            Employee &nbsp<label for="e" style="position: absolute; margin-top: 2px;" ><div  onclick="check('e-check');" style="border:solid 1px;width:15px; height: 15px; background-color: white;"><i id="e-check" style="display:none; font-size: 15px; position: absolute;" class="fa fa-check" aria-hidden="true"></i></div></label>
-                            <input style="display: none;" type="checkbox" name="wk" id="e" value="Employee">
-</div>
+                                Employee &nbsp<label for="e" style="position: absolute; margin-top: 3px; margin-left: 3px;" ><div  onclick="select(this,'room-for-label');" style="width:10px; height: 10px; border-radius: 50%; border:solid 5px gray; background-color: white;" name="room-for-label"></div></label> &nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input required="" type="radio" name="wk" id ="e" value="Employee" style="display: none;">
+                                <br><br>
+                                Anyone &nbsp<label for="aon" style="position: absolute; margin-top: 3px; margin-left: 3px;" ><div  onclick="select(this,'room-for-label');" style="width:10px; height: 10px; border-radius: 50%; border:solid 5px gray; background-color: white;" name="room-for-label"></div></label> &nbsp&nbsp&nbsp&nbsp&nbsp
+                                <input required="" type="radio" name="wk" id ="aon" value="Anyone" style="display: none;">
+                                
+                </div>
 
 <br><br>
 <span style="font-weight: 500;">Facilities:</span><br><br>
@@ -79,10 +80,7 @@
                 </div>
 <br>
 <br>
-<span style="font-weight: 500;">Rent:</span> <br><br>
-<input class="inputs" type="" name="" style="width: 50px; height: 15px; border: solid 1px;" placeholder="Min">
-<input class="inputs" type="" name="" style="width: 50px; height: 15px; border: solid 1px;" placeholder="Max">
-<button class="btn" onclick="filter(['m','f','s','e','tc','p','rs','ab','w','b','1r','2r','rk']);">Apply</button>
+<button style="position: relative;" class="btn" onclick="filter(['m','f','ao','s','e','aon','tc','p','rs','ab','w','b','1r','2r','rk']);">Apply</button>
 </div>
 </body>
 </html>
