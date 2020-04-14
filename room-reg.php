@@ -9,7 +9,7 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="style.css">
     <style>
-        #map { position: relative; top: 5px; bottom: 0; width: 100%; height: 300px; z-index: -1; }
+        
         .inputs{
             border: solid .5px;
         }
@@ -96,7 +96,7 @@
                             {   var el= document.getElementById(id);
                                 
                                 var i= document.getElementsByClassName('section');
-                                if(el.style.display=='')
+                                if(el.style.display=='none')
                                 {
                                 document.getElementById('pop-up').style.display='block';
                                     for(let s=0;s<i.length;s++)
@@ -111,6 +111,7 @@
                 <button id="geo-l" onclick="pop('pop-up');" style="text-align: center; width: 310px; height: 50px; cursor: pointer;" type="button" class="inputs" name="loc">
                                 Add geo-location
                 </button>
+
                 <input type="" id="lnglat" class="inputs" name="lnglat" style="display: none;">
                 <div style="display: inline-block; text-align: center;">
                     <label class="inputs" for="photos" style="position:absolute;cursor:pointer;width:310px;height:25px;display:block; font-size: 14px; padding: 10px 0px 10px 0px;">Upload photos</label>
@@ -249,8 +250,9 @@
        <div class="overlays side-panel" id="side-panel" style="text-align: center;">
                 
         </div>
-        <div class="overlays pop-up" id="pop-up" style="text-align:center;">
+    <div class="overlays pop-up" id="pop-up" style="display:none;text-align:center; position: absolute; top:0px;">
             
-        </div>
+    </div>
+        
     </body>
 </html>

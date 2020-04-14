@@ -38,6 +38,7 @@
 			 $('#ifm').html(dat);
 		    });
 	}
+	
 	$('#search_string').on("keypress", function(e) {
             /* ENTER PRESSED*/
             if (e.keyCode == 13) {
@@ -53,7 +54,7 @@
 	
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div>
-<button id="filter-b" class="btn" style="background-color:white;color:black;cursor:pointer;width: 80px; height: 30px; margin: 3px 0px;">Filter <i class="fa fa-angle-down"></i></button>
+<button id="filter-b" class="btn" style="display:none;background-color:white;color:black;cursor:pointer;width: 80px; height: 30px; margin: 3px 0px;">Filter <i class="fa fa-angle-down"></i></button>
 <button class="btn" style="background-color:black;cursor:pointer;width: 80px; height: 30px; margin: 3px 0px;">Sort by <i class="fa fa-angle-down"></i></button>
 
 <button class="btn mv" style="background-color:white;color:black;cursor:pointer;width: 80px; height: 30px; margin: 3px 0px;" onclick="mapViewToggle(this);">Map View</button>

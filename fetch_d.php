@@ -37,6 +37,17 @@
                 $('#filter-d').load("room-filter.php");
             });
 		}
+		else if(param[1])
+		{
+			$(function(){
+                $('#filter-d').load("hostel-filter.php");
+            });
+		}
+		else if(param[2]){
+			$(function(){
+                $('#filter-d').load("tiffin-filter.php");
+            });
+		}
 
 		var rmwd = ['near','in','at','to','city','area'];
 		for(i=0;i<rmwd.length;i++)
@@ -94,10 +105,13 @@
         $.post('search-engine.php',{tos:param,country:country,state:state,city:city,area:area,fulladd:data.features[0]['place_name']},
 		    function(dat) {
 			 $('#results').html(dat);
+				console.log('hola');
 				console.log(res);
+
 		    });
     	});
 
+	
 	}
 	else{
 			document.getElementById('results').innerHTML = "<center style='font-size: 12px; color:gray; margin-top:10px;'>No results found :(</center>";
@@ -119,6 +133,10 @@
  <div id="results" style="">
  	
  </div>
+ <script type="text/javascript">
+ 	
+
+ </script>
 <div id="filter-d" style=" display:none;width: 300px; height: 500px; background-color: white;">
 
 </div>

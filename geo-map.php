@@ -1,10 +1,14 @@
+<div style="display: absolute; bottom: 100px;">
+	
 <p style="text-align: center;">Choose on Map</p><i style="float: right; position: absolute; top:10px; right: 10px;font-size: 30px; cursor: pointer;" class="fa fa-close" onclick="clearPopups();
 "></i>
-<button id="myc" class="btn" style="position: absolute; width: 180px; background-color:rgba(0,0,0,0.7); cursor: pointer; top: 320px; left: 115px; padding: 1px; height: 30px;">Locate me <i class="fa fa-map-marker"></i></button>
+<button id="myc" class="btn" style="position: absolute; width: 180px; background-color:rgba(0,0,0,0.7); cursor: pointer; top: 320px; left: 115px; padding: 1px; height: 30px;">Use My Current Location<i class="fa fa-map-marker"></i></button>
 <button id="remove" class="btn" onclick="clearPopups();document.getElementById('geo-l').innerHTML ='Add geo-location';
 document.getElementById('lnglat').value ='';" style="position: absolute; width: 200px; background-color:gray; cursor: pointer; left: 0px; top: 360px; padding: 1px; height: 40px;">Remove</button>
 <button id="add" class="btn" onclick="clearPopups();" style="position: absolute; width: 200px; background-color:rgba(0,0,0,1); cursor: pointer; left: 200px; top: 360px; padding: 1px; height: 40px;">Add</button>
-<div id="map"></div>
+</div>
+
+<div id="map-pop" style="width: 400px; height: 300px;"></div>
 
 <script>
 var pos;
@@ -20,7 +24,7 @@ var xs= {'lng':lng,'lat':lat};
 var ll= xs['lng']+","+xs['lat'];        
 mapboxgl.accessToken = 'pk.eyJ1IjoibWloaXJzb25pNzgxIiwiYSI6ImNrOGlrZTc5ajAwcnkzbHFxd3NkbnZwc3UifQ.qoBrl5wvQ6LjGZd369FnIg';
 var map = new mapboxgl.Map({
-container: 'map', // container id
+container: 'map-pop', // container id
 style: 'mapbox://styles/mapbox/streets-v11',
 center: [lng, lat], // starting position
 zoom: 8 // starting zoom

@@ -23,7 +23,7 @@
 		}
 		else{
 			document.getElementById(id).style.display='none';
-			obj.style.height='70px';
+			obj.style.height='90px';
 		obj.getElementsByTagName('p')[0].innerHTML="";	
 		}
 	}
@@ -67,7 +67,14 @@ if ($req_ser[0]==1 )//room
     		while ($row = $result->fetch_assoc()) 
     		{	$phone = getRow($conn,"select * from user where id='{$row['uid']}';")['phone'];
     			$roomfor ='';
-    			array_push($res, $row);
+                foreach ($res as $i) {
+                    # code...
+                    if($i==$row)
+                    {
+    			     continue;
+                    }
+                }
+                array_push($res, $row);
                 if($row['ge']!='Anyone')
     			{
     				$roomfor=$roomfor.''.$row['ge'];
@@ -150,9 +157,11 @@ if ($req_ser[0]==1 )//room
 						}
 				});
 				</script>
+
         		";
 
     		}
+
 		}
 		if($result1 && mysqli_num_rows($result1)>0)
 		{	$zl=12;
@@ -163,6 +172,18 @@ if ($req_ser[0]==1 )//room
             
     		while ($row = $result1->fetch_assoc()) 
     		{	$phone = getRow($conn,"select * from user where id='{$row['uid']}';")['phone'];
+                $stop=false;
+                foreach ($res as $i) {
+                    # code...
+                    if($i['cid']==$row['cid'])
+                    {echo"<script>console.log('match');</script>";
+                     $stop=true;
+                    }
+                }
+                if($stop){
+                    continue;
+                }
+
                 array_push($res,$row); 
     			$roomfor ='';
     			if($row['ge']!='Anyone')
@@ -260,7 +281,18 @@ if ($req_ser[0]==1 )//room
 
     		while ($row = $result2->fetch_assoc()) 
     		{	$phone = getRow($conn,"select * from user where id='{$row['uid']}';")['phone'];
-        		array_push($res, $row);
+        		$stop=false;
+                foreach ($res as $i) {
+                    # code...
+                    if($i['cid']==$row['cid'])
+                    {echo"<script>console.log('match');</script>";
+                     $stop=true;
+                    }
+                }
+                if($stop){
+                    continue;
+                }
+                array_push($res, $row);
                 $roomfor ='';
     			if($row['ge']!='Anyone')
     			{
@@ -314,37 +346,37 @@ if ($req_ser[0]==1 )//room
     			}
     			$rowid = $row['cid'].'';
         		echo"
-				<div id='{$row['cid']}' class='res-data' onclick='disp({$rowid},this);'>
-					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
-					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lat']},{$row['lng']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
-					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
-					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']}, {$row['landmark']}, {$row['area']}</span>
-					<p style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:20px; font-size: 12px;'></p>
-				</div>
-				<div class='res-data' id='{$row['cid']}' style='filter:none;margin-top:0px;height:300px;display:none;font-size:12px;'><br><br>
-					<b style='margin-left:10px; font-size:13px;'>Description </b>
-						<p style='margin-left:20px;'>
-						<b>Room for: </b> {$roomfor}<br>
-						<b>Facilities: </b><br>{$facilities}<br>
-						<b>Room type: </b><br>{$room_type}<br>
-						<b>Caution Money: </b>{$row['cm']}
-						<p>
-					</div>
-
-				<script>
-				rooms_points.push({
-				'type': 'Feature',
-				'properties':{
-					'description':
-						'<strong>{$row['bn']}</strong><p>{$row['bno']},{$row['landmark']},{$row['area']}</p><a>show more</a>'
-							},
-				'geometry': {
-					'type': 'Point',
-					'coordinates': [{$row['lng']},{$row['lat']}]
-						}
-				});
-				</script>
-        		";
+                <div name='{$row['cid']}' class='res-data' onclick='disp({$rowid},this);'>
+                    <span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
+                    <a target='_blank' href='https://www.google.com//maps/dir//{$row['lat']},{$row['lng']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
+                    <a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
+                    <span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']}, {$row['landmark']}, {$row['area']}</span>
+                    <p style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:20px; font-size: 12px;'></p>
+                </div>
+                <div class='res-data' id='{$row['cid']}' style='filter:none;margin-top:0px;height:300px;display:none;font-size:12px;'><br><br>
+                    <b style='margin-left:10px; font-size:13px;'>Description </b>
+                        <p style='margin-left:20px;'>
+                        <b>Room for: </b> {$roomfor}<br>
+                        <b>Facilities: </b><br>{$facilities}<br>
+                        <b>Room type: </b><br>{$room_type}<br>
+                        <b>Caution Money: </b>{$row['cm']}
+                        <p>
+                    </div>
+                <script>
+                rooms_points.push({
+                'id':'{$row['cid']}',
+                'type': 'Feature',
+                'properties':{
+                    'description':
+                        '<strong>{$row['bn']}</strong><p>{$row['bno']},{$row['landmark']},{$row['area']}</p><a>show more</a>'
+                            },
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': [{$row['lng']},{$row['lat']}]
+                        }
+                });
+                </script>
+                ";
 
     		}
 		}
@@ -421,6 +453,17 @@ else if ($req_ser[1]==1)//hostel
     		while ($row = $result->fetch_assoc()) 
     		{	$phone = getRow($conn,"select * from user where id='{$row['uid']}';")['phone'];
         		$hostelfor ='';
+                $stop=false;
+                foreach ($res as $i) {
+                    # code...
+                    if($i['cid']==$row['cid'])
+                    {echo"<script>console.log('match');</script>";
+                     $stop=true;
+                    }
+                }
+                if($stop){
+                    continue;
+                }
                 array_push($res, $row);
     			if($row['ht']!='Anyone')
     			{
@@ -479,7 +522,7 @@ else if ($req_ser[1]==1)//hostel
     			}
     			$rowid = $row['cid'].'';
         		echo"
-				<div id='{$row['cid']}' class='res-data' onclick='disp({$rowid},this);'>
+				<div name='{$row['cid']}' class='res-data' onclick='disp({$rowid},this);'>
 					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
 					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
@@ -522,6 +565,17 @@ else if ($req_ser[1]==1)//hostel
     		while ($row = $result1->fetch_assoc()) 
     		{	$phone = getRow($conn,"select * from user where id='{$row['uid']}';")['phone'];
         		$hostelfor ='';
+                $stop=false;
+                foreach ($res as $i) {
+                    # code...
+                    if($i['cid']==$row['cid'])
+                    {echo"<script>console.log('match');</script>";
+                     $stop=true;
+                    }
+                }
+                if($stop){
+                    continue;
+                }
                 array_push($res, $row);
     			if($row['ht']!='Anyone')
     			{
@@ -580,7 +634,7 @@ else if ($req_ser[1]==1)//hostel
     			}
     			$rowid = $row['cid'].'';
         		echo"
-				<div id='{$row['cid']}' class='res-data' onclick='disp({$rowid},this);'>
+				<div name='{$row['cid']}' class='res-data' onclick='disp({$rowid},this);'>
 					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
 					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
@@ -624,6 +678,17 @@ else if ($req_ser[1]==1)//hostel
     		while ($row = $result2->fetch_assoc()) 
     		{	$phone = getRow($conn,"select * from user where id='{$row['uid']}';")['phone'];
         		$hostelfor ='';
+                $stop=false;
+                foreach ($res as $i) {
+                    # code...
+                    if($i['cid']==$row['cid'])
+                    {echo"<script>console.log('match');</script>";
+                     $stop=true;
+                    }
+                }
+                if($stop){
+                    continue;
+                }
                 array_push($res, $row);
     			if($row['ht']!='Anyone')
     			{
@@ -682,7 +747,7 @@ else if ($req_ser[1]==1)//hostel
     			}
     			$rowid = $row['cid'].'';
         		echo"
-				<div id='{$row['cid']}' class='res-data' onclick='disp({$rowid},this);'>
+				<div name='{$row['cid']}' class='res-data' onclick='disp({$rowid},this);'>
 					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
 					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
@@ -781,6 +846,17 @@ else if ($req_ser[2]==1)//tiffin center
     		while ($row = $result->fetch_assoc()) 
     		{	$phone = getRow($conn,"select * from user where id='{$row['uid']}';")['phone'];
         		$facilities = '';
+                $stop=false;
+                foreach ($res as $i) {
+                    # code...
+                    if($i['cid']==$row['cid'])
+                    {echo"<script>console.log('match');</script>";
+                     $stop=true;
+                    }
+                }
+                if($stop){
+                    continue;
+                }
                 array_push($res, $row);
     			if($row['hd'])
     			{
@@ -812,7 +888,7 @@ else if ($req_ser[2]==1)//tiffin center
     				$mealsProvided.="<b>Dinner</b> Time: {$dinnerData[0]} To {$dinnerData[2]} Cost: Rs.{$dinnerData[3]} {$dinnerData[4]}";
     			}
         		echo"
-				<div id='{$row['cid']}' class='res-data' onclick='disp({$rowid},this);'>
+				<div name='{$row['cid']}' class='res-data' onclick='disp({$rowid},this);'>
 					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
 					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
@@ -851,6 +927,17 @@ else if ($req_ser[2]==1)//tiffin center
     		while ($row = $result1->fetch_assoc()) 
     		{	$phone = getRow($conn,"select * from user where id='{$row['uid']}';")['phone'];
         		$facilities = '';
+                $stop=false;
+                foreach ($res as $i) {
+                    # code...
+                    if($i['cid']==$row['cid'])
+                    {echo"<script>console.log('match');</script>";
+                     $stop=true;
+                    }
+                }
+                if($stop){
+                    continue;
+                }
                 array_push($res, $row);
     			if($row['hd'])
     			{
@@ -882,7 +969,7 @@ else if ($req_ser[2]==1)//tiffin center
     			}
     			$rowid = $row['cid'].'';
         		echo"
-				<div id='{$row['cid']}' class='res-data' onclick='disp({$rowid},this);'>
+				<div name='{$row['cid']}' class='res-data' onclick='disp({$rowid},this);'>
 					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
 					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
@@ -923,6 +1010,17 @@ else if ($req_ser[2]==1)//tiffin center
     		while ($row = $result2->fetch_assoc()) 
     		{	$phone = getRow($conn,"select * from user where id='{$row['uid']}';")['phone'];
         		$facilities = '';
+                $stop=false;
+                foreach ($res as $i) {
+                    # code...
+                    if($i['cid']==$row['cid'])
+                    {echo"<script>console.log('match');</script>";
+                     $stop=true;
+                    }
+                }
+                if($stop){
+                    continue;
+                }
                 array_push($res, $row);
     			if($row['hd'])
     			{
@@ -954,7 +1052,7 @@ else if ($req_ser[2]==1)//tiffin center
     			}
     			$rowid = $row['cid'].'';
         		echo"
-				<div id='{$row['cid']}' class='res-data' onclick='disp({$rowid},this);'>
+				<div name='{$row['cid']}' class='res-data' onclick='disp({$rowid},this);'>
 					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
 					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
@@ -1045,5 +1143,12 @@ else if ($req_ser[2]==1)//tiffin center
 ?>
 <script type="text/javascript">
     res = <?php echo json_encode($res); ?>;
+    if(res.length>0)
+    {
+        document.getElementById('filter-b').style.display='inline-block';
+    }
+    else{
+        document.getElementById('filter-b').style.display='none';   
+    }
 </script>
 </div>

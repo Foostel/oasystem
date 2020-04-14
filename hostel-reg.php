@@ -244,7 +244,7 @@
        <div class="overlays side-panel" id="side-panel" style="text-align: center;">
                 
         </div>
-        <div class="overlays pop-up" id="pop-up" style="text-align:center;">
+        <div class="overlays pop-up" id="pop-up" style="text-align:center; z-index: 2;">
             
         </div>
     </body>

@@ -19,6 +19,7 @@ function filter(arr){
             document.getElementById('results').style.display='block';
             document.getElementById('results').style.zIndex='0';
     console.log(res);
+    var hit=0;
     for(var i=0;i<res.length;i++)
     {
         for(var j=0;j<arr.length;j++)
@@ -28,6 +29,7 @@ function filter(arr){
             console.log('idx: '+idx+' val:'+val);
             if(res[i][idx] != val && val!='')
             {   console.log('hit');
+                hit+=1;
                 var el = document.getElementsByName(res[i]['cid']);
                 for(var s=0;s<el.length;s++)
                 {
@@ -40,11 +42,12 @@ function filter(arr){
                 var el = document.getElementsByName(res[i]['cid']);
                 for(var s=0;s<el.length;s++)
                 {
-                    el[s].style.display='block';    
+                    el[s].style.display='block';
                 }
             }
         }
     }
+
 }
 function mapViewToggle(obj)
 { 
