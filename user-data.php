@@ -16,4 +16,7 @@ session_start();
 		$phone=$result['phone'];
 		$email=$result['email'];
 		$pp=$result['pp'];
+		$r = $result['r'];
+		$h = $result['h'];
+		$t = $result['t'];
  ?>

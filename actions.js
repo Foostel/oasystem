@@ -1,6 +1,14 @@
 h=true;
 h2=true;
 var res=Array();
+function subSectionSelector(obj){
+    var x = document.getElementsByClassName('sub-section-menu');
+    for(let i=0;i<x.length;i++)
+    {
+        x[i].style.backgroundColor='#CFCFCF';
+    }
+    obj.style.backgroundColor='white';
+}
 function validateF(){
                 if(!document.getElementById('tnc').checked){
                     alert('Accept our terms & conditions to proceed registration');

@@ -99,8 +99,13 @@ else{
       echo " room address information inserted successfully "; 
        }
   else{echo " try again ". $conn->error; }
-
-
+  $query = "insert into owners (id,room,hostel,tiffin) values('$uid','r','$cid')";
+  $q=mysqli_query($conn,$query);
+  if($q){
+      echo " Owner information inserted successfully "; 
+       }
+  else{echo " try again ". $conn->error; }
+  
 mkdir("files\services\c-room\-".$cid);
   $folder="files\services\c-room\-"."$cid\_";
  $filename=array_filter($_FILES["uploadfile"]["name"]);

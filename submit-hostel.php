@@ -81,6 +81,7 @@ $room=$_POST['room'];
  else{
   echo "try again". $conn->error; }
 
+
 }
 else{
   echo "form not submitted";}
@@ -101,6 +102,13 @@ $bn=$_POST['bn'];
   if($q){
       echo " hostel address information inserted successfully ";  }
   else{echo " try again ". $conn->error; }
+  $query = "insert into owners (id,room,hostel,tiffin) values('$uid','h','$cid')";
+  $q=mysqli_query($conn,$query);
+  if($q){
+      echo " Owner information inserted successfully "; 
+       }
+  else{echo " try again ". $conn->error; }
+  
 
 mkdir("files\services\c-hostel\-".$cid);
   $folder="files\services\c-hostel\-"."$cid\_";

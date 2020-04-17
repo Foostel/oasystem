@@ -84,7 +84,13 @@ else{
   if($q){
       echo " center address information inserted successfully ";  }
   else{echo "try again"; }
-
+  $query = "insert into owners (id,room,hostel,tiffin) values('$uid','t','$cid')";
+  $q=mysqli_query($conn,$query);
+  if($q){
+      echo " Owner information inserted successfully "; 
+       }
+  else{echo " try again ". $conn->error; }
+  
 
 mkdir("files\services\c-tiffin\-".$cid);
   $folder="files\services\c-tiffin\-"."$cid\_";
