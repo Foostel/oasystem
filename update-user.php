@@ -8,7 +8,7 @@ $phoneno = $_POST['phoneno'];
 $id=$_SESSION['id'];
 //echo "".$id." ";
 
-$sql="update user set fname='$username[0]',lname='$username[0]',phone='$phoneno' where id = '$id'" ;
+$sql="update user set fname='$username[0]',lname='$username[1]',phone='$phoneno' where id = '$id'" ;
 if ($conn->query($sql) === TRUE) {
     echo "Record updated successfully";
 } else {
