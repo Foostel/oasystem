@@ -18,12 +18,7 @@
             //$(function(){
             //    $('#service-map-panel').load("services-map.php");
             //});
-            function check(ids){
-                var name = <?php echo $name; ?>;
-                var phone = <?php echo $phone; ?>;
-                var email = <?php echo $email; ?>;
-                if(document.getElementById('username').value!='' && document.getElementById('username').value!=name)
-            }
+            
         </script>
         <?php 
         
