@@ -1,3 +1,4 @@
+<?php require'user-data.php'; ?>
         <title>Foostel</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,10 +18,15 @@
             //$(function(){
             //    $('#service-map-panel').load("services-map.php");
             //});
-            
+            function check(ids){
+                var name = <?php echo $name; ?>;
+                var phone = <?php echo $phone; ?>;
+                var email = <?php echo $email; ?>;
+                if(document.getElementById('username').value!='' && document.getElementById('username').value!=name)
+            }
         </script>
         <?php 
-        require'user-data.php';
+        
         if(!isset($_SESSION['id']))
         {   echo"Access denied";
             header("location:page.php");

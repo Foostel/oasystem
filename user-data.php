@@ -19,4 +19,5 @@ session_start();
 		$r = $result['r'];
 		$h = $result['h'];
 		$t = $result['t'];
+		$name = $fname." ".$lname;
  ?>
