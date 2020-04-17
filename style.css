@@ -337,19 +337,27 @@ a:hover{
     cursor:pointer;
     text-align:center;position: relative; width: 250px; height: 50px; 
 }
+.subsec{
+    display: inline-block;
+    position:relative; width: 400px; height: 500px; top:150px; text-align: center;
+}
+#menu-btn{
+    display: none;
+}
 @media(max-width: 600px)
 {   
     .header{
-        height: 15%;
+        height: 100px;
     }
     .logo-img{
         height: 100%;
     }
     .header-logo{
         height: 70%;
+        margin-left: 120px;
     }
     .menu-opt{
-        display:none;
+        display: none;
     }
     .loc{
         left:300px;
@@ -397,9 +405,7 @@ a:hover{
     .mv{
         display: inline-block;
     }
-    #ifm{
-        padding-right: 200px;
-    }
+    
     .MAP-VIEW{
         z-index: -1;
         width: 600px;
@@ -412,5 +418,14 @@ a:hover{
         width: 100%;
         height: 100%;
     }
-
+    #subsection{
+        display: none;
+    }
+    .subsec{
+        left:10px;
+    }
+    #menu-btn{
+        display: block;
+    }
+    
 }

@@ -15,6 +15,15 @@
 		map.setCenter([0,0]);
 		map.setZoom(1);
 	</script>
+
+<style type="text/css">
+	@media(max-width: 600px)
+	{
+	#ifm{
+        padding-right: 200px;
+    	}	
+	}
+</style>
 <script type="text/javascript">
 	$('#filter-b').on('click',function(e)
 	{	if(document.getElementById('filter-d').style.display=='none')
