@@ -18,7 +18,7 @@
             //$(function(){
             //    $('#service-map-panel').load("services-map.php");
             //});
-            
+
         </script>
         <?php 
         
@@ -65,7 +65,7 @@
                     <div id="u-pp2" style="display:inline-block;position:relative;"></div><br><br>
                         <input class="inputs" style="height: 30px; width: 300px; text-align: center;" type="" name="username" placeholder="Name: <?php echo $user_name; ?>" ><br>
                         <input class="inputs" style="height: 30px; width: 300px; text-align: center;" type="" name="phoneno" placeholder="Phone: <?php echo $phone; ?>" ><br>
-                        <input class="inputs" style="height: 30px; width: 300px; text-align: center;" type="" name="email" placeholder="Email: <?php echo $email; ?>" >
+                        <input class="inputs" style="height: 30px; width: 300px; text-align: center;" type="" name="email" placeholder="Email: <?php echo $email; ?>" disabled>
                         <input class="btn" style="height: 30px; width: 300px; text-align: center;" type="submit" value = 'Update' name="" >
                 </div>
                 </form>
