@@ -8,9 +8,7 @@
         </script>	
 <script type="text/javascript" src="actions.js"></script>
 <script type="text/javascript">
-	rooms_points = Array();
-	hostel_points = Array();
-	food_points = Array();
+	
 	if(map.getSource('rooms-p')) map.removeSource('rooms-p');
 	if(map.getSource('hostel-p')) map.removeSource('hostel-p');
 	if(map.getSource('food-p')) map.removeSource('food-p');
@@ -39,6 +37,7 @@
 <?php
 $zl=0;
 $res = Array();
+$type='';
 if(isset($_POST['tos']))
 {
 include("db-connection.php");
@@ -49,7 +48,7 @@ $area = $_POST['area'];
 $arr_area = explode(",",$_POST['fulladd']);
 $req_ser = $_POST['tos'];
 if ($req_ser[0]==1 )//room
-{
+{       $type='room';
 		$query = "SELECT * FROM room_facility NATURAL JOIN (room_address natural join room_info) where state='$state' and city='$city' and (sarea like '%{$area}%' or area = '{$_POST['fulladd']}');";
 		$query1 = "SELECT * FROM room_facility NATURAL JOIN (room_address natural join room_info) where(state='$state' and city='$city');";
 		$query2 = "SELECT * FROM room_facility NATURAL JOIN (room_address natural join room_info) where (state='$state');";
@@ -145,11 +144,12 @@ if ($req_ser[0]==1 )//room
 					</div>
 
 				<script>
-				rooms_points.push({
+				result_points.push({
+                'id':'{$row['cid']}',
 				'type': 'Feature',
 				'properties':{
 					'description':
-						'<strong>{$row['bn']}</strong><p>{$row['bno']},{$row['landmark']},{$row['area']}</p><a>show more</a>'
+						'<strong>{$row['bn']}</strong><p>{$row['bno']},{$row['landmark']},{$row['area']}</p>'
 							},
 				'geometry': {
 					'type': 'Point',
@@ -255,12 +255,12 @@ if ($req_ser[0]==1 )//room
 						<p>
 					</div>
 				<script>
-				rooms_points.push({
+				result_points.push({
                 'id':'{$row['cid']}',
 				'type': 'Feature',
 				'properties':{
 					'description':
-						'<strong>{$row['bn']}</strong><p>{$row['bno']},{$row['landmark']},{$row['area']}</p><a>show more</a>'
+						'<strong>{$row['bn']}</strong><p>{$row['bno']},{$row['landmark']},{$row['area']}</p>'
 							},
 				'geometry': {
 					'type': 'Point',
@@ -363,12 +363,12 @@ if ($req_ser[0]==1 )//room
                         <p>
                     </div>
                 <script>
-                rooms_points.push({
+                result_points.push({
                 'id':'{$row['cid']}',
                 'type': 'Feature',
                 'properties':{
                     'description':
-                        '<strong>{$row['bn']}</strong><p>{$row['bno']},{$row['landmark']},{$row['area']}</p><a>show more</a>'
+                        '<strong>{$row['bn']}</strong><p>{$row['bno']},{$row['landmark']},{$row['area']}</p>'
                             },
                 'geometry': {
                     'type': 'Point',
@@ -389,54 +389,14 @@ if ($req_ser[0]==1 )//room
 		echo"
 
 		<script>
-		map.addSource('rooms-p', {
-		'type': 'geojson',
-		'data': {
-		'type': 'FeatureCollection',
-		'features':rooms_points
-		}
-		});
-		
-		map.addLayer({
-		'id': 'points_room',
-		'type': 'symbol',
-		'source': 'rooms-p',
-		'layout': {
-		'icon-image': 'room',
-		'icon-size': 0.03,
-		'icon-allow-overlap':true
-		}
-		});
-		map.setCenter(rooms_points[0]['geometry']['coordinates']);
-		map.setZoom({$zl});
-		r_s = true;
-		
-		console.log('pahuch gaya');
-		console.log(r_s);
-		map.on('click', 'points_room', function(e) {
-		var coordinates = e.features[0].geometry.coordinates.slice();
-		var description = e.features[0].properties.description;
-		 
-		// Ensure that if the map is zoomed out such that multiple
-		// copies of the feature are visible, the popup appears
-		// over the copy being pointed to.
-		while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-		coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-		}
-		 
-		new mapboxgl.Popup()
-		.setLngLat(coordinates)
-		.setHTML(description)
-		.addTo(map);
-		});
-
-		
+		projectp(result_points,'room',{$zl},0);
 		</script>
 		";
 		
 }
 else if ($req_ser[1]==1)//hostel
 {	$zl=16;
+    $type='hostel';
 	$query = "SELECT * FROM hostel_facility NATURAL JOIN (hostel_address natural join hostel_info) where state='$state' and city='$city' and (sarea like '%{$area}%' or area = '{$_POST['fulladd']}');";
 	$query1 = "SELECT * hostel_facility natural join hostel_address natural join hostel_info where(state='$state' and city='$city');";
 	$query2 = "SELECT * FROM hostel_facility natural join hostel_address natural join hostel_info where (state='$state');";
@@ -524,7 +484,7 @@ else if ($req_ser[1]==1)//hostel
         		echo"
 				<div name='{$row['cid']}' class='res-data' onclick='disp({$rowid},this);'>
 					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
-					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
+					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lat']},{$row['lng']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
 					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']}, {$row['landmark']}{$row['area']}</span>
 					<p style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:20px; font-size: 12px;'></p>
@@ -541,11 +501,12 @@ else if ($req_ser[1]==1)//hostel
 
 
 				<script>
-				hostel_points.push({
+				result_points.push({
+                'id': '{$row['cid']}',
 				'type': 'Feature',
 				'properties':{
 					'description':
-						'<strong>{$row['bn']}</strong><p>{$row['bno']},{$row['landmark']},{$row['area']}</p><a>show more</a>'
+						'<strong>{$row['bn']}</strong><p>{$row['bno']},{$row['landmark']},{$row['area']}</p>'
 							},
 				'geometry': {
 					'type': 'Point',
@@ -636,7 +597,7 @@ else if ($req_ser[1]==1)//hostel
         		echo"
 				<div name='{$row['cid']}' class='res-data' onclick='disp({$rowid},this);'>
 					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
-					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
+					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lat']},{$row['lng']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
 					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']}, {$row['landmark']}, {$row['area']}</span>
 					<p style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:20px; font-size: 12px;'></p>
@@ -652,7 +613,8 @@ else if ($req_ser[1]==1)//hostel
 				</div>
 
 				<script>
-				hostel_points.push({
+				result_points.push({
+                'id': '{$row['cid']}',
 				'type': 'Feature',
 				'properties':{
 					'description':
@@ -749,7 +711,7 @@ else if ($req_ser[1]==1)//hostel
         		echo"
 				<div name='{$row['cid']}' class='res-data' onclick='disp({$rowid},this);'>
 					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
-					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
+					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lat']},{$row['lng']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
 					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']}, {$row['landmark']}, {$row['area']}</span>
 					<p style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:20px; font-size: 12px;'></p>
@@ -764,7 +726,8 @@ else if ($req_ser[1]==1)//hostel
 						<p>
 				</div>
 				<script>
-				hostel_points.push({
+				result_points.push({
+                'id': '{$row['cid']}',
 				'type': 'Feature',
 				'properties':{
 					'description':
@@ -789,47 +752,13 @@ else if ($req_ser[1]==1)//hostel
 		echo"
 
 		<script>
-		map.addSource('hostel-p', {
-		'type': 'geojson',
-		'data': {
-		'type': 'FeatureCollection',
-		'features':hostel_points
-		}
-		});
-		
-		map.addLayer({
-		'id': 'points_hostel',
-		'type': 'symbol',
-		'source': 'hostel-p',
-		'layout': {
-		'icon-image': 'hostel',
-		'icon-size': 0.03,
-		'icon-allow-overlap':true
-		}
-		});
-		map.setCenter(hostel_points[0]['geometry']['coordinates']);
-		map.setZoom({$zl});
-		map.on('click', 'points_hostel', function(e) {
-		var coordinates = e.features[0].geometry.coordinates.slice();
-		var description = e.features[0].properties.description;
-		 
-		// Ensure that if the map is zoomed out such that multiple
-		// copies of the feature are visible, the popup appears
-		// over the copy being pointed to.
-		while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-		coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-		}
-		 
-		new mapboxgl.Popup()
-		.setLngLat(coordinates)
-		.setHTML(description)
-		.addTo(map);
-		});
+		projectp(result_points,'hostel',{$zl},0);
 		</script>
 		";
 }
 else if ($req_ser[2]==1)//tiffin center
 {	$zl=15;
+    $type='tiffin';
 	$query = "SELECT * FROM tiffin_facility NATURAL JOIN tiffin_address  where state='$state' and city='$city' and (sarea like '%{$area}%' or area = '{$_POST['fulladd']}');";
 	$query1 = "SELECT * FROM tiffin_facility natural join tiffin_address where(state='$state' and city='$city');";
 	$query2 = "SELECT * FROM tiffin_facility natural join tiffin_address where state='$state';";
@@ -890,7 +819,7 @@ else if ($req_ser[2]==1)//tiffin center
         		echo"
 				<div name='{$row['cid']}' class='res-data' onclick='disp({$rowid},this);'>
 					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
-					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
+					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lat']},{$row['lng']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
 					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']}, {$row['landmark']}, {$row['area']}</span>
 					<p style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:20px; font-size: 12px;'></p>
@@ -903,7 +832,8 @@ else if ($req_ser[2]==1)//tiffin center
 						<p>
 				</div>
 				<script>
-				food_points.push({
+				result_points.push({
+                'id': '{$row['cid']}',
 				'type': 'Feature',
 				'properties':{
 					'description':
@@ -971,7 +901,7 @@ else if ($req_ser[2]==1)//tiffin center
         		echo"
 				<div name='{$row['cid']}' class='res-data' onclick='disp({$rowid},this);'>
 					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
-					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
+					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lat']},{$row['lng']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
 					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']}, {$row['landmark']}, {$row['area']}</span>
 					<p style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:20px; font-size: 12px;'></p>
@@ -984,11 +914,12 @@ else if ($req_ser[2]==1)//tiffin center
 						<p>
 				</div>
 				<script>
-				food_points.push({
-				'type': 'Feature',
+				result_points.push({
+				'id': '{$row['cid']}',
+                'type': 'Feature',
 				'properties':{
 					'description':
-						'<strong>{$row['bn']}</strong><p>{$row['bno']},{$row['landmark']},{$row['area']}</p><a>show more</a>'
+						'<strong>{$row['bn']}</strong><p>{$row['bno']},{$row['landmark']},{$row['area']}</p>'
 							},
 				'geometry': {
 					'type': 'Point',
@@ -1054,7 +985,7 @@ else if ($req_ser[2]==1)//tiffin center
         		echo"
 				<div name='{$row['cid']}' class='res-data' onclick='disp({$rowid},this);'>
 					<span style='display:inline-block;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
-					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lng']},{$row['lat']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
+					<a target='_blank' href='https://www.google.com//maps/dir//{$row['lat']},{$row['lng']}' style='display:inline-block;float:right;position:relative; right:60px; font-size:25px; top: 15px;'><i class='fa fa-location-arrow'></i></a>
 					<a target='_blank' href='tel:{$phone}' style='display:inline-block;float:right;position:relative; right:0px; font-size:25px; top: 15px;'><i class='fa fa-phone'></i></a>
 					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']}, {$row['landmark']}, {$row['area']}</span>
 					<p style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:20px; font-size: 12px;'></p>
@@ -1068,7 +999,8 @@ else if ($req_ser[2]==1)//tiffin center
 				</div>
 
 				<script>
-				food_points.push({
+				result_points.push({
+                'id': '{$row['cid']}',
 				'type': 'Feature',
 				'properties':{
 					'description':
@@ -1091,51 +1023,9 @@ else if ($req_ser[2]==1)//tiffin center
 		}
 
 		echo"
-
 		<script>
-		map.addSource('food-p', {
-		'type': 'geojson',
-		'data': {
-		'type': 'FeatureCollection',
-		'features':food_points
-		}
-		});
-		
-		map.addLayer({
-		'id': 'points_food',
-		'type': 'symbol',
-		'source': 'food-p',
-		'layout': {
-		'icon-image': 'food',
-		'icon-size': 0.03,
-		'icon-allow-overlap':true
-		}
-		});
-		
-		map.setCenter(food_points[0]['geometry']['coordinates']);
-		map.setZoom({$zl});
-
-		r_s = true;
-		
-		console.log('pahuch gaya');
-		console.log(r_s);
-		map.on('click', 'points_food', function(e) {
-		var coordinates = e.features[0].geometry.coordinates.slice();
-		var description = e.features[0].properties.description;
-		 
-		// Ensure that if the map is zoomed out such that multiple
-		// copies of the feature are visible, the popup appears
-		// over the copy being pointed to.
-		while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-		coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-		}
-		 
-		new mapboxgl.Popup()
-		.setLngLat(coordinates)
-		.setHTML(description)
-		.addTo(map);
-		});
-		</script>
+		projectp(result_points,'tiffin',{$zl},0);
+        </script>
 		";
 }
 
@@ -1143,6 +1033,9 @@ else if ($req_ser[2]==1)//tiffin center
 ?>
 <script type="text/javascript">
     res = <?php echo json_encode($res); ?>;
+    zl = <?php echo json_encode($zl); ?>;
+    type= <?php echo json_encode($type); ?>;
+    console.log("TYPE:::: "+type);
     if(res.length>0)
     {
         document.getElementById('filter-b').style.display='inline-block';

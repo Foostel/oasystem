@@ -8,12 +8,11 @@
 <script type="text/javascript" src="actions.js"></script>
 <script type="text/javascript">
 		mapboxgl.accessToken = 'pk.eyJ1IjoibWloaXJzb25pNzgxIiwiYSI6ImNrOGlrZTc5ajAwcnkzbHFxd3NkbnZwc3UifQ.qoBrl5wvQ6LjGZd369FnIg';
+		var t=0;
 		var map = new mapboxgl.Map({
 		container: 'map-d',
 		style: 'mapbox://styles/mapbox/streets-v11'
 		});
-		map.setCenter([0,0]);
-		map.setZoom(1);
 	</script>
 
 <style type="text/css">

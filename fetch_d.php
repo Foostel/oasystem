@@ -7,7 +7,8 @@
 		document.getElementById('results').innerHTML = "<center style='font-size: 12px; color:gray; margin-top:10px;'>Searching . . .</center>";
 		if (map.getLayer('points_room')) map.removeLayer('points_room');
 		if (map.getLayer('points_hostel')) map.removeLayer('points_hostel');
-		if (map.getLayer('points_food')) map.removeLayer('points_food');				
+		if (map.getLayer('points_food')) map.removeLayer('points_food');
+
 		console.log('called!');
 		str = str.toLowerCase();
 		var ar = str.split(' ');

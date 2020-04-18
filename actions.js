@@ -1,6 +1,9 @@
 h=true;
 h2=true;
 var res=Array();
+var result_points=Array();
+var type='';
+var popup;
 function subSectionSelector(obj){
     var x = document.getElementsByClassName('sub-section-menu');
     for(let i=0;i<x.length;i++)
@@ -21,13 +24,29 @@ function validateF(){
                 return true;
             }
 
+function remove(arr,i)
+{
+    temp= Array();
+    for(let x=0;x<arr.length;x++)
+    {
+        if(x!=i)
+        {
+            temp.push(arr[x]);
+        }
+    }
+    console.log(temp);
+    return temp;
+}
+
 function filter(arr){
     document.getElementById('filter-b').getElementsByTagName('i')[0].className='fa fa-angle-down';
-            document.getElementById('filter-d').style.display='none';
-            document.getElementById('results').style.display='block';
-            document.getElementById('results').style.zIndex='0';
+    document.getElementById('filter-d').style.display='none';
+    document.getElementById('results').style.display='block';
+    document.getElementById('results').style.zIndex='0';
     console.log(res);
     var hit=0;
+    var new_points=Array();
+    new_points=result_points;
     for(var i=0;i<res.length;i++)
     {
         for(var j=0;j<arr.length;j++)
@@ -39,10 +58,20 @@ function filter(arr){
             {   console.log('hit');
                 hit+=1;
                 var el = document.getElementsByName(res[i]['cid']);
+                document.getElementById(res[i]['cid']).style.display='none';
                 for(var s=0;s<el.length;s++)
                 {
-                    el[s].style.display='none';    
+                    el[s].style.display='none'; 
+                    for(let u=0;u<new_points.length;u++)
+                        {   console.log('check in? ');
+                            console.log(new_points);
+                            if(new_points[u]['id']==res[i]['cid'])
+                            {   new_points = remove(new_points,u);
+                                console.log(new_points);
+                            }
+                        }
                 }
+
                 
                 break;
             }
@@ -55,8 +84,22 @@ function filter(arr){
             }
         }
     }
-
+    
+    if (map.getLayer('points_room')) map.removeLayer('points_room');
+    if (map.getLayer('points_hostel')) map.removeLayer('points_hostel');
+    if (map.getLayer('points_food')) map.removeLayer('points_food');
+    if(new_points.length>0)
+    {    
+        if(type=='room') map.removeSource('rooms-p');
+        if(type=='hostel') map.removeSource('hostel-p');
+        if(type=='tiffin') map.removeSource('food-p');
+    console.log('source removed');
+    zl=parseInt(zl);
+    console.log("test: type .06:: "+type)
+    projectp(new_points,type,zl,1);
+    }
 }
+
 function mapViewToggle(obj)
 { 
   if(obj.style.backgroundColor=='white')
@@ -81,31 +124,22 @@ function mapViewToggle(obj)
 function clearPopups(){
             var x=document.getElementsByClassName('overlays');
             for(var i=0;i<x.length;i++)
-            {
-                x[i].style.display='';
-            }
-            var sc= document.getElementsByClassName('section');
-            for(var s=0;s<sc.length;s++)
-            {
-                sc[s].style.filter="none";
+            {   
+                x[i].style.display='none';
             }
         }
 
 function toggle(s){
 	var k = document.getElementById(s).style.display;
     console.log(k);
-    if(k==''){
+    if(k=='none'){
 	console.log("Block");
 	document.getElementById(s).style.display="block";
-	h=false;
-    blur();
+
 	}
 	else{
-		
-		document.getElementById(s).style.display="";
+		document.getElementById(s).style.display="none";
         console.log("None");
-        h=true;
-		blur();
 	}
 
 }
@@ -294,4 +328,115 @@ function rqrd(v,nextloc){
     
         window.location=nextloc;
     
+}
+function projectp(pointsar,type,zl,filter){
+    var pop_type='';
+    console.log('projectp');
+    if(type=='room')
+    {
+    console.log(pointsar);
+    map.addSource('rooms-p', {
+        'type': 'geojson',
+        'data': {
+        'type': 'FeatureCollection',
+        'features':pointsar
+        }
+        });
+        
+        map.addLayer({
+        'id': 'points_room',
+        'type': 'symbol',
+        'source': 'rooms-p',
+        'layout': {
+        'icon-image': 'room',
+        'icon-size': 0.03,
+        'icon-allow-overlap':true
+        }
+        });
+        map.setCenter(pointsar[0]['geometry']['coordinates']);
+        console.log('zl= '+zl);
+        map.setZoom(zl);
+        r_s = true;   
+        pop_type='points_room';
+        
+    }
+    if(type=='hostel')
+    {
+        map.addSource('hostel-p', {
+        'type': 'geojson',
+        'data': {
+        'type': 'FeatureCollection',
+        'features':pointsar
+        }
+        });
+        
+        map.addLayer({
+        'id': 'points_hostel',
+        'type': 'symbol',
+        'source': 'hostel-p',
+        'layout': {
+        'icon-image': 'hostel',
+        'icon-size': 0.03,
+        'icon-allow-overlap':true
+        }
+        });
+        map.setCenter(pointsar[0]['geometry']['coordinates']);
+        map.setZoom(zl);
+        pop_type='points_hostel';
+    }
+    console.log("test: type: "+type);
+    if(type=='tiffin')
+    {   console.log('in tiffin');
+        map.addSource('food-p', {
+        'type': 'geojson',
+        'data': {
+        'type': 'FeatureCollection',
+        'features':pointsar
+        }
+        });
+        
+        map.addLayer({
+        'id': 'points_food',
+        'type': 'symbol',
+        'source': 'food-p',
+        'layout': {
+        'icon-image': 'food',
+        'icon-size': 0.03,
+        'icon-allow-overlap':true
+        }
+        });
+        
+        map.setCenter(pointsar[0]['geometry']['coordinates']);
+        map.setZoom(zl);
+
+        r_s = true;
+        pop_type='points_food';
+    }
+
+    function addpop(e)
+    {
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var description = e.features[0].properties.description;
+         
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+        popup=
+        new mapboxgl.Popup()
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map);
+        
+    }
+
+    if(!filter && !t)
+        {
+        console.log('popup added');
+        map.on('click',pop_type,addpop);
+        t=1;
+        }
 }
