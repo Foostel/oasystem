@@ -38,11 +38,16 @@
         $user_name=$fname.' '.$lname; 
 
     ?>
+    <style type="text/css">
+        .section{
+            text-align: center;
+        }
+    </style>
 
     <body>
         <div class="header" id="header" >
         </div>
-        <div id="subsection" class="" style="width: 250px; height: 100vh; background-color: #CFCFCF; position: fixed;top:113px;">
+        <div id="subsection" class="" style="z-index:2;width: 250px; height: 100vh; background-color: #CFCFCF; position: fixed;top:113px;">
             <div id="pd-b" class="sub-section-menu" onclick="window.location='user-profile.php#personal-details';">
                 <span style="color:black;position:relative;top: 10px; font-weight: 300;">Personal Details <i style="" class="fa fa-angle-right"></i></span>
             </div>
@@ -53,13 +58,16 @@
                 <span style="color:black;position:relative;top: 10px; font-weight: 300;">Default Suggestions <i style="" class="fa fa-angle-right"></i></span>
             </div>
         </div>
-        <div class="section" id="personal-details" style="border:solid;">
+        <div class="section" id="personal-details">
+            <div class="" style="z-index: 1; height:50px;width: 100%; background-color: rgba(0,0,0,0.6); color:white; position: sticky; top:110px; text-align: center;">
+                <span style="position:relative;top: 10px; font-weight: 300;">Personal Details</span>
+            </div>
             <script type="text/javascript">
                 $(function(){
                 $('#u-pp2').load('update-pp-2.php');
             });
             </script>
-            <div style="position:relative; width: 400px; height: 500px; left: 300px; top:150px; text-align: center;">
+            <div class="subsec" style="top:150px;">
                 <form action="update-user.php" method="post">
                 <div style="position: relative; top:10px; left:10px; display: inline-block;">
                     <div id="u-pp2" style="display:inline-block;position:relative;"></div><br><br>
@@ -71,10 +79,12 @@
                 </form>
             </div>
         </div>
-        <div class="section" id="registered-properties"  style="border:solid;">
-            
-            <div style="position:relative; width: 300px; height: 500px; left: 300px; top:150px; text-align: center;">
-                <div id="ifm" style="z-index: 0; position: absolute; width: 220px;">
+        <div class="section" id="registered-properties" >
+            <div class="" style="z-index: 1; height:50px;width: 100%; background-color: rgba(0,0,0,0.6); color:white; position: sticky; top:110px; text-align: center;">
+                <span style="position:relative;top: 10px; font-weight: 300;">Registered Properties</span>
+            </div>
+            <div class="subsec" style="margin-top: 10px;">
+                <div id="ifm" style="display:inline-block;z-index: 0; position: relative; width: 220px;">
                 <?php
                     if($r)
                     {
@@ -133,8 +143,11 @@
                  </div>
             </div>
         </div>
-        <div class="section" id="default-suggestions" style="border:solid;">
-            
+        <div class="section" id="default-suggestions" >
+            <div class="" style="z-index: 1; height:50px;width: 100%; background-color: rgba(0,0,0,0.6); color:white; position: sticky; top:110px; text-align: center;">
+                <span style="position:relative;top: 10px; font-weight: 300;">Default Suggestions</span>
+            </div>
+            <center style='margin-top: 150px;'>Currently not available</center>
         </div>
         <div class="overlays side-panel" id="side-panel" style="text-align: center;">
                 

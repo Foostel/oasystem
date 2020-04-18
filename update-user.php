@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include("db-connection.php");
 if(isset($_SESSION['id']))
