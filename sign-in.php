@@ -25,6 +25,7 @@
         <a href="register.php"style="color:black;">Not registered ?</a>
 		</form>
 		<span id="msg" style="color:red;"></span>
+        <span id='fp-b' style="display:none;"><a href="forgot-password.php">Forgot password?</a></span>
 </div>
 
 </div>
@@ -38,7 +39,13 @@ $password=md5($_POST['pass']);
 $query="select * from user where email='$email' and password='$password'";
 if (mysqli_num_rows(mysqli_query($conn,$query))==0){
 	echo "
-		<script type='text/javascript'>document.getElementById('msg').innerHTML='Wrong username or password';</script>";
+		<script type='text/javascript'>document.getElementById('msg').innerHTML='Wrong username or password !<br>';</script>";
+    echo "
+    <script>
+         document.getElementById('fp-b').style.display='inline-block';
+    </script>
+
+    ";
 }
 else{
     session_start();
