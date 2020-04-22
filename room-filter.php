@@ -14,24 +14,24 @@
 <div style="margin-left: 20px;"><br>
 <span style="font-weight: 500;">Room for:</span><br><br>
                 <div style="display: inline-block; margin-right: 40px; position: relative;">
-                                Male &nbsp<label for="m" style="position: absolute; margin-top: 3px; margin-left: 3px;" ><div  onclick="select(this,'room-type-label');" style="width:10px; height: 10px; border-radius: 50%; border:solid 5px gray; background-color: white;" name="room-type-label"></div></label> &nbsp&nbsp&nbsp&nbsp&nbsp
+                                Male &nbsp<label for="m" style="position: absolute; margin-top: 7px; margin-left: 1px;" ><div  onclick="select(this,'room-type-label');" style="width:10px; height: 10px; border-radius: 50%; border:solid 1px black; background-color: white;" name="room-type-label"></div></label>
                                 <input required="" type="radio" name="ge" id="m" value="Male" style="display: none; ">
-
-                                Female &nbsp<label for="f" style="position: absolute; margin-top: 3px; margin-left: 3px;" ><div  onclick="select(this,'room-type-label');" style="width:10px; height: 10px; border-radius: 50%; border:solid 5px gray; background-color: white;" name="room-type-label"></div></label> &nbsp&nbsp&nbsp&nbsp&nbsp
+                                 &nbsp&nbsp&nbsp
+                                Female &nbsp<label for="f" style="position: absolute; margin-top: 7px; margin-left: 1px;" ><div  onclick="select(this, 'room-type-label');" style="width:10px; height: 10px; border-radius: 50%; border:solid 1px black; background-color: white;" name="room-type-label"></div></label>
                                 <input required="" type="radio" name="ge" id ="f" value="Female" style="display: none;" >
-
-                                Anyone &nbsp<label for="ao" style="position: absolute; margin-top: 3px; margin-left: 3px;" ><div  onclick="select(this,'room-type-label');" style="width:10px; height: 10px; border-radius: 50%; border:solid 5px gray; background-color: white;" name="room-type-label"></div></label> &nbsp&nbsp&nbsp&nbsp&nbsp
+                                 &nbsp&nbsp&nbsp
+                                Anyone &nbsp<label for="ao" style="position: absolute; margin-top: 7px; margin-left: 1px;" ><div  onclick="select(this,'room-type-label');" style="width:10px; height: 10px; border-radius: 50%; border:solid 1px black; background-color: white;" name="room-type-label"></div></label>
                                 <input required="" type="radio" name="ge" id ="ao" value="Anyone" style="display: none;">
-                                
+                                 &nbsp&nbsp&nbsp
                                 <hr style="border: solid .5px gray;">
 
-                                Student &nbsp<label for="s" style="position: absolute; margin-top: 3px; margin-left: 3px;" ><div  onclick="select(this,'room-for-label');" style="width:10px; height: 10px; border-radius: 50%; border:solid 5px gray; background-color: white;" name="room-for-label"></div></label> &nbsp&nbsp&nbsp&nbsp&nbsp
+                                Student &nbsp<label for="s" style="position: absolute; margin-top: 7px; margin-left: 1px;" ><div  onclick="select(this,'room-for-label');" style="width:10px; height: 10px; border-radius: 50%; border:solid 1px black; background-color: white;" name="room-for-label"></div></label>
                                 <input required="" type="radio" name="wk" id="s" value="Student" style="display: none;">
-
-                                Employee &nbsp<label for="e" style="position: absolute; margin-top: 3px; margin-left: 3px;" ><div  onclick="select(this,'room-for-label');" style="width:10px; height: 10px; border-radius: 50%; border:solid 5px gray; background-color: white;" name="room-for-label"></div></label> &nbsp&nbsp&nbsp&nbsp&nbsp
+                                &nbsp&nbsp&nbsp
+                                Employee &nbsp<label for="e" style="position: absolute; margin-top: 7px; margin-left: 1px;" ><div  onclick="select(this,'room-for-label');" style="width:10px; height: 10px; border-radius: 50%; border:solid 1px black; background-color: white;" name="room-for-label"></div></label>
                                 <input required="" type="radio" name="wk" id ="e" value="Employee" style="display: none;">
-                                <br><br>
-                                Anyone &nbsp<label for="aon" style="position: absolute; margin-top: 3px; margin-left: 3px;" ><div  onclick="select(this,'room-for-label');" style="width:10px; height: 10px; border-radius: 50%; border:solid 5px gray; background-color: white;" name="room-for-label"></div></label> &nbsp&nbsp&nbsp&nbsp&nbsp
+                                 &nbsp&nbsp&nbsp
+                                Anyone &nbsp<label for="aon" style="position: absolute; margin-top: 7px; margin-left: 1px;" ><div  onclick="select(this,'room-for-label');" style="width:10px; height: 10px; border-radius: 50%; border:solid 1px black; background-color: white;" name="room-for-label"></div></label> &nbsp&nbsp&nbsp&nbsp&nbsp
                                 <input required="" type="radio" name="wk" id ="aon" value="Anyone" style="display: none;">
                                 
                 </div>
@@ -80,7 +80,7 @@
                 </div>
 <br>
 <br>
-<button style="position: relative;" class="btn" onclick="filter(['m','f','ao','s','e','aon','tc','p','rs','ab','w','b','1r','2r','rk']);">Apply</button>
+<button style="position: relative;" class="btn" onclick="filter(['m','f','ao','s','e','aon','tc','p','rs','ab','w','b','1r','2r','rk']);">Apply</button><br><br>
 </div>
 </body>
 </html>

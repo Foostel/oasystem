@@ -11,14 +11,14 @@
 	<script type="text/javascript" src='actions.js'></script>
 </head>
 <body style="z-index: 0; font-size: 14px; position: relative;" class="filter-b">
-<div style="margin-left: 20px;"><br>
+<div style="margin-left: 20px; position: relative;"><br>
 <span style="font-weight: 500;">Hostel for:</span><br><br>
 <div style="display: inline-block; margin-right: 40px;">
-                                Boys &nbsp<label for="b" style="position: absolute; margin-top: 3px; margin-left: 3px;" ><div  onclick="select(this,'hostel-type-label');" style="width:10px; height: 10px; border-style: none; border-radius: 50%; border:solid 5px gray; background-color: white;" name="hostel-type-label"></div></label>
-                                <input type="radio" name="ht" id="b" value="Boys">
-
-                                Girls &nbsp<label for="g" style="position: absolute; margin-top: 3px; margin-left: 3px;" ><div  onclick="select(this,'hostel-type-label');" style="width:10px; height: 10px; border-style: none; border-radius: 50%; border:solid 5px gray; background-color: white;" name="hostel-type-label"></div></label>
-                                <input type="radio" name="ht" id ="g" value="Girls">
+                                Boys &nbsp<label for="b" style="position: absolute; margin-top: 7px; margin-left: 1px;" ><div  onclick="select(this,'hostel-type-label');" style="width:10px; height: 10px; border-style: none; border-radius: 50%; border:solid 1px black; background-color: white;" name="hostel-type-label"></div></label>
+                                <input type="radio" name="ht" id="b" value="Boys" style="display: none;">
+                                &nbsp&nbsp&nbsp
+                                Girls &nbsp<label for="g" style="position: absolute; margin-top: 7px; margin-left: 1px;" ><div  onclick="select(this,'hostel-type-label');" style="width:10px; height: 10px; border-style: none; border-radius: 50%; border:solid 1px black; background-color: white;" name="hostel-type-label"></div></label>
+                                <input type="radio" name="ht" id ="g" value="Girls" style="display: none;">
                                 
                 </div>
 <br><br>

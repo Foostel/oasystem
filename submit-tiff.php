@@ -11,14 +11,15 @@ if(isset($_POST['submit']) and isset($_SESSION['id']))
  	$d=0;
  	$b=0;
   $food=$_POST['meal'];
+  $dn=0;
  foreach($food as $array)
  {
   if($array=="Breakfirst")
- 	{$b=1; }
+ 	{$b=1; $dn++; }
   	if($array=="Lunch" )
- 	{$l=1; 	}
+ 	{$l=1; $dn++;	}
   	if($array=="Dinner" )
- 	{$d=1; 	}
+ 	{$d=1; $dn++;	}
  }	
   		
  	$hd=0;
@@ -48,13 +49,13 @@ if(isset($_POST['submit']) and isset($_SESSION['id']))
   	$payl=$_POST['payl'];  	
   	$payd=$_POST['payd'];
 
-
     $bd=$bt1.",to,".$bt2.",".$bf.",".$payb;
     $ld=$lt1.",to,".$lt2.",".$lf.",".$payl;
     $dd=$dt1.",to,".$dt2.",".$df.",".$payd;
 
+    $avgcost=((intval($bf)+intval($lf)+intval($df))/intval($dn));
 
-     $query="insert into tiffin_facility(uid,l,ld,b,bd,d,dd,hd,cae,c) values($uid,$l,'$ld',$b,'$bd',$d,'$dd',$hd,$cae,$c)";
+     $query="insert into tiffin_facility(uid,l,ld,b,bd,d,dd,hd,cae,c,avgcost) values($uid,$l,'$ld',$b,'$bd',$d,'$dd',$hd,$cae,$c,$avgcost)";
     $q=mysqli_query($conn,$query);
 
     

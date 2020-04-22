@@ -3,14 +3,30 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
         </script>
 		<script type='text/javascript'>
-	function fetch_d(str){
+			var ss='';
+	function fetch_d(str,fltr,sort){
+ 		console.log(document.getElementById('mv-btn').style.backgroundColor);
+ 		console.log('andrrrrr');
+ 		console.log('filter: '+fltr+" sort: "+sort);	
+ 		if(document.getElementById('mv-btn').style.backgroundColor=='black')
+ 		{
+
+ 		document.getElementsByClassName('MAP-VIEW')[0].style.left='0px';
+    	document.getElementsByClassName('MAP-VIEW')[0].style.zIndex='0';
+    	document.getElementById('ifm').style.zIndex='-1';
+    	document.getElementById('ifm').style.display='none';
+    	document.getElementById('results').style.display='none';
+ 		}
+
+
 		document.getElementById('results').innerHTML = "<center style='font-size: 12px; color:gray; margin-top:10px;'>Searching . . .</center>";
 		if (map.getLayer('points_room')) map.removeLayer('points_room');
 		if (map.getLayer('points_hostel')) map.removeLayer('points_hostel');
 		if (map.getLayer('points_food')) map.removeLayer('points_food');
-
+		ss=str;	
 		console.log('called!');
 		str = str.toLowerCase();
+		console.log('Tostr:: '+fltr);
 		var ar = str.split(' ');
 		var service = [['room','rooms','residencies'],['hostel','hostels','residencies'],['tiffin centers','tiffin','tiffen','tiffin center', 'tiffin-center','center','tiffin-centers','tifin','tifen','food','food center', 'foods', 'meal', 'mess']];
 		var param = [0,0,0];
@@ -33,21 +49,33 @@
 			}	
 		}
 		if(param[0])
-		{
-			$(function(){
+		{	if((document.getElementById('s-type').selectedIndex)!='1'){
+            	document.getElementById('s-type').selectedIndex='1';
+            	fltr='';
+            	$(function(){
                 $('#filter-d').load("room-filter.php");
             });
+            	
+
+			}
 		}
 		else if(param[1])
-		{
-			$(function(){
+		{	if((document.getElementById('s-type').selectedIndex)!='2'){
+            	document.getElementById('s-type').selectedIndex='2';
+            	fltr='';
+            	$(function(){
                 $('#filter-d').load("hostel-filter.php");
             });
+			}
 		}
 		else if(param[2]){
-			$(function(){
+			if((document.getElementById('s-type').selectedIndex)!='3'){
+            	document.getElementById('s-type').selectedIndex='3';
+            	fltr='';
+            	$(function(){
                 $('#filter-d').load("tiffin-filter.php");
             });
+			}
 		}
 
 		var rmwd = ['near','in','at','to','city','area'];
@@ -103,7 +131,7 @@
         area = ar.join(" ").trim();
         console.log(ar);
         console.log(area);
-        $.post('search-engine.php',{tos:param,country:country,state:state,city:city,area:area,fulladd:data.features[0]['place_name']},
+        $.post('search-engine.php',{tos:param,fltr:fltr,sort:sort,country:country,state:state,city:city,area:area,fulladd:data.features[0]['place_name']},
 		    function(dat) {
 			 $('#results').html(dat);
 				console.log('hola');
@@ -126,7 +154,7 @@
 	{ 
 	echo"
 	<script>
-	fetch_d('".$_POST['search_string']."');
+	fetch_d('".$_POST['search_string']."',fltr,sort);
 	</script>
 	";
 	}
@@ -134,10 +162,3 @@
  <div id="results" style="">
  	
  </div>
- <script type="text/javascript">
- 	
-
- </script>
-<div id="filter-d" style=" display:none;width: 300px; height: 600px; background-color: white;">
-
-</div>

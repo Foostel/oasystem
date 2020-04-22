@@ -8,7 +8,7 @@
         </script>	
 <script type="text/javascript" src="actions.js"></script>
 <script type="text/javascript">
-	
+	console.log('----------search engine.php ----------');
 	if(map.getSource('rooms-p')) map.removeSource('rooms-p');
 	if(map.getSource('hostel-p')) map.removeSource('hostel-p');
 	if(map.getSource('food-p')) map.removeSource('food-p');
@@ -49,12 +49,13 @@ $arr_area = explode(",",$_POST['fulladd']);
 $req_ser = $_POST['tos'];
 if ($req_ser[0]==1 )//room
 {       $type='room';
-		$query = "SELECT * FROM room_facility NATURAL JOIN (room_address natural join room_info) where state='$state' and city='$city' and (sarea like '%{$area}%' or area = '{$_POST['fulladd']}');";
-		$query1 = "SELECT * FROM room_facility NATURAL JOIN (room_address natural join room_info) where(state='$state' and city='$city');";
-		$query2 = "SELECT * FROM room_facility NATURAL JOIN (room_address natural join room_info) where (state='$state');";
+		$query = "SELECT * FROM room_facility NATURAL JOIN (room_address natural join room_info) where state='$state' and city='$city' and (sarea like '%{$area}%' or area = '{$_POST['fulladd']}')".$_POST['fltr']." ".$_POST['sort'].";";
+		$query1 = "SELECT * FROM room_facility NATURAL JOIN (room_address natural join room_info) where(state='$state' and city='$city') ".$_POST['fltr']." ".$_POST['sort'].";";
+		$query2 = "SELECT * FROM room_facility NATURAL JOIN (room_address natural join room_info) where (state='$state') ".$_POST['fltr']." ".$_POST['sort']." ;";
+        echo $query;   
 		//print_r($query);
 		$result = mysqli_query($conn,$query);
-		$result1 = mysqli_query($conn,$query1);
+		$result1 = mysqli_query($conn,$query1);   
 		$result2 = mysqli_query($conn,$query2);
 		$row = array();
 		if ($result && mysqli_num_rows($result)>0) 
@@ -397,10 +398,11 @@ if ($req_ser[0]==1 )//room
 else if ($req_ser[1]==1)//hostel
 {	$zl=16;
     $type='hostel';
-	$query = "SELECT * FROM hostel_facility NATURAL JOIN (hostel_address natural join hostel_info) where state='$state' and city='$city' and (sarea like '%{$area}%' or area = '{$_POST['fulladd']}');";
-	$query1 = "SELECT * hostel_facility natural join hostel_address natural join hostel_info where(state='$state' and city='$city');";
-	$query2 = "SELECT * FROM hostel_facility natural join hostel_address natural join hostel_info where (state='$state');";
-	$result = mysqli_query($conn,$query);
+	$query = "SELECT * FROM hostel_facility NATURAL JOIN (hostel_address natural join hostel_info) where state='$state' and city='$city' and (sarea like '%{$area}%' or area = '{$_POST['fulladd']}')".$_POST['fltr']." ".$_POST['sort']." ;";
+	$query1 = "SELECT * hostel_facility natural join hostel_address natural join hostel_info where(state='$state' and city='$city')".$_POST['fltr']." ".$_POST['sort'].";";
+	$query2 = "SELECT * FROM hostel_facility natural join hostel_address natural join hostel_info where (state='$state')".$_POST['fltr']." ".$_POST['sort']." ;";
+	echo$query2;
+    $result = mysqli_query($conn,$query);
 		$result1 = mysqli_query($conn,$query1);
 		$result2 = mysqli_query($conn,$query2);
 		$row = array();
@@ -759,9 +761,9 @@ else if ($req_ser[1]==1)//hostel
 else if ($req_ser[2]==1)//tiffin center
 {	$zl=15;
     $type='tiffin';
-	$query = "SELECT * FROM tiffin_facility NATURAL JOIN tiffin_address  where state='$state' and city='$city' and (sarea like '%{$area}%' or area = '{$_POST['fulladd']}');";
-	$query1 = "SELECT * FROM tiffin_facility natural join tiffin_address where(state='$state' and city='$city');";
-	$query2 = "SELECT * FROM tiffin_facility natural join tiffin_address where state='$state';";
+	$query = "SELECT * FROM tiffin_facility NATURAL JOIN tiffin_address  where state='$state' and city='$city' and (sarea like '%{$area}%' or area = '{$_POST['fulladd']}')".$_POST['fltr']." ".$_POST['sort']." ;";
+	$query1 = "SELECT * FROM tiffin_facility natural join tiffin_address where(state='$state' and city='$city')".$_POST['fltr']." ".$_POST['sort']." ;";
+	$query2 = "SELECT * FROM tiffin_facility natural join tiffin_address where state='$state'".$_POST['fltr']." ".$_POST['sort']." ;";
 	$result = mysqli_query($conn,$query);
 		$result1 = mysqli_query($conn,$query1);
 		$result2 = mysqli_query($conn,$query2);
@@ -1036,12 +1038,5 @@ else if ($req_ser[2]==1)//tiffin center
     zl = <?php echo json_encode($zl); ?>;
     type= <?php echo json_encode($type); ?>;
     console.log("TYPE:::: "+type);
-    if(res.length>0)
-    {
-        document.getElementById('filter-b').style.display='inline-block';
-    }
-    else{
-        document.getElementById('filter-b').style.display='none';   
-    }
 </script>
 </div>

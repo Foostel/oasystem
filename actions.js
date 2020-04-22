@@ -4,6 +4,52 @@ var res=Array();
 var result_points=Array();
 var type='';
 var popup;
+function sort_fn(n){
+    var w=n.value;
+    if(w!='')
+    {
+    sort=" ORDER BY "+w;
+    console.log(sort);
+    }
+    else{
+        sort='';
+    }
+
+    if(ss!='' && n)
+    {
+        fetch_d(ss,fltr,sort);
+    }
+
+}
+function loadfilter(obj){
+
+    if(obj.value=='room')
+    {
+        $(function(){
+                $('#filter-d').load("room-filter.php");
+            });
+        $(function(){
+                $('#sort-d').load("room-sort.php");
+            });
+        console.log('loadfilter called');
+    }   
+    else if(obj.value=='hostel')
+    {
+        $(function(){
+                $('#filter-d').load("hostel-filter.php");
+            });
+    }
+    else if(obj.value=='food'){
+        $(function(){
+                $('#filter-d').load("tiffin-filter.php");
+            });
+    }
+    else{
+        $(function(){
+                document.getElementById('filter-d').innerHTML='<center><span style="color:gray; font-weight: 300; position: relative; top: 100px;">-Select type search first-</span></center>';
+            });
+    }
+}
 function subSectionSelector(obj){
     var x = document.getElementsByClassName('sub-section-menu');
     for(let i=0;i<x.length;i++)
@@ -39,65 +85,30 @@ function remove(arr,i)
 }
 
 function filter(arr){
+    
     document.getElementById('filter-b').getElementsByTagName('i')[0].className='fa fa-angle-down';
     document.getElementById('filter-d').style.display='none';
-    document.getElementById('results').style.display='block';
-    document.getElementById('results').style.zIndex='0';
-    console.log(res);
-    var hit=0;
-    var new_points=Array();
-    new_points=result_points;
-    for(var i=0;i<res.length;i++)
-    {
+    document.getElementById('ifm').style.display='block';
+    document.getElementById('ifm').style.zIndex='0';
+    fltr='';
+    console.log("SS::: "+ss);
         for(var j=0;j<arr.length;j++)
         {   let idx = document.getElementById(arr[j]).name;
             var val='';
             if(document.getElementById(arr[j]).checked){val= document.getElementById(arr[j]).value};
+            if(val!='')
+            {
+            fltr+=" and "+idx+"='"+val+"' ";
             console.log('idx: '+idx+' val:'+val);
-            if(res[i][idx] != val && val!='')
-            {   console.log('hit');
-                hit+=1;
-                var el = document.getElementsByName(res[i]['cid']);
-                document.getElementById(res[i]['cid']).style.display='none';
-                for(var s=0;s<el.length;s++)
-                {
-                    el[s].style.display='none'; 
-                    for(let u=0;u<new_points.length;u++)
-                        {   console.log('check in? ');
-                            console.log(new_points);
-                            if(new_points[u]['id']==res[i]['cid'])
-                            {   new_points = remove(new_points,u);
-                                console.log(new_points);
-                            }
-                        }
-                }
-
-                
-                break;
             }
-            else{
-                var el = document.getElementsByName(res[i]['cid']);
-                for(var s=0;s<el.length;s++)
-                {
-                    el[s].style.display='block';
-                }
-            }
+            
         }
+    console.log(fltr);
+    if(ss!='')
+    {
+    fetch_d(ss,fltr,sort);
     }
-    
-    if (map.getLayer('points_room')) map.removeLayer('points_room');
-    if (map.getLayer('points_hostel')) map.removeLayer('points_hostel');
-    if (map.getLayer('points_food')) map.removeLayer('points_food');
-    if(new_points.length>0)
-    {    
-        if(type=='room') map.removeSource('rooms-p');
-        if(type=='hostel') map.removeSource('hostel-p');
-        if(type=='tiffin') map.removeSource('food-p');
-    console.log('source removed');
-    zl=parseInt(zl);
-    console.log("test: type .06:: "+type)
-    projectp(new_points,type,zl,1);
-    }
+
 }
 
 function mapViewToggle(obj)
@@ -109,6 +120,7 @@ function mapViewToggle(obj)
     document.getElementsByClassName('MAP-VIEW')[0].style.zIndex='0';
     document.getElementById('ifm').style.zIndex='-1';
     document.getElementById('ifm').style.display='none';
+    document.getElementById('results').style.display='none';
   }
   else{
     obj.style.backgroundColor='white';
@@ -117,7 +129,7 @@ function mapViewToggle(obj)
     document.getElementsByClassName('MAP-VIEW')[0].style.zIndex='-1';
     document.getElementById('ifm').style.zIndex='0';
     document.getElementById('ifm').style.display='block';
-
+    document.getElementById('results').style.display='block';
   } 
 }
 
@@ -332,6 +344,8 @@ function rqrd(v,nextloc){
 function projectp(pointsar,type,zl,filter){
     var pop_type='';
     console.log('projectp');
+    if(pointsar.length>0)
+    {
     if(type=='room')
     {
     console.log(pointsar);
@@ -439,4 +453,5 @@ function projectp(pointsar,type,zl,filter){
         map.on('click',pop_type,addpop);
         t=1;
         }
+    }
 }

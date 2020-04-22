@@ -51,15 +51,16 @@ $query="insert into room_facility(uid,ge,wk,p,w,rs,ab,tc,b,c) values($uid,'$ge',
   $b2=0;
   $b3=0;
   //$b4=0;
+  $dn=0;
 $room=$_POST['room'];
  foreach($room as $array)
  {
   if($array=="1r")
-  {$b1=1; }
+  {$b1=1; $dn++; }
     if($array=="2r" )
-  {$b2=1;  }
+  {$b2=1; $dn++; }
     if($array=="rk" )
-  {$b3=1;  }
+  {$b3=1; $dn++; }
   //   if($array=="4" )
   // {$b4=1;  }
  }  
@@ -73,7 +74,8 @@ $room=$_POST['room'];
  $rb3=$_POST['rkc'];
 // $ab4=$_POST['ab4'];
  //$rb4=$_POST['rb4'];
- $query="insert into room_info(uid,cid,b1,ab1,rb1,b2,ab2,rb2,b3,ab3,rb3,cm) values($uid,$cid,$b1,'$ab1','$rb1',$b2,'$ab2','$rb2',$b3,'$ab3','$rb3','$cm');";
+ $avgcost=((intval($rb1)+intval($rb2)+intval($rb3))/intval($dn))+intval($cm);
+ $query="insert into room_info(uid,cid,b1,ab1,rb1,b2,ab2,rb2,b3,ab3,rb3,cm,avgcost) values($uid,$cid,$b1,'$ab1','$rb1',$b2,'$ab2','$rb2',$b3,'$ab3','$rb3','$cm',{$avgcost});";
     $q2=mysqli_query($conn,$query);   
   if($q2){
     echo "<br>"." room information inserted successfully ";  }

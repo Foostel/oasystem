@@ -49,6 +49,7 @@ $ht=$_POST['hostel-type'];
 
 
  $cm=$_POST['caution-m'];
+ $dn=0;
   $b1=0;
   $b2=0;
   $b3=0;
@@ -57,11 +58,11 @@ $room=$_POST['room'];
  foreach($room as $array)
  {
   if($array=="r1")
-  {$b1=1; }
+  {$b1=1; $dn++; }
     if($array=="r2" )
-  {$b2=1;  }
+  {$b2=1; $dn++; }
     if($array=="r3" )
-  {$b3=1;  }
+  {$b3=1; $dn++; }
   //   if($array=="4" )
   // {$b4=1;  }
  }  
@@ -73,8 +74,8 @@ $room=$_POST['room'];
  $rb3=$_POST['rb3'];
 // $ab4=$_POST['ab4'];
  //$rb4=$_POST['rb4'];
-
- $query="insert into hostel_info(uid,cid,b1,ab1,rb1,b2,ab2,rb2,b3,ab3,rb3,cm) values('$uid','$cid','$b1','$ab1','$rb1',$b2,'$ab2','$rb2',$b3,'$ab3','$rb3','$cm');";
+ $avgcost=((intval($rb1)+intval($rb2)+intval($rb3))/intval($dn))+intval($cm);
+ $query="insert into hostel_info(uid,cid,b1,ab1,rb1,b2,ab2,rb2,b3,ab3,rb3,cm,avgcost) values('$uid','$cid','$b1','$ab1','$rb1',$b2,'$ab2','$rb2',$b3,'$ab3','$rb3','$cm',{$avgcost});";
     $q2=mysqli_query($conn,$query);   
   if($q2){
     echo "<br>"." hostel information inserted successfully ";  }
@@ -102,13 +103,6 @@ $bn=$_POST['bn'];
   if($q){
       echo " hostel address information inserted successfully ";  }
   else{echo " try again ". $conn->error; }
-  $query = "insert into owners (id,room,hostel,tiffin) values('$uid','h','$cid')";
-  $q=mysqli_query($conn,$query);
-  if($q){
-      echo " Owner information inserted successfully "; 
-       }
-  else{echo " try again ". $conn->error; }
-  
 
 mkdir("files\services\c-hostel\-".$cid);
   $folder="files\services\c-hostel\-"."$cid\_";
@@ -122,8 +116,6 @@ mkdir("files\services\c-hostel\-".$cid);
   move_uploaded_file($_FILES["uploadfile"]["tmp_name"][$key],$folder.$filename);
 }
 }
-
-
 ?>
 </head>
 </html>

@@ -13,6 +13,13 @@
 		container: 'map-d',
 		style: 'mapbox://styles/mapbox/streets-v11'
 		});
+		var ss='';
+		var fltr='';
+		var sort='';
+		sort='';
+            	$(function(){
+                $('#sort-d').load("sort-by.php");
+            });
 	</script>
 
 <style type="text/css">
@@ -28,16 +35,31 @@
 	{	if(document.getElementById('filter-d').style.display=='none')
 		{	document.getElementById('filter-b').getElementsByTagName('i')[0].className='fa fa-angle-up';
 			document.getElementById('filter-d').style.display='block';
-			document.getElementById('results').style.display='none';
-			document.getElementById('results').style.zIndex='-1';
+
 		}
 		else{
 			document.getElementById('filter-b').getElementsByTagName('i')[0].className='fa fa-angle-down';
 			document.getElementById('filter-d').style.display='none';
-			document.getElementById('results').style.display='block';
-			document.getElementById('results').style.zIndex='0';	
+			
 		}
 	});
+
+
+	$('#sort-b').on('click',function(e)
+	{	if(document.getElementById('sort-d').style.display=='none')
+		{	document.getElementById('sort-b').getElementsByTagName('i')[0].className='fa fa-angle-up';
+			document.getElementById('sort-d').style.display='block';
+
+		}
+		else{
+			document.getElementById('sort-b').getElementsByTagName('i')[0].className='fa fa-angle-down';
+			document.getElementById('sort-d').style.display='none';
+			
+		}
+	});
+
+
+
 	function search(){
 
 	var search_string = document.getElementById('search_string').value;
@@ -62,11 +84,25 @@
 	
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div>
-<button id="filter-b" class="btn" style="display:none;background-color:white;color:black;cursor:pointer;width: 80px; height: 30px; margin: 3px 0px;">Filter <i class="fa fa-angle-down"></i></button>
-<button class="btn" style="background-color:black;cursor:pointer;width: 80px; height: 30px; margin: 3px 0px;">Sort by <i class="fa fa-angle-down"></i></button>
+<select class="inputs" id="s-type" style="font-family:segoe UI;width:120px; height: 30px; position: relative; display: block;" onchange="loadfilter(this);">
+	<option value="">Type search</option>
+	<option value="room">Room</option>
+	<option value="hostel">Hostel</option>
+	<option value="food">Food</option>
+</select>
+<button id="filter-b" class="btn" style="background-color:white;color:black;cursor:pointer;width: 80px; height: 30px; margin: 3px 0px;">Filter <i class="fa fa-angle-down"></i></button>
 
-<button class="btn mv" style="background-color:white;color:black;cursor:pointer;width: 80px; height: 30px; margin: 3px 0px;" onclick="mapViewToggle(this);">Map View</button>
-	
+<select name="st" class="inputs" id="sortby" style="font-family:segoe UI;width:120px; height: 30px; position: relative; display: inline-block;" onchange="sort_fn(this);">
+	<option value="">Sort By</option>
+	<option value="avgcost ASC">Cheapest first</option>
+	<option value="avgcost DESC">Expensive first</option>
+</select>
+
+
+<button class="btn mv" id="mv-btn" style="background-color:white;color:black;cursor:pointer;width: 80px; height: 30px; margin: 3px 0px;" onclick="mapViewToggle(this);">Map View</button>
+	<div id="filter-d" style="overflow-y:scroll; display:none;width: 300px; height: 400px; background-color: white;">
+		<center><span style="color:gray; font-weight: 300; position: relative; top: 100px;">-Select type search first-</span></center>
+	</div>
 	<div id="ifm" style="">
 	
 	</div>
