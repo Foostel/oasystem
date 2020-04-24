@@ -4,6 +4,19 @@ var res=Array();
 var result_points=Array();
 var type='';
 var popup;
+var user_location='';
+function getCurLoc() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showCurPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showCurPosition(position) {
+  user_location = position.coords.latitude +
+  "," + position.coords.longitude;
+}
 function sort_fn(n){
     var w=n.value;
     if(w!='')
@@ -12,7 +25,7 @@ function sort_fn(n){
     console.log(sort);
     }
     else{
-        sort='';
+        sort='';    
     }
 
     if(ss!='' && n)
@@ -142,16 +155,14 @@ function clearPopups(){
         }
 
 function toggle(s){
-	var k = document.getElementById(s).style.display;
-    console.log(k);
-    if(k=='none'){
+    if(document.getElementById(s).style.display=='none'){
 	console.log("Block");
 	document.getElementById(s).style.display="block";
 
 	}
 	else{
 		document.getElementById(s).style.display="none";
-        console.log("None");
+        console.log("-None");
 	}
 
 }

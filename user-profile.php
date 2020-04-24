@@ -54,9 +54,7 @@
             <div id="rp-b" class="sub-section-menu" onclick="window.location='user-profile.php#registered-properties';">
                 <span style="color:black;position:relative;top: 10px; font-weight: 300;">Registered Properties <i style="" class="fa fa-angle-right"></i></span>
             </div>
-            <div id="ds-b" class="sub-section-menu" onclick="window.location='user-profile.php#default-suggestions';">
-                <span style="color:black;position:relative;top: 10px; font-weight: 300;">Default Suggestions <i style="" class="fa fa-angle-right"></i></span>
-            </div>
+        
         </div>
         <div class="section" id="personal-details">
             <div class="" style="z-index: 1; height:50px;width: 100%; background-color: rgba(0,0,0,0.6); color:white; position: sticky; top:110px; text-align: center;">
@@ -143,13 +141,8 @@
                  </div>
             </div>
         </div>
-        <div class="section" id="default-suggestions" >
-            <div class="" style="z-index: 1; height:50px;width: 100%; background-color: rgba(0,0,0,0.6); color:white; position: sticky; top:110px; text-align: center;">
-                <span style="position:relative;top: 10px; font-weight: 300;">Default Suggestions</span>
-            </div>
-            <center style='margin-top: 150px;'>Currently not available</center>
-        </div>
-        <div class="overlays side-panel" id="side-panel" style="text-align: center;">
+        
+        <div class="overlays side-panel" id="side-panel" style="text-align: center; display: none;">
                 
         </div>
         

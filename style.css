@@ -18,7 +18,8 @@ body{
     height: 100vh;
     background-color: #CFCFCF;
 }
-.MAP-VIEW{  
+.MAP-VIEW{
+    background-color: white;  
     position:absolute; 
     left: 400px; 
     top:110px;
@@ -331,7 +332,7 @@ a:hover{
     display: none;
 }
 #map-d{
-    width: 1150px; height: 100%; margin-top: 0px;
+    width: 1000px; height: 85vh; margin-top: 0px;
 }
 .sub-section-menu{
     cursor:pointer;
@@ -407,6 +408,7 @@ a:hover{
     }
     
     .MAP-VIEW{
+        background-color: black;
         z-index: -1;
         width: 600px;
     }

@@ -10,6 +10,7 @@
         <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
         
         <script type="text/javascript">
+            getCurLoc();
             $(function(){
                 $('#header').load("header.php");
             });
@@ -33,6 +34,9 @@
         {
             header("location:user-home.php");
         }
+        
+        $_SESSION['user_location']="<script>user_location</script>";
+        echo $_SESSION['user_location'];
          ?>
 
         

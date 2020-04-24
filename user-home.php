@@ -86,7 +86,7 @@
 
         
         <div class="section" id="Contact us" onclick="clearPopups();"></div>
-        <div class="overlays side-panel" id="side-panel" style="text-align: center;">
+        <div class="overlays side-panel" id="side-panel" style="text-align: center; display: none;">
                 
         </div>
         

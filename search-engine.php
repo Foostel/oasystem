@@ -52,7 +52,6 @@ if ($req_ser[0]==1 )//room
 		$query = "SELECT * FROM room_facility NATURAL JOIN (room_address natural join room_info) where state='$state' and city='$city' and (sarea like '%{$area}%' or area = '{$_POST['fulladd']}')".$_POST['fltr']." ".$_POST['sort'].";";
 		$query1 = "SELECT * FROM room_facility NATURAL JOIN (room_address natural join room_info) where(state='$state' and city='$city') ".$_POST['fltr']." ".$_POST['sort'].";";
 		$query2 = "SELECT * FROM room_facility NATURAL JOIN (room_address natural join room_info) where (state='$state') ".$_POST['fltr']." ".$_POST['sort']." ;";
-        echo $query;   
 		//print_r($query);
 		$result = mysqli_query($conn,$query);
 		$result1 = mysqli_query($conn,$query1);   
@@ -401,7 +400,6 @@ else if ($req_ser[1]==1)//hostel
 	$query = "SELECT * FROM hostel_facility NATURAL JOIN (hostel_address natural join hostel_info) where state='$state' and city='$city' and (sarea like '%{$area}%' or area = '{$_POST['fulladd']}')".$_POST['fltr']." ".$_POST['sort']." ;";
 	$query1 = "SELECT * hostel_facility natural join hostel_address natural join hostel_info where(state='$state' and city='$city')".$_POST['fltr']." ".$_POST['sort'].";";
 	$query2 = "SELECT * FROM hostel_facility natural join hostel_address natural join hostel_info where (state='$state')".$_POST['fltr']." ".$_POST['sort']." ;";
-	echo$query2;
     $result = mysqli_query($conn,$query);
 		$result1 = mysqli_query($conn,$query1);
 		$result2 = mysqli_query($conn,$query2);

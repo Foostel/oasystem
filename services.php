@@ -20,6 +20,15 @@
             	$(function(){
                 $('#sort-d').load("sort-by.php");
             });
+
+           map.addControl(
+			new mapboxgl.GeolocateControl({
+			positionOptions: {
+			enableHighAccuracy: true
+			},
+			trackUserLocation: true
+			})
+			);
 	</script>
 
 <style type="text/css">
@@ -84,7 +93,7 @@
 	
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div>
-<select class="inputs" id="s-type" style="font-family:segoe UI;width:120px; height: 30px; position: relative; display: block;" onchange="loadfilter(this);">
+<select class="inputs" id="s-type" style="font-family:segoe UI;width:120px; height: 30px; position: relative; display: block; background-color:black; color:white;" onchange="loadfilter(this);">
 	<option value="">Type search</option>
 	<option value="room">Room</option>
 	<option value="hostel">Hostel</option>
@@ -110,7 +119,7 @@
 </div>
 
 </div>
-<div class="MAP-VIEW" style="background-color: black;">
+<div class="MAP-VIEW" style="">
 	<script type="text/javascript">
 		map.loadImage(
 		'files/services-admin/room.png',
