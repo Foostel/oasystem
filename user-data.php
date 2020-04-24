@@ -1,11 +1,9 @@
-<?php 
-session_start();
-		if(!isset($_SESSION['id']))
-		{
-			header("location:page.php");
-		}
-		//code to retrive user profile using session veriable index 'userID'
+<?php 	session_start();
 		require 'db-connection.php';
+		if(isset($_SESSION['id']))
+		{
+		//code to retrive user profile using session veriable index 'userID'
+		
 		$id=$_SESSION['id'];
 		$q= "select * from user where id='$id'";
 		$result = mysqli_query($conn,$q)->fetch_assoc();
@@ -15,9 +13,12 @@ session_start();
 		$age=$result['age'];
 		$phone=$result['phone'];
 		$email=$result['email'];
+		$password = $result['password'];
 		$pp=$result['pp'];
 		$r = $result['r'];
 		$h = $result['h'];
 		$t = $result['t'];
 		$name = $fname." ".$lname;
+
+	}
  ?>

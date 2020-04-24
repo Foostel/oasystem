@@ -25,9 +25,10 @@
 	if(mysqli_num_rows($r)>0)
 		{	$_SESSION['OTP'] =rand(11111,99999);
 			$_SESSION['EMAIL']=$e;
-			$_SESSION['EXPIRY'] = $_SERVER['REQUEST_TIME']+120;
+			$_SESSION['EXPIRY'] = $_SERVER['REQUEST_TIME']+121;
 			//sendmail($e,$_SESSION['OTP']);
 			echo $_SESSION['OTP'];
+			echo $_SESSION['EMAIL'];
 		}
 		else{
 			echo "

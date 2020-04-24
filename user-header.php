@@ -36,8 +36,8 @@ echo "
         }
     }
  </script>
-<div id="menu-btn" style="height: 110px; width: 110px;  position: absolute; z-index: 2; cursor: pointer;color:black;" onclick="show(this);">
-    <i style="font-size: 80px;margin-left: 30px;" class="fa fa-angle-right"></i><span style='font-size:12px;position:absolute;top:80px; left: 30px; font-weight: 500;'>MENU</span>
+<div id="menu-btn" style="height: 110px; width: 110px; background:transparent; position: absolute; z-index: 2; cursor: pointer;color:black;" onclick="show(this);">
+    <i style="font-size: 40px;margin-left: 40px; margin-top: 30px;" class="fa fa-angle-right"></i><span style='font-size:12px;position:absolute;top:80px; left: 30px; font-weight: 300;'>MENU</span>
 </div>
 <div id="menu-slide" style="height: 100vh; width: 110px; position: absolute; z-index: 0; cursor: pointer; color:white; background-color:gray; display:none;">
         <div style="margin-top: 110px;color:white; z-index: 1; text-align: center; "><br><br>

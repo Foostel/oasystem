@@ -34,8 +34,8 @@ function sort_fn(n){
     }
 
 }
-function loadfilter(obj){
-
+function loadfilter(obj){   
+    fltr='';
     if(obj.value=='room')
     {
         $(function(){

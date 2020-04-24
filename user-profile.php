@@ -54,6 +54,9 @@
             <div id="rp-b" class="sub-section-menu" onclick="window.location='user-profile.php#registered-properties';">
                 <span style="color:black;position:relative;top: 10px; font-weight: 300;">Registered Properties <i style="" class="fa fa-angle-right"></i></span>
             </div>
+            <div id="sc-b" class="sub-section-menu" onclick="window.location='user-profile.php#security-tab';">
+                <span style="color:black;position:relative;top: 10px; font-weight: 300;">Security <i style="" class="fa fa-angle-right"></i></span>
+            </div>
         
         </div>
         <div class="section" id="personal-details">
@@ -69,8 +72,8 @@
                 <form action="update-user.php" method="post">
                 <div style="position: relative; top:10px; left:10px; display: inline-block;">
                     <div id="u-pp2" style="display:inline-block;position:relative;"></div><br><br>
-                        <input class="inputs" style="height: 30px; width: 300px; text-align: center;" type="" name="username" placeholder="Name: <?php echo $user_name; ?>" ><br>
-                        <input class="inputs" style="height: 30px; width: 300px; text-align: center;" type="" name="phoneno" placeholder="Phone: <?php echo $phone; ?>" ><br>
+                        <input class="inputs" style="height: 30px; width: 300px; text-align: center;" type="" name="username" placeholder="Name: <?php echo $user_name; ?>"><br>
+                        <input class="inputs" style="height: 30px; width: 300px; text-align: center;" type="" name="phoneno" placeholder="Phone: <?php echo $phone; ?>" disabled><br>
                         <input class="inputs" style="height: 30px; width: 300px; text-align: center;" type="" name="email" placeholder="Email: <?php echo $email; ?>" disabled>
                         <input class="btn" style="height: 30px; width: 300px; text-align: center;" type="submit" value = 'Update' name="" >
                 </div>
@@ -141,6 +144,17 @@
                  </div>
             </div>
         </div>
+        <div id="security-tab" class="section">
+            <div class="" style="z-index: 1; height:50px;width: 100%; background-color: rgba(0,0,0,0.6); color:white; position: sticky; top:110px; text-align: center;">
+                <span style="position:relative;top: 10px; font-weight: 300;">Security</span>
+            </div>
+            <div style="margin-top: 200px; display: inline-block; font-size: 20px;">
+                <div class="sub-section-menu" onclick="window.location='reset-password.php';">
+                <span style="color:black;position:relative;top: 10px; font-weight: 300;">Change password <i style="" class="fa fa-angle-right"></i></span>
+                </div>
+            </div>
+
+        </div>
         
         <div class="overlays side-panel" id="side-panel" style="text-align: center; display: none;">
                 
@@ -162,7 +176,7 @@
             }
             else if(window.pageYOffset>1300)
             {  
-                subSectionSelector(document.getElementById('ds-b')); 
+                subSectionSelector(document.getElementById('sc-b')); 
             }
         };
     </script>

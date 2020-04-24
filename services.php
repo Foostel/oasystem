@@ -93,7 +93,7 @@
 	
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div>
-<select class="inputs" id="s-type" style="font-family:segoe UI;width:120px; height: 30px; position: relative; display: block; background-color:black; color:white;" onchange="loadfilter(this);">
+<select class="inputs" id="s-type" style="font-family:segoe UI;width:120px; height: 30px; position: relative; display: block; background-color:white; color:black;" onchange="loadfilter(this);">
 	<option value="">Type search</option>
 	<option value="room">Room</option>
 	<option value="hostel">Hostel</option>
