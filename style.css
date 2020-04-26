@@ -24,7 +24,7 @@ body{
     left: 400px; 
     top:110px;
     width: 100%; 
-    height: 700px;
+    height: 85vh;
     z-index: 0;
 }
 #service-panel{
@@ -332,7 +332,9 @@ a:hover{
     display: none;
 }
 #map-d{
-    width: 1000px; height: 85vh; margin-top: 0px;
+    display: block;
+    position: absolute;
+    width: 1000px; height: 85vh; top:0px;
 }
 .sub-section-menu{
     cursor:pointer;

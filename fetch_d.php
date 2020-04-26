@@ -5,9 +5,7 @@
 		<script type='text/javascript'>
 			var ss='';
 	function fetch_d(str,fltr,sort){
- 		console.log(document.getElementById('mv-btn').style.backgroundColor);
- 		console.log('andrrrrr');
- 		console.log('filter: '+fltr+" sort: "+sort);	
+ 		console.log('filter: '+fltr+" sort: "+sort);
  		if(document.getElementById('mv-btn').style.backgroundColor=='black')
  		{
 

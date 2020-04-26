@@ -8,9 +8,9 @@ $phoneno = $_POST['phoneno'];
 $id=$_SESSION['id'];
 //echo "".$id." ";
 
-$sql="update user set fname='$username[0]',lname='$username[1]',phone='$phoneno' where id = '$id'" ;
+$sql="update user set fname='$username[0]',lname='$username[1]' where id = '$id'" ;
 if ($conn->query($sql) === TRUE) {
-    echo "Record updated successfully";
+    header('location: user-profile.php#personal-details');
 } else {
     echo "Error updating record: " . $conn->error;
 }

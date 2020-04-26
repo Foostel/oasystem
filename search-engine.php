@@ -35,9 +35,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div style="margin-top: 2px;">
 <?php
+session_start();
 $zl=0;
 $res = Array();
 $type='';
+if(isset($_SESSION['curloc'])){
+$lng = floatval($_SESSION['curloc'][0]);
+$lat = floatval($_SESSION['curloc'][1]);
+}
+    
 if(isset($_POST['tos']))
 {
 include("db-connection.php");

@@ -5,12 +5,31 @@
 <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
         </script>
-<script type="text/javascript" src="actions.js"></script>
+<p id="userloc" name="" style="display: none;"></p>
 <script type="text/javascript">
+</script>
+		<?php session_start(); $l = $_SESSION['curloc']; ?>
+<script type="text/javascript">
+		var userloc = <?php echo json_encode($l);?>;
+		console.log('userloc: '+userloc);
+		var ms=[0,0];
+		if(userloc[0]!='undefined')
+		{
+		userloc[0]=parseFloat(userloc[0]);
+		userloc[1]=parseFloat(userloc[1]);
+		ms= userloc;
+		}
+		else{
+			userloc='undefined';
+			m=[0,0];
+		}
+		console.log('AO '+userloc);
 		mapboxgl.accessToken = 'pk.eyJ1IjoibWloaXJzb25pNzgxIiwiYSI6ImNrOGlrZTc5ajAwcnkzbHFxd3NkbnZwc3UifQ.qoBrl5wvQ6LjGZd369FnIg';
 		var t=0;
 		var map = new mapboxgl.Map({
 		container: 'map-d',
+		center: ms,
+		zoom:10,
 		style: 'mapbox://styles/mapbox/streets-v11'
 		});
 		var ss='';
@@ -29,6 +48,7 @@
 			trackUserLocation: true
 			})
 			);
+
 	</script>
 
 <style type="text/css">
@@ -100,11 +120,23 @@
 	<option value="food">Food</option>
 </select>
 <button id="filter-b" class="btn" style="background-color:white;color:black;cursor:pointer;width: 80px; height: 30px; margin: 3px 0px;">Filter <i class="fa fa-angle-down"></i></button>
-
-<select name="st" class="inputs" id="sortby" style="font-family:segoe UI;width:120px; height: 30px; position: relative; display: inline-block;" onchange="sort_fn(this);">
+<script type="text/javascript">
+	function Live(){
+	if(document.getElementById('sortby').selectedIndex==3 && userloc=='undefined')
+ 		{
+ 			sort='';
+ 			alert('Open browser setting and allow location access to unlock this feature.');
+ 			document.getElementById('sortby').selectedIndex=0;
+ 			return false;
+ 		}
+ 		return true;
+ 	}
+</script>
+<select name="st" class="inputs" id="sortby" style="font-family:segoe UI;width:120px; height: 30px; position: relative; display: inline-block;" onchange="if(Live()){sort_fn(this);}">
 	<option value="">Sort By</option>
 	<option value="avgcost ASC">Cheapest first</option>
 	<option value="avgcost DESC">Expensive first</option>
+	<option id="nearest" value=" (lat-'$lat')*(lat-'$lat')+(lng-'$lng')*(lng-'$lng') DESC">Nearest first</option>
 </select>
 
 
@@ -146,6 +178,7 @@
 	});
 	var r_s=false;
 	</script>
+	<p style="position: absolute; top:200px; left: 300px; font-size: 30px; z-index: -1;">Search Something...</p>
 	<div id="map-d" style=''>
 		
 	</div>

@@ -4,18 +4,37 @@ var res=Array();
 var result_points=Array();
 var type='';
 var popup;
-var user_location='';
+var user_location=[0,0];
+getCurLoc();
 function getCurLoc() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showCurPosition);
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+        user_location[0] = position.coords.longitude;
+        user_location[1] = position.coords.latitude;
+        console.log('posted');
+        $.post('curloc.php',{curloc:user_location},function(data){
+            console.log(data);
+            var flag = data;
+            if(flag=='reload')
+            {
+                location.reload();
+            }
+        });
+        },function(e){
+            $.post('curloc.php',{curloc:['undefined','undefined']},function(data){
+            console.log(data);
+            var flag = data;
+            if(flag=='reload')
+            {
+                location.reload();
+            }
+        });
+        });
   } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
+    alert("Geolocation is not supported by this browser.");
   }
-}
 
-function showCurPosition(position) {
-  user_location = position.coords.latitude +
-  "," + position.coords.longitude;
 }
 function sort_fn(n){
     var w=n.value;
