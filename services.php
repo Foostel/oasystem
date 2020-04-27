@@ -11,7 +11,6 @@
 		<?php session_start(); $l = $_SESSION['curloc']; ?>
 <script type="text/javascript">
 		var userloc = <?php echo json_encode($l);?>;
-		console.log('userloc: '+userloc);
 		var ms=[0,0];
 		if(userloc[0]!='undefined')
 		{
@@ -23,9 +22,10 @@
 			userloc='undefined';
 			m=[0,0];
 		}
-		console.log('AO '+userloc);
 		mapboxgl.accessToken = 'pk.eyJ1IjoibWloaXJzb25pNzgxIiwiYSI6ImNrOGlrZTc5ajAwcnkzbHFxd3NkbnZwc3UifQ.qoBrl5wvQ6LjGZd369FnIg';
-		var t=0;
+		var rt=0;
+		var ht=0;
+		var ft=0;
 		var map = new mapboxgl.Map({
 		container: 'map-d',
 		center: ms,
@@ -33,22 +33,20 @@
 		style: 'mapbox://styles/mapbox/streets-v11'
 		});
 		var ss='';
+		var tp='';
 		var fltr='';
 		var sort='';
 		sort='';
             	$(function(){
                 $('#sort-d').load("sort-by.php");
             });
-
-           map.addControl(
-			new mapboxgl.GeolocateControl({
+        var gcontrol= new mapboxgl.GeolocateControl({
 			positionOptions: {
 			enableHighAccuracy: true
 			},
 			trackUserLocation: true
-			})
-			);
-
+			});
+           map.addControl(gcontrol);
 	</script>
 
 <style type="text/css">
@@ -157,7 +155,6 @@
 		'files/services-admin/room.png',
 		function(error, image) {
 		if (error) throw error;
-		console.log('passs');
 		map.addImage('room', image);
 	});
 
@@ -165,7 +162,6 @@
 		'files/services-admin/food.png',
 		function(error, image) {
 		if (error) throw error;
-		console.log('passs');
 		map.addImage('food', image);
 	});
 
@@ -173,7 +169,6 @@
 		'files/services-admin/hostel.png',
 		function(error, image) {
 		if (error) throw error;
-		console.log('passs');
 		map.addImage('hostel', image);
 	});
 	var r_s=false;

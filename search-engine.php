@@ -43,7 +43,7 @@ if(isset($_SESSION['curloc'])){
 $lng = floatval($_SESSION['curloc'][0]);
 $lat = floatval($_SESSION['curloc'][1]);
 }
-    
+
 if(isset($_POST['tos']))
 {
 include("db-connection.php");
@@ -396,11 +396,12 @@ if ($req_ser[0]==1 )//room
 
 		<script>
 		projectp(result_points,'room',{$zl},0);
+        result_points=[];
 		</script>
 		";
 		
 }
-else if ($req_ser[1]==1)//hostel
+ if ($req_ser[1]==1)//hostel
 {	$zl=16;
     $type='hostel';
 	$query = "SELECT * FROM hostel_facility NATURAL JOIN (hostel_address natural join hostel_info) where state='$state' and city='$city' and (sarea like '%{$area}%' or area = '{$_POST['fulladd']}')".$_POST['fltr']." ".$_POST['sort']." ;";
@@ -759,10 +760,11 @@ else if ($req_ser[1]==1)//hostel
 
 		<script>
 		projectp(result_points,'hostel',{$zl},0);
+        result_points=[];
 		</script>
 		";
 }
-else if ($req_ser[2]==1)//tiffin center
+if ($req_ser[2]==1)//tiffin center
 {	$zl=15;
     $type='tiffin';
 	$query = "SELECT * FROM tiffin_facility NATURAL JOIN tiffin_address  where state='$state' and city='$city' and (sarea like '%{$area}%' or area = '{$_POST['fulladd']}')".$_POST['fltr']." ".$_POST['sort']." ;";

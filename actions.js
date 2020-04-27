@@ -12,7 +12,6 @@ function getCurLoc() {
         function(position) {
         user_location[0] = position.coords.longitude;
         user_location[1] = position.coords.latitude;
-        console.log('posted');
         $.post('curloc.php',{curloc:user_location},function(data){
             console.log(data);
             var flag = data;
@@ -56,7 +55,8 @@ function sort_fn(n){
 function loadfilter(obj){   
     fltr='';
     if(obj.value=='room')
-    {
+    {   
+        ss='rooms '+ss;
         $(function(){
                 $('#filter-d').load("room-filter.php");
             });
@@ -67,11 +67,13 @@ function loadfilter(obj){
     }   
     else if(obj.value=='hostel')
     {
+        ss='hostel '+ss;
         $(function(){
                 $('#filter-d').load("hostel-filter.php");
             });
     }
     else if(obj.value=='food'){
+        ss='food '+ss;
         $(function(){
                 $('#filter-d').load("tiffin-filter.php");
             });
@@ -430,7 +432,8 @@ function projectp(pointsar,type,zl,filter){
     }
     console.log("test: type: "+type);
     if(type=='tiffin')
-    {   console.log('in tiffin');
+    {   
+        console.log('in tiffin');
         map.addSource('food-p', {
         'type': 'geojson',
         'data': {
@@ -477,11 +480,25 @@ function projectp(pointsar,type,zl,filter){
         
     }
 
-    if(!filter && !t)
+    if(!filter && !rt && pop_type=='points_room')
         {
         console.log('popup added');
         map.on('click',pop_type,addpop);
-        t=1;
+        rt=1;
+        }
+
+    if(!filter && !ht && pop_type=='points_hostel')
+        {
+        console.log('popup added');
+        map.on('click',pop_type,addpop);
+        ht=1;
+        }
+
+    if(!filter && !ft && pop_type=='points_food')
+        {
+        console.log('popup added');
+        map.on('click',pop_type,addpop);
+        ft=1;
         }
     }
 }

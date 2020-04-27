@@ -5,6 +5,7 @@
 		<script type='text/javascript'>
 			var ss='';
 	function fetch_d(str,fltr,sort){
+
  		console.log('filter: '+fltr+" sort: "+sort);
  		if(document.getElementById('mv-btn').style.backgroundColor=='black')
  		{
@@ -21,20 +22,20 @@
 		if (map.getLayer('points_room')) map.removeLayer('points_room');
 		if (map.getLayer('points_hostel')) map.removeLayer('points_hostel');
 		if (map.getLayer('points_food')) map.removeLayer('points_food');
-		ss=str;	
-		console.log('called!');
+		ss=str;
+		console.log('sS: '+ss);
 		str = str.toLowerCase();
-		console.log('Tostr:: '+fltr);
 		var ar = str.split(' ');
 		var service = [['room','rooms','residencies'],['hostel','hostels','residencies'],['tiffin centers','tiffin','tiffen','tiffin center', 'tiffin-center','center','tiffin-centers','tifin','tifen','food','food center', 'foods', 'meal', 'mess']];
 		var param = [0,0,0];
-		for(let i=0;i<ar.length;i++)
+		var ret=0;
+		for(let i=0;i<ar.length && !ret;i++)
 		{
 			if(param[0]==1 && param[1]==1 && param[2]==1)
 			{
 				break;
 			}
-			for(let j=0; j<service.length;j++)
+			for(let j=0; j<service.length && !ret;j++)
 			{
 				for(let k=0;k<service[j].length;k++)
 				{
@@ -42,12 +43,16 @@
 					{
 						ar[i]='';
 						param[j]=1;
+						ret=1;
+						break;
 					}
 				}
+
 			}	
 		}
 		if(param[0])
-		{	if((document.getElementById('s-type').selectedIndex)!='1'){
+		{
+			if((document.getElementById('s-type').selectedIndex)!='1'){
             	document.getElementById('s-type').selectedIndex='1';
             	fltr='';
             	$(function(){
@@ -75,7 +80,7 @@
             });
 			}
 		}
-
+		console.log('search string '+ss);
 		var rmwd = ['near','in','at','to','city','area'];
 		for(i=0;i<rmwd.length;i++)
 		{
@@ -87,18 +92,12 @@
 				}
 			}
 		}
-		console.log("Lo");
 		var add=Array();
 		arr = ar.join(" ").trim();
-		console.log(ar);
 		if(arr.trim()!='')
 		{
 		$.getJSON('https://api.mapbox.com/geocoding/v5/mapbox.places/{'+arr+'.json?limit=1&access_token=pk.eyJ1IjoibWloaXJzb25pNzgxIiwiYSI6ImNrOGlrZTc5ajAwcnkzbHFxd3NkbnZwc3UifQ.qoBrl5wvQ6LjGZd369FnIg&country=In', function(data) {
-		console.log(data);
         add=data.features[0]['place_name'].split(",");
-        	
-        console.log(add);
-        console.log(data);
         var dat = 'tos='+param+'&country='+add[add.length-1]+'&state='+add[add.length-2]+'&city='+add[add.length-3]+'&area='+data.features[0]['place_name'];
         var country=add[add.length-1];
         var state=add[add.length-2];
@@ -127,13 +126,9 @@
         	}
         }
         area = ar.join(" ").trim();
-        console.log(ar);
-        console.log(area);
         $.post('search-engine.php',{tos:param,fltr:fltr,sort:sort,country:country,state:state,city:city,area:area,fulladd:data.features[0]['place_name']},
 		    function(dat) {
 			 $('#results').html(dat);
-				console.log('hola');
-				console.log(res);
 
 		    });
     	});
