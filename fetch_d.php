@@ -30,7 +30,7 @@
  		}
 
 
-		document.getElementById('results').innerHTML = "<center style='font-size: 12px; color:gray; margin-top:10px;'>Searching . . .</center>";
+		document.getElementById('results').innerHTML = "<center style='font-size: 12px; color:gray; margin-top:10px;'>Searching <div class='loader' style='display:inline-block; position:relative; top:3px;'></div></center>";
 		if (map.getLayer('points_room')) map.removeLayer('points_room');
 		if (map.getLayer('points_hostel')) map.removeLayer('points_hostel');
 		if (map.getLayer('points_food')) map.removeLayer('points_food');
