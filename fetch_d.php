@@ -3,9 +3,21 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
         </script>
 		<script type='text/javascript'>
-			var ss='';
-	function fetch_d(str,fltr,sort){
-
+			var nearme=0;
+	function fetch_d(str,fltr,sort,nm){
+		console.log('fetch_d called ------------------------ ');
+		nearme=nm;
+ 		if(nearme)
+ 		{
+ 			str=ss;
+ 			if(sort=='')
+ 			{
+ 			sort=" ORDER BY (lat-'$lat')*(lat-'$lat')+(lng-'$lng')*(lng-'$lng') DESC";
+ 			document.getElementById('sortby').selectedIndex=3;
+ 			}
+ 		}
+ 		ss=str;
+ 		console.log("str: "+str);
  		console.log('filter: '+fltr+" sort: "+sort);
  		if(document.getElementById('mv-btn').style.backgroundColor=='black')
  		{
@@ -22,8 +34,6 @@
 		if (map.getLayer('points_room')) map.removeLayer('points_room');
 		if (map.getLayer('points_hostel')) map.removeLayer('points_hostel');
 		if (map.getLayer('points_food')) map.removeLayer('points_food');
-		ss=str;
-		console.log('sS: '+ss);
 		str = str.toLowerCase();
 		var ar = str.split(' ');
 		var service = [['room','rooms','residencies'],['hostel','hostels','residencies'],['tiffin centers','tiffin','tiffen','tiffin center', 'tiffin-center','center','tiffin-centers','tifin','tifen','food','food center', 'foods', 'meal', 'mess']];
@@ -80,8 +90,8 @@
             });
 			}
 		}
-		console.log('search string '+ss);
-		var rmwd = ['near','in','at','to','city','area'];
+		
+		var rmwd = ['near','in','at','to','city','area','near me'];
 		for(i=0;i<rmwd.length;i++)
 		{
 			for(j=0;j<ar.length;j++)
@@ -94,9 +104,13 @@
 		}
 		var add=Array();
 		arr = ar.join(" ").trim();
+		if(nearme)
+		{
+			arr=userloc[0]+','+userloc[1];
+		}
 		if(arr.trim()!='')
 		{
-		$.getJSON('https://api.mapbox.com/geocoding/v5/mapbox.places/{'+arr+'.json?limit=1&access_token=pk.eyJ1IjoibWloaXJzb25pNzgxIiwiYSI6ImNrOGlrZTc5ajAwcnkzbHFxd3NkbnZwc3UifQ.qoBrl5wvQ6LjGZd369FnIg&country=In', function(data) {
+		$.getJSON('https://api.mapbox.com/geocoding/v5/mapbox.places/'+arr+'.json?limit=1&access_token=pk.eyJ1IjoibWloaXJzb25pNzgxIiwiYSI6ImNrOGlrZTc5ajAwcnkzbHFxd3NkbnZwc3UifQ.qoBrl5wvQ6LjGZd369FnIg&country=In', function(data) {
         add=data.features[0]['place_name'].split(",");
         var dat = 'tos='+param+'&country='+add[add.length-1]+'&state='+add[add.length-2]+'&city='+add[add.length-3]+'&area='+data.features[0]['place_name'];
         var country=add[add.length-1];
@@ -147,7 +161,7 @@
 	{ 
 	echo"
 	<script>
-	fetch_d('".$_POST['search_string']."',fltr,sort);
+	fetch_d('".$_POST['search_string']."',fltr,sort,".$_POST['nearme'].");
 	</script>
 	";
 	}

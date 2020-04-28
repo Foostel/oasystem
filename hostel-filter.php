@@ -81,6 +81,7 @@
 <br>
 <br>
 <button class="btn" onclick="filter(['b','g','gym','p','ms','rs','ab','gs','w','b','cw','1r','2r','rk']);">Apply</button>
+<br><br>
 </div>
 </body>
 </html>

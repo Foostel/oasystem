@@ -7,13 +7,13 @@ var popup;
 var user_location=[0,0];
 getCurLoc();
 function getCurLoc() {
+    console.log("getCurLoc called ------------------- ");
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
         function(position) {
         user_location[0] = position.coords.longitude;
         user_location[1] = position.coords.latitude;
         $.post('curloc.php',{curloc:user_location},function(data){
-            console.log(data);
             var flag = data;
             if(flag=='reload')
             {
@@ -22,7 +22,6 @@ function getCurLoc() {
         });
         },function(e){
             $.post('curloc.php',{curloc:['undefined','undefined']},function(data){
-            console.log(data);
             var flag = data;
             if(flag=='reload')
             {
@@ -40,20 +39,21 @@ function sort_fn(n){
     if(w!='')
     {
     sort=" ORDER BY "+w;
-    console.log(sort);
     }
     else{
         sort='';    
     }
-
+    
     if(ss!='' && n)
-    {
-        fetch_d(ss,fltr,sort);
+    {   
+        fetch_d(ss,fltr,sort,nearme);
     }
 
 }
 function loadfilter(obj){   
     fltr='';
+    sort="";
+    document.getElementById('sortby').selectedIndex=0;
     if(obj.value=='room')
     {   
         ss='rooms '+ss;
@@ -63,7 +63,7 @@ function loadfilter(obj){
         $(function(){
                 $('#sort-d').load("room-sort.php");
             });
-        console.log('loadfilter called');
+        
     }   
     else if(obj.value=='hostel')
     {
@@ -114,7 +114,7 @@ function remove(arr,i)
             temp.push(arr[x]);
         }
     }
-    console.log(temp);
+    
     return temp;
 }
 
@@ -125,7 +125,7 @@ function filter(arr){
     document.getElementById('ifm').style.display='block';
     document.getElementById('ifm').style.zIndex='0';
     fltr='';
-    console.log("SS::: "+ss);
+    
         for(var j=0;j<arr.length;j++)
         {   let idx = document.getElementById(arr[j]).name;
             var val='';
@@ -133,14 +133,14 @@ function filter(arr){
             if(val!='')
             {
             fltr+=" and "+idx+"='"+val+"' ";
-            console.log('idx: '+idx+' val:'+val);
+            
             }
             
         }
-    console.log(fltr);
+    
     if(ss!='')
     {
-    fetch_d(ss,fltr,sort);
+    fetch_d(ss,fltr,sort,nearme);
     }
 
 }
@@ -177,22 +177,21 @@ function clearPopups(){
 
 function toggle(s){
     if(document.getElementById(s).style.display=='none'){
-	console.log("Block");
 	document.getElementById(s).style.display="block";
 
 	}
 	else{
 		document.getElementById(s).style.display="none";
-        console.log("-None");
+        
 	}
 
 }
 function select(item,name)
 {
     var els = document.getElementsByName(name);
-    console.log(els[0].value);
+
     for(var i=0;i<els.length;i++)
-    {   console.log('yeah');
+    {   
         els[i].style.backgroundColor='white';
     }
 
@@ -200,13 +199,12 @@ function select(item,name)
 }
 function invoke(s){
     if(h2){
-        console.log("SHOW");
+        
     document.getElementById(s).style.display="block";
     let myElement = document.querySelector(".section");
     h2=false;
     }
     /*else{
-        console.log("HIDE");
         document.getElementById(s).style.display="none";
         h=true;
     }*/
@@ -214,7 +212,7 @@ function invoke(s){
 }
 function revoke(s){
     if(h2==false){
-        console.log("HIDE");
+        
         document.getElementById(s).style.display="none";
         h2=true;
     }
@@ -238,35 +236,35 @@ function passC(){
     }
     switch(count){
         case 0:
-        console.log("case0");
+        
         document.getElementById('pass1').style.color="black";
         break;
         case 1:
-        console.log("case1");
+        
         document.getElementById('pass1').style.color="red";
         break;
         case 2:
-        console.log("case2");
+        
         document.getElementById('pass1').style.color="orange";
         break;
         case 3:
-        console.log("case3");
+        
         document.getElementById('pass1').style.color="green";
         break;
         case 4:
-        console.log("case4");
+        
         document.getElementById('pass1').style.color="green";
         break;       
     }
 
     pst=count;
-    console.log(pst);
+    
     return pst;
 }
 function validate(){
     let pst=0;
     let f=true;
-    console.log("call");
+    
     alert("validate?");
     let x = document.getElementById("phoneno").value;
     let p1 = document.getElementById("pass1").value;
@@ -277,7 +275,7 @@ function validate(){
         alert("Please enter valid contact number");
     }
     pst= passC();
-    console.log(pst);
+    
     if(!(pst>2) && !(p1.length>7))
     {
         alert("Created password is too weak");
@@ -300,10 +298,10 @@ function validate(){
 }
 
 function showp(){
-    console.log(100);
+    
     let x= document.getElementById('pass1');
     if(x.type=='password'){
-    console.log(111);
+    
     x.type='text'; 
     document.getElementById('eye').className='fa fa-eye';    
     }
@@ -326,7 +324,7 @@ function check(id)
 }
 function getloc(x)
 {
-    console.log("geolocation");
+    
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
@@ -358,7 +356,7 @@ function disp(id)
 }
 
 function rqrd(v,nextloc){
-    console.log('rqrd');
+    
     for(var i=0; i<v.length;i++)
     {
         if(document.getElementById(v[i]).value=='')
@@ -375,12 +373,12 @@ function rqrd(v,nextloc){
 }
 function projectp(pointsar,type,zl,filter){
     var pop_type='';
-    console.log('projectp');
+    
     if(pointsar.length>0)
     {
     if(type=='room')
     {
-    console.log(pointsar);
+    
     map.addSource('rooms-p', {
         'type': 'geojson',
         'data': {
@@ -400,7 +398,7 @@ function projectp(pointsar,type,zl,filter){
         }
         });
         map.setCenter(pointsar[0]['geometry']['coordinates']);
-        console.log('zl= '+zl);
+        
         map.setZoom(zl);
         r_s = true;   
         pop_type='points_room';
@@ -430,10 +428,10 @@ function projectp(pointsar,type,zl,filter){
         map.setZoom(zl);
         pop_type='points_hostel';
     }
-    console.log("test: type: "+type);
+    
     if(type=='tiffin')
     {   
-        console.log('in tiffin');
+        
         map.addSource('food-p', {
         'type': 'geojson',
         'data': {
@@ -482,21 +480,21 @@ function projectp(pointsar,type,zl,filter){
 
     if(!filter && !rt && pop_type=='points_room')
         {
-        console.log('popup added');
+        
         map.on('click',pop_type,addpop);
         rt=1;
         }
 
     if(!filter && !ht && pop_type=='points_hostel')
         {
-        console.log('popup added');
+        
         map.on('click',pop_type,addpop);
         ht=1;
         }
 
     if(!filter && !ft && pop_type=='points_food')
         {
-        console.log('popup added');
+        
         map.on('click',pop_type,addpop);
         ft=1;
         }

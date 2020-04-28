@@ -182,7 +182,7 @@ if ($req_ser[0]==1 )//room
                 foreach ($res as $i) {
                     # code...
                     if($i['cid']==$row['cid'])
-                    {echo"<script>console.log('match');</script>";
+                    {
                      $stop=true;
                     }
                 }
@@ -291,7 +291,7 @@ if ($req_ser[0]==1 )//room
                 foreach ($res as $i) {
                     # code...
                     if($i['cid']==$row['cid'])
-                    {echo"<script>console.log('match');</script>";
+                    {
                      $stop=true;
                     }
                 }
@@ -424,7 +424,7 @@ if ($req_ser[0]==1 )//room
                 foreach ($res as $i) {
                     # code...
                     if($i['cid']==$row['cid'])
-                    {echo"<script>console.log('match');</script>";
+                    {
                      $stop=true;
                     }
                 }
@@ -537,7 +537,7 @@ if ($req_ser[0]==1 )//room
                 foreach ($res as $i) {
                     # code...
                     if($i['cid']==$row['cid'])
-                    {echo"<script>console.log('match');</script>";
+                    {
                      $stop=true;
                     }
                 }
@@ -651,7 +651,7 @@ if ($req_ser[0]==1 )//room
                 foreach ($res as $i) {
                     # code...
                     if($i['cid']==$row['cid'])
-                    {echo"<script>console.log('match');</script>";
+                    {
                      $stop=true;
                     }
                 }
@@ -787,7 +787,7 @@ if ($req_ser[2]==1)//tiffin center
                 foreach ($res as $i) {
                     # code...
                     if($i['cid']==$row['cid'])
-                    {echo"<script>console.log('match');</script>";
+                    {
                      $stop=true;
                     }
                 }
@@ -869,7 +869,7 @@ if ($req_ser[2]==1)//tiffin center
                 foreach ($res as $i) {
                     # code...
                     if($i['cid']==$row['cid'])
-                    {echo"<script>console.log('match');</script>";
+                    {
                      $stop=true;
                     }
                 }
@@ -953,7 +953,7 @@ if ($req_ser[2]==1)//tiffin center
                 foreach ($res as $i) {
                     # code...
                     if($i['cid']==$row['cid'])
-                    {echo"<script>console.log('match');</script>";
+                    {
                      $stop=true;
                     }
                 }
@@ -1043,6 +1043,5 @@ if ($req_ser[2]==1)//tiffin center
     res = <?php echo json_encode($res); ?>;
     zl = <?php echo json_encode($zl); ?>;
     type= <?php echo json_encode($type); ?>;
-    console.log("TYPE:::: "+type);
 </script>
 </div>

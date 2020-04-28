@@ -130,7 +130,7 @@ a:hover{
 }
 .btn:active{
     border:none;
-    outline: none;
+    outline:none;
 }
 .btn:focus{
     border:none;
@@ -326,7 +326,7 @@ a:hover{
     
 }
 .search-panel{
-    position:relative;top: 180px; display: inline-block; width: 325px;height: 500px;
+    position:relative;top: 150px; display: inline-block; width: 325px;height: 500px;
 }
 .mv{
     display: none;
@@ -347,6 +347,11 @@ a:hover{
 #menu-btn{
     display: none;
 }
+.logobtn:focus{
+    border:none;
+    outline: none;
+}
+
 @media(max-width: 600px)
 {   
     .header{

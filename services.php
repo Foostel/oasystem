@@ -56,6 +56,7 @@
         padding-right: 200px;
     	}	
 	}
+
 </style>
 <script type="text/javascript">
 	$('#filter-b').on('click',function(e)
@@ -87,14 +88,23 @@
 
 
 
-	function search(){
+	function search(nearme){
 
 	var search_string = document.getElementById('search_string').value;
-	$.post('fetch_d.php',{search_string:search_string},
+	$.post('fetch_d.php',{search_string:search_string, nearme: nearme},
 		    function(dat) {
 			 $('#ifm').html(dat);
 		    });
 	}
+
+	function Live2(){
+	if(userloc=='undefined')
+ 		{	getCurLoc();
+ 			alert('Open browser setting and allow location access to unlock this feature.');
+ 			return false;
+ 		}
+ 		return true;
+ 	}
 	
 	$('#search_string').on("keypress", function(e) {
             /* ENTER PRESSED*/
@@ -104,20 +114,25 @@
             }
         });
 </script>
+<style type="text/css">
+
+</style>
 <div class="search-panel" style="">
 		<input style="width: 240px; padding-right: 50px; padding-left: 10px;" type="" class="inputs" name="search_string" id="search_string" placeholder="Search services near ..." >
-		
-		<button onclick="search();" id="submit" type="button" name="submit" style="z-index:0;position: absolute; right: 40px; background: transparent; border-style: none; cursor: pointer; top:13px; font-size: 20px;"><i class="fa fa-search" ></i></button>
+		<button class="logobtn"  onclick="search(0);" id="submit" type="button" name="submit" style="z-index:0;position: absolute; right: 40px; background: transparent; border-style: none; cursor: pointer; top:13px; font-size: 20px; color:black;"><i class="fa fa-search" ></i></button>
 	
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div>
-<select class="inputs" id="s-type" style="font-family:segoe UI;width:120px; height: 30px; position: relative; display: block; background-color:white; color:black;" onchange="loadfilter(this);">
-	<option value="">Type search</option>
+<div style="position: relative; top:2px;">
+	<span style="display:block;color:gray; font-size: 12px;">Custom search <i class="fa fa-search"></i></span><hr style="border-bottom: solid 1px gray;">
+<select class="inputs" id="s-type" style="font-family:segoe UI;width:120px; height: 30px; position: relative; display: inline-block; background-color:white; color:black;" onchange="loadfilter(this);">
+	<option value="">Searching for</option>
 	<option value="room">Room</option>
 	<option value="hostel">Hostel</option>
 	<option value="food">Food</option>
 </select>
-<button id="filter-b" class="btn" style="background-color:white;color:black;cursor:pointer;width: 80px; height: 30px; margin: 3px 0px;">Filter <i class="fa fa-angle-down"></i></button>
+<button onclick="if(Live2()){search(1)}else{return false};" id="nearme-submit" type="button" name="nearme-submit" style="z-index:0;position: relative; display: inline-block; background: rgba(0,0,0,0.7); border-style: none; cursor: pointer; top:0px; font-size: 12px; padding: 7px 10px;font-family: segoe UI; color:white;">Near me <i class="fa fa-search" ></i></button>
+<br>
+<button id="filter-b" class="btn" style="display:inline-block;background-color:white;color:black;cursor:pointer;width: 80px; height: 30px; margin: 3px 0px;">Filter <i class="fa fa-angle-down"></i></button>
 <script type="text/javascript">
 	function Live(){
 	if(document.getElementById('sortby').selectedIndex==3 && userloc=='undefined')
