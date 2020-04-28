@@ -19,7 +19,7 @@ body{
     background-color: #CFCFCF;
 }
 .MAP-VIEW{
-    background-color: white;  
+    background-color: #DDDDDD;  
     position:absolute; 
     left: 400px; 
     top:110px;
@@ -334,7 +334,7 @@ a:hover{
 #map-d{
     display: block;
     position: absolute;
-    width: 1000px; height: 85vh; top:0px;
+    width: 800px; height: 85vh; top:0px;
 }
 .sub-section-menu{
     cursor:pointer;
@@ -363,13 +363,13 @@ a:hover{
 
 /* Safari */
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+  0% { -webkit-transform: rotate(0deg);}
+  100% { -webkit-transform: rotate(360deg);}
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
 }
 
 @media(max-width: 600px)

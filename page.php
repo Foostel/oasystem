@@ -1,6 +1,15 @@
 <!DOCTYPE html>
     <head>
         <title>Foostel</title>
+        <?php 
+        session_start();
+
+        if(isset($_SESSION['id']))
+        {
+            header("location:user-home.php");
+        }
+        
+         ?>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script type="text/javascript" src="actions.js"></script>
@@ -26,15 +35,7 @@
                 $('#Contact-us').load("Contact-us.php");
             });
         </script>
-        <?php 
-        session_start();
-
-        if(isset($_SESSION['id']))
-        {
-            header("location:user-home.php");
-        }
         
-         ?>
 
         
     </head>

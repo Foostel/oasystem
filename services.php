@@ -123,7 +123,7 @@
 	
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div style="position: relative; top:2px;">
-	<span style="display:block;color:gray; font-size: 12px;">Custom search <i class="fa fa-search"></i></span><hr style="border-bottom: solid 1px gray;">
+	<span style="display:block;color:gray; font-size: 12px; font-weight: 400;">Custom search <i class="fa fa-search"></i></span><hr style="border:none;border-bottom: solid 1px gray;">
 <select class="inputs" id="s-type" style="font-family:segoe UI;width:120px; height: 30px; position: relative; display: inline-block; background-color:white; color:black;" onchange="loadfilter(this);">
 	<option value="">Searching for</option>
 	<option value="room">Room</option>

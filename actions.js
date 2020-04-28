@@ -482,6 +482,14 @@ function projectp(pointsar,type,zl,filter){
         {
         
         map.on('click',pop_type,addpop);
+        map.on('mouseenter', pop_type, function() {
+        map.getCanvas().style.cursor = 'pointer';
+        });
+         
+        // Change it back to a pointer when it leaves.
+        map.on('mouseleave', pop_type, function() {
+        map.getCanvas().style.cursor = '';
+        });
         rt=1;
         }
 
@@ -489,6 +497,14 @@ function projectp(pointsar,type,zl,filter){
         {
         
         map.on('click',pop_type,addpop);
+        map.on('mouseenter', pop_type, function() {
+        map.getCanvas().style.cursor = 'pointer';
+        });
+         
+        // Change it back to a pointer when it leaves.
+        map.on('mouseleave', pop_type, function() {
+        map.getCanvas().style.cursor = '';
+        });
         ht=1;
         }
 
@@ -496,6 +512,14 @@ function projectp(pointsar,type,zl,filter){
         {
         
         map.on('click',pop_type,addpop);
+        map.on('mouseenter',pop_type, function() {
+        map.getCanvas().style.cursor = 'pointer';
+        });
+         
+        // Change it back to a pointer when it leaves.
+        map.on('mouseleave', pop_type, function() {
+        map.getCanvas().style.cursor = '';
+        });
         ft=1;
         }
     }

@@ -65,7 +65,7 @@ if ($req_ser[0]==1 )//room
 		$row = array();
 		if ($result && mysqli_num_rows($result)>0) 
 		{//print_r($result);
-			$zl=16;
+			$zl=15;
 			echo"
 			<center style='opacity:.6; font-size:12px; margin-top:10px;'>Showing results in {$arr_area[0]}, {$arr_area[1]}<br> <br></center>
 			";
@@ -170,7 +170,7 @@ if ($req_ser[0]==1 )//room
 
 		}
 		if($result1 && mysqli_num_rows($result1)>0)
-		{	$zl=12;
+		{	$zl=13;
 
 			echo"
 			<center style='opacity:.6; font-size:12px; margin-top:10px;'>Showing results in {$_POST['city']} <br> <br></center>
@@ -280,7 +280,7 @@ if ($req_ser[0]==1 )//room
 		}
 		else if ($result2 && mysqli_num_rows($result2)>0) 
 		{//print_r($result);
-			$zl=10;
+			$zl=14;
 			echo"
 			<center style='opacity:.6; font-size:12px; margin-top:10px;'>Showing results in {$_POST['state']} <br> <br></center>
 			";
@@ -401,11 +401,11 @@ if ($req_ser[0]==1 )//room
 		";
 		
 }
- if ($req_ser[1]==1)//hostel
+else if ($req_ser[1]==1)//hostel
 {	$zl=16;
     $type='hostel';
 	$query = "SELECT * FROM hostel_facility NATURAL JOIN (hostel_address natural join hostel_info) where state='$state' and city='$city' and (sarea like '%{$area}%' or area = '{$_POST['fulladd']}')".$_POST['fltr']." ".$_POST['sort']." ;";
-	$query1 = "SELECT * hostel_facility natural join hostel_address natural join hostel_info where(state='$state' and city='$city')".$_POST['fltr']." ".$_POST['sort'].";";
+	$query1 = "SELECT * from hostel_facility natural join hostel_address natural join hostel_info where (state='$state' and city='$city') ".$_POST['fltr']." ".$_POST['sort'].";";
 	$query2 = "SELECT * FROM hostel_facility natural join hostel_address natural join hostel_info where (state='$state')".$_POST['fltr']." ".$_POST['sort']." ;";
     $result = mysqli_query($conn,$query);
 		$result1 = mysqli_query($conn,$query1);
@@ -526,7 +526,8 @@ if ($req_ser[0]==1 )//room
     		}
 		}
 		if($result1 && mysqli_num_rows($result1)>0)
-		{	$zl=12;
+		{	
+            $zl=12;
 			echo"
 			<center style='opacity:.6; font-size:12px; margin-top:10px;'>Showing results in {$_POST['city']} <br> <br></center>
 			";
@@ -764,7 +765,7 @@ if ($req_ser[0]==1 )//room
 		</script>
 		";
 }
-if ($req_ser[2]==1)//tiffin center
+else if ($req_ser[2]==1)//tiffin center
 {	$zl=15;
     $type='tiffin';
 	$query = "SELECT * FROM tiffin_facility NATURAL JOIN tiffin_address  where state='$state' and city='$city' and (sarea like '%{$area}%' or area = '{$_POST['fulladd']}')".$_POST['fltr']." ".$_POST['sort']." ;";
@@ -1035,6 +1036,9 @@ if ($req_ser[2]==1)//tiffin center
 		projectp(result_points,'tiffin',{$zl},0);
         </script>
 		";
+}
+else{
+    echo "<center style='font-size:12px; color:gray;'>No results found :(</center>";
 }
 
 }

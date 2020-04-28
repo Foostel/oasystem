@@ -9,7 +9,7 @@
 		nearme=nm;
  		if(nearme)
  		{
- 			str=ss;
+ 			str=ss+" "+str;
  			if(sort=='')
  			{
  			sort=" ORDER BY (lat-'$lat')*(lat-'$lat')+(lng-'$lng')*(lng-'$lng') DESC";
@@ -111,6 +111,12 @@
 		if(arr.trim()!='')
 		{
 		$.getJSON('https://api.mapbox.com/geocoding/v5/mapbox.places/'+arr+'.json?limit=1&access_token=pk.eyJ1IjoibWloaXJzb25pNzgxIiwiYSI6ImNrOGlrZTc5ajAwcnkzbHFxd3NkbnZwc3UifQ.qoBrl5wvQ6LjGZd369FnIg&country=In', function(data) {
+		if(data.features.length<=0)
+		{
+			console.log('fail');
+			document.getElementById('results').innerHTML = "<center style='font-size: 12px; color:gray; margin-top:10px;'>No results found :(</center>";
+			return false;
+		}
         add=data.features[0]['place_name'].split(",");
         var dat = 'tos='+param+'&country='+add[add.length-1]+'&state='+add[add.length-2]+'&city='+add[add.length-3]+'&area='+data.features[0]['place_name'];
         var country=add[add.length-1];
