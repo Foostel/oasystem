@@ -21,7 +21,7 @@ function getCurLoc() {
             }
         });
         },function(e){
-            alert('Location request denied');
+
             $.post('curloc.php',{curloc:['undefined','undefined']},function(data){
             var flag = data;
             if(flag=='reload')
