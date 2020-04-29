@@ -438,7 +438,7 @@ a {
         left: 50px;
         display: inline-block;
         z-index: 1;
-        height: 75vh;
+        height: 50px;
     }
     #service-panel{
         position: relative;
