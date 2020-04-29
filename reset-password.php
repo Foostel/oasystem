@@ -104,7 +104,7 @@
 </head>
 <body>
 	<div class="section" style="text-align: center;">
-		<div style="position: relative; display: inline-block; top:200px; width: 500px; height: 500px; text-align: center;">
+		<div style="position: relative; display: inline-block; top:200px; width: 400px; height: 500px;">
 			<p style="display:inline-block;font-size: 25px;color:black;">Reset Password</p>
 			<form action="" method="post" onsubmit="return chk();">
 			<span id="curpw"><?php if(isset($_SESSION['id'])){echo"

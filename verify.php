@@ -7,7 +7,7 @@
     <?php
     if(!isset($_POST['email']))
     {
-        header('location:page.php');
+        header('location:index.php');
     }
     include("db-connection.php");
     require('submit-reg.php');

@@ -145,7 +145,7 @@
                             Come & eat &nbsp<label for="cae" style="position: absolute; margin-top: 2px;" ><div  onclick="check('cae-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="cae-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
                             <input style="display:none;" type="checkbox" name="facilities[]" id="cae" name="Come_and_eat" value="cae">
                 </div>
-
+                <br><br>
                 <div style="display: inline-block; margin-right: 20px;">
                             Customization &nbsp<label for="c" style="position: absolute; margin-top: 2px;" ><div  onclick="check('c-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="c-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
                             <input style="display:none;" type="checkbox" name="facilities[]" id="c" value="c">
@@ -176,7 +176,9 @@
 
                         <select class="inputs" style="width: 60px; height: 30px;" name="dnbt2">
                             <option value="AM">AM</option> <option value="PM">PM</option>
-                        </select><input style="width: 70px; height: 20px;" type="" class="inputs" name="bf" placeholder="Cost">
+                        </select>
+                        <br>
+                        <input style="width: 70px; height: 20px;" type="" class="inputs" name="bf" placeholder="Cost">
                         
                         <select class="inputs" name="payb" style="width: 80px; height: 30px;">
                             <option value="">Select</option><option value="Daily">Daily</option><option value="Monthly">Monthly</option><option value="Yearly">Yearly</option>
@@ -202,7 +204,7 @@
                         <select class="inputs" style="width: 60px; height: 30px;" name="dnlt2">
                             <option value="AM">AM</option> <option value="PM">PM</option>
                         </select>
-
+                        <br>
                         <input style="width: 70px; height: 20px;" type="" class="inputs" name="lf" placeholder="Cost">
                                 <select class="inputs" name="payl" style="width: 80px; height: 30px;">
                                     <option value="">Select</option><option value="Daily">Daily</option><option value="Monthly">Monthly</option><option value="Yearly">Yearly</option>
@@ -229,6 +231,7 @@
                         <select class="inputs" style="width: 60px; height: 30px;" name="dndt2">
                             <option value="AM">AM</option> <option value="PM">PM</option>
                         </select>
+                        <br>
                         <input style="width: 70px; height: 20px;" type="" class="inputs" name="df" placeholder="Cost">
                                 <select class="inputs" name="payd" style="width: 80px; height: 30px;">
                                     <option value="">Select</option><option value="Daily">Daily</option><option value="Monthly">Monthly</option><option value="Yearly">Yearly</option>
@@ -241,7 +244,7 @@
             </div>
             <br><br>
 
-            <div style="height:70px;display: inline-block; margin-bottom: 50px;">
+            <div style="height:70px;display: inline-block; margin-bottom: 50px; margin-top: 50px;">
             I accept <a href="" style="text-decoration: underline; color:blue;">Terms & conditions</a>
 
             <div style="display: inline-block; margin-right: 20px; margin-bottom: 17px;">
@@ -260,7 +263,7 @@
         <!--
         <a><button class="btn" type="button" onclick="rqrd(['b-name','h-no','sts','state','Landmark','search_input','pc'],'#form-sec2');">Next <i class="fa fa-angle-right" aria-hidden="true"></i></button></a>
        -->
-       <div class="overlays side-panel" id="side-panel" style="text-align: center;">
+       <div class="overlays side-panel" id="side-panel" style="text-align: center; display: none;">
                 
         </div>
         <div class="overlays pop-up" id="pop-up" style="text-align:center;">

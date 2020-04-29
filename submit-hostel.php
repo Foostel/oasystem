@@ -78,7 +78,9 @@ $room=$_POST['room'];
  $query="insert into hostel_info(uid,cid,b1,ab1,rb1,b2,ab2,rb2,b3,ab3,rb3,cm,avgcost) values('$uid','$cid','$b1','$ab1','$rb1',$b2,'$ab2','$rb2',$b3,'$ab3','$rb3','$cm',{$avgcost});";
     $q2=mysqli_query($conn,$query);   
   if($q2){
-    echo "<br>"." hostel information inserted successfully ";  }
+    echo "<br>"." hostel information inserted successfully ";  
+    header('location:user-profile.php');
+  }
  else{
   echo "try again". $conn->error; }
 

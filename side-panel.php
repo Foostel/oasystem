@@ -8,7 +8,7 @@
 		require'user-data.php';
 		if(!isset($_SESSION['id']))
 		{
-			header("location:page.php");
+			header("location:index.php");
 		}
 		//code to retrive user profile using session veriable index 'userID'
 		 

@@ -265,8 +265,6 @@ function passC(){
 function validate(){
     let pst=0;
     let f=true;
-    
-    alert("validate?");
     let x = document.getElementById("phoneno").value;
     let p1 = document.getElementById("pass1").value;
     let p2 = document.getElementById("pass2").value;

@@ -122,10 +122,10 @@
                 <span style="font-weight: 600;">Hostel type</span> <br><hr style="border: solid .5px; margin-right: 100px; ">
                 <div style="display: inline-block; margin-right: 40px;">
                                 Boys &nbsp<label for="b" style="position: absolute; margin-top: 3px; margin-left: 3px;" ><div  onclick="select(this,'hostel-type-label');" style="width:10px; height: 10px; border-style: none; border-radius: 50%; border:solid 5px white; background-color: white;" name="hostel-type-label"></div></label>
-                                <input type="radio" name="hostel-type" id="b" value="Boys">
-
+                                <input type="radio" name="hostel-type" id="b" value="Boys" style="display: none;">
+                                &nbsp&nbsp&nbsp&nbsp&nbsp
                                 Girls &nbsp<label for="g" style="position: absolute; margin-top: 3px; margin-left: 3px;" ><div  onclick="select(this,'hostel-type-label');" style="width:10px; height: 10px; border-style: none; border-radius: 50%; border:solid 5px white; background-color: white;" name="hostel-type-label"></div></label>
-                                <input type="radio" name="hostel-type" id ="g" value="Girls">
+                                <input type="radio" name="hostel-type" id ="g" value="Girls" style="display: none;">
                                 
                 </div>
                 <br><br>
@@ -139,63 +139,63 @@
                             
                 <div style="display: inline-block; margin-right: 20px; margin-bottom: 10px;">
                             GYM &nbsp<label for="gym" style="position: absolute; margin-top: 2px;" ><div  onclick="check('gym-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="gym-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
-                            <input type="checkbox" name="facilites[]" id="gym" value="Gym">
+                            <input type="checkbox" name="facilites[]" id="gym" value="Gym" style="display: none;">
                 </div>
     
                 <div style="display: inline-block; margin-right: 20px;">
                             Parking Area &nbsp<label for="pa" style="position: absolute; margin-top: 2px;" ><div  onclick="check('pa-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="pa-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
-                             <input type="checkbox" name="facilites[]" id="pa" value="Parking Area">
+                             <input type="checkbox" name="facilites[]" id="pa" value="Parking Area" style="display: none;">
                 </div>
 
                 <div style="display: inline-block; margin-right: 20px;">
                             Mess &nbsp<label for="mess" style="position: absolute; margin-top: 2px;" ><div  onclick="check('mess-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="mess-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
-                            <input type="checkbox" name="facilites[]" id="mess" value="Mess">
+                            <input type="checkbox" name="facilites[]" id="mess" value="Mess" style="display: none;">
                 </div>
                 <br><br>
                 <div style="display: inline-block; margin-right: 20px;">
                             WiFi &nbsp<label for="wifi" style="position: absolute; margin-top: 2px;" ><div  onclick="check('wifi-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="wifi-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
-                            <input type="checkbox" name="facilites[]" id="wifi" value="Wifi">
+                            <input type="checkbox" name="facilites[]" id="wifi" value="Wifi" style="display: none;">
                 </div>
 
                 <div style="display: inline-block; margin-right: 20px;">
                             Geaser &nbsp<label for="geaser" style="position: absolute; margin-top: 2px;" ><div  onclick="check('gsr-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="gsr-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
-                            <input type="checkbox" name="facilites[]" id="geaser" value="Geaser">
+                            <input type="checkbox" name="facilites[]" id="geaser" value="Geaser" style="display: none;">
                 </div>
 
                 <div style="display: inline-block; margin-right: 20px;">
                             Room service &nbsp<label for="rs" style="position: absolute; margin-top: 2px;" ><div  onclick="check('rs-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="rs-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
-                            <input type="checkbox" name="facilites[]" id="rs" value="Room Service">
+                            <input type="checkbox" name="facilites[]" id="rs" value="Room Service" style="display: none;">
                 </div>
                 <br><br>
                 <div style="display: inline-block; margin-right: 20px;">
                             Attached Bathrooms &nbsp<label for="ab" style="position: absolute; margin-top: 2px;" ><div  onclick="check('ab-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="ab-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
-                            <input type="checkbox" name="facilites[]" id="ab" value="Attach Bathrooms">
+                            <input type="checkbox" name="facilites[]" id="ab" value="Attach Bathrooms" style="display: none;">
                 </div>
 
                 <div style="display: inline-block; margin-right: 20px;">
                             AC &nbsp<label for="ac" style="position: absolute; margin-top: 2px;" ><div  onclick="check('ac-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="ac-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
-                            <input type="checkbox" name="facilites[]" id="ac" value="AC">
+                            <input type="checkbox" name="facilites[]" id="ac" value="AC" style="display: none;">
                 </div>
-
+                <br><br>
                 <div style="display: inline-block; margin-right: 20px;">
                             Cloth Washing &nbsp<label for="cw" style="position: absolute; margin-top: 2px;" ><div  onclick="check('cl-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="cl-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
-                            <input type="checkbox" name="facilites[]" id="cw" value="Cloth Washing">
+                            <input type="checkbox" name="facilites[]" id="cw" value="Cloth Washing" style="display: none;">
                 </div>
                 <br><br>
                 <span style="font-weight: 600;">Room type</span> <br><hr style="border: solid .5px; margin-right: 100px; ">
                 <div style="display: inline-block; margin-right: 20px;">
                             1-Bed &nbsp<label for="1b" style="position: absolute; margin-top: 2px;" onclick="disp('b-1');"><div  onclick="check('1b-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="1b-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
-                            <input type="checkbox" name="room[]" id="1b" value="r1" >
+                            <input type="checkbox" name="room[]" id="1b" value="r1" style="display: none;">
                 </div>
 
                 <div style="display: inline-block; margin-right: 20px;">
                             2-Bed &nbsp<label for="2b" style="position: absolute; margin-top: 2px;" onclick="disp('b-2');"><div  onclick="check('2b-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="2b-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
-                            <input type="checkbox" name="room[]" id="2b" value="r2" >
+                            <input type="checkbox" name="room[]" id="2b" value="r2" style="display: none;">
                 </div>
 
                 <div style="display: inline-block; margin-right: 20px;">
                             3-Bed &nbsp<label for="3b" style="position: absolute; margin-top: 2px;" onclick="disp('b-3');"><div  onclick="check('3b-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="3b-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
-                            <input type="checkbox" name="room[]" id="3b" value="r3" >
+                            <input type="checkbox" name="room[]" id="3b" value="r3" style="display: none;">
                 </div>
                 <br><br><br>
                 <div id="b-1" style="display: none;">
@@ -213,7 +213,7 @@
 
             
         </div>
-        <div class="form-container" style="width: 250px;">
+        <div class="form-container" style="width: 250px; margin-top: 30px;">
                 Rules <hr style="border:solid .5px;"><textarea style="width: 200px; border: none; height: 100px; font-family: segoe UI; font-size: 13px;" placeholder="Write here"></textarea>               
         </div>
 
@@ -241,7 +241,7 @@
         <!--
         <a><button class="btn" type="button" onclick="rqrd(['b-name','h-no','sts','state','Landmark','search_input','pc'],'#form-sec2');">Next <i class="fa fa-angle-right" aria-hidden="true"></i></button></a>
        -->
-       <div class="overlays side-panel" id="side-panel" style="text-align: center;">
+       <div class="overlays side-panel" id="side-panel" style="text-align: center; display: none;">
                 
         </div>
         <div class="overlays pop-up" id="pop-up" style="text-align:center; z-index: 2;">

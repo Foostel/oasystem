@@ -68,7 +68,7 @@
 </head>
 <body>
 	<div class="section" style="text-align: center;">
-		<div id="container" style="position: relative; display: inline-block; top:200px; width: 500px; height: 500px; text-align: center;">
+		<div id="container" style="position: relative; display: inline-block; top:200px; width: 400px; height: 400px; ">
 			<p style="display:inline-block;font-size: 25px;color:black;">Verify it's you !</p>
 			<form action="reset-password.php" method="post">
 			<input class="inputs" type="" autocomplete="off" maxlength="5" name="otp" placeholder="Enter OTP here" style="text-align: center;" required=""><br>

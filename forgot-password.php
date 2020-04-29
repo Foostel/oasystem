@@ -16,8 +16,8 @@
 ?>
 </head>
 <body>
-	<div class="section" style="text-align: center;">
-		<div style="position: relative; display: inline-block; top:200px; width: 500px; height: 500px; text-align: center;">
+	<div class="section" style="border:solid; text-align: center;">
+		<div style="border:solid;position: relative; display: inline-block; top:200px; width: 400px; height: 500px;">
 			<p style="display:inline-block;font-size: 25px;color:black;">Reset Password</p>
 			<form action="verify-otp.php" method="post">
 			<input class="inputs" type="email" name="email" placeholder="Enter your registered email address here" style="text-align: center;" required=""><br>

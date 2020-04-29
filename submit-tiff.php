@@ -84,7 +84,7 @@ else{
   $q=mysqli_query($conn,$query);
   if($q){
       echo " center address information inserted successfully ";
-      header('location: user-profile.php')
+      header('location: user-profile.php');
         }
   else{echo "try again"; }
   

@@ -99,12 +99,7 @@ else{
   $q=mysqli_query($conn,$query);
   if($q){
       echo " room address information inserted successfully "; 
-       }
-  else{echo " try again ". $conn->error; }
-  $query = "insert into owners (id,room,hostel,tiffin) values('$uid','r','$cid')";
-  $q=mysqli_query($conn,$query);
-  if($q){
-      echo " Owner information inserted successfully "; 
+       header('location:user-profile.php');
        }
   else{echo " try again ". $conn->error; }
   
