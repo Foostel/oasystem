@@ -75,7 +75,7 @@ $room=$_POST['room'];
 // $ab4=$_POST['ab4'];
  //$rb4=$_POST['rb4'];
  $avgcost=((intval($rb1)+intval($rb2)+intval($rb3))/intval($dn))+intval($cm);
- $query="insert into room_info(uid,cid,b1,ab1,rb1,b2,ab2,rb2,b3,ab3,rb3,cm,avgcost) values($uid,$cid,$b1,$ab1,$rb1,$b2,$ab2,$rb2,$b3,$ab3,$rb3,$cm,{$avgcost});";
+ $query="insert into room_info(uid,cid,b1,ab1,rb1,b2,ab2,rb2,b3,ab3,rb3,cm,avgcost) values('$uid','$cid','$b1','$ab1','$rb1','$b2','$ab2','$rb2','$b3','$ab3','$rb3','$cm','$avgcost');";
     $q2=mysqli_query($conn,$query);   
   if($q2){
     echo "<br>"." room information inserted successfully ";  }
@@ -93,9 +93,10 @@ else{
   $landmark=$_POST['l'];
   $pincode=$_POST['p'];
   $lnglat = explode(",",$_POST['lnglat']);
+  
   $lng = $lnglat[0];
   $lat = $lnglat[1];
-  $query="insert into room_address (uid,cid,bn,area,sarea,state,city,landmark,pincode,bno,lng,lat) values($uid,$cid,'$bn','$area','$sarea','$state','$city','$landmark',$pincode,'$bno',$lng,$lat)";
+  $query="insert into room_address (uid,cid,bn,area,sarea,state,city,landmark,pincode,bno,lng,lat) values('$uid','$cid','$bn','$area','$sarea','$state','$city','$landmark','$pincode','$bno','$lng','$lat')";
   $q=mysqli_query($conn,$query);
   if($q){
       echo " room address information inserted successfully "; 

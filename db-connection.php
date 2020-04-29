@@ -3,12 +3,12 @@
          $dbuser = 'uf6gcfaherjfpky9';
          $dbpass = 'lDbRsuA3kyQXmc3OgGFA';
          $db='bitmde89ihgqtgydrqpq';
-      /*
+      
          $dbhost = 'localhost';
          $dbuser = 'root';
          $dbpass = '';
          $db='foostel';
-      */   
+         
          $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db);
          
          if(! $conn ) {
