@@ -12,6 +12,6 @@
          function getRow($conn,$query)
          {
          	$res = mysqli_query($conn,$query);
-         	return mysqli_fetch_assoc($res);
+         	return mysqli_fetch_assoc($res);   
          }
 ?>
