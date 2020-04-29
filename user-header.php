@@ -53,7 +53,7 @@ echo "
         </div>  
 </div>
 <div class="header-logo">
-                <img src="oas-logo.svg" style=" display:inline-block;height: 80px; margin-top: 10px;">
+                <img class="logo-img" src="oas-logo.png" style="">
                 <span style="color:red; font-size: 50px; font-weight: 400;">F</span><span style="color: black; font-size: 30px; font-weight: 300;">OOSTEL</span>
             </div>
             <div class="menus" id="menu-s">
