@@ -47,7 +47,7 @@
 
                     <br>
                         <span name="cc" id="cc"></span>
-                        <input style="height:30px; text-align: center; width: 150px;" id="phoneno" type="" class="inputs" name="phoneno" placeholder="Phone no." required=''>
+                        <input style="height:30px; text-align: center; width: 150px;" id="phoneno" type="" class="inputs" name="phoneno" placeholder="Phone no." required='' size="10">
                      <br>   
                     
                         <input style="height:30px;text-align: center; width: 315px;" id="email" type="Email" class="inputs" name="email" placeholder="Email" required=''>
