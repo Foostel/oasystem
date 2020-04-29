@@ -70,6 +70,7 @@ $room=$_POST['room'];
  $rb1=$_POST['r1c'];
  $ab2=$_POST['r2a'];
  $rb2=$_POST['r2c'];
+ echo 'Ab2 : '.$ab2;
  $ab3=$_POST['rka'];
  $rb3=$_POST['rkc'];
 // $ab4=$_POST['ab4'];
