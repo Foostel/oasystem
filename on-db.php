@@ -21,6 +21,7 @@
         // window.location='user-home.php';
         // </script>";
         //echo $phone;
+        echo$fname." ".$fname." ".$lname." ".$gender." ".$age." ".$phone." ".$email." ".$password." ";
         $query="insert into user (fname,lname,gender,age,phone,email,password) values ('$fname','$lname','$gender',$age,$phone,'$email','$password')";
         $i=mysqli_query($conn,$query);
         if($i)
