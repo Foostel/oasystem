@@ -1,4 +1,4 @@
-<div style="display: absolute; bottom: 100px;">
+<div style="display: absolute; z-index: 1; top: 100px;">
 	
 <p style="text-align: center;">Choose on Map</p><i style="float: right; position: absolute; top:10px; right: 10px;font-size: 30px; cursor: pointer;" class="fa fa-close" onclick="clearPopups();
 "></i>
@@ -8,7 +8,7 @@ document.getElementById('lnglat').value ='';" style="position: absolute; width: 
 <button id="add" class="btn" onclick="clearPopups();" style="position: absolute; width: 200px; background-color:rgba(0,0,0,1); cursor: pointer; left: 200px; top: 360px; padding: 1px; height: 40px;">Add</button>
 </div>
 
-<div id="map-pop" style="width: 400px; height: 300px;"></div>
+<div id="map-pop" style="width: 100%; height: 100%;"></div>
 
 <script>
 var pos;

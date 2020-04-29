@@ -444,7 +444,7 @@ a:hover{
     }
     #map-d{
         opacity: .8;
-        width: 500px;
+        width: 100vw;
     }
     #map-pop{
         width: 100%;

@@ -16,9 +16,6 @@
 		$email=$result['email'];
 		$password = $result['password'];
 		$pp=$result['pp'];
-		$r = $result['r'];
-		$h = $result['h'];
-		$t = $result['t'];
 		$name = $fname." ".$lname;
 
 	}

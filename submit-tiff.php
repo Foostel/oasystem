@@ -83,14 +83,10 @@ else{
   $query="insert into tiffin_address (uid,cid,bno,area,sarea,state,city,landmark,pincode,bn,lng,lat) values($uid,$cid,'$bno','$area','$sarea','$state','$city','$landmark',$pincode,'$bn',$lnglat[0],$lnglat[1])";
   $q=mysqli_query($conn,$query);
   if($q){
-      echo " center address information inserted successfully ";  }
+      echo " center address information inserted successfully ";
+      header('location: user-profile.php')
+        }
   else{echo "try again"; }
-  $query = "insert into owners (id,room,hostel,tiffin) values('$uid','t','$cid')";
-  $q=mysqli_query($conn,$query);
-  if($q){
-      echo " Owner information inserted successfully "; 
-       }
-  else{echo " try again ". $conn->error; }
   
 
 mkdir("files\services\c-tiffin\-".$cid);
