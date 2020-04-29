@@ -100,7 +100,6 @@ else{
   $q=mysqli_query($conn,$query);
   if($q){
       echo " room address information inserted successfully "; 
-       header('location:user-profile.php');
        }
   else{echo " try again ". $conn->error; }
   
