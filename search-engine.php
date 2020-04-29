@@ -139,15 +139,15 @@ if ($req_ser[0]==1 )//room
 					<span style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:10px; font-size: 10px;'>{$row['bno']},{$row['landmark']}, {$row['area']}</span>
 					<p style='display:inline-block;float:left;cursor:pointer;width:200px;position: relative; left: 10px; top:20px; font-size: 12px;'></p>
 				</div>
-				<div class='res-data' id='{$row['cid']}' style='filter:none;margin-top:0px;height:300px;display:none;font-size:12px;'><br><br>
+				<div class='res-data' id='{$row['cid']}' style='filter:none;margin-top:0px;height:300px;display:none;font-size:13px;'><br><br>
 					<b style='margin-left:10px; font-size:13px;'>Description </b>
 						<p style='margin-left:20px;'>
-						<b>Room for: </b> {$roomfor}<br>
+						<b>Room for: </b>{$roomfor}<br>
 						<b>Facilities: </b><br>{$facilities}<br>
 						<b>Room type: </b><br>{$room_type}<br>
 						<b>Caution Money: </b>{$row['cm']}
 						<p>
-					</div>
+				</div>
 
 				<script>
 				result_points.push({
