@@ -20,13 +20,13 @@
 </div>
 <div id="menu-slide" style="height: 100vh; width: 110px; position: absolute; z-index: 0; cursor: pointer; color:white; background-color:gray; display: none;">
         <div style="margin-top: 110px;color:white; z-index: 1; text-align: center; "><br><br>
-                <a style="color:white;" href="page.php#services-p">Services</a><br><br><br>
+                <a style="color:white;" href="index.php#services-p">Services</a><br><br><br>
                                     
-                <a style="color:white;" class="" href="page.php#RYS">Register your services</a><br><br><br>
+                <a style="color:white;" class="" href="index.php#RYS">Register your services</a><br><br><br>
 
-                <a style="color:white;" class="" href="page.php#About-us">About us</a><br><br><br>
+                <a style="color:white;" class="" href="index.php#About-us">About us</a><br><br><br>
 
-                <a style="color:white;" class="" href="page.php#Contact-us">Contact us</a>
+                <a style="color:white;" class="" href="index.php#Contact-us">Contact us</a>
 
         </div>  
 </div>
@@ -36,9 +36,9 @@
                 <a href="sign-in.php" style="position: absolute; right: 50px; font-weight: 300; font-size: 20px; top:48%;" >Sign in</a>
             </div>
             <div class="menus" >
-                <a  class="menu-opt" onclick="if(!h){toggle('pop-up');}" href="page.php#services-p" >Search services</a>
-                <a  class="menu-opt" onclick="if(!h){toggle('pop-up');}" href="page.php#RYS">Register your services</a>
-                <a  class="menu-opt" onclick="if(!h){toggle('pop-up');}" href="page.php#About-us">About us</a>
-                <a  class="menu-opt" onclick="if(!h){toggle('pop-up');}" href="page.php#Contact-us">Contact us</a>
+                <a  class="menu-opt" onclick="if(!h){toggle('pop-up');}" href="index.php#services-p" >Search services</a>
+                <a  class="menu-opt" onclick="if(!h){toggle('pop-up');}" href="index.php#RYS">Register your services</a>
+                <a  class="menu-opt" onclick="if(!h){toggle('pop-up');}" href="index.php#About-us">About us</a>
+                <a  class="menu-opt" onclick="if(!h){toggle('pop-up');}" href="index.php#Contact-us">Contact us</a>
                 
             </div>
