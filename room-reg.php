@@ -1,6 +1,6 @@
 <!DOCTYPE html>
     <head>
-        <title>Foostel-Register Rooms</title>
+        <title>Footel-Register Rooms</title>
 
     <meta charset="utf-8" />
     <title>Get coordinates of the mouse pointer</title>
