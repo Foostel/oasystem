@@ -1,4 +1,4 @@
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
  <script type="text/javascript">
      function show(obj)
      { if(document.getElementById('menu-slide').style.display=='none')
