@@ -57,7 +57,7 @@
         session_start();
         if(!isset($_SESSION['id']))
         {   echo"Access denied";
-            header("location:sign-in.php?nxt=tiff-reg.php");
+            header("location:sign-in.php?nxt=room-reg.php");
         }
         else{
         }
