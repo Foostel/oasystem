@@ -1,9 +1,9 @@
 <!DOCTYPE html>
     <head>
         <title>Foostel</title>
-        <?php 
+        <?php   
         session_start();
-
+        
         if(isset($_SESSION['id']))
         {
             header("location:user-home.php");
@@ -19,7 +19,7 @@
 
         <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
-        
+        <?php echo"<script>getCurLoc();</script>"; ?>
         <script type="text/javascript">
             $(function(){
                 $('#header').load("header.php");

@@ -5,7 +5,6 @@ var result_points=Array();
 var type='';
 var popup;
 var user_location=[0,0];
-getCurLoc();
 function getCurLoc() {
     console.log("getCurLoc called ------------------- ");
   if (navigator.geolocation) {
@@ -15,6 +14,7 @@ function getCurLoc() {
         user_location[1] = position.coords.latitude;
         $.post('curloc.php',{curloc:user_location},function(data){
             var flag = data;
+            console.log(flag);
             if(flag=='reload')
             {
                 location.reload();
@@ -24,6 +24,7 @@ function getCurLoc() {
 
             $.post('curloc.php',{curloc:['undefined','undefined']},function(data){
             var flag = data;
+            console.log(flag);
             if(flag=='reload')
             {
                 location.reload();

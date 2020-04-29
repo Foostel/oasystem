@@ -11,6 +11,7 @@
         <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
         <script type="text/javascript">
+            getCurLoc();
             $(function(){
                 $('#side-panel').load("side-panel.php");
             });
