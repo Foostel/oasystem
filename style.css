@@ -372,8 +372,10 @@ a:hover{
   100% { transform: rotate(360deg);}
 }
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px)
-{   
+@media only screen and (min-width : 320px) and (max-width : 480px)
+{   html{
+        width: 480px;
+    }
     .header{
         height: 100px;
     }
