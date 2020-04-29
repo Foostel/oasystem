@@ -3,11 +3,11 @@
 	if(isset($_SESSION['id']))
 	{
 		session_destroy();
-		header("location:page.php");
+		header("location:index.php");
 		exit();
 	}
 	else{
-		header("location:page.php");
+		header("location:index.php");
 	}
 	
  ?>

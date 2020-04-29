@@ -7,20 +7,24 @@
         obj.style.color='white';
         obj.style.backgroundColor='rgba(1,1,1,0.2);';
         obj.getElementsByTagName('i')[0].className='fa fa-angle-left';
+        obj.getElementsByTagName('i')[0].style.marginLeft="40px";
+        document.getElementById('mn').style.display='none';
         }
         else{
             document.getElementById('menu-slide').style.display='none';
             obj.style.color='black';
             obj.style.backgroundColor='rgba(1,1,1,0.2);';
-            obj.getElementsByTagName('i')[0].className='fa fa-angle-right';
+            obj.getElementsByTagName('i')[0].className='fa fa-bars';
+            obj.getElementsByTagName('i')[0].style.marginLeft="20px";
+            document.getElementById('mn').style.display='inline-block';
         }
     }
  </script>
 <div id="menu-btn" style="height: 110px; width: 110px; background:transparent; position: absolute; z-index: 2; cursor: pointer;color:black;" onclick="show(this);">
-    <i style="font-size: 40px;margin-left: 40px; margin-top: 30px;" class="fa fa-angle-right"></i><span style='font-size:12px;position:absolute;top:80px; left: 30px; font-weight: 300;'>MENU</span>
+    <i style="font-size: 40px;margin-left: 20px; margin-top: 30px;" class="fa fa-bars"></i><span id="mn" style='font-size:12px;position:absolute;top:80px; left: 20px; font-weight: 300;'>MENU</span>
 </div>
-<div id="menu-slide" style="height: 100vh; width: 110px; position: absolute; z-index: 0; cursor: pointer; color:white; background-color:gray; display: none;">
-        <div style="margin-top: 110px;color:white; z-index: 1; text-align: center; "><br><br>
+<div id="menu-slide" style="height: 100vh; width: 100px; position: absolute; z-index: 0; cursor: pointer; color:white; background-color:gray; display: none;">
+        <div style="margin-top: 60px;color:white; z-index: 1; text-align: center; "><br><br>
                 <a style="color:white;" href="index.php#services-p">Services</a><br><br><br>
                                     
                 <a style="color:white;" class="" href="index.php#RYS">Register your services</a><br><br><br>

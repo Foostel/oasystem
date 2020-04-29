@@ -23,7 +23,7 @@
             //});
 
             $(function(){
-                $('#service-panel').load("services.php");
+                $('#services-p').load("services.php");
             });
 
             $(function(){
@@ -65,13 +65,6 @@
 
         <div class="section" id="services-p" onclick="clearPopups();">
             
-            <div id="service-panel" onclick="clearPopups();">
-            </div>
-
-
-            <div id="service-map-panel" >
-            </div>
-        
         </div>
         <div class="section" id="RYS" onclick="clearPopups();">
             

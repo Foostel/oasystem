@@ -326,7 +326,9 @@ a:hover{
     
 }
 .search-panel{
-    position:relative;top: 150px; display: inline-block; width: 325px;height: 500px;
+    position:relative;top: 150px;
+        left: 50px;
+     display: inline-block; width: 325px;height: 500px;
 }
 .mv{
     display: none;
@@ -342,7 +344,8 @@ a:hover{
 }
 .subsec{
     display: inline-block;
-    position:relative; width: 400px; height: 500px; top:150px; text-align: center;
+    position:relative; 
+    width: 400px; height: 500px; top:150px; text-align: center;
 }
 #menu-btn{
     display: none;
@@ -423,8 +426,11 @@ a:hover{
     }
 
     .search-panel{
+        position: relative;
+        left: 50px;
+        display: inline-block;
         z-index: 1;
-        height: 110px;
+        height: 75vh;
     }
     #service-panel{
         position: relative;
@@ -454,7 +460,7 @@ a:hover{
         display: none;
     }
     .subsec{
-        left:10px;
+        
     }
     #menu-btn{
         display: block;

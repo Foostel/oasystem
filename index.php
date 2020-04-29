@@ -25,7 +25,7 @@
                 $('#header').load("header.php");
             });
             $(function(){
-                $('#service-panel').load("services.php");
+                $('#services-p').load("services.php");
             });
             $(function(){
                 $('#RYS').load("r-y-s.php");
@@ -46,15 +46,8 @@
         <div class="header" id="header">
             
         </div>
-        <div class="section" id="services-p" onclick="clearPopups();">
+        <div class="section" id="services-p" onclick="clearPopups();" style="text-align:left;">
             
-            <div id="service-panel" onclick="clearPopups();">
-            </div>
-
-
-            <div id="service-map-panel" >
-            </div>
-        
         </div>
         <div class="section" id="RYS" onclick="if(!h){toggle('pop-up');}"></div>
         <div class="section" id="About-us" onclick="if(!h){toggle('pop-up');}"></div>

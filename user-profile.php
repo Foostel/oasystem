@@ -52,9 +52,6 @@
             <div id="pd-b" class="sub-section-menu" onclick="window.location='user-profile.php#personal-details';">
                 <span style="color:black;position:relative;top: 10px; font-weight: 300;">Personal Details <i style="" class="fa fa-angle-right"></i></span>
             </div>
-            <div id="rp-b" class="sub-section-menu" onclick="window.location='user-profile.php#registered-properties';">
-                <span style="color:black;position:relative;top: 10px; font-weight: 300;">Registered Properties <i style="" class="fa fa-angle-right"></i></span>
-            </div>
             <div id="sc-b" class="sub-section-menu" onclick="window.location='user-profile.php#security-tab';">
                 <span style="color:black;position:relative;top: 10px; font-weight: 300;">Security <i style="" class="fa fa-angle-right"></i></span>
             </div>
@@ -79,70 +76,6 @@
                         <input class="btn" style="height: 30px; width: 300px; text-align: center;" type="submit" value = 'Update' name="" >
                 </div>
                 </form>
-            </div>
-        </div>
-        <div class="section" id="registered-properties" >
-            <div class="" style="z-index: 1; height:50px;width: 100%; background-color: rgba(0,0,0,0.6); color:white; position: sticky; top:110px; text-align: center;">
-                <span style="position:relative;top: 10px; font-weight: 300;">Registered Properties</span>
-            </div>
-            <div class="subsec" style="margin-top: 10px;">
-                <div id="ifm" style="display:inline-block;z-index: 0; position: relative; width: 220px;">
-                <?php
-                    if($r)
-                    {
-                        $q = "select * from room_address where uid = '$id';";
-                        $result = mysqli_query($conn,$q);
-                        if($result)
-                        {  
-                            while ($row = $result->fetch_assoc()) 
-                            {
-                            echo"
-                                <div class='res-data' style='text-align:left;'>
-                                    <span style='display:block;font-weight:500;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
-                                    <button class='btn' style=' position: relative; left: 10px; top:20px;height:30px; width:150px;'>Show/Edit Details</button>
-                                </div>
-                            ";
-                            }   
-                        }
-                    }
-                    if($h)
-                    {
-                        $q = "select * from hostel_address where uid = '$id';";
-                        $result = mysqli_query($conn,$q);
-                        if($result)
-                        {  
-                            while ($row = $result->fetch_assoc()) 
-                        {
-                            echo"
-                                <div class='res-data' style='text-align:left;'>
-                                    <span style='display:block;font-weight:500;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
-                                    <button class='btn' style=' position: relative; left: 10px; top:20px;height:30px; width:150px;'>Show/Edit Details</button>
-                                </div>
-                            ";
-                            }   
-                        }
-                    }
-
-                    if($t)
-                    {
-                        $q = "select * from tiffin_address where uid = '$id';";
-                        $result = mysqli_query($conn,$q);
-                        if($result)
-                        {  
-                            while ($row = $result->fetch_assoc()) 
-                        {
-                            echo"
-                                <div class='res-data' style='text-align:left;'>
-                                    <span style='display:block;font-weight:500;cursor:pointer;position: relative; left: 10px; top:10px;'>{$row['bn']}</span>
-                                    <button class='btn' style=' position: relative; left: 10px; top:20px;height:30px; width:150px;'>Show/Edit Details</button>
-                                </div>
-                            ";
-                            }   
-                        }
-                    }
-                 ?>
-
-                 </div>
             </div>
         </div>
         <div id="security-tab" class="section">
@@ -171,11 +104,7 @@
             {  
                 subSectionSelector(document.getElementById('pd-b'));
             }
-            else if(window.pageYOffset>650 && window.pageYOffset<1300)
-            {  
-                subSectionSelector(document.getElementById('rp-b'));
-            }
-            else if(window.pageYOffset>1300)
+            else if(window.pageYOffset>600)
             {  
                 subSectionSelector(document.getElementById('sc-b')); 
             }
