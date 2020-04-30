@@ -38,8 +38,8 @@
 <div class="header-logo">
                 <img class="logo-img" src="oas-logo.png" style="">
                 <span style="color:red; font-size: 50px; font-weight: 400;">F</span><span style="color: black; font-size: 30px; font-weight: 300;">OOSTEL</span>
-                <a href="sign-in.php" style="position: absolute; right: 50px; font-weight: 300; font-size: 20px; top:48%;" >Sign in</a>
             </div>
+                <a href="sign-in.php" style="border:solid;position: relative; display:inline-block; float: right; right: 20px; font-weight: 300; font-size: 20px; top: 8vh;" >Sign in</a>
             <div class="menus" >
                 <a  class="menu-opt" onclick="if(!h){toggle('pop-up');}" href="index.php#services-p" >Search services</a>
                 <a  class="menu-opt" onclick="if(!h){toggle('pop-up');}" href="index.php#RYS">Register your services</a>

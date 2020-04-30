@@ -394,10 +394,10 @@ a {
     }
     .header-logo{
         border:solid;
-        height: 50%;
+        width: : 1vw;
         margin-top: 3vh;
         margin-left: 20vw;
-        margin-right: 20vw;
+        margin-right: 5vw;
     }
     .menu-opt{
         display: none;
