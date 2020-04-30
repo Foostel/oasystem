@@ -388,7 +388,7 @@ if ($req_ser[0]==1 )//room
 		}
 		else{
 			echo"
-			<center style='opacity:.6; font-size:12px; margin-top:10px;'>No results found near {$_POST['area']}:(<br> <br></center>
+			<center style='opacity:.6; font-size:12px; margin-top:10px;'>No results found:(<br> <br></center>
 			";			
 		}
 
@@ -753,7 +753,7 @@ else if ($req_ser[1]==1)//hostel
 		}
 		else{
 			echo"
-			<center style='opacity:.6; font-size:12px; margin-top:10px;'>No results found near {$_POST['area']}:(<br> <br></center>
+			<center style='opacity:.6; font-size:12px; margin-top:10px;'>No results found :(<br> <br></center>
 			";			
 		}
 
@@ -1027,7 +1027,7 @@ else if ($req_ser[2]==1)//tiffin center
 		}
 		else{
 			echo"
-			<center style='opacity:.6; font-size:12px; margin-top:10px;'>No results found near {$_POST['area']}:(<br> <br></center>
+			<center style='opacity:.6; font-size:12px; margin-top:10px;'>No results found :(<br> <br></center>
 			";			
 		}
 
