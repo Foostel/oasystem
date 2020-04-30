@@ -387,17 +387,16 @@ a {
 @media only screen and (max-width : 720px)
 {  
     .header{
-
-        height: 100px;
+        height: 14.5vh;
     }
     .logo-img{
         height: 100%;
     }
     .header-logo{
         height: 50%;
-        margin-top: 20px;
-        margin-left: 80px;
-        margin-right: 50px;
+        margin-top: 3vh;
+        margin-left: 20vw;
+        margin-right: 20vw;
     }
     .menu-opt{
         display: none;
@@ -436,10 +435,11 @@ a {
 
     .search-panel{
         position: relative;
-        left: 50px;
+        left: 15vw;
         display: inline-block;
         z-index: 1;
-        height: 50px;
+        border:solid;
+        height: 10vh;
     }
     #service-panel{
         position: relative;
@@ -455,7 +455,7 @@ a {
     .MAP-VIEW{
         background-color: black;
         z-index: -1;
-        width: 600px;
+        width: 100vw;
     }
     #map-d{
         opacity: .8;
