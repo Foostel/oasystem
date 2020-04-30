@@ -13,6 +13,7 @@ body{
     background-color: #DDDDDD;
     animation-name: faded;
     animation-duration: .4s;
+    width: 100vw;
 }
 #Home{
     height: 100vh;
@@ -23,7 +24,7 @@ body{
     position:absolute; 
     left: 400px; 
     top:110px;
-    width: 100%; 
+    width: 100vw; 
     height: 85vh;
     z-index: 0;
 }
