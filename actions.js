@@ -17,6 +17,7 @@ function getCurLoc() {
             console.log(flag);
             if(flag=='reload')
             {
+                location.reload();
             }
         });
         },function(e){
@@ -26,7 +27,7 @@ function getCurLoc() {
             console.log(flag);
             if(flag=='reload')
             {
-
+                location.reload();
             }
         });
         });
