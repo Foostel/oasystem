@@ -23,7 +23,7 @@
 <div id="menu-btn" style="height: 110px; width: 110px; background:transparent; position: absolute; z-index: 2; cursor: pointer;color:black;" onclick="show(this);">
     <i style="font-size: 40px;margin-left: 20px; margin-top: 30px;" class="fa fa-bars"></i><span id="mn" style='font-size:12px;position:absolute;top:80px; left: 20px; font-weight: 300;'>MENU</span>
 </div>
-<div id="menu-slide" style="height: 100vh; width: 100px; position: absolute; z-index: 0; cursor: pointer; color:white; background-color:gray; display: none;">
+<div id="menu-slide" style="height: 100vh; width: 100px; position: absolute; z-index: 0; cursor: pointer; color:white; background-color:#393939; display: none;">
         <div style="margin-top: 60px;color:white; z-index: 1; text-align: center; "><br><br>
                 <a style="color:white;" href="index.php#services-p">Services</a><br><br><br>
                                     
@@ -39,7 +39,7 @@
                 <img class="logo-img" src="oas-logo.png" style="">
                 <span style="color:red; font-size: 50px; font-weight: 400;">F</span><span style="color: black; font-size: 30px; font-weight: 300;">OOSTEL</span>
             </div>
-                <a href="sign-in.php" style="border:solid;position: relative; display:inline-block; float: right; right: 20px; font-weight: 300; font-size: 15px; top: 60px;" >Sign in</a>
+                <a href="sign-in.php" style="position: relative; display:inline-block; float: right; right: 20px; font-weight: 300; font-size: 20px; top: 60px;" >Sign in</a>
             <div class="menus" style="font-size: 15px;" >
                 <a  class="menu-opt" onclick="if(!h){toggle('pop-up');}" href="index.php#services-p" >Search services</a>
                 <a  class="menu-opt" onclick="if(!h){toggle('pop-up');}" href="index.php#RYS">Register your services</a>

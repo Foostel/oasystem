@@ -241,7 +241,7 @@
         <!--
         <a><button class="btn" type="button" onclick="rqrd(['b-name','h-no','sts','state','Landmark','search_input','pc'],'#form-sec2');">Next <i class="fa fa-angle-right" aria-hidden="true"></i></button></a>
        -->
-       <div class="overlays side-panel" id="side-panel" style="text-align: center;">
+       <div class="overlays side-panel" id="side-panel" style="text-align: center; display: none;">
                 
         </div>
     <div class="overlays pop-up" id="pop-up" style="display:none;text-align:center; position: absolute; top:0px;">

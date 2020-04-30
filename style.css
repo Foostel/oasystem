@@ -9,6 +9,7 @@ body{
     font-family: segoe UI;
 }
 .section{
+    min-height: 1000px;
     height: 100vh;
     background-color: #DDDDDD;
     animation-name: faded;
@@ -325,7 +326,6 @@ a:hover{
     display: block;
     width: 450px;
     height: 450px;
-    border:solid;
 }
 .search-panel{
     position:relative;top: 150px;
@@ -347,7 +347,8 @@ a:hover{
 .subsec{
     display: inline-block;
     position:relative; 
-    width: 400px; height: 500px; top:150px; text-align: center;
+    width: 400px; height: 500px; top:150px;   
+    left:20vw;
 }
 #menu-btn{
     display: none;
@@ -389,7 +390,7 @@ a {
 {   
     .header{
         min-height: 100px;
-        height: 14.5vh;
+        height: 100px;
     }
     .logo-img{
         height: 50px;

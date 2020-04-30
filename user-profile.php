@@ -41,7 +41,7 @@
     ?>
     <style type="text/css">
         .section{
-            text-align: center;
+            text-align: left;
         }
     </style>
 
@@ -57,8 +57,8 @@
             </div>
         
         </div>
-        <div class="section" id="personal-details">
-            <div class="" style="z-index: 1; height:50px;width: 100%; background-color: rgba(0,0,0,0.6); color:white; position: sticky; top:110px; text-align: center;">
+        <div class="section" id="personal-details" style="">
+            <div class="" style="z-index: 1; height:50px;width: 100%; background-color: #393939; color:white; position: sticky; top:110px; text-align: center;">
                 <span style="position:relative;top: 10px; font-weight: 300;">Personal Details</span>
             </div>
             <script type="text/javascript">
@@ -66,20 +66,20 @@
                 $('#u-pp2').load('update-pp-2.php');
             });
             </script>
-            <div class="subsec" style="top:150px;">
+            <div class="subsec" style="top:150px; text-align: left;">
                 <form action="update-user.php" method="post">
-                <div style="position: relative; top:10px; left:10px; display: inline-block;">
+                <div style="position: relative; top:10px; left:0px; display: inline-block;">
                     <div id="u-pp2" style="display:inline-block;position:relative;"></div><br><br>
-                        <input class="inputs" style="height: 30px; width: 300px; text-align: center;" type="" name="username" placeholder="Name: <?php echo $user_name; ?>"><br>
-                        <input class="inputs" style="height: 30px; width: 300px; text-align: center;" type="" name="phoneno" placeholder="Phone: <?php echo $phone; ?>" disabled><br>
-                        <input class="inputs" style="height: 30px; width: 300px; text-align: center;" type="" name="email" placeholder="Email: <?php echo $email; ?>" disabled>
-                        <input class="btn" style="height: 30px; width: 300px; text-align: center;" type="submit" value = 'Update' name="" >
+                        <input class="inputs" style="height: 30px; width: 200px; text-align: center;" type="" name="username" placeholder="Name: <?php echo $user_name; ?>"><br>
+                        <input class="inputs" style="height: 30px; width: 200px; text-align: center;" type="" name="phoneno" placeholder="Phone: <?php echo $phone; ?>" disabled><br>
+                        <input class="inputs" style="height: 30px; width: 200px; text-align: center;" type="" name="email" placeholder="Email: <?php echo $email; ?>" disabled>
+                        <input class="btn" style="height: 30px; width: 200px; text-align: center;" type="submit" value = 'Update' name="" >
                 </div>
                 </form>
             </div>
         </div>
         <div id="security-tab" class="section">
-            <div class="" style="z-index: 1; height:50px;width: 100%; background-color: rgba(0,0,0,0.6); color:white; position: sticky; top:110px; text-align: center;">
+            <div class="" style="z-index: 1; height:50px;width: 100%; background-color: #393939; color:white; position: sticky; top:110px; text-align: center;">
                 <span style="position:relative;top: 10px; font-weight: 300;">Security</span>
             </div>
             <div style="margin-top: 200px; display: inline-block; font-size: 20px;">
