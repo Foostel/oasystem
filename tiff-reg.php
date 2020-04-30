@@ -110,6 +110,9 @@
                 <button id="geo-l" onclick="pop('pop-up');" style="text-align: center; width: 210px; height: 50px; cursor: pointer;" type="button" class="inputs" name="loc">
                                 Add geo-location
                 </button>
+                <div class="overlays pop-up" id="pop-up" style="width: 400px; height: 400px; display:none;text-align:center; position: absolute;">
+            
+                    </div>
                 <input type="" name="lnglat" id="lnglat" style="display: none;">
                 <div style="display: inline-block; text-align: center;">
                     <label class="inputs" for="photos" style="position:absolute;cursor:pointer;width:210px;height:25px;display:block; font-size: 14px; padding: 10px 0px 10px 0px;">Upload photos</label>
@@ -265,9 +268,6 @@
        -->
        <div class="overlays side-panel" id="side-panel" style="text-align: center; display: none;">
                 
-        </div>
-        <div class="overlays pop-up" id="pop-up" style="text-align:center;">
-            
         </div>
     </body>
 </html>
