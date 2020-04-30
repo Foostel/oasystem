@@ -17,7 +17,6 @@ function getCurLoc() {
             console.log(flag);
             if(flag=='reload')
             {
-                location.reload();
             }
         });
         },function(e){
