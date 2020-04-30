@@ -111,7 +111,7 @@
                 <button id="geo-l" onclick="pop('pop-up');" style="text-align: center; width: 210px; height: 50px; cursor: pointer;" type="button" class="inputs" name="loc">
                                 Add geo-location
                 </button>
-                    <div class="overlays pop-up" id="pop-up" style="width: 400px; height: 400px; display:none;text-align:center; position: absolute;">
+                    <div class="overlays pop-up" id="pop-up" style="width: 300px; height: 400px; display:none;text-align:center; position: absolute;">
             
                     </div>
                 <input type="" id="lnglat" class="inputs" name="lnglat" style="display: none;">
