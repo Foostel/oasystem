@@ -325,6 +325,7 @@ a:hover{
     display: block;
     width: 450px;
     height: 450px;
+    border:solid;
 }
 .search-panel{
     position:relative;top: 150px;
@@ -394,10 +395,9 @@ a {
         height: 50px;
     }
     .header-logo{
-        border:solid;
-        margin-top: 3vh;
+        margin-top: 20px;
         margin-left: 20vw;
-        margin-right: 5vw;
+        margin-right: 7vw;
     }
     .menu-opt{
         display: none;
@@ -439,7 +439,6 @@ a {
         left: 8vw;
         display: inline-block;
         z-index: 1;
-        border:solid;
         height: 10vh;
     }
     #service-panel{

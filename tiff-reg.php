@@ -65,7 +65,7 @@
         
     </head>
 
-    <body style="background-color:#CFCFCF;" onclick="document.getElementById('search_res_list').innerHTML='';">
+    <body style="background-color:#CFCFCF; font-size: 13px;" onclick="document.getElementById('search_res_list').innerHTML='';">
         
         <div class="header" id="header">
         </div>
@@ -75,21 +75,21 @@
         
         <form onsubmit="return validateF();" class="form" style="position: relative; text-align:left;margin-left:20px;display: inline-block;" method="post" action="submit-tiff.php" enctype="multipart/form-data">
             
-            <div class="form-container" style="width: 400px;">
-                <input style="text-align: center; width: 300px;" id="b-name" type="" class="inputs" name="bn" placeholder="Business name" > 
-                <input style="text-align: center; width: 300px;" id="h-no" type="" class="inputs" name="b" placeholder="Building/House no" >  
-                <select  style="height: 50px; width: 310px;text-align: center;" class="inputs" onchange="print_city('state', this.selectedIndex);" id="sts" name ="s" class="form-control" required></select>
+            <div class="form-container" style="width: 300px;">
+                <input style="text-align: center; width: 200px;" id="b-name" type="" class="inputs" name="bn" placeholder="Business name" > 
+                <input style="text-align: center; width: 200px;" id="h-no" type="" class="inputs" name="b" placeholder="Building/House no" >  
+                <select  style="height: 50px; width: 210px;text-align: center;" class="inputs" onchange="print_city('state', this.selectedIndex);" id="sts" name ="s" class="form-control" required></select>
                 <script language="javascript">print_state("sts");</script>
-                <select  style="height: 50px;width: 310px; text-align: center;" class="inputs" id ="state" name="c" class="form-control" required></select>
+                <select  style="height: 50px;width: 210px; text-align: center;" class="inputs" id ="state" name="c" class="form-control" required></select>
                 <script type="text/javascript" src="area.js"></script>
-                <input autocomplete="off" id="search_input" style="text-align: center; width: 300px;" type="" class="inputs" name="a" placeholder="Area/Coloney/Street" onkeyup="getin();" >
-                <span id="search_res_list" class="overlays" style="position: absolute; left: 2px; top: 200px; width: 300px;">
+                <input autocomplete="off" id="search_input" style="text-align: center; width: 200px;" type="" class="inputs" name="a" placeholder="Area/Coloney/Street" onkeyup="getin();" >
+                <span id="search_res_list" class="overlays" style="position: absolute; left: 2px; top: 200px; width: 200px;">
                 </span>
-                <input id="Landmark" style="text-align: center; width: 300px;" type="" class="inputs" name="l" placeholder="Landmark" >
+                <input id="Landmark" style="text-align: center; width: 200px;" type="" class="inputs" name="l" placeholder="Landmark" >
             </div>   
 
-            <div class="form-container" style="width: 400px;">
-                <input id="pc" style="text-align: center; width: 300px;" type="" class="inputs" name="p" placeholder="Pincode" >
+            <div class="form-container" style="width: 250px;">
+                <input id="pc" style="text-align: center; width: 200px;" type="" class="inputs" name="p" placeholder="Pincode" >
                 <script type="text/javascript">
                             function pop(id)
                             {   var el= document.getElementById(id);
@@ -107,12 +107,12 @@
                             }
 
                 </script>
-                <button id="geo-l" onclick="pop('pop-up');" style="text-align: center; width: 310px; height: 50px; cursor: pointer;" type="button" class="inputs" name="loc">
+                <button id="geo-l" onclick="pop('pop-up');" style="text-align: center; width: 210px; height: 50px; cursor: pointer;" type="button" class="inputs" name="loc">
                                 Add geo-location
                 </button>
                 <input type="" name="lnglat" id="lnglat" style="display: none;">
                 <div style="display: inline-block; text-align: center;">
-                    <label class="inputs" for="photos" style="position:absolute;cursor:pointer;width:310px;height:25px;display:block; font-size: 14px; padding: 10px 0px 10px 0px;">Upload photos</label>
+                    <label class="inputs" for="photos" style="position:absolute;cursor:pointer;width:210px;height:25px;display:block; font-size: 14px; padding: 10px 0px 10px 0px;">Upload photos</label>
                     <input id="photos" class="inputs" style="opacity:0; z-index:-1;text-align: center;" type="file" name="uploadfile[]"  multiple>
                 </div>
                 <br>
@@ -126,7 +126,7 @@
                                 Lunch &nbsp<label for="f2" style="position: absolute; margin-top: 2px;" ><div  onclick="check('f2-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="f2-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
                                 <input style="display: none;" type="checkbox" name="meal[]" id="f2" value="Lunch"  onclick="disp('Lunch');" >
                 </div>             
-                            
+                <br><br>
                 <div style="display: inline-block; margin-right: 40px;">
                             Dinner &nbsp<label for="f3" style="position: absolute; margin-top: 2px;" ><div  onclick="check('f3-check');" style="width:20px; height: 20px; border-style: none; background-color: white;"><i id="f3-check" style="display:none; font-size: 20px;" class="fa fa-check" aria-hidden="true"></i></div></label>
                             <input style="display:none;" type="checkbox" name="meal[]" id="f3" value="Dinner" onclick="disp('Dinner');">
@@ -153,7 +153,7 @@
             </div>  
 
 
-            <div class="form-container" style="" >
+            <div class="form-container" style="width: 300px; height: 450px;" >
                 <div style="border-bottom: solid .5px;">
                     <span style="font-weight: 600;">Meal Details</span> <br><br>
                     <div id="Breakfast" style="display: none;">
@@ -244,7 +244,7 @@
             </div>
             <br><br>
 
-            <div style="height:70px;display: inline-block; margin-bottom: 50px; margin-top: 50px;">
+            <div style="height:70px;display: inline-block; margin-bottom: 50px; top: 50px;">
             I accept <a href="" style="text-decoration: underline; color:blue;">Terms & conditions</a>
 
             <div style="display: inline-block; margin-right: 20px; margin-bottom: 17px;">

@@ -1,7 +1,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <div class="container">
 	<p style="display:inline-block;font-size: 25px;color:black;">About us</p><img style="display: inline-block;" src="oas-logo.png" class="logo-img-small">
-	<p style="width: 400px;">
+	<p style="width: 250px;">
 		We provide services to the user by providing help in searching for
 		Rooms, Hostels, Tiffin Centers. With the searching we also provice
 		facilities to register your services on our platform. This means you

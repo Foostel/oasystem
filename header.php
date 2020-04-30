@@ -39,7 +39,7 @@
                 <img class="logo-img" src="oas-logo.png" style="">
                 <span style="color:red; font-size: 50px; font-weight: 400;">F</span><span style="color: black; font-size: 30px; font-weight: 300;">OOSTEL</span>
             </div>
-                <a href="sign-in.php" style="border:solid;position: relative; display:inline-block; float: right; right: 20px; font-weight: 300; font-size: 15px; top: 8vh;" >Sign in</a>
+                <a href="sign-in.php" style="border:solid;position: relative; display:inline-block; float: right; right: 20px; font-weight: 300; font-size: 15px; top: 60px;" >Sign in</a>
             <div class="menus" style="font-size: 15px;" >
                 <a  class="menu-opt" onclick="if(!h){toggle('pop-up');}" href="index.php#services-p" >Search services</a>
                 <a  class="menu-opt" onclick="if(!h){toggle('pop-up');}" href="index.php#RYS">Register your services</a>

@@ -124,7 +124,7 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div style="position: relative; top:2px;">
 	<span style="display:block;color:gray; font-size: 12px; font-weight: 400;">Custom search <i class="fa fa-search"></i></span><hr style="border:none;border-bottom: solid 1px gray;">
-<select class="inputs" id="s-type" style="font-family:segoe UI;width:120px; height: 30px; position: relative; display: inline-block; background-color:white; color:black;" onchange="loadfilter(this);">
+<select class="inputs" id="s-type" style="font-size:13px;font-family:segoe UI;width:120px; height: 30px; position: relative; display: inline-block; background-color:white; color:black;" onchange="loadfilter(this);">
 	<option value="">Searching for</option>
 	<option value="room">Room</option>
 	<option value="hostel">Hostel</option>
@@ -132,7 +132,7 @@
 </select>
 <button onclick="if(Live2()){search(1)}else{return false};" id="nearme-submit" type="button" name="nearme-submit" style="z-index:0;position: relative; display: inline-block; background: rgba(0,0,0,0.7); border-style: none; cursor: pointer; top:0px; font-size: 12px; padding: 7px 10px;font-family: segoe UI; color:white;">Near me <i class="fa fa-search" ></i></button>
 <br>
-<button id="filter-b" class="btn" style="display:inline-block;background-color:white;color:black;cursor:pointer;width: 80px; height: 30px; margin: 3px 0px;">Filter <i class="fa fa-angle-down"></i></button>
+<button id="filter-b" class="btn" style="display:inline-block;background-color:white;color:black;cursor:pointer;width: 80px; font-size:13px; height: 30px; margin: 3px 0px;">Filter <i class="fa fa-angle-down"></i></button>
 <script type="text/javascript">
 	function Live(){
 	if(document.getElementById('sortby').selectedIndex==3 && userloc=='undefined')
@@ -145,7 +145,7 @@
  		return true;
  	}
 </script>
-<select name="st" class="inputs" id="sortby" style="font-family:segoe UI;width:120px; height: 30px; position: relative; display: inline-block;" onchange="if(Live()){sort_fn(this);}">
+<select name="st" class="inputs" id="sortby" style="font-family:segoe UI;width:120px; height: 30px; position: relative; display: inline-block; font-size:13px;" onchange="if(Live()){sort_fn(this);}">
 	<option value="">Sort By</option>
 	<option value="avgcost ASC">Cheapest first</option>
 	<option value="avgcost DESC">Expensive first</option>
