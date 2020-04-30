@@ -66,17 +66,17 @@ $room=$_POST['room'];
  }  
 
 
- $ab1=$_POST['r1a'];
- $rb1=$_POST['r1c'];
- $ab2=$_POST['r2a'];
- $rb2=$_POST['r2c'];
+ if($_POST['r1a']){ $ab1= $_POST['r1a'];} else{ $ab1= 0;}
+ if($_POST['r1c']){ $rb1= $_POST['r1c'];} else{ $rb1= 0;}
+ if($_POST['r2a']){ $ab2= $_POST['r2a'];} else{ $ab2= 0;}
+ if($_POST['r2c']){ $rb2= $_POST['r2c'];} else{ $rb2= 0;}
  echo 'Ab2 : '.$ab2;
- $ab3=$_POST['rka'];
- $rb3=$_POST['rkc'];
+ if ($_POST['rka']){ $ab3= $_POST['rka'];} else{ $ab3= 0;}
+ if ($_POST['rkc']){ $rb3= $_POST['rkc'];} else{ $rb3= 0;}
 // $ab4=$_POST['ab4'];
  //$rb4=$_POST['rb4'];
  $avgcost=((intval($rb1)+intval($rb2)+intval($rb3))/intval($dn))+intval($cm);
- $query="insert into room_info(uid,cid,b1,ab1,rb1,b2,ab2,rb2,b3,ab3,rb3,cm,avgcost) values($uid,$cid,$b1,$ab1,$rb1,$b2,$ab2,$rb2,$b3,$ab3,$rb3,$cm,$avgcost);";
+ $query="insert into room_info(uid,cid,b1,ab1,rb1,b2,ab2,rb2,b3,ab3,rb3,cm,avgcost) values('$uid','$cid','$b1','$ab1','$rb1','$b2','$ab2','$rb2','$b3','$ab3','$rb3','$cm','$avgcost');";
     $q2=mysqli_query($conn,$query);   
   if($q2){
     echo "<br>"." room information inserted successfully ";  }
