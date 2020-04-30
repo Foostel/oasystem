@@ -66,12 +66,17 @@ $room=$_POST['room'];
   //   if($array=="4" )
   // {$b4=1;  }
  }  
- $ab1=$_POST['ab1'];
- $rb1=$_POST['rb1'];
- $ab2=$_POST['ab2'];
- $rb2=$_POST['rb2'];
- $ab3=$_POST['ab3'];
- $rb3=$_POST['rb3'];
+
+
+ if($_POST['ab1']){ $ab1= $_POST['ab1'];} else{ $ab1= 0;}
+ if($_POST['rb1']){ $rb1= $_POST['rb1'];} else{ $rb1= 0;}
+ if($_POST['ab2']){ $ab2= $_POST['ab2'];} else{ $ab2= 0;}
+ if($_POST['rb2']){ $rb2= $_POST['rb2'];} else{ $rb2= 0;}
+ echo 'Ab2 : '.$ab2;
+ if ($_POST['ab3']){ $ab3= $_POST['ab3'];} else{ $ab3= 0;}
+ if ($_POST['rb3']){ $rb3= $_POST['rb3'];} else{ $rb3= 0;}
+
+
 // $ab4=$_POST['ab4'];
  //$rb4=$_POST['rb4'];
  $avgcost=((intval($rb1)+intval($rb2)+intval($rb3))/intval($dn))+intval($cm);
