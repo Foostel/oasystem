@@ -95,7 +95,7 @@
                             {   var el= document.getElementById(id);
                                 
                                 var i= document.getElementsByClassName('section');
-                                if(el.style.display=='')
+                                if(el.style.display=='none')
                                 {
                                 document.getElementById('pop-up').style.display='block';
                                     for(let s=0;s<i.length;s++)
@@ -110,7 +110,7 @@
                 <button id="geo-l" onclick="pop('pop-up');" style="text-align: center; width: 210px; height: 50px; cursor: pointer;" type="button" class="inputs" name="loc">
                                 Add geo-location
                 </button>
-                <div class="overlays pop-up" id="pop-up" style="width: 400px; height: 400px; display:none;text-align:center; position: absolute;">
+                <div class="overlays pop-up" id="pop-up" style="width: 400px; height: 400px; display:none;text-align:center; position: absolute; left:10px;">
             
                     </div>
                 <input type="" name="lnglat" id="lnglat" style="display: none;">
